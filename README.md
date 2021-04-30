@@ -1,12 +1,11 @@
-# always-fullscreen-firefox
 Custom styles for Firefox, Sidebery and YouTube for full-featured full-screen browsing.
 
 ![alt text](demo.gif)
 
-# ! Supported only Proton, and only normal size !
+## :warning: Supported only Proton, and only normal size
 
 
-# Install Firefox Style
+### Install Firefox style
 1. In about:config enable prefs:
 - toolkit.legacyUserProfileCustomizations.stylesheets
 - layout.css.backdrop-filter.enabled
@@ -18,13 +17,13 @@ Custom styles for Firefox, Sidebery and YouTube for full-featured full-screen br
 
 - Drag Bookmarks Toolbar Items to the left of the address bar. Disable Bookmarks Toolbar
 
-# Install Sidebery Style
-1. Install https://addons.mozilla.org/firefox/addon/sidebery/
+### Install Sidebery style
+1. [Install Sidebery](https://addons.mozilla.org/firefox/addon/sidebery/)
 2. Copy the code from Sidebery-Sidebar.css to Sidebery / Settings / Styles editor / Sidebar
 3. Copy the code from Sidebery-GroupPage.css to Sidebery / Settings / Styles editor / Group page
 
-# Install YouTube Style
-1. Install https://addons.mozilla.org/firefox/addon/styl-us/
+### Install YouTube style
+1. [Install Stylus](https://addons.mozilla.org/firefox/addon/styl-us/)
 2. Open YouTube
 3. In Stylus, click New Style ...
 4. In the window that opens, click Import
@@ -32,7 +31,7 @@ Custom styles for Firefox, Sidebery and YouTube for full-featured full-screen br
 6. Save
 
 
-# Useful settings about:config
+### Useful settings about:config
 - Opening a bookmark in a new tab
 `browser.tabs.loadBookmarksInTabs` `true`
 - Open tabs to the right of the current one
@@ -47,7 +46,7 @@ Custom styles for Firefox, Sidebery and YouTube for full-featured full-screen br
 `extensions.htmlaboutaddons.recommendations.enabled` `false`
 
 
-# I also recommend
-https://addons.mozilla.org/firefox/addon/tabliss/
-https://addons.mozilla.org/firefox/addon/borderless-chameleon-theme
- 
+### I also recommend
+[Tabliss](https://addons.mozilla.org/firefox/addon/tabliss/)
+
+[Chameleon Theme](https://addons.mozilla.org/firefox/addon/borderless-chameleon-theme)
