@@ -1,7 +1,7 @@
 # always-fullscreen-firefox
 Custom styles for Firefox, Sidebery and YouTube for full-featured full-screen browsing.
 
-![alt text](demo.webp)
+![alt text](demo.gif)
 
 # ! Supported only Proton, and only normal size !
 
