@@ -94,8 +94,8 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -4px 0}
   background-color: transparent !important;
   box-shadow: none !important;
   color: var(--toolbar-color) !important;
-	margin: -11px 0 0 !important;
-	margin-inline-end: -8px !important}
+  margin: -11px 0 0 !important;
+  margin-inline-end: -8px !important}
 
 
 
@@ -111,11 +111,11 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -4px 0}
 
 /*   Repaints the bookmark menu and context menus to the main menu color   */
 * {
-	--menuitem-hover-background-color: var(--panelview-toolbarbutton-hover-bgcolor);
-	--menu-background-color: var(--arrowpanel-background);
-	--menu-color: var(--arrowpanel-color) !important;
-	--menu-disabled-color: var(--panel-disabled-color);
-	--menu-border-color: var(--arrowpanel-border-color);
+  --menuitem-hover-background-color: var(--panelview-toolbarbutton-hover-bgcolor);
+  --menu-background-color: var(--arrowpanel-background);
+  --menu-color: var(--arrowpanel-color) !important;
+  --menu-disabled-color: var(--panel-disabled-color);
+  --menu-border-color: var(--arrowpanel-border-color);
 }
 menuseparator {border-top: 1px solid var(--panel-separator-color) !important}
 .menu-right {fill-opacity: 0.6 !important}
