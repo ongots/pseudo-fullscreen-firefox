@@ -2,7 +2,7 @@ Custom styles for Firefox, Sidebery and YouTube for full-featured full-screen br
 
 ![alt text](demo.gif)
 
-## :warning: Supported only Proton, and only normal size
+## :warning: Supported only Proton and only normal size
 
 
 ### Install Firefox style
@@ -46,7 +46,7 @@ Custom styles for Firefox, Sidebery and YouTube for full-featured full-screen br
 `extensions.htmlaboutaddons.recommendations.enabled` `false`
 
 
-### I also recommend
+### Also recommend
 [Tabliss](https://addons.mozilla.org/firefox/addon/tabliss/)
 
 [Chameleon Theme](https://addons.mozilla.org/firefox/addon/borderless-chameleon-theme)
