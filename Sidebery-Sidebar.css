@@ -1,0 +1,79 @@
+@media (prefers-color-scheme:dark), (prefers-color-scheme: no-preference) {
+	#root[data-style="auto"], #root[data-style="dark"] {
+
+	--bg: #040404;
+
+	--tabs-bg-hover: #111;
+	--tabs-bg-active: #111;
+
+	--bookmarks-node-bg-hover: #fff1;
+}}
+
+* {
+	--nav-btn-opacity: .5;
+	--nav-btn-opacity-active: .75;
+	--nav-btn-activated-bg: transparent;
+
+	--border-fg: transparent;
+	--pinned-dock-overlay-bg: transparent;
+
+	--ctx-menu-bg: var(--bg);
+	--ctx-menu-bg-hover: var(--tabs-bg-hover);
+
+	--bookmarks-separator-height: 5px;
+}
+
+
+
+.NavigationBar .panel-btn:hover {background-color: transparent}
+
+
+.Sidebar .panel-btn .len {
+	top: -1px;
+	padding: 0;
+	background: none}
+
+
+
+#root[data-pinned-tabs-position="panel"][data-pinned-tabs-list] .PinnedDock {padding: 0 0 1px}
+
+.PinnedDock::after {
+	left: 8px;
+	width: calc(100% - 16px);
+	height: 1px;
+	background-color: #8885;
+	box-shadow: none}
+
+.PinnedDock,
+.TabsPanel .container {
+	box-shadow: none !important}
+
+
+
+.Tab .ctx {
+	top: 0;
+	width: var(--scroll-progress-h);
+	height: 100%;
+	box-shadow: none;
+	opacity: .8}
+
+
+
+.ScrollBox > .top-shadow {box-shadow: 0 1px 12px 0 var(--bg)}
+
+.ScrollBox > .bottom-shadow {box-shadow: 0 -1px 12px 0 var(--bg)}
+
+
+
+.CtxMenu .inline-group:not(:last-of-type) {box-shadow: none}
+
+.CtxMenu .opt[data-separator]:before {background-color: transparent}
+
+
+
+.Folder .children:hover:before {opacity: .7}
+
+.Separator .body::after {
+	background-color: #8883;
+	box-shadow: none;
+	top: auto}

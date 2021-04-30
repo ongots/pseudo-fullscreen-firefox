@@ -1,0 +1,121 @@
+#titlebar {display:none}
+
+@media(-moz-windows-default-theme) {[sizemode="maximized"] #nav-bar {margin-top: 8px}}
+
+
+
+
+/*   Auto hide navbar   */
+#nav-bar {
+  background-color: black !important;
+  transition: none !important}
+
+[sizemode=maximized] #nav-bar {margin-bottom: -40px}
+[sizemode=normal]    #nav-bar {margin-bottom: -38px}
+
+#nav-bar[customizing] {margin-bottom: inherit}
+
+#nav-bar:hover,
+#nav-bar:focus-within,
+#mainPopupSet:hover ~ box > toolbox > .browser-toolbar {
+  background-color: var(--toolbar-bgcolor) !important;
+  background: inherit !important;
+  z-index: 2}
+
+* {--lwt-accent-color: var(--lwt-accent-color-inactive)}
+
+
+
+
+/*   Auto hide sidebar   */
+#sidebar-header {display:none}
+
+#sidebar-box:not([hidden]) {
+  overflow: hidden;
+  height: calc(100% - 10px);
+  position: fixed;
+  max-width: 1px;
+  display: block;
+  transition: 50ms;
+  z-index: 1;
+  opacity: 0}
+
+#sidebar-box:hover {
+  max-width: 100%;
+  opacity: 1}
+
+#sidebar {
+  width: 280px !important;
+  height: 100%}
+
+
+
+
+/*   Bookmarks   */
+.bookmark-item .toolbarbutton-icon,
+.openintabs-menuitem,
+.bookmarks-actions-menuseparator
+  {display:none}
+
+toolbarbutton.bookmark-item {
+  margin: 0 !important;
+  padding-inline: 6px !important;
+  border-radius: 0 !important}
+
+toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -4px 0}
+
+
+
+
+/*   Urlbar   */
+* {--urlbar-height: var(--urlbar-toolbar-height) !important}
+
+#urlbar-background:not(#urlbar[breakout][breakout-extend][open] > #urlbar-background) {
+  background-color: transparent !important;
+  border: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important}
+
+#identity-icon-box {max-width: calc(50px + 10em) !important}
+
+.identity-box-button:not(:hover) {background-color: transparent !important}
+
+.search-one-offs > hbox {display:none !important}
+
+
+/*   Blur    'layout.css.backdrop-filter.enabled'  &  'gfx.webrender.enabled'  must be  'true'  */
+#urlbar[breakout][breakout-extend][open] {backdrop-filter: blur(32px)}
+#urlbar-background {opacity: .7}
+
+
+
+
+.toolbarbutton-badge {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  color: var(--toolbar-color) !important;
+	margin: -11px 0 0 !important;
+	margin-inline-end: -8px !important}
+
+
+
+
+#statuspanel-label {
+  background-color: var(--toolbar-bgcolor) !important;
+  color: var(--toolbar-color) !important;
+  border: 0 !important;
+  opacity: .8}
+
+
+
+
+/*   Repaints the bookmark menu and context menus to the main menu color   */
+* {
+	--menuitem-hover-background-color: var(--panelview-toolbarbutton-hover-bgcolor);
+	--menu-background-color: var(--arrowpanel-background);
+	--menu-color: var(--arrowpanel-color) !important;
+	--menu-disabled-color: var(--panel-disabled-color);
+	--menu-border-color: var(--arrowpanel-border-color);
+}
+menuseparator {border-top: 1px solid var(--panel-separator-color) !important}
+.menu-right {fill-opacity: 0.6 !important}

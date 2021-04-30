@@ -1,0 +1,34 @@
+	/* Group page */
+
+	@media (prefers-color-scheme:dark), (prefers-color-scheme: no-preference) {
+		#root[data-style="auto"], #root[data-style="dark"] {
+	
+		--bg: #000 !important
+	}}
+	
+	.title {
+		font-size: 2rem;
+		color: #8888}
+	
+	.new-tab,
+	.tab {
+		background-color: #8881;
+		box-shadow: none}
+	
+	.new-tab:hover,
+	.tab:hover {
+		background-color: #8882;
+		box-shadow: none}
+	
+	
+	body[data-layout="list"] .bg {
+		border-radius: 0;
+		box-shadow: none}
+	
+	
+	body[data-layout="grid"] .bg {opacity: .3}
+	
+	
+	.tab-title,
+	.tab-url 
+		{text-shadow: none}
