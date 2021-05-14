@@ -1,4 +1,4 @@
-Custom styles for Firefox, Sidebery and YouTube for full-featured full-screen browsing.
+Styles for Firefox, Sidebery and YouTube for pseudo-fullscreen browsing
 
 ![alt text](demo.gif)
 
@@ -44,9 +44,3 @@ Custom styles for Firefox, Sidebery and YouTube for full-featured full-screen br
 `browser.newtabpage.activity-stream.showSponsored` `false`
 - Disable add-on recommendations
 `extensions.htmlaboutaddons.recommendations.enabled` `false`
-
-
-### Also recommend
-[Tabliss](https://addons.mozilla.org/firefox/addon/tabliss/)
-
-[Chameleon Theme](https://addons.mozilla.org/firefox/addon/borderless-chameleon-theme)
