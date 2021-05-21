@@ -1,4 +1,4 @@
-Styles for Firefox, Sidebery and YouTube for pseudo-fullscreen browsing
+Pseudo-fullscreen Firefox, Sidebery and YouTube
 
 ![alt text](demo.gif)
 
