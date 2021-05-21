@@ -1,5 +1,3 @@
-Pseudo-fullscreen Firefox, Sidebery and YouTube
-
 ![alt text](demo.gif)
 
 ## :warning: Supported only Proton and only normal size
