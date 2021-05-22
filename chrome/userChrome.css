@@ -10,15 +10,13 @@
   background-color: black !important;
   transition: none !important}
 
-[sizemode=maximized] #nav-bar {margin-bottom: -40px}
-[sizemode=normal]    #nav-bar {margin-bottom: -38px}
-
-#nav-bar[customizing] {margin-bottom: inherit}
+[sizemode=maximized] #nav-bar:not([customizing]) {margin-bottom: -40px}
+[sizemode=normal]    #nav-bar:not([customizing]) {margin-bottom: -38px}
 
 #nav-bar:hover,
 #nav-bar:focus-within,
+#nav-bar[customizing],
 #mainPopupSet:hover ~ box > toolbox > .browser-toolbar {
-  background-color: var(--toolbar-bgcolor) !important;
   background: inherit !important;
   z-index: 2}
 
@@ -118,4 +116,4 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -4px 0}
   --menu-border-color: var(--arrowpanel-border-color);
 }
 menuseparator {border-top: 1px solid var(--panel-separator-color) !important}
-.menu-right {fill-opacity: 0.6 !important}
+.menu-right {fill-opacity: .6 !important}
