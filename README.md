@@ -1,6 +1,6 @@
 ![alt text](demo.gif)
 
-## :warning: Supported only Proton and only normal size
+### :warning: Supported only Proton and only normal density
 
 
 ### Install Firefox style
