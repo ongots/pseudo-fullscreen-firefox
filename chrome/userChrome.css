@@ -1,6 +1,6 @@
 #titlebar {display:none}
 
-@media(-moz-windows-default-theme) {[sizemode="maximized"] #nav-bar {margin-top: 8px}}
+@media(-moz-os-version: windows-win10) {[sizemode="maximized"] #nav-bar {margin-top: 8px}}  /*  Workaround  https://bugzilla.mozilla.org/show_bug.cgi?id=1600582  */
 
 
 
@@ -110,10 +110,10 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -4px 0}
 /*   Repaints the bookmark menu and context menus to the main menu color   */
 * {
   --menuitem-hover-background-color: var(--panelview-toolbarbutton-hover-bgcolor);
-  --menu-background-color: var(--arrowpanel-background);
+  --menu-background-color: var(--arrowpanel-background) !important;
   --menu-color: var(--arrowpanel-color) !important;
   --menu-disabled-color: var(--panel-disabled-color);
-  --menu-border-color: var(--arrowpanel-border-color);
+  --menu-border-color: var(--arrowpanel-border-color) !important;
 }
 menuseparator {border-top: 1px solid var(--panel-separator-color) !important}
 .menu-right {fill-opacity: .6 !important}
