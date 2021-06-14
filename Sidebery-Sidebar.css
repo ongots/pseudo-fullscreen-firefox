@@ -1,7 +1,7 @@
 @media (prefers-color-scheme:dark), (prefers-color-scheme: no-preference) {
 	#root[data-style="auto"], #root[data-style="dark"] {
 
-	--bg: #040404;
+	--bg: #080808;
 
 	--tabs-bg-hover: #111;
 	--tabs-bg-active: #111;
