@@ -1,24 +1,25 @@
 ![alt text](demo.gif)
 
-### :warning: Supported only Proton and only normal density
-
 
 ### Install Firefox style
-1. In about:config enable prefs:
-- toolkit.legacyUserProfileCustomizations.stylesheets
-- layout.css.backdrop-filter.enabled
-- gfx.webrender.enabled
-2. Open about:support
-3. Click on "Profile Folder" -> "Open Folder"
-4. Copy the chrome folder here
-5. Restart Firefox
+1. If you are using compact density switch to normal.
+2. In about:config enable:
+- `toolkit.legacyUserProfileCustomizations.stylesheets`
+- `layout.css.backdrop-filter.enabled` (for blur)
+- `gfx.webrender.enabled` (for blur)
+3. Open about:support
+4. Click on "Profile Folder" -> "Open Folder"
+5. Copy the chrome folder here
+6. Restart Firefox
 
 - Drag Bookmarks Toolbar Items to the left of the address bar. Disable Bookmarks Toolbar
+
 
 ### Install Sidebery style
 1. [Install Sidebery](https://addons.mozilla.org/firefox/addon/sidebery/)
 2. Copy the code from Sidebery-Sidebar.css to Sidebery / Settings / Styles editor / Sidebar
 3. Copy the code from Sidebery-GroupPage.css to Sidebery / Settings / Styles editor / Group page
+
 
 ### Install YouTube style
 1. [Install Stylus](https://addons.mozilla.org/firefox/addon/styl-us/)
