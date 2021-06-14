@@ -3,7 +3,7 @@
 @media (prefers-color-scheme:dark), (prefers-color-scheme: no-preference) {
 	#root[data-style="auto"], #root[data-style="dark"] {
 
-	--bg: #000 !important
+	--bg: #080808 !important
 }}
 
 .title {
