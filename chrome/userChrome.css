@@ -18,9 +18,8 @@
 #nav-bar[customizing],
 #mainPopupSet:hover ~ box > toolbox > .browser-toolbar {
   background: inherit !important;
+  background-color: var(--lwt-accent-color) !important;
   z-index: 2}
-
-* {--lwt-accent-color: var(--lwt-accent-color-inactive)}
 
 
 
@@ -74,16 +73,16 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -4px 0}
   border-radius: 0 !important;
   box-shadow: none !important}
 
+#urlbar[breakout][breakout-extend][open] {backdrop-filter: blur(32px)}
+#urlbar-background {opacity: .8}
+
 #identity-icon-box {max-width: calc(50px + 10em) !important}
 
 .identity-box-button:not(:hover) {background-color: transparent !important}
 
+.urlbarView-action {margin-block: -4px !important}
+
 .search-one-offs > hbox {display:none !important}
-
-
-/*   Blur    'layout.css.backdrop-filter.enabled'  &  'gfx.webrender.enabled'  must be  'true'  */
-#urlbar[breakout][breakout-extend][open] {backdrop-filter: blur(32px)}
-#urlbar-background {opacity: .7}
 
 
 
@@ -93,16 +92,26 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -4px 0}
   box-shadow: none !important;
   color: var(--toolbar-color) !important;
   margin: -11px 0 0 !important;
-  margin-inline-end: -8px !important}
+  margin-inline-end: -10px !important}
 
 
 
 
 #statuspanel-label {
-  background-color: var(--toolbar-bgcolor) !important;
-  color: var(--toolbar-color) !important;
   border: 0 !important;
-  opacity: .8}
+  backdrop-filter: blur(32px);
+  background-color: #fff8 !important;
+  color: #000 !important}
+
+:-moz-lwtheme #statuspanel-label {
+  background-color: #0008 !important;
+  color: #eee !important}
+
+
+
+
+* {scrollbar-width: thin; 
+   scrollbar-color: #80808040 transparent !important}
 
 
 
@@ -115,5 +124,33 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -4px 0}
   --menu-disabled-color: var(--panel-disabled-color);
   --menu-border-color: var(--arrowpanel-border-color) !important;
 }
-menuseparator {border-top: 1px solid var(--panel-separator-color) !important}
 .menu-right {fill-opacity: .6 !important}
+
+
+
+
+/*   Theme   */
+[lwt-default-theme-in-dark-mode] * {
+  /* toolbar */
+  --lwt-accent-color: #080808;
+  --toolbar-bgcolor: var(--lwt-accent-color);
+  --toolbarbutton-hover-background: #fff1;
+  --toolbarbutton-active-background: #fff1;
+  /* urlbar */
+  --autocomplete-popup-separator-color: var(--panel-separator-color);
+  --lwt-toolbar-field-focus: #000e;
+  --autocomplete-popup-highlight-background: #fff2;
+  --urlbar-box-bgcolor: #fff1;
+
+  --input-bgcolor: #1a1a1a;
+  /* menu */
+  --arrowpanel-border-color: var(--panel-separator-color);
+  --arrowpanel-background: #111;
+  --panelview-toolbarbutton-hover-bgcolor: #fff1;
+  --panelview-toolbarbutton-active-bgcolor: #fff1;
+  --menuitem-disabled-hover-background-color: none;
+  --button-bgcolor: #fff1;
+  --button-hover-bgcolor: #fff2;
+  --button-active-bgcolor: #fff2;
+  --zoom-controls-bgcolor: #1a1a1a;
+}
