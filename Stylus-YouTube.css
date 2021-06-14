@@ -3,29 +3,37 @@
 ytd-guide-section-renderer.style-scope:nth-child(3),
 ytd-guide-section-renderer.style-scope:nth-child(4),
 #guide-renderer > div:nth-child(2)
-	{display:none !important}
+    {display:none !important}
 
 #contentContainer * {border:0 !important}
 
 
 /* Сolor sheme */
-[dark] * {--yt-spec-brand-background-primary: #1a1a1af8 !important; 
-	--yt-spec-brand-background-solid: #1a1a1a !important;
-	--yt-spec-general-background-a:#181818 !important}
+[dark] * {
+    --yt-spec-brand-background-primary: #1a1a1af8 !important; 
+    --yt-spec-brand-background-solid: #1a1a1a !important;
+    --yt-spec-general-background-a:#181818 !important}
 
   /* Search menu */
 [dark] .sbsb_a, [dark] .sbfl_b {background: #111}
 [dark] .sbdd_b {border: 1px solid #1a1a1a}
 [dark] .sbsb_d {background: #333 !important}
 [dark] .gsfs {color: #ddd}
+
+/* Feed */
+.grid-subheader.style-scope.ytd-shelf-renderer {display:none}
+* {--yt-spec-10-percent-layer: 0}
+
+
+/* Pause overlay */
+.ytp-pause-overlay {display:none}
 }
 
 @-moz-document url-prefix("https://www.youtube.com/watch") {
 /* Full screen player */
 * {--ytd-masthead-height: 0}
 
-ytd-watch-flexy[theater] #player-theater-container.ytd-watch-flexy 
-	{max-height: 100% !important}
+ytd-watch-flexy[theater] #player-theater-container.ytd-watch-flexy {max-height: 100% !important}
 
 
 :root {scrollbar-width: none}
@@ -49,7 +57,7 @@ ytd-topbar-logo-renderer,
 .ytp-cards-teaser,
 .ytp-volume-area,
 .branding-img-container
-	{display:none !important}
+    {display:none !important}
 
 .ytp-chrome-top, .ytp-chrome-bottom {text-shadow: none}
 }
