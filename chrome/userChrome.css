@@ -129,28 +129,43 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -4px 0}
 
 
 
-/*   Theme   */
+/*   Default theme in dark mode   */
 [lwt-default-theme-in-dark-mode] * {
+  
+    --nav: #080809;
+    --menu: #0f0f12;
+    --line: #eef1;
+    --btn: #aaaaaf1a;
+    --hover: #aaaaaf11;
+  
   /* toolbar */
-  --lwt-accent-color: #080808;
-  --toolbar-bgcolor: var(--lwt-accent-color);
-  --toolbarbutton-hover-background: #fff1;
-  --toolbarbutton-active-background: #fff1;
+  --lwt-accent-color: var(--nav);
+  --toolbar-bgcolor: var(--nav);
+  --toolbarbutton-hover-background: var(--btn);
+  --toolbarbutton-active-background: var(--btn);
+  
   /* urlbar */
-  --autocomplete-popup-separator-color: var(--panel-separator-color);
+  --autocomplete-popup-separator-color: var(--line);
   --lwt-toolbar-field-focus: #000e;
-  --autocomplete-popup-highlight-background: #fff2;
-  --urlbar-box-bgcolor: #fff1;
+  --autocomplete-popup-hover-background: var(--hover);
+  --autocomplete-popup-highlight-background: var(--btn);
+  --urlbar-box-bgcolor: var(--hover);
 
-  --input-bgcolor: #1a1a1a;
+  /* panel */
+  --panel-separator-color: var(--line);
+  --input-bgcolor: var(--hover);
+  
   /* menu */
-  --arrowpanel-border-color: var(--panel-separator-color);
-  --arrowpanel-background: #111;
-  --panelview-toolbarbutton-hover-bgcolor: #fff1;
-  --panelview-toolbarbutton-active-bgcolor: #fff1;
+  --arrowpanel-border-color: var(--line);
+  --arrowpanel-background: var(--menu);
+  --panelview-toolbarbutton-hover-bgcolor: var(--hover);
+  --panelview-toolbarbutton-active-bgcolor: var(--hover);
+  --button-bgcolor: var(--btn);
+  --button-hover-bgcolor: var(--hover);
+  --button-active-bgcolor: var(--hover);
+  --panel-banner-item-background-color: var(--btn);
+  --panel-banner-item-hover-bgcolor: var(--hover);
+  --panel-banner-item-active-bgcolor: var(--hover);
   --menuitem-disabled-hover-background-color: none;
-  --button-bgcolor: #fff1;
-  --button-hover-bgcolor: #fff2;
-  --button-active-bgcolor: #fff2;
-  --zoom-controls-bgcolor: #1a1a1a;
+  --zoom-controls-bgcolor: var(--btn);
 }
