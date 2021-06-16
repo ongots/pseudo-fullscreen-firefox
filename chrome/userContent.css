@@ -1,4 +1,12 @@
-* {
-  scrollbar-width: thin; 
-  scrollbar-color: #80808038 transparent !important
+* {scrollbar-width: thin; 
+   scrollbar-color: #80808038 transparent !important}
+
+
+
+@-moz-document url("about:home"), url("about:newtab") {
+  body {
+		background-image: url(bg.jpg), url(bg.png);
+		background-size: cover}
+  
+  .personalize-button {display: none}
 }
