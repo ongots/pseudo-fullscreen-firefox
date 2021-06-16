@@ -118,7 +118,7 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -4px 0}
 
 /*   Repaints the bookmark menu and context menus to the main menu color   */
 * {
-  --menuitem-hover-background-color: var(--panelview-toolbarbutton-hover-bgcolor);
+  --menuitem-hover-background-color: var(--button-hover-bgcolor);
   --menu-background-color: var(--arrowpanel-background) !important;
   --menu-color: var(--arrowpanel-color) !important;
   --menu-disabled-color: var(--panel-disabled-color);
@@ -131,41 +131,43 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -4px 0}
 
 /*   Default theme in dark mode   */
 [lwt-default-theme-in-dark-mode] * {
-  
-    --nav: #080809;
-    --menu: #0f0f12;
-    --line: #eef1;
-    --btn: #aaaaaf1a;
-    --hover: #aaaaaf11;
+  --hue: 240;
+  --saturation: 6%;
+  --nav:  hsl(var(--hue), var(--saturation), 5%);
+  --menu: hsl(var(--hue), var(--saturation), 8%);
+  --1:   hsla(var(--hue), var(--saturation), 100%, .05);
+  --2:   hsla(var(--hue), var(--saturation), 100%, .09);
   
   /* toolbar */
   --lwt-accent-color: var(--nav);
   --toolbar-bgcolor: var(--nav);
-  --toolbarbutton-hover-background: var(--btn);
-  --toolbarbutton-active-background: var(--btn);
+  --toolbarbutton-hover-background: var(--2);
+  --toolbarbutton-active-background: var(--2);
   
   /* urlbar */
-  --autocomplete-popup-separator-color: var(--line);
+  --autocomplete-popup-separator-color: var(--2);
   --lwt-toolbar-field-focus: #000e;
-  --autocomplete-popup-hover-background: var(--hover);
-  --autocomplete-popup-highlight-background: var(--btn);
-  --urlbar-box-bgcolor: var(--hover);
+  --autocomplete-popup-hover-background: var(--1);
+  --autocomplete-popup-highlight-background: var(--2);
+  --urlbar-box-bgcolor: var(--2);
+  --urlbar-box-hover-bgcolor: var(--2);
+  --urlbar-box-active-bgcolor: var(--2);
 
   /* panel */
-  --panel-separator-color: var(--line);
-  --input-bgcolor: var(--hover);
+  --panel-separator-color: var(--2);
+  --input-bgcolor: var(--1);
   
   /* menu */
-  --arrowpanel-border-color: var(--line);
+  --arrowpanel-border-color: var(--2);
   --arrowpanel-background: var(--menu);
-  --panelview-toolbarbutton-hover-bgcolor: var(--hover);
-  --panelview-toolbarbutton-active-bgcolor: var(--hover);
-  --button-bgcolor: var(--btn);
-  --button-hover-bgcolor: var(--hover);
-  --button-active-bgcolor: var(--hover);
-  --panel-banner-item-background-color: var(--btn);
-  --panel-banner-item-hover-bgcolor: var(--hover);
-  --panel-banner-item-active-bgcolor: var(--hover);
+  --panelview-toolbarbutton-hover-bgcolor: var(--1);
+  --panelview-toolbarbutton-active-bgcolor: var(--1);
+  --button-bgcolor: var(--2);
+  --button-hover-bgcolor: var(--1);
+  --button-active-bgcolor: var(--1);
+  --panel-banner-item-background-color: var(--2);
+  --panel-banner-item-hover-bgcolor: var(--1);
+  --panel-banner-item-active-bgcolor: var(--1);
   --menuitem-disabled-hover-background-color: none;
-  --zoom-controls-bgcolor: var(--btn);
+  --zoom-controls-bgcolor: var(--2);
 }
