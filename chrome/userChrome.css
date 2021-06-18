@@ -117,7 +117,7 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -4px 0}
 
 
 /*   Repaints the bookmark menu and context menus to the main menu color   */
-* {
+#mainPopupSet *:not([customoptionstyling]), #navigator-toolbox * {
   --menuitem-hover-background-color: var(--button-hover-bgcolor);
   --menu-background-color: var(--arrowpanel-background) !important;
   --menu-color: var(--arrowpanel-color) !important;
@@ -136,7 +136,7 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -4px 0}
   --nav:  hsl(var(--hue), var(--saturation), 5%);
   --menu: hsl(var(--hue), var(--saturation), 8%);
   --1:   hsla(var(--hue), var(--saturation), 100%, .05);
-  --2:   hsla(var(--hue), var(--saturation), 100%, .09);
+  --2:   hsla(var(--hue), var(--saturation), 100%, .08);
   
   /* toolbar */
   --lwt-accent-color: var(--nav);
