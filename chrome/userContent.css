@@ -5,8 +5,8 @@
 
 @-moz-document url("about:home"), url("about:newtab") {
   body {
-		background-image: url(bg.jpg), url(bg.png);
-		background-size: cover}
+    background-image: url(bg.jpg), url(bg.png);
+    background-size: cover}
   
   .personalize-button {display: none}
 }
