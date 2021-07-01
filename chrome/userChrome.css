@@ -64,6 +64,16 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -4px 0}
 
 
 
+/*   Menu   */
+menupopup > menuitem, menupopup > menu {padding-block: 0.4em !important}
+
+menuseparator {
+	border-top: 7px solid transparent !important;
+	margin: 0 !important}
+
+
+
+
 /*   Urlbar   */
 * {--urlbar-height: var(--urlbar-toolbar-height) !important}
 
@@ -74,7 +84,7 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -4px 0}
   box-shadow: none !important}
 
 #urlbar[breakout][breakout-extend][open] {backdrop-filter: blur(32px)}
-#urlbar-background {opacity: .8}
+#urlbar-background {opacity: .7}
 
 #identity-icon-box {max-width: calc(50px + 10em) !important}
 
@@ -92,7 +102,7 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -4px 0}
   box-shadow: none !important;
   color: var(--toolbar-color) !important;
   margin: -11px 0 0 !important;
-  margin-inline-end: -10px !important}
+  margin-inline-end: -11px !important}
 
 
 
@@ -133,20 +143,26 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -4px 0}
 [lwt-default-theme-in-dark-mode] * {
   --hue: 240;
   --saturation: 6%;
-  --nav:  hsl(var(--hue), var(--saturation), 5%);
+  --nav:  hsl(var(--hue), var(--saturation), 5%, .97);
   --menu: hsl(var(--hue), var(--saturation), 8%);
   --1:   hsla(var(--hue), var(--saturation), 100%, .05);
   --2:   hsla(var(--hue), var(--saturation), 100%, .08);
+  --text: hsl(var(--hue), var(--saturation), 95%);
+
   
   /* toolbar */
   --lwt-accent-color: var(--nav);
   --toolbar-bgcolor: var(--nav);
   --toolbarbutton-hover-background: var(--2);
   --toolbarbutton-active-background: var(--2);
+  --toolbarbutton-icon-fill: var(--text);
+  --toolbar-color: var(--text);
+  --lwt-toolbar-field-color: var(--text);
+  --lwt-toolbar-field-focus-color: var(--text);
   
   /* urlbar */
   --autocomplete-popup-separator-color: var(--2);
-  --lwt-toolbar-field-focus: #000e;
+  --lwt-toolbar-field-focus: var(--nav);
   --autocomplete-popup-hover-background: var(--1);
   --autocomplete-popup-highlight-background: var(--2);
   --urlbar-box-bgcolor: var(--2);
@@ -154,11 +170,11 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -4px 0}
   --urlbar-box-active-bgcolor: var(--2);
 
   /* panel */
-  --panel-separator-color: var(--2);
+  --panel-separator-color: var(--1);
   --input-bgcolor: var(--1);
   
   /* menu */
-  --arrowpanel-border-color: var(--2);
+  --arrowpanel-border-color: transparent;
   --arrowpanel-background: var(--menu);
   --panelview-toolbarbutton-hover-bgcolor: var(--1);
   --panelview-toolbarbutton-active-bgcolor: var(--1);
@@ -170,4 +186,6 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -4px 0}
   --panel-banner-item-active-bgcolor: var(--1);
   --menuitem-disabled-hover-background-color: none;
   --zoom-controls-bgcolor: var(--2);
+  --arrowpanel-color: var(--text);
+	--panel-separator-zap-gradient: linear-gradient(90deg, #72199D 0%, #3F3ABB 100%);
 }
