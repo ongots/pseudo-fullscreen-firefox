@@ -1,23 +1,38 @@
 @media (prefers-color-scheme:dark), (prefers-color-scheme: no-preference) {
 	#root[data-style="auto"], #root[data-style="dark"] {
 
-	--bg: #080808;
+	--hue: 240;
+	--saturation: 6%;
+	--bg:          hsl(var(--hue), var(--saturation), 5%);
+	--ctx-menu-bg: hsl(var(--hue), var(--saturation), 8%);
+	--1:          hsla(var(--hue), var(--saturation), 100%, .05);
+	--2:          hsla(var(--hue), var(--saturation), 100%, .08);
 
-	--tabs-bg-hover: #111;
-	--tabs-bg-active: #111;
 
-	--bookmarks-node-bg-hover: #fff1;
-}}
+	--tabs-bg-hover: var(--1);
+	--tabs-bg-active: var(--1);
+	--tabs-activated-bg: var(--2);
+
+	--bookmarks-node-bg-hover: var(--1);
+
+	--ctx-menu-shadow: 0 3px 5px 0 black;
+}
+
+	.Tab:hover[data-active]:not([data-selected]) .title,
+	.PinnedTab:hover[data-active]:not([data-selected]) .title {
+		color: var(--tabs-activated-fg)}
+}
+
+
 
 * {
-	--nav-btn-opacity: .5;
+	--nav-btn-opacity: .55;
 	--nav-btn-opacity-active: .75;
 	--nav-btn-activated-bg: transparent;
 
 	--border-fg: transparent;
 	--pinned-dock-overlay-bg: transparent;
 
-	--ctx-menu-bg: var(--bg);
 	--ctx-menu-bg-hover: var(--tabs-bg-hover);
 
 	--bookmarks-separator-height: 5px;
