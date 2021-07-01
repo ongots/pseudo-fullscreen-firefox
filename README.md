@@ -2,7 +2,7 @@
 
 
 ### Install Firefox style
-1. If you are using compact density switch to normal.
+1. If you are using compact density switch to normal
 2. In about:config enable:
 - `toolkit.legacyUserProfileCustomizations.stylesheets`
 - `layout.css.backdrop-filter.enabled` (for blur)
@@ -13,6 +13,7 @@
 6. Restart Firefox
 
 - Drag Bookmarks Toolbar Items to the left of the address bar. Disable Bookmarks Toolbar
+- To set the wallpaper in a new tab, place a .jpg or .png image in the Chrome folder and rename it to "bg". Restart Firefox
 
 
 ### Install Sidebery style
