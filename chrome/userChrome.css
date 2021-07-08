@@ -68,8 +68,10 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -4px 0}
 menupopup > menuitem, menupopup > menu {padding-block: 0.4em !important}
 
 menuseparator {
-	border-top: 7px solid transparent !important;
-	margin: 0 !important}
+  border-top: 7px solid transparent !important;
+  margin: 0 !important}
+
+#context-sep-navigation {display:none}
 
 
 
@@ -83,8 +85,8 @@ menuseparator {
   border-radius: 0 !important;
   box-shadow: none !important}
 
-#urlbar[breakout][breakout-extend][open] {backdrop-filter: blur(32px)}
-#urlbar-background {opacity: .7}
+#nav-bar:not([urlbar-exceeds-toolbar-bounds]):not(#appMenu-popup[panelopen]) {backdrop-filter: blur(16px)}
+#urlbar[breakout][breakout-extend][open] > #urlbar-background {backdrop-filter: blur(32px)}
 
 #identity-icon-box {max-width: calc(50px + 10em) !important}
 
@@ -92,7 +94,10 @@ menuseparator {
 
 .urlbarView-action {margin-block: -4px !important}
 
-.search-one-offs > hbox {display:none !important}
+.urlbarView-title-separator,
+.urlbarView-action,
+.search-one-offs > hbox
+  {display:none !important}
 
 
 
@@ -113,7 +118,7 @@ menuseparator {
   background-color: #fff8 !important;
   color: #000 !important}
 
-:-moz-lwtheme #statuspanel-label {
+#main-window[lwthemetextcolor="bright"] #statuspanel-label {
   background-color: #0008 !important;
   color: #eee !important}
 
@@ -139,53 +144,71 @@ menuseparator {
 
 
 
-/*   Default theme in dark mode   */
-[lwt-default-theme-in-dark-mode] * {
+/*   active same as hover   */
+* {
+  --toolbarbutton-active-background: var(--toolbarbutton-hover-background);
+  --urlbar-box-active-bgcolor: var(--urlbar-box-hover-bgcolor);
+  --panelview-toolbarbutton-active-bgcolor: var(--panelview-toolbarbutton-hover-bgcolor);
+  --button-active-bgcolor: var(--button-hover-bgcolor);
+  --panel-banner-item-active-bgcolor: var(--panel-banner-item-hover-bgcolor);
+}
+
+
+
+
+* {
+  --arrowpanel-border-color: var(--toolbarbutton-hover-background);
+  --menuitem-disabled-hover-background-color: none;
+  --panel-separator-zap-gradient: none;
+}
+#main-window:not([lwtheme-mozlightdark]) #urlbar[breakout][breakout-extend][open] > #urlbar-background {opacity: .9}
+
+
+
+
+/*   Default theme   */
+#main-window[lwtheme-mozlightdark] * {
+  --lightness-nav: 97%;
+  --lightness-contrasting: 0%;
+  
   --hue: 240;
   --saturation: 6%;
-  --nav:  hsl(var(--hue), var(--saturation), 5%, .97);
-  --menu: hsl(var(--hue), var(--saturation), 8%);
-  --1:   hsla(var(--hue), var(--saturation), 100%, .05);
-  --2:   hsla(var(--hue), var(--saturation), 100%, .08);
-  --text: hsl(var(--hue), var(--saturation), 95%);
+  --nav:                     hsl(var(--hue), var(--saturation), var(--lightness-nav), .9);
+  --arrowpanel-background:   hsl(var(--hue), var(--saturation), calc(var(--lightness-nav) + 3%));
+  --arrowpanel-border-color: hsl(var(--hue), var(--saturation), calc(var(--lightness-nav) - 6%));
+  --1:                      hsla(var(--hue), var(--saturation), var(--lightness-contrasting), .05);
+  --2:                      hsla(var(--hue), var(--saturation), var(--lightness-contrasting), .08);
+  --text:                    hsl(var(--hue), var(--saturation), var(--lightness-contrasting));
 
-  
-  /* toolbar */
   --lwt-accent-color: var(--nav);
   --toolbar-bgcolor: var(--nav);
+  --lwt-toolbar-field-focus: var(--nav);
+
+  --autocomplete-popup-hover-background: var(--1);
+  --panel-separator-color: var(--1);
+  --input-bgcolor: var(--1);
+  --panelview-toolbarbutton-hover-bgcolor: var(--1);
+  --button-hover-bgcolor: var(--1);
+  --panel-banner-item-hover-bgcolor: var(--1);
+
   --toolbarbutton-hover-background: var(--2);
-  --toolbarbutton-active-background: var(--2);
+  --autocomplete-popup-separator-color: var(--2);
+  --autocomplete-popup-highlight-background: var(--2);
+  --urlbar-box-bgcolor: var(--2);
+  --urlbar-box-hover-bgcolor: var(--2);
+  --button-bgcolor: var(--2);
+  --panel-banner-item-background-color: var(--2);
+  --zoom-controls-bgcolor: var(--2);
+
   --toolbarbutton-icon-fill: var(--text);
   --toolbar-color: var(--text);
   --lwt-toolbar-field-color: var(--text);
   --lwt-toolbar-field-focus-color: var(--text);
-  
-  /* urlbar */
-  --autocomplete-popup-separator-color: var(--2);
-  --lwt-toolbar-field-focus: var(--nav);
-  --autocomplete-popup-hover-background: var(--1);
-  --autocomplete-popup-highlight-background: var(--2);
-  --urlbar-box-bgcolor: var(--2);
-  --urlbar-box-hover-bgcolor: var(--2);
-  --urlbar-box-active-bgcolor: var(--2);
-
-  /* panel */
-  --panel-separator-color: var(--1);
-  --input-bgcolor: var(--1);
-  
-  /* menu */
-  --arrowpanel-border-color: transparent;
-  --arrowpanel-background: var(--menu);
-  --panelview-toolbarbutton-hover-bgcolor: var(--1);
-  --panelview-toolbarbutton-active-bgcolor: var(--1);
-  --button-bgcolor: var(--2);
-  --button-hover-bgcolor: var(--1);
-  --button-active-bgcolor: var(--1);
-  --panel-banner-item-background-color: var(--2);
-  --panel-banner-item-hover-bgcolor: var(--1);
-  --panel-banner-item-active-bgcolor: var(--1);
-  --menuitem-disabled-hover-background-color: none;
-  --zoom-controls-bgcolor: var(--2);
   --arrowpanel-color: var(--text);
-	--panel-separator-zap-gradient: linear-gradient(90deg, #72199D 0%, #3F3ABB 100%);
+}
+#main-window[lwthemetextcolor="bright"][lwtheme-mozlightdark] * {
+  --lightness-nav: 6%;
+  --lightness-contrasting: 92%;
+  
+  --arrowpanel-border-color: hsl(var(--hue), var(--saturation), calc(var(--lightness-nav) + 6%));
 }
