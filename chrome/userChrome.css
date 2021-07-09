@@ -24,6 +24,15 @@
 
 
 
+#nav-bar:hover:not([urlbar-exceeds-toolbar-bounds]), 
+#nav-bar:focus-within:not([urlbar-exceeds-toolbar-bounds]),
+#nav-bar[customizing],
+#mainPopupSet:hover ~ box > toolbox > .browser-toolbar:not([urlbar-exceeds-toolbar-bounds])
+  {backdrop-filter: blur(16px)}
+
+
+
+
 /*   Auto hide sidebar   */
 #sidebar-header {display:none}
 
@@ -85,7 +94,7 @@ menuseparator {
   border-radius: 0 !important;
   box-shadow: none !important}
 
-#nav-bar:not([urlbar-exceeds-toolbar-bounds]):not(#appMenu-popup[panelopen]) {backdrop-filter: blur(16px)}
+
 #urlbar[breakout][breakout-extend][open] > #urlbar-background {backdrop-filter: blur(32px)}
 
 #identity-icon-box {max-width: calc(50px + 10em) !important}
@@ -173,7 +182,7 @@ menuseparator {
   
   --hue: 240;
   --saturation: 6%;
-  --nav:                     hsl(var(--hue), var(--saturation), var(--lightness-nav), .9);
+  --nav:                    hsla(var(--hue), var(--saturation), var(--lightness-nav), .85);
   --arrowpanel-background:   hsl(var(--hue), var(--saturation), calc(var(--lightness-nav) + 3%));
   --arrowpanel-border-color: hsl(var(--hue), var(--saturation), calc(var(--lightness-nav) - 6%));
   --1:                      hsla(var(--hue), var(--saturation), var(--lightness-contrasting), .05);
@@ -212,3 +221,4 @@ menuseparator {
   
   --arrowpanel-border-color: hsl(var(--hue), var(--saturation), calc(var(--lightness-nav) + 6%));
 }
+#main-window[lwtheme-mozlightdark] #customization-container {background-color: hsl(var(--hue), var(--saturation), var(--lightness-nav)) !important}
