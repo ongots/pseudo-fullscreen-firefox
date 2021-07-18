@@ -7,6 +7,7 @@
 - `toolkit.legacyUserProfileCustomizations.stylesheets`
 - `layout.css.backdrop-filter.enabled` (for blur)
 - `gfx.webrender.enabled` (for blur)
+- `layout.css.color-mix.enabled`
 3. Open about:support
 4. Click on "Profile Folder" -> "Open Folder"
 5. Copy the chrome folder here
