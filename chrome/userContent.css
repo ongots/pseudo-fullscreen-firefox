@@ -8,5 +8,5 @@
     background-image: url(bg.jpg), url(bg.png);
     background-size: cover}
   
-  .personalize-button {display: none}
+  .personalize-button {display: none !important}
 }
