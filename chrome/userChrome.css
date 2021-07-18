@@ -68,7 +68,10 @@ toolbarbutton.bookmark-item {
   padding-inline: 6px !important;
   border-radius: 0 !important}
 
+/* firefox <92 */
 toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -4px 0}
+/* firefox >=92 */
+!toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -5px -3px !important}
 
 
 
@@ -93,7 +96,6 @@ menuseparator {
   border: transparent !important;
   border-radius: 0 !important;
   box-shadow: none !important}
-
 
 #urlbar[breakout][breakout-extend][open] > #urlbar-background {backdrop-filter: blur(32px)}
 
@@ -166,11 +168,9 @@ menuseparator {
 
 
 * {
-  --arrowpanel-border-color: var(--toolbarbutton-hover-background);
   --menuitem-disabled-hover-background-color: none;
   --panel-separator-zap-gradient: none;
 }
-#main-window:not([lwtheme-mozlightdark]) #urlbar[breakout][breakout-extend][open] > #urlbar-background {opacity: .9}
 
 
 
@@ -181,7 +181,7 @@ menuseparator {
   --lightness-contrasting: 0%;
   
   --hue: 240;
-  --saturation: 6%;
+  --saturation: 10%;
   --nav:                    hsla(var(--hue), var(--saturation), var(--lightness-nav), .85);
   --arrowpanel-background:   hsl(var(--hue), var(--saturation), calc(var(--lightness-nav) + 3%));
   --arrowpanel-border-color: hsl(var(--hue), var(--saturation), calc(var(--lightness-nav) - 6%));
@@ -215,10 +215,16 @@ menuseparator {
   --lwt-toolbar-field-focus-color: var(--text);
   --arrowpanel-color: var(--text);
 }
+
+#main-window[lwtheme-mozlightdark] #urlbar-background {background-color: var(--nav) !important}
+#main-window:not([lwtheme-mozlightdark]) #urlbar-background {background-color: color-mix(in srgb, var(--lwt-toolbar-field-focus) 85%, transparent) !important}
+
+#main-window[lwtheme-mozlightdark] #customization-container {background-color: hsl(var(--hue), var(--saturation), var(--lightness-nav)) !important}
+
+/*   Default dark theme   */
 #main-window[lwthemetextcolor="bright"][lwtheme-mozlightdark] * {
   --lightness-nav: 6%;
   --lightness-contrasting: 92%;
   
   --arrowpanel-border-color: hsl(var(--hue), var(--saturation), calc(var(--lightness-nav) + 6%));
 }
-#main-window[lwtheme-mozlightdark] #customization-container {background-color: hsl(var(--hue), var(--saturation), var(--lightness-nav)) !important}
