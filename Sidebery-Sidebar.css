@@ -10,7 +10,7 @@
 
 	--ctx-menu-bg:       #19191C;
 	--ctx-menu-bg-hover: #262629;
-	--ctx-menu-shadow: 0 0 0 1px #242427), 0 3px 5px 0 black;
+	--ctx-menu-shadow: 0 0 0 1px #242427, 0 3px 5px 0 black;
 
 	--bookmarks-node-bg-hover:  #fcfcfd16;
 	--bookmarks-node-bg-active: #fcfcfd16;
