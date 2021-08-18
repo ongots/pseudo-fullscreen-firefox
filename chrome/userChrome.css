@@ -1,6 +1,6 @@
 #titlebar {display:none}
 
-@media(-moz-os-version: windows-win10) {[sizemode="maximized"] #nav-bar {margin-top: 8px}}  /*  Workaround  https://bugzilla.mozilla.org/show_bug.cgi?id=1600582  */
+@media(-moz-windows-default-theme) {[sizemode="maximized"] #nav-bar {margin-top: 8px}}  /*  Workaround  https://bugzilla.mozilla.org/show_bug.cgi?id=1600582  */
 
 
 
@@ -10,8 +10,10 @@
   background-color: black !important;
   transition: none !important}
 
-[sizemode=maximized] #nav-bar:not([customizing]) {margin-bottom: -40px}
-[sizemode=normal]    #nav-bar:not([customizing]) {margin-bottom: -38px}
+[sizemode=maximized]                    #nav-bar:not([customizing]) {margin-bottom: -40px}
+[sizemode=normal]                       #nav-bar:not([customizing]) {margin-bottom: -38px}
+[sizemode=maximized][uidensity=compact] #nav-bar:not([customizing]) {margin-bottom: -34px}
+[sizemode=normal][uidensity=compact]    #nav-bar:not([customizing]) {margin-bottom: -32px}
 
 #nav-bar:hover,
 #nav-bar:focus-within,
@@ -68,10 +70,18 @@ toolbarbutton.bookmark-item {
   padding-inline: 6px !important;
   border-radius: 0 !important}
 
-/* firefox <92 */
+/* firefox 91 
 toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -4px 0}
-/* firefox >=92 */
-!toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -5px -3px !important}
+*/
+
+/* firefox 92 */
+toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -5px -3px !important}
+
+#PlacesToolbar menupopup menuseparator {padding: 0 !important}
+
+#PlacesToolbar menupopup menuseparator::before {display: none}
+
+.menupopup-arrowscrollbox {border: 1px solid var(--panel-border-color) !important}
 
 
 
@@ -80,7 +90,7 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -4px 0}
 menupopup > menuitem, menupopup > menu {padding-block: 0.4em !important}
 
 menuseparator {
-  border-top: 7px solid transparent !important;
+  border-top: 8px solid transparent !important;
   margin: 0 !important}
 
 #context-sep-navigation {display:none}
@@ -103,6 +113,8 @@ menuseparator {
 .identity-box-button[open],
 #identity-icon-box[open],
 #identity-permission-box[open],
+#notification-popup-box:hover,
+#notification-popup-box[open],
 .urlbar-page-action:not([disabled]):hover,
 .urlbar-page-action:not([disabled])[open] {
 	background-color: var(--toolbarbutton-hover-background) !important}
@@ -133,6 +145,10 @@ menuseparator {
   color: var(--toolbar-color) !important;
   margin: -11px 0 0 !important;
   margin-inline-end: -11px !important}
+
+[uidensity=compact] .toolbarbutton-badge {
+  margin: -10px 0 0 !important;
+  margin-inline-end: -10px !important}
 
 
 
