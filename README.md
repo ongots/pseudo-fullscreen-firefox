@@ -2,16 +2,15 @@
 
 
 ### Install Firefox style
-1. If you are using compact density switch to normal
-2. In about:config enable:
+1. In about:config enable:
 - `toolkit.legacyUserProfileCustomizations.stylesheets`
 - `layout.css.backdrop-filter.enabled` (for blur)
 - `gfx.webrender.enabled` (for blur)
 - `layout.css.color-mix.enabled`
-3. Open about:support
-4. Click on "Profile Folder" -> "Open Folder"
-5. Copy the chrome folder here
-6. Restart Firefox
+2. Open about:support
+3. Click on "Profile Folder" -> "Open Folder"
+4. Copy the chrome folder here
+5. Restart Firefox
 
 - Drag Bookmarks Toolbar Items to the left of the address bar. Disable Bookmarks Toolbar
 - To set the wallpaper in a new tab, place a .jpg or .png image in the Chrome folder and rename it to "bg". Restart Firefox
