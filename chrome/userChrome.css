@@ -83,7 +83,16 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -5px -3p
 
 .menupopup-arrowscrollbox {border: 1px solid var(--panel-border-color) !important}
 
+:root {
+  --arrowpanel-menuitem-margin: 0 4px !important;
+  --panel-subview-body-padding: 4px 0 !important;
+}
 
+.toolbaritem-combined-buttons:not([widget-type="button-and-view"]),
+.toolbaritem-menu-buttons {
+  margin-inline-end: 4px !important}
+
+#appMenu-fxa-status2:not([fxastatus]) {padding-block: 4px !important}
 
 
 /*   Menu   */
@@ -94,6 +103,14 @@ menuseparator {
   margin: 0 !important}
 
 #context-sep-navigation {display:none}
+
+#context-navigation {padding: 0 !important}
+
+:root {--arrowpanel-border-radius: 6px !important}
+
+.addon-banner-item,
+.panel-banner-item {
+  margin: 0 4px 4px !important}
 
 
 
@@ -129,6 +146,8 @@ menuseparator {
 .urlbarView-title-separator,
 .search-one-offs > hbox
   {display:none !important}
+
+.urlbarView-url {padding-left: 5px}
 
 #urlbar[breakout][breakout-extend][open] > #urlbar-background,
 .urlbarView-row[type="switchtab"]:hover .urlbarView-action,
