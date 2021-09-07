@@ -9,16 +9,25 @@ ytd-guide-section-renderer.style-scope:nth-child(4),
 
 
 /* Сolor sheme */
-[dark] * {
+html:not(.style-scope)[dark] {
     --yt-spec-brand-background-primary: #1a1a1af8 !important; 
-    --yt-spec-brand-background-solid: #1a1a1a !important;
-    --yt-spec-general-background-a:#181818 !important}
+    --yt-spec-brand-background-solid:   #1a1a1a !important;
+    --yt-spec-general-background-a:     #181818 !important;
+    --yt-spec-text-primary:             #ddd;
+    --yt-spec-icon-active-other:        #ddd;
+    --yt-spec-static-brand-white:       #ddd;
+    --yt-spec-icon-inactive:            #ddd;
+    --yt-spec-brand-icon-inactive:      #ddd;
+}
+
+ytd-button-renderer.style-default[is-icon-button] #text.ytd-button-renderer {color: #ddd}
 
   /* Search menu */
 [dark] .sbsb_a, [dark] .sbfl_b {background: #111}
 [dark] .sbdd_b {border: 1px solid #1a1a1a}
 [dark] .sbsb_d {background: #333 !important}
 [dark] .gsfs {color: #ddd}
+
 
 /* Feed */
 .grid-subheader.style-scope.ytd-shelf-renderer {display:none}
