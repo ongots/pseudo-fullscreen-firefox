@@ -70,33 +70,21 @@ toolbarbutton.bookmark-item {
   padding-inline: 6px !important;
   border-radius: 0 !important}
 
-/* firefox 91 
-toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -4px 0}
-*/
+#personal-bookmarks #PlacesChevronPopup {margin: -5px -1px !important}
 
-/* firefox 92 */
 toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -5px -3px !important}
 
 #PlacesToolbar menupopup menuseparator {padding: 0 !important}
 
 #PlacesToolbar menupopup menuseparator::before {display: none}
 
-.menupopup-arrowscrollbox {border: 1px solid var(--panel-border-color) !important}
 
-:root {
-  --arrowpanel-menuitem-margin: 0 4px !important;
-  --panel-subview-body-padding: 4px 0 !important;
-}
-
-.toolbaritem-combined-buttons:not([widget-type="button-and-view"]),
-.toolbaritem-menu-buttons {
-  margin-inline-end: 4px !important}
-
-#appMenu-fxa-status2:not([fxastatus]) {padding-block: 4px !important}
 
 
 /*   Menu   */
-menupopup > menuitem, menupopup > menu {padding-block: 0.4em !important}
+menupopup > menuitem,
+menupopup > menu {
+  padding-block: 0.4em !important}
 
 menuseparator {
   border-top: 8px solid transparent !important;
@@ -106,11 +94,24 @@ menuseparator {
 
 #context-navigation {padding: 0 !important}
 
-:root {--arrowpanel-border-radius: 6px !important}
+:root {
+  --arrowpanel-border-radius: 6px !important;
+  --arrowpanel-menuitem-padding-block: 7.5px !important;
+  --arrowpanel-menuitem-margin: 0 5px !important;
+  --panel-subview-body-padding: 5px 0 !important;
+}
 
 .addon-banner-item,
 .panel-banner-item {
-  margin: 0 4px 4px !important}
+  margin: 0 5px 4px !important}
+
+.menupopup-arrowscrollbox {border: 1px solid var(--panel-border-color) !important}
+
+.toolbaritem-combined-buttons:not([widget-type="button-and-view"]),
+.toolbaritem-menu-buttons {
+  margin-inline-end: 4px !important}
+
+#appMenu-fxa-status2:not([fxastatus]) {padding-block: 4px !important}
 
 
 
@@ -122,7 +123,8 @@ menuseparator {
   background-color: transparent !important;
   border: transparent !important;
   border-radius: 0 !important;
-  box-shadow: none !important}
+  box-shadow: none !important;
+  outline: none !important}
 
 #tracking-protection-icon-container:hover,
 #tracking-protection-icon-container[open],
@@ -203,7 +205,6 @@ menuseparator {
 
 
 
-
 /*   active same as hover   */
 * {
   --toolbarbutton-active-background: var(--toolbarbutton-hover-background);
@@ -215,7 +216,6 @@ menuseparator {
 
 
 
-
 * {
   --menuitem-disabled-hover-background-color: none;
   --panel-separator-zap-gradient: none;
@@ -223,37 +223,43 @@ menuseparator {
 
 
 
+panel, menupopup {opacity: .98 !important}
+
+
 
 /*   Default theme   */
 #main-window[lwtheme-mozlightdark] * {
-  --background:              #0e0e11;
-  --color:                   #e8e8e8;
-  --nav:                     color-mix(in srgb, var(--background) 85%, transparent);
-  --arrowpanel-background:   color-mix(in srgb, var(--background) 95%, var(--color));
-  --arrowpanel-border-color: color-mix(in srgb, var(--background) 90%, var(--color));
-  --1:                       color-mix(in srgb, var(--color) 6%, transparent);
-  --2:                       color-mix(in srgb, var(--color) 10%, transparent);
-
+  --background:  #121215;
+  --color:       #e8e8e9;
+  --nav:         color-mix(in srgb, var(--background) 87%, transparent);
+  --1:           color-mix(in srgb, var(--color) 4%, transparent);
+  --2:           color-mix(in srgb, var(--color) 6%, transparent);
+  --3:           color-mix(in srgb, var(--color) 10%, transparent);
+  
   --lwt-accent-color: var(--nav);
   --toolbar-bgcolor: var(--nav);
   --lwt-toolbar-field-focus: var(--nav);
-
-  --autocomplete-popup-hover-background: var(--1);
-  --panel-separator-color: var(--1);
-  --input-bgcolor: var(--1);
-  --panelview-toolbarbutton-hover-bgcolor: var(--1);
-  --button-hover-bgcolor: var(--1);
-  --panel-banner-item-hover-bgcolor: var(--1);
-
-  --toolbarbutton-hover-background: var(--2);
+  
+  --arrowpanel-background: var(--background);
+  
+  --urlbar-box-bgcolor: var(--1);
+  --button-bgcolor: var(--1);
+  --panel-banner-item-background-color: var(--1);
+  --zoom-controls-bgcolor: var(--1);
+  
+  --arrowpanel-border-color: var(--2);
+  --panel-separator-color: var(--2);
   --autocomplete-popup-separator-color: var(--2);
-  --autocomplete-popup-highlight-background: var(--2);
-  --urlbar-box-bgcolor: var(--2);
+  --autocomplete-popup-hover-background: var(--2);
+  --input-bgcolor: var(--2);
+  --panelview-toolbarbutton-hover-bgcolor: var(--2);
+  --button-hover-bgcolor: var(--2);
+  --panel-banner-item-hover-bgcolor: var(--2);
   --urlbar-box-hover-bgcolor: var(--2);
-  --button-bgcolor: var(--2);
-  --panel-banner-item-background-color: var(--2);
-  --zoom-controls-bgcolor: var(--2);
-
+  
+  --toolbarbutton-hover-background: var(--3);
+  --autocomplete-popup-highlight-background: var(--3);
+  
   --toolbarbutton-icon-fill: var(--color);
   --toolbar-color: var(--color);
   --lwt-toolbar-field-color: var(--color);
@@ -261,10 +267,7 @@ menuseparator {
   --arrowpanel-color: var(--color);
 }
 
-
-/*   Light   */
 #main-window[lwtheme-mozlightdark]:not([lwthemetextcolor="bright"]) * {
-  --background:              #fcfcfd;
-  --color:                   #000005;
-  --arrowpanel-background:   var(--background);
+  --background:  #fcfcfd;
+  --color:       #000005;
 }
