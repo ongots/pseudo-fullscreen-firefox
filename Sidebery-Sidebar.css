@@ -2,11 +2,11 @@
 @media (prefers-color-scheme:dark), (prefers-color-scheme: no-preference) {
 	#root[data-style="auto"], #root[data-style="dark"] {
 
-	--bg: #0e0e11;
+	--bg: #111113;
 
-	--tabs-bg-hover:     #1c1c1e;
-	--tabs-bg-active:    #1c1c1e;
-	--tabs-activated-bg: #252528;
+	--tabs-bg-hover:     #1f1f22;
+	--tabs-bg-active:    #1f1f22;
+	--tabs-activated-bg: #262629;
 
 	--ctx-menu-bg:       #19191C;
 	--ctx-menu-bg-hover: #262629;
@@ -27,7 +27,7 @@
 
 
 * {
-	--nav-btn-opacity: .55;
+	--nav-btn-opacity: .6;
 	--nav-btn-opacity-active: .75;
 	--nav-btn-activated-bg: transparent;
 
