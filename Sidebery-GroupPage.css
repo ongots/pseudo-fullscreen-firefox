@@ -3,7 +3,7 @@
 @media (prefers-color-scheme:dark), (prefers-color-scheme: no-preference) {
 	#root[data-style="auto"], #root[data-style="dark"] {
 
-	--bg: #080808 !important
+	--bg: #080809 !important
 }}
 
 .title {
@@ -12,12 +12,12 @@
 
 .new-tab,
 .tab {
-	background-color: #8881;
+	background-color: #80808008;
 	box-shadow: none}
 
 .new-tab:hover,
 .tab:hover {
-	background-color: #8882;
+	background-color: #8080800e;
 	box-shadow: none}
 
 
