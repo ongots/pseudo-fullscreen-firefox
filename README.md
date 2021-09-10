@@ -34,13 +34,9 @@
 ### Useful settings about:config
 - Opening a bookmark in a new tab
 `browser.tabs.loadBookmarksInTabs` `true`
-- Open tabs to the right of the current one
-`browser.tabs.insertAfterCurrent` `true`
 - Scroll step
 `mousewheel.min_line_scroll_amount` `25`
 - Smoothness of scrolling
 `general.smoothScroll.mouseWheel.durationMaxMS` `380`
-- Disable sponsored sites
-`browser.newtabpage.activity-stream.showSponsored` `false`
 - Disable add-on recommendations
 `extensions.htmlaboutaddons.recommendations.enabled` `false`
