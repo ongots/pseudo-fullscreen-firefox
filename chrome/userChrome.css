@@ -246,6 +246,7 @@ panel, menupopup {opacity: .98 !important}
   --arrowpanel-background: var(--background);
   
   --urlbar-box-bgcolor: var(--1);
+  --urlbar-box-focus-bgcolor: var(--1);
   --button-bgcolor: var(--1);
   --panel-banner-item-background-color: var(--1);
   --zoom-controls-bgcolor: var(--1);
