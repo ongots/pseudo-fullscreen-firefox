@@ -91,7 +91,9 @@ menuseparator {
   border-top: 8px solid transparent !important;
   margin: 0 !important}
 
-#context-sep-navigation {display:none}
+#context-sep-navigation,
+#appmenu-developer-tools
+  {display:none !important}
 
 #context-navigation {padding: 0 !important}
 
@@ -158,7 +160,9 @@ menuseparator {
 
 :root {--lwt-toolbar-field-focus: var(--toolbar-field-focus-background-color)}
 
-.urlbarView-row[label="Firefox Suggest"] {display: none !important}
+.urlbarView-row[label="Firefox Suggest"]::before {display: none !important}
+
+.urlbarView-row[label] {margin-block-start: 0 !important}
 
 
 
@@ -198,10 +202,10 @@ menuseparator {
 
 /*   Repaints the bookmark menu and context menus to the main menu color   */
 #mainPopupSet *:not([customoptionstyling]), #navigator-toolbox * {
-  --menuitem-hover-background-color: var(--button-hover-bgcolor);
+  --menuitem-hover-background-color: var(--button-hover-bgcolor) !important;
   --menu-background-color: var(--arrowpanel-background) !important;
   --menu-color: var(--arrowpanel-color) !important;
-  --menu-disabled-color: var(--panel-disabled-color);
+  --menu-disabled-color: var(--panel-disabled-color) !important;
   --menu-border-color: var(--arrowpanel-border-color) !important;
 }
 .menu-right {fill-opacity: .6 !important}
@@ -215,6 +219,7 @@ menuseparator {
   --panelview-toolbarbutton-active-bgcolor: var(--panelview-toolbarbutton-hover-bgcolor);
   --button-active-bgcolor: var(--button-hover-bgcolor);
   --panel-banner-item-active-bgcolor: var(--panel-banner-item-hover-bgcolor);
+  --panel-item-active-bgcolor: var(--panel-item-hover-bgcolor);
 }
 
 
@@ -222,6 +227,7 @@ menuseparator {
 * {
   --menuitem-disabled-hover-background-color: none;
   --panel-separator-zap-gradient: none;
+  --panel-shortcut-color: color-mix(in srgb, var(--arrowpanel-color) 35%, var(--arrowpanel-background));
 }
 
 
@@ -249,19 +255,21 @@ panel, menupopup {opacity: .98 !important}
   --urlbar-box-focus-bgcolor: var(--1);
   --button-bgcolor: var(--1);
   --panel-banner-item-background-color: var(--1);
-  --zoom-controls-bgcolor: var(--1);
+  
+  --zoom-controls-bgcolor: transparent;
   
   --arrowpanel-border-color: var(--2);
   --panel-separator-color: var(--2);
   --autocomplete-popup-separator-color: var(--2);
   --autocomplete-popup-hover-background: var(--2);
   --input-bgcolor: var(--2);
-  --panelview-toolbarbutton-hover-bgcolor: var(--2);
+  --panelview-toolbarbutton-hover-bgcolor: var(--2);/*old*/
+  --panel-item-hover-bgcolor: var(--2);
   --button-hover-bgcolor: var(--2);
   --panel-banner-item-hover-bgcolor: var(--2);
   --urlbar-box-hover-bgcolor: var(--2);
+  --toolbarbutton-hover-background: var(--2);
   
-  --toolbarbutton-hover-background: var(--3);
   --autocomplete-popup-highlight-background: var(--3);
   
   --toolbarbutton-icon-fill: var(--color);
