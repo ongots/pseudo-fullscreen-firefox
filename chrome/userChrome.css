@@ -83,12 +83,12 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -5px -3p
 
 
 /*   Menu   */
-menupopup > menuitem,
-menupopup > menu {
+:not(#ContentSelectDropdown) > menupopup > menuitem,
+:not(#ContentSelectDropdown) > menupopup > menu {
   padding-block: 0.4em !important}
 
 menuseparator {
-  border-top: 8px solid transparent !important;
+  border-top: 0.5em solid transparent !important;
   margin: 0 !important}
 
 #context-sep-navigation,
@@ -113,6 +113,10 @@ menuseparator {
   margin-inline-end: 4px !important}
 
 #appMenu-fxa-status2:not([fxastatus]) {padding-block: 4px !important}
+
+menupopup[needsgutter] menu:not([icon],.menu-iconic),
+menupopup[needsgutter] menuitem:not([checked="true"],[icon], .menuitem-iconic) {
+	padding-inline-start: 1em !important}
 
 
 
@@ -201,7 +205,7 @@ menuseparator {
 
 
 /*   Repaints the bookmark menu and context menus to the main menu color   */
-#mainPopupSet *:not([customoptionstyling]), #navigator-toolbox * {
+:not(#ContentSelectDropdown) > menupopup {
   --menuitem-hover-background-color: var(--button-hover-bgcolor) !important;
   --menu-background-color: var(--arrowpanel-background) !important;
   --menu-color: var(--arrowpanel-color) !important;
