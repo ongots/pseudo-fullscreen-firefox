@@ -65,7 +65,10 @@ ytd-topbar-logo-renderer,
 .ytp-cards-button,
 .ytp-cards-teaser,
 .ytp-volume-area,
-.branding-img-container
+.branding-img-container,
+.ytp-paid-content-overlay,
+.ytp-ce-element,
+.tp-yt-app-drawer::after
     {display:none !important}
 
 .ytp-chrome-top, .ytp-chrome-bottom {text-shadow: none}
