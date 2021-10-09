@@ -314,7 +314,7 @@ panel, menupopup {opacity: .98 !important}
 
 
 /*   Make borders not bright for third-party themes   */
-:not([lwtheme-mozlightdark]) * {
-  --menu-border-color: color-mix(in srgb, var(--arrowpanel-background) 50%, var(--panel-item-hover-bgcolor));
-  --arrowpanel-border-color: color-mix(in srgb, var(--arrowpanel-background) 50%, var(--panel-item-hover-bgcolor));
+#main-window:not([lwtheme-mozlightdark]) * {
+  --menu-border-color: color-mix(in srgb, var(--arrowpanel-background) 40%, var(--panel-item-hover-bgcolor));
+  --arrowpanel-border-color: color-mix(in srgb, var(--arrowpanel-background) 40%, var(--panel-item-hover-bgcolor));
 }
