@@ -1,6 +1,6 @@
 #titlebar {display:none}
 
-@media(-moz-windows-default-theme) {[sizemode="maximized"] #nav-bar {margin-top: 8px}}  /*  Workaround  https://bugzilla.mozilla.org/show_bug.cgi?id=1600582  */
+@media(-moz-windows-default-theme) {[sizemode="maximized"] #nav-bar {margin-top: 8px}}  /*  Workaround  https://bugzilla.mozilla.org/show_bug.cgi?id=1614218  */
 
 
 
@@ -51,12 +51,12 @@
   [sizemode=normal] #sidebar-box {height: calc(100% - 4px)}
 }
 
-#sidebar-box:not([hidden]):hover  /*To disable auto-hide sidebar, you need to comment out ":hover" */ {
+#sidebar-box:not([hidden]):hover /* To disable auto-hide sidebar, you need to comment out ":hover" */ {
   max-width: 100%;
   opacity: 1}
 
 #sidebar {
-  width: 280px !important;
+  width: 300px !important;
   height: 100%}
 
 
@@ -78,8 +78,6 @@ toolbarbutton.bookmark-item {
   margin: 0 !important;
   padding-inline: 6px !important;
   border-radius: 0 !important}
-
-#personal-bookmarks #PlacesChevronPopup {margin: -5px -1px !important}
 
 toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -5px -3px !important}
 
@@ -214,7 +212,7 @@ menupopup[needsgutter] menuitem:not([checked="true"],[icon], .menuitem-iconic) {
 
 
 /*   Repaints the bookmark menu and context menus to the main menu color   */
-:not(#ContentSelectDropdown) > menupopup {
+#main-window :not(#ContentSelectDropdown) > menupopup {
   --menuitem-hover-background-color: var(--button-hover-bgcolor) !important;
   --menu-background-color: var(--arrowpanel-background) !important;
   --menu-color: var(--arrowpanel-color) !important;
@@ -228,7 +226,6 @@ menupopup[needsgutter] menuitem:not([checked="true"],[icon], .menuitem-iconic) {
 * {
   --toolbarbutton-active-background: var(--toolbarbutton-hover-background);
   --urlbar-box-active-bgcolor: var(--urlbar-box-hover-bgcolor);
-  --panelview-toolbarbutton-active-bgcolor: var(--panelview-toolbarbutton-hover-bgcolor);/*old*/
   --button-active-bgcolor: var(--button-hover-bgcolor);
   --panel-banner-item-active-bgcolor: var(--panel-banner-item-hover-bgcolor);
   --panel-item-active-bgcolor: var(--panel-item-hover-bgcolor);
@@ -279,7 +276,6 @@ panel, menupopup {opacity: .98 !important}
   --autocomplete-popup-separator-color: var(--2);
   --autocomplete-popup-hover-background: var(--2);
   --input-bgcolor: var(--2);
-  --panelview-toolbarbutton-hover-bgcolor: var(--2);/*old*/
   --panel-item-hover-bgcolor: var(--2);
   --button-hover-bgcolor: var(--2);
   --panel-banner-item-hover-bgcolor: var(--2);
@@ -314,7 +310,6 @@ panel, menupopup {opacity: .98 !important}
 
 
 /*   Make borders not bright for third-party themes   */
-#main-window:not([lwtheme-mozlightdark]) * {
-  --menu-border-color: color-mix(in srgb, var(--arrowpanel-background) 40%, var(--panel-item-hover-bgcolor));
-  --arrowpanel-border-color: color-mix(in srgb, var(--arrowpanel-background) 40%, var(--panel-item-hover-bgcolor));
+!#main-window:not([lwtheme-mozlightdark]) * {
+  --panel-border-color: color-mix(in srgb, var(--arrowpanel-border-color) 30%, var(--arrowpanel-background)) !important;
 }
