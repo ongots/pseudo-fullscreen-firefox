@@ -1,6 +1,9 @@
 ![alt text](demo.gif)
 
 
+⚠️ [Blur temporarily does not work with FF96](https://bugzilla.mozilla.org/show_bug.cgi?id=1741779)
+
+
 ### Install Firefox style
 1. In about:config enable:
 - `toolkit.legacyUserProfileCustomizations.stylesheets`
@@ -40,3 +43,7 @@
 `general.smoothScroll.mouseWheel.durationMaxMS` `380`
 - Disable add-on recommendations
 `extensions.htmlaboutaddons.recommendations.enabled` `false`
+- Not open download panel
+`browser.download.alwaysOpenPanel` `false`
+- Restore pinned tabs on demand
+`browser.sessionstore.restore_pinned_tabs_on_demand` `true`
