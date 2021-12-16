@@ -27,9 +27,13 @@
 
 
 * {
+	--nav-btn-width: 36px;
+	--nav-btn-height: 36px;
 	--nav-btn-opacity: .6;
 	--nav-btn-opacity-active: .75;
 	--nav-btn-activated-bg: transparent;
+
+	--tabs-height: 32px;
 
 	--border-fg: transparent;
 	--pinned-dock-overlay-bg: transparent;
@@ -63,8 +67,12 @@
 	background-color: #8885;
 	box-shadow: none}
 
+
+
 .PinnedDock,
-.TabsPanel .container {
+.HiddenPanelsBar,
+.TabsPanel .container,
+.Bookmarks .bookmarks-wrapper {
 	box-shadow: none !important}
 
 
