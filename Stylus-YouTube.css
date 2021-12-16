@@ -20,8 +20,6 @@ html:not(.style-scope)[dark] {
     --yt-spec-brand-icon-inactive:      #ddd;
 }
 
-ytd-button-renderer.style-default[is-icon-button] #text.ytd-button-renderer {color: #ddd}
-
   /* Search menu */
 [dark] .sbsb_a, [dark] .sbfl_b {background: #111}
 [dark] .sbdd_b {border: 1px solid #1a1a1a}
@@ -34,8 +32,17 @@ ytd-button-renderer.style-default[is-icon-button] #text.ytd-button-renderer {col
 * {--yt-spec-10-percent-layer: 0}
 
 
-/* Pause overlay */
-.ytp-pause-overlay {display:none}
+/* Clearing the player */
+.ytp-pause-overlay,
+.ytp-gradient-bottom,
+.branding-img-container,
+.ytp-cards-button,
+.ytp-cards-teaser,
+.ytp-volume-area,
+.ytp-paid-content-overlay,
+.ytp-ce-element,
+.tp-yt-app-drawer::after
+    {display:none !important}
 }
 
 @-moz-document url-prefix("https://www.youtube.com/watch") {
@@ -61,13 +68,6 @@ ytd-topbar-logo-renderer,
 .ytp-fullscreen-button,
 .ytp-size-button,
 .ytp-miniplayer-button,
-.ytp-gradient-bottom,
-.ytp-cards-button,
-.ytp-cards-teaser,
-.ytp-volume-area,
-.branding-img-container,
-.ytp-paid-content-overlay,
-.ytp-ce-element,
 .tp-yt-app-drawer::after
     {display:none !important}
 
