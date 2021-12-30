@@ -46,9 +46,12 @@
   z-index: 1;
   opacity: 0}
 
+#appcontent {margin-left: -6px}
+
 @media(-moz-windows-default-theme) {
   [sizemode=maximized] #sidebar-box {height: calc(100% - 10px)}
   [sizemode=normal] #sidebar-box {height: calc(100% - 4px)}
+  #appcontent {margin-left: 0}
 }
 
 #sidebar-box:not([hidden]):hover {
