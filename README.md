@@ -33,6 +33,11 @@
 5. Copy the code here from the Stylus-YouTube.css file and click replace style
 6. Save
 
+or
+
+- Copy the code from Stylus-YouTube.css to /chrome/userContent.css
+
+
 
 ### Useful settings about:config
 - Opening a bookmark in a new tab
