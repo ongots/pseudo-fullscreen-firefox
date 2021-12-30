@@ -7,7 +7,7 @@
 
 /*   Auto hide navbar   */
 #nav-bar {
-  background-color: black !important;
+  background: black !important;
   transition: none !important}
 
 [sizemode=maximized]                    #nav-bar:not([customizing]) {margin-bottom: -40px}
