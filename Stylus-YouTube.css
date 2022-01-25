@@ -1,18 +1,26 @@
 @-moz-document domain("youtube.com") {
-/* Clearing the side menu */
+    /* Side menu */
+/* Explore */
+ytd-guide-section-renderer.style-scope:nth-child(1) > div:nth-child(2) > ytd-guide-entry-renderer:nth-child(2),
+ytd-mini-guide-entry-renderer.style-scope:nth-child(2),
+/* Shorts */
+ytd-guide-section-renderer.style-scope:nth-child(1) > div:nth-child(2) > ytd-guide-entry-renderer:nth-child(3),
+ytd-mini-guide-entry-renderer.style-scope:nth-child(3),
+/* Library */
+#header > .ytd-guide-collapsible-section-entry-renderer.style-scope,
+ytd-mini-guide-entry-renderer.style-scope:nth-child(5),
+/* More from youtube */
 ytd-guide-section-renderer.style-scope:nth-child(3),
 ytd-guide-section-renderer.style-scope:nth-child(4),
 #guide-renderer > div:nth-child(2)
-    {display:none !important}
-
-#contentContainer * {border:0 !important}
+    {display:none}
 
 
 /* Сolor sheme */
 html:not(.style-scope)[dark] {
-    --yt-spec-brand-background-primary: #1a1a1af8 !important; 
+    --yt-spec-brand-background-primary: #181818f8 !important; 
     --yt-spec-brand-background-solid:   #1a1a1a !important;
-    --yt-spec-general-background-a:     #181818 !important;
+    --yt-spec-general-background-a:     #151515 !important;
     --yt-spec-text-primary:             #ddd;
     --yt-spec-icon-active-other:        #ddd;
     --yt-spec-static-brand-white:       #ddd;
@@ -20,19 +28,48 @@ html:not(.style-scope)[dark] {
     --yt-spec-brand-icon-inactive:      #ddd;
 }
 
-  /* Search menu */
+/* Search menu */
 [dark] .sbsb_a, [dark] .sbfl_b {background: #111}
 [dark] .sbdd_b {border: 1px solid #1a1a1a}
-[dark] .sbsb_d {background: #333 !important}
+[dark] .sbsb_d {background: #242424}
 [dark] .gsfs {color: #ddd}
 
 
+[dark] ytd-guide-entry-renderer[active],
+[dark] tp-yt-paper-listbox.yt-dropdown-menu .iron-selected.yt-dropdown-menu,
+[dark] tp-yt-paper-item:hover {
+	background-color: #242424}
+
+[dark] tp-yt-paper-item[focused][pressed],
+[dark] tp-yt-paper-item:focus {
+    background-color: #0a0a0a}
+
+[dark] ytd-playlist-video-renderer.style-scope:hover {
+    background-color: #1e1e1e}
+
+
+/* watching indicator */
+#progress.ytd-thumbnail-overlay-resume-playback-renderer {background-color: #f00d}
+ytd-thumbnail-overlay-resume-playback-renderer {background-color: transparent}
+
+
 /* Feed */
-.grid-subheader.style-scope.ytd-shelf-renderer {display:none}
-* {--yt-spec-10-percent-layer: 0}
+#contents.ytd-shelf-renderer {margin-top: 16px}
+ytd-expanded-shelf-contents-renderer {margin-bottom: 16px}
 
 
-/* Clearing the player */
+/* Borders */
+#contentContainer,
+ytd-multi-page-menu-renderer,
+.ytd-playlist-sidebar-renderer,
+.ytd-feed-filter-chip-bar-renderer,
+.ytd-sub-feed-selector-renderer
+    {--yt-spec-10-percent-layer: 0}
+
+#content.ytd-playlist-video-renderer {border-bottom: 1px solid transparent}
+
+
+/* Player */
 .ytp-pause-overlay,
 .ytp-gradient-bottom,
 .branding-img-container,
@@ -45,30 +82,32 @@ html:not(.style-scope)[dark] {
     {display:none !important}
 }
 
+@-moz-document url-prefix("https://www.youtube.com/feed/subscriptions") {
+/* Feed */
+.grid-subheader.style-scope.ytd-shelf-renderer {display:none}
+ytd-section-list-renderer {--yt-spec-10-percent-layer: 0}
+}
+
 @-moz-document url-prefix("https://www.youtube.com/watch") {
-/* Full screen player */
-* {--ytd-masthead-height: 0}
-
-ytd-watch-flexy[theater] #player-theater-container.ytd-watch-flexy {max-height: 100% !important}
-
-
-:root {scrollbar-width: none}
-
-
-/* Auto hide header */
-#container.ytd-masthead {height: 20px; transition:all .2s ease !important}
-#masthead {opacity: 0; transition:all .2s ease}
+/* Header */
+#container.ytd-masthead {height: 20px; transition: 200ms}
+#masthead {opacity: 0; transition: 200ms}
 
 #container:hover.ytd-masthead {height: 56px}
-#masthead:hover {opacity: 1 !important}
+#masthead:hover {opacity: 1}
 
 
-/* Clearing the player */
+/* Player */
+:root {--ytd-masthead-height: 0; scrollbar-width: none}
+
+#player-theater-container {max-height: 100% !important}
+
 ytd-topbar-logo-renderer,
 .ytp-fullscreen-button,
 .ytp-size-button,
 .ytp-miniplayer-button,
-.tp-yt-app-drawer::after
+.tp-yt-app-drawer::after,
+ytd-toggle-button-renderer.style-scope:nth-child(2) > a:nth-child(1) > yt-formatted-string:nth-child(2)
     {display:none !important}
 
 .ytp-chrome-top, .ytp-chrome-bottom {text-shadow: none}
