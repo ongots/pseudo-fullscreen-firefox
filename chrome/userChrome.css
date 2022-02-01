@@ -21,7 +21,7 @@
 #mainPopupSet:hover ~ box > toolbox > .browser-toolbar {
   background: inherit !important;
   background-color: var(--lwt-accent-color) !important;
-  z-index: 2}
+  z-index: 3}
 
 
 
@@ -43,7 +43,7 @@
   max-width: 1px;
   display: block;
   transition: 50ms;
-  z-index: 1;
+  z-index: 2;
   opacity: 0}
 
 #appcontent {margin-left: -6px}
@@ -170,6 +170,18 @@ menupopup[needsgutter] menuitem:not([checked="true"],[icon], .menuitem-iconic) {
 .urlbarView-row[label="Firefox Suggest"]::before {display: none !important}
 
 .urlbarView-row[label] {margin-block-start: 0 !important}
+
+
+
+
+#downloads-button[progress="true"],
+#downloads-button[notification="finish"],
+#downloads-button[attention="warning"] {
+  z-index: 1;
+  position: absolute}
+
+#downloads-indicator-finish-image {
+  --anim-steps: calc(var(--anim-frames) + 200 !important)}
 
 
 
