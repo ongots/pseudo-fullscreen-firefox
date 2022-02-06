@@ -207,19 +207,28 @@ menupopup[needsgutter] menuitem:not([checked="true"],[icon], .menuitem-iconic) {
   background-color: /*#fff8*/#fffc !important;
   color: #000 !important}
 
-[lwt-toolbar-field-focus-brighttext] #statuspanel-label {
-  background-color: /*#0008*/#000c !important;
-  color: #eee !important}
+@media (prefers-color-scheme:dark), (prefers-color-scheme: no-preference) {
+  [lwt-toolbar-field-focus-brighttext] #statuspanel-label,
+  #main-window:not([lwthemetextcolor="dark"]) #statuspanel-label {
+    background-color: /*#0008*/#000c !important;
+    color: #eee !important}
+}
 
 
 
-
-[lwt-toolbar-field-focus-brighttext] tooltip {
+tooltip {
   appearance: none;
-  background-color: #121215;
-  border: 1px solid #333;
-  color: #e8e8e9}
+  background-color: #fff;
+  border: 1px solid #bbb;
+  color: #000}
 
+@media (prefers-color-scheme:dark), (prefers-color-scheme: no-preference) {
+  [lwt-toolbar-field-focus-brighttext] tooltip,
+  #main-window:not([lwthemetextcolor="dark"]) tooltip {
+    background-color: #121215;
+    border: 1px solid #333;
+    color: #e8e8e9}
+}
 
 
 
@@ -266,8 +275,10 @@ panel, menupopup {opacity: .98 !important}
 
 
 
-/*   Default theme in dark mode  */
-[lwt-default-theme-in-dark-mode] * {
+/*   Auto theme in dark mode  */
+@media (prefers-color-scheme:dark), (prefers-color-scheme: no-preference) {
+  [lwt-default-theme-in-dark-mode] *,
+  [style="--lwt-accent-color: white; --lwt-text-color: rgba(0, 0, 0);"] * {
   --background:  #121215;
   --color:       #e8e8e9;
   --nav:         color-mix(in srgb, var(--background) /*87*/99%, transparent);
@@ -304,7 +315,7 @@ panel, menupopup {opacity: .98 !important}
   --toolbarbutton-hover-background: var(--2);
   
   --autocomplete-popup-highlight-background: var(--3);
-}
+}}
 
 
 
