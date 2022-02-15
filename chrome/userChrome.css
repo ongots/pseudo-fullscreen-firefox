@@ -1,4 +1,4 @@
-#titlebar {display:none}
+#titlebar, #tabContextMenu {display:none}
 
 @media(-moz-windows-default-theme) {[sizemode="maximized"] #nav-bar {margin-top: 8px}}  /*  Workaround  https://bugzilla.mozilla.org/show_bug.cgi?id=1614218  */
 
@@ -7,7 +7,7 @@
 
 /*   Auto hide navbar   */
 #nav-bar {
-  background: black !important;
+  box-shadow: inset 0 1px black !important;
   transition: none !important}
 
 [sizemode=maximized]                    #nav-bar:not([customizing]) {margin-bottom: -40px}
@@ -64,12 +64,6 @@
 
 
 
-/*   Disable auto hide sidebar   
-#sidebar-box:not([hidden]) {max-width: 100%; opacity: 1}
-#appcontent {margin-left: 300px}
-*/
-
-
 #sidebar-header {display:none}
 .sidebar-splitter {border-color: transparent !important}
 
@@ -77,6 +71,7 @@
 
 
 /*   Bookmarks   */
+#PersonalToolbar:not([customizing]),
 .bookmark-item .toolbarbutton-icon,
 .openintabs-menuitem,
 .bookmarks-actions-menuseparator,
@@ -90,6 +85,10 @@ toolbarbutton.bookmark-item {
 
 toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -5px -3px !important}
 
+@media not (-moz-windows-default-theme), (-moz-platform: linux) {
+  toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -8px !important}
+}
+
 #PlacesToolbar menupopup menuseparator {padding: 0 !important}
 
 .menupopup-arrowscrollbox {border: 1px solid var(--panel-border-color) !important}
@@ -98,6 +97,10 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -5px -3p
 
 
 /*   Menu   */
+@media (prefers-color-scheme:dark) {
+  panel, menupopup {opacity: .98 !important}
+}
+
 :not(#ContentSelectDropdown) > menupopup > menuitem,
 :not(#ContentSelectDropdown) > menupopup > menu {
   padding-block: 0.4em !important}
@@ -106,17 +109,21 @@ menuseparator {
   border-top: 0.5em solid transparent !important;
   margin: 0 !important}
 
-#context-sep-navigation,
-#appmenu-developer-tools
+#appMenu-new-tab-button2,
+#appMenu-fullscreen-button2,
+#appmenu-developer-tools,
+#context-sep-navigation
   {display:none !important}
 
 #context-navigation {padding: 0 !important}
 
-:root {
-  --arrowpanel-border-radius: 6px !important;
+* {
+  --arrowpanel-border-radius: 6px;
   --arrowpanel-menuitem-padding-block: 7.5px !important;
-  --arrowpanel-menuitem-margin: 0 5px !important;
-  --panel-subview-body-padding: 5px 0 !important;
+  --arrowpanel-menuitem-margin: 0 5px;
+  --panel-subview-body-padding: 5px 0;
+  --menuitem-disabled-hover-background-color: none;
+  --panel-separator-zap-gradient: none;
 }
 
 .addon-banner-item,
@@ -131,13 +138,64 @@ menuseparator {
 
 menupopup[needsgutter] menu:not([icon],.menu-iconic),
 menupopup[needsgutter] menuitem:not([checked="true"],[icon], .menuitem-iconic) {
-	padding-inline-start: 1em !important}
+  padding-inline-start: 1em !important}
+
+#appMenu-popup panelview,
+#PanelUI-fxa {
+  width: 22em !important}
+
+#contentAreaContextMenu {max-width: 27em !important}
+
+#appMenu-popup {--panel-shortcut-color: color-mix(in srgb, var(--arrowpanel-color) 35%, var(--arrowpanel-background))}
+
+
+    /*   Repaints the bookmark menu and context menus to the main menu color   */
+#main-window :not(#ContentSelectDropdown) > menupopup {
+  --menuitem-hover-background-color: var(--button-hover-bgcolor) !important;
+  --menu-background-color: var(--arrowpanel-background) !important;
+  --menu-color: var(--arrowpanel-color) !important;
+  --menu-disabled-color: var(--panel-disabled-color) !important;
+  --menu-border-color: var(--arrowpanel-border-color) !important;
+}
+
+    /*   linux   */
+@media not (-moz-windows-default-theme), (-moz-platform: linux) {
+  
+  menupopup {    
+    --panel-background: var(--arrowpanel-background) !important;
+    --panel-color: var(--arrowpanel-color) !important;
+    --panel-border-color: var(--arrowpanel-border-color) !important;
+    --panel-border-radius: var(--arrowpanel-border-radius) !important;
+    --panel-padding: 5px 0 !important;
+  }
+  
+  menuseparator {-moz-default-appearance: none !important}
+
+  menuitem {
+    appearance: none !important;
+    padding: 0 6px !important}
+
+
+  menuitem[_moz-menuactive]:not([disabled]) {
+    background-color: var(--menuitem-hover-background-color) !important;
+    color: var(--arrowpanel-color) !important}
+  
+  menuitem[_moz-menuactive][disabled] {
+    background-color: transparent !important}
+  
+}
 
 
 
 
 /*   Urlbar   */
-* {--urlbar-height: var(--urlbar-toolbar-height) !important}
+* {
+  --urlbar-height: var(--urlbar-toolbar-height) !important;
+  --urlbar-box-hover-bgcolor: var(--toolbarbutton-hover-background);
+  --lwt-toolbar-field-focus: var(--toolbar-field-focus-background-color);
+}
+
+#urlbar-container {margin-inline: 12px !important}
 
 #urlbar-background:not(#urlbar[breakout][breakout-extend][open] > #urlbar-background) {
   background-color: transparent !important;
@@ -150,7 +208,15 @@ menupopup[needsgutter] menuitem:not([checked="true"],[icon], .menuitem-iconic) {
 
 .identity-box-button:not(:hover) {background-color: transparent !important}
 
-.urlbarView-action {margin-block: -4px !important}
+#notification-popup-box:hover,
+#notification-popup-box[open] {
+  background-color: var(--toolbarbutton-hover-background) !important}
+
+#urlbar-search-mode-indicator {background-color: var(--urlbar-box-hover-bgcolor) !important}
+
+.urlbarView-action {
+  margin-block: -4px !important;
+  padding: 6.2px 8px !important}
 
 .urlbarView-row:not([type="switchtab"]) .urlbarView-action,
 .urlbarView-title-separator,
@@ -165,8 +231,6 @@ menupopup[needsgutter] menuitem:not([checked="true"],[icon], .menuitem-iconic) {
   background-color: color-mix(in srgb, var(--lwt-toolbar-field-focus) /*85*/99%, transparent) !important;
   backdrop-filter: blur(32px) saturate(200%)}
 
-:root {--lwt-toolbar-field-focus: var(--toolbar-field-focus-background-color)}
-
 .urlbarView-row[label="Firefox Suggest"]::before {display: none !important}
 
 .urlbarView-row[label] {margin-block-start: 0 !important}
@@ -174,6 +238,7 @@ menupopup[needsgutter] menuitem:not([checked="true"],[icon], .menuitem-iconic) {
 
 
 
+/*   Downloads   */
 #downloads-button[progress="true"],
 #downloads-button[notification="finish"],
 #downloads-button[attention="warning"] {
@@ -183,9 +248,14 @@ menupopup[needsgutter] menuitem:not([checked="true"],[icon], .menuitem-iconic) {
 #downloads-indicator-finish-image {
   --anim-steps: calc(var(--anim-frames) + 200 !important)}
 
+#downloadsPanel-mainView {
+	min-width: 35em !important;
+	padding: 5px !important}
 
 
 
+
+/*   Toolbarbutton-badge   */
 .toolbarbutton-badge {
   background-color: transparent !important;
   box-shadow: none !important;
@@ -199,7 +269,11 @@ menupopup[needsgutter] menuitem:not([checked="true"],[icon], .menuitem-iconic) {
 
 
 
+#window-modal-dialog {--chrome-offset: 20px !important}
 
+
+
+/*   Statuspanel   */
 #statuspanel-label {
   border: 0 !important;
   border-top-right-radius: 3px;
@@ -211,7 +285,7 @@ menupopup[needsgutter] menuitem:not([checked="true"],[icon], .menuitem-iconic) {
   border-top-left-radius: 3px;
   border-top-right-radius: 0}
 
-@media (prefers-color-scheme:dark), (prefers-color-scheme: no-preference) {
+@media (prefers-color-scheme:dark), (-moz-content-prefers-color-scheme: dark) {
   [lwthemetextcolor="dark"][lwt-popup-brighttext="true"] #statuspanel-label,
   #main-window:not([lwthemetextcolor="dark"]) #statuspanel-label {
     background-color: /*#0008*/#000c !important;
@@ -220,13 +294,14 @@ menupopup[needsgutter] menuitem:not([checked="true"],[icon], .menuitem-iconic) {
 
 
 
+/*   Tooltip   */
 tooltip {
   appearance: none;
   background-color: #fff;
   border: 1px solid #bbb;
   color: #000}
 
-@media (prefers-color-scheme:dark), (prefers-color-scheme: no-preference) {
+@media (prefers-color-scheme:dark), (-moz-content-prefers-color-scheme: dark) {
   [lwthemetextcolor="dark"][lwt-popup-brighttext="true"] tooltip,
   #main-window:not([lwthemetextcolor="dark"]) tooltip {
     background-color: #121215;
@@ -236,59 +311,42 @@ tooltip {
 
 
 
-* {scrollbar-width: thin; 
-   scrollbar-color: #80808040 transparent !important}
 
-
-
-
-/*   Repaints the bookmark menu and context menus to the main menu color   */
-#main-window :not(#ContentSelectDropdown) > menupopup {
-  --menuitem-hover-background-color: var(--button-hover-bgcolor) !important;
-  --menu-background-color: var(--arrowpanel-background) !important;
-  --menu-color: var(--arrowpanel-color) !important;
-  --menu-disabled-color: var(--panel-disabled-color) !important;
-  --menu-border-color: var(--arrowpanel-border-color) !important;
-}
-
-
-
-/*   active same as hover   */
 * {
+  
+  scrollbar-width: thin; 
+  scrollbar-color: #80808040 transparent !important;
+
+
+
+  /*   active same as hover   */
   --toolbarbutton-active-background: var(--toolbarbutton-hover-background);
   --urlbar-box-active-bgcolor: var(--urlbar-box-hover-bgcolor);
   --button-active-bgcolor: var(--button-hover-bgcolor);
   --panel-banner-item-active-bgcolor: var(--panel-banner-item-hover-bgcolor);
   --panel-item-active-bgcolor: var(--panel-item-hover-bgcolor);
+  
 }
-
-
-
-* {
-  --urlbar-box-hover-bgcolor: var(--toolbarbutton-hover-background) !important;
-  --menuitem-disabled-hover-background-color: none;
-  --panel-separator-zap-gradient: none;
-  --panel-shortcut-color: color-mix(in srgb, var(--arrowpanel-color) 35%, var(--arrowpanel-background));
-  --zoom-controls-bgcolor: transparent;
-  --chrome-offset: 20px !important;
-}
-
-
-
-panel, menupopup {opacity: .98 !important}
 
 
 
 /*   Auto theme in dark mode  */
-@media (prefers-color-scheme:dark), (prefers-color-scheme: no-preference) {
+@media (prefers-color-scheme:dark) {
   [lwt-default-theme-in-dark-mode] *,
   [style="--lwt-accent-color: white; --lwt-text-color: rgba(0, 0, 0);"] * {
+    
     --background:  #121215;
     --color:       #e8e8e9;
+    --contrast:    1;
+    
     --nav:         color-mix(in srgb, var(--background) /*87*/99%, transparent);
-    --1:           color-mix(in srgb, var(--color) 4%, transparent);
-    --2:           color-mix(in srgb, var(--color) 6%, transparent);
-    --3:           color-mix(in srgb, var(--color) 10%, transparent);
+    --btn:         color-mix(in srgb, var(--color) calc(4%  * var(--contrast)), transparent);
+    --border:      color-mix(in srgb, var(--color) calc(6%  * var(--contrast)), transparent);
+    --hover:       color-mix(in srgb, var(--color) calc(6%  * var(--contrast)), transparent);
+    
+    --autocomplete-popup-highlight-background: color-mix(in srgb, var(--color) calc(10% * var(--contrast)), transparent);
+    
+    --button-hover-bgcolor: color-mix(in srgb, var(--color) calc(4% * 2 * var(--contrast)), transparent);
     
     --arrowpanel-background: var(--background);
     
@@ -300,32 +358,31 @@ panel, menupopup {opacity: .98 !important}
     
     --lwt-accent-color: var(--nav);
     --toolbar-bgcolor: var(--nav);
+    --toolbar-non-lwt-bgcolor: var(--nav);
     --lwt-toolbar-field-focus: var(--nav);
     
-    --urlbar-box-bgcolor: var(--1);
-    --urlbar-box-focus-bgcolor: var(--1);
-    --button-bgcolor: var(--1);
-    --panel-banner-item-background-color: var(--1);
+    --urlbar-box-bgcolor: var(--btn);
+    --urlbar-box-focus-bgcolor: var(--btn);
+    --button-bgcolor: var(--btn);
+    --panel-banner-item-background-color: var(--btn);
+    --input-bgcolor: var(--btn);
     
-    --arrowpanel-border-color: var(--2);
-    --panel-separator-color: var(--2);
-    --autocomplete-popup-separator-color: var(--2);
-    --autocomplete-popup-hover-background: var(--2);
-    --input-bgcolor: var(--2);
-    --panel-item-hover-bgcolor: var(--2);
-    --button-hover-bgcolor: var(--2);
-    --panel-banner-item-hover-bgcolor: var(--2);
-    --urlbar-box-hover-bgcolor: var(--2);
-    --toolbarbutton-hover-background: var(--2);
+    --arrowpanel-border-color: var(--border);
+    --panel-separator-color: var(--border);
+    --autocomplete-popup-separator-color: var(--border);
+
+    --autocomplete-popup-hover-background: var(--hover);
+    --panel-item-hover-bgcolor: var(--hover);
+    --panel-banner-item-hover-bgcolor: var(--hover);
+    --urlbar-box-hover-bgcolor: var(--hover);
+    --toolbarbutton-hover-background: var(--hover);
     
-    --autocomplete-popup-highlight-background: var(--3);
-}}
+  }
+  
+  * {--in-content-page-background: #17171A !important}
+  
+}
 
-
-
-/*   Dialog background   
-* {--in-content-page-background: #17171A !important}
-*/
 
 
 /*   Make borders not bright for third-party themes   
