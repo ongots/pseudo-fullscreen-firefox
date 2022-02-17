@@ -25,15 +25,6 @@
 
 
 
-/*   Blur navbar   */
-#nav-bar:hover:not([urlbar-exceeds-toolbar-bounds]), 
-#nav-bar:focus-within:not([urlbar-exceeds-toolbar-bounds]),
-#nav-bar[customizing],
-#mainPopupSet:hover ~ box > toolbox > .browser-toolbar:not([urlbar-exceeds-toolbar-bounds])
-  {backdrop-filter: blur(16px) saturate(200%)}
-
-
-
 
 /*   Auto hide sidebar   */
 #sidebar-box:not([hidden]) {
@@ -97,10 +88,6 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -5px -3p
 
 
 /*   Menu   */
-@media (prefers-color-scheme:dark) {
-  panel, menupopup {opacity: .98 !important}
-}
-
 :not(#ContentSelectDropdown) > menupopup > menuitem,
 :not(#ContentSelectDropdown) > menupopup > menu {
   padding-block: 0.4em !important}
@@ -123,7 +110,6 @@ menuseparator {
   --arrowpanel-menuitem-margin: 0 5px;
   --panel-subview-body-padding: 5px 0;
   --menuitem-disabled-hover-background-color: none;
-  --panel-separator-zap-gradient: none;
 }
 
 .addon-banner-item,
@@ -146,12 +132,16 @@ menupopup[needsgutter] menuitem:not([checked="true"],[icon], .menuitem-iconic) {
 
 #contentAreaContextMenu {max-width: 27em !important}
 
-#appMenu-popup {--panel-shortcut-color: color-mix(in srgb, var(--arrowpanel-color) 35%, var(--arrowpanel-background))}
+#appMenu-popup {
+  --panel-shortcut-color: color-mix(in srgb, var(--arrowpanel-color) 35%, var(--arrowpanel-background));
+  --panel-separator-zap-gradient: none;
+  --zoom-controls-bgcolor: var(--button-bgcolor);   /*D99*/
+}
 
 
     /*   Repaints the bookmark menu and context menus to the main menu color   */
 #main-window :not(#ContentSelectDropdown) > menupopup {
-  --menuitem-hover-background-color: var(--button-hover-bgcolor) !important;
+  --menuitem-hover-background-color: var(--panel-item-hover-bgcolor) !important;
   --menu-background-color: var(--arrowpanel-background) !important;
   --menu-color: var(--arrowpanel-color) !important;
   --menu-disabled-color: var(--panel-disabled-color) !important;
@@ -189,10 +179,9 @@ menupopup[needsgutter] menuitem:not([checked="true"],[icon], .menuitem-iconic) {
 
 
 /*   Urlbar   */
-* {
+#urlbar-container * {
   --urlbar-height: var(--urlbar-toolbar-height) !important;
   --urlbar-box-hover-bgcolor: var(--toolbarbutton-hover-background);
-  --lwt-toolbar-field-focus: var(--toolbar-field-focus-background-color);
 }
 
 #urlbar-container {margin-inline: 12px !important}
@@ -206,13 +195,9 @@ menupopup[needsgutter] menuitem:not([checked="true"],[icon], .menuitem-iconic) {
 
 #identity-icon-box {max-width: calc(50px + 10em) !important}
 
-.identity-box-button:not(:hover) {background-color: transparent !important}
-
 #notification-popup-box:hover,
 #notification-popup-box[open] {
   background-color: var(--toolbarbutton-hover-background) !important}
-
-#urlbar-search-mode-indicator {background-color: var(--urlbar-box-hover-bgcolor) !important}
 
 .urlbarView-action {
   margin-block: -4px !important;
@@ -224,12 +209,6 @@ menupopup[needsgutter] menuitem:not([checked="true"],[icon], .menuitem-iconic) {
   {display:none !important}
 
 .urlbarView-url {padding-left: 5px}
-
-#urlbar[breakout][breakout-extend][open] > #urlbar-background,
-.urlbarView-row[type="switchtab"]:hover .urlbarView-action,
-.urlbarView-row[type="switchtab"][aria-selected="true"] .urlbarView-action {
-  background-color: color-mix(in srgb, var(--lwt-toolbar-field-focus) /*85*/99%, transparent) !important;
-  backdrop-filter: blur(32px) saturate(200%)}
 
 .urlbarView-row[label="Firefox Suggest"]::before {display: none !important}
 
@@ -245,12 +224,11 @@ menupopup[needsgutter] menuitem:not([checked="true"],[icon], .menuitem-iconic) {
   z-index: 1;
   position: absolute}
 
-#downloads-indicator-finish-image {
-  --anim-steps: calc(var(--anim-frames) + 200 !important)}
+#downloads-indicator-finish-image {--anim-steps: calc(var(--anim-frames) + 200 !important)}
 
-#downloadsPanel-mainView {
-	min-width: 35em !important;
-	padding: 5px !important}
+#downloadsPanel-mainView {padding: 5px !important}
+
+.downloadMainArea {padding-inline-start: 8px !important}
 
 
 
@@ -277,18 +255,17 @@ menupopup[needsgutter] menuitem:not([checked="true"],[icon], .menuitem-iconic) {
 #statuspanel-label {
   border: 0 !important;
   border-top-right-radius: 3px;
-  backdrop-filter: blur(32px) saturate(200%);
-  background-color: /*#fff8*/#fffc !important;
+  background-color: #fffc !important;
   color: #000 !important}
 
 #statuspanel[mirror] #statuspanel-label {
   border-top-left-radius: 3px;
   border-top-right-radius: 0}
 
-@media (prefers-color-scheme:dark), (-moz-content-prefers-color-scheme: dark) {
+@media (prefers-color-scheme:dark), (-moz-content-prefers-color-scheme:dark) {
   [lwthemetextcolor="dark"][lwt-popup-brighttext="true"] #statuspanel-label,
   #main-window:not([lwthemetextcolor="dark"]) #statuspanel-label {
-    background-color: /*#0008*/#000c !important;
+    background-color: #000c !important;
     color: #eee !important}
 }
 
@@ -301,7 +278,7 @@ tooltip {
   border: 1px solid #bbb;
   color: #000}
 
-@media (prefers-color-scheme:dark), (-moz-content-prefers-color-scheme: dark) {
+@media (prefers-color-scheme:dark), (-moz-content-prefers-color-scheme:dark) {
   [lwthemetextcolor="dark"][lwt-popup-brighttext="true"] tooltip,
   #main-window:not([lwthemetextcolor="dark"]) tooltip {
     background-color: #121215;
@@ -335,20 +312,12 @@ tooltip {
   [lwt-default-theme-in-dark-mode] *,
   [style="--lwt-accent-color: white; --lwt-text-color: rgba(0, 0, 0);"] * {
     
-    --background:  #121215;
-    --color:       #e8e8e9;
-    --contrast:    1;
-    
-    --nav:         color-mix(in srgb, var(--background) /*87*/99%, transparent);
-    --btn:         color-mix(in srgb, var(--color) calc(4%  * var(--contrast)), transparent);
-    --border:      color-mix(in srgb, var(--color) calc(6%  * var(--contrast)), transparent);
-    --hover:       color-mix(in srgb, var(--color) calc(6%  * var(--contrast)), transparent);
-    
-    --autocomplete-popup-highlight-background: color-mix(in srgb, var(--color) calc(10% * var(--contrast)), transparent);
-    
-    --button-hover-bgcolor: color-mix(in srgb, var(--color) calc(4% * 2 * var(--contrast)), transparent);
-    
-    --arrowpanel-background: var(--background);
+    --color:                #e8e8e9;
+    --bg:                   color-mix(in srgb, #121215 99%, transparent);
+    --btn:                  color-mix(in srgb, var(--color) 6%, transparent);
+    --btn-hover:            color-mix(in srgb, var(--color) 12%, transparent);
+    --border:               color-mix(in srgb, var(--color) 8%, transparent);
+    --hover:                color-mix(in srgb, var(--color) 7%, transparent);
     
     --toolbarbutton-icon-fill: var(--color);
     --toolbar-color: var(--color);
@@ -356,16 +325,20 @@ tooltip {
     --lwt-toolbar-field-focus-color: var(--color);
     --arrowpanel-color: var(--color);
     
-    --lwt-accent-color: var(--nav);
-    --toolbar-bgcolor: var(--nav);
-    --toolbar-non-lwt-bgcolor: var(--nav);
-    --lwt-toolbar-field-focus: var(--nav);
+    --lwt-accent-color: var(--bg);
+    --toolbar-bgcolor: var(--bg);
+    --toolbar-non-lwt-bgcolor: var(--bg);
+    --toolbar-field-focus-background-color: var(--bg);
+    --arrowpanel-background: var(--bg);
     
     --urlbar-box-bgcolor: var(--btn);
     --urlbar-box-focus-bgcolor: var(--btn);
     --button-bgcolor: var(--btn);
     --panel-banner-item-background-color: var(--btn);
     --input-bgcolor: var(--btn);
+    
+    --button-hover-bgcolor: var(--btn-hover);
+    --autocomplete-popup-highlight-background: var(--btn-hover);
     
     --arrowpanel-border-color: var(--border);
     --panel-separator-color: var(--border);
@@ -379,13 +352,6 @@ tooltip {
     
   }
   
-  * {--in-content-page-background: #17171A !important}
+  :root[dialogroot], :host(dialog) {--in-content-page-background: #17171A !important}
   
 }
-
-
-
-/*   Make borders not bright for third-party themes   
-* {--panel-border-color: color-mix(in srgb, var(--arrowpanel-border-color) 30%, var(--arrowpanel-background)) !important}
-#urlbar[open] > #urlbar-background {border-color: color-mix(in srgb, var(--arrowpanel-border-color) 30%, var(--lwt-toolbar-field-focus)) !important}
-*/
