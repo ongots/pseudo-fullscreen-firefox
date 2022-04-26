@@ -1,12 +1,20 @@
+/*   Scrollbar   */
 * {scrollbar-width: thin; 
-   scrollbar-color: #80808038 transparent !important}
+   scrollbar-color: #5556 transparent !important}
+
+@-moz-document domain("reddit.com") {
+  @media (prefers-color-scheme:dark),  (-moz-content-prefers-color-scheme:dark)  {:root {scrollbar-color: #5556 #030303 !important}}
+  @media (prefers-color-scheme:light), (-moz-content-prefers-color-scheme:light) {:root {scrollbar-color: #5556 #dae0e6 !important}}
+}
 
 
 
+
+/*   Newtab   */
 @-moz-document url("about:home"), url("about:newtab") {
   body {
     background-image: url(bg.jpg), url(bg.png);
     background-size: cover}
   
-  .personalize-button {display: none !important}
+  .personalize-button, .customize-menu {display: none !important}
 }
