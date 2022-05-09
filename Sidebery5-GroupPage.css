@@ -1,0 +1,7 @@
+#root[data-color-scheme=dark]{
+	--frame-bg: #141414}
+
+body[data-layout="grid"] .bg,
+body[data-layout="grid"] .tab[data-discarded=true] .bg,
+body[data-layout=grid] .tab[data-discarded=true]:hover .bg{
+	opacity:.4}
