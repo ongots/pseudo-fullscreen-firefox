@@ -54,7 +54,8 @@
   width: 320px !important;
   height: 100%}
 
-.sidebar-splitter {display:none}
+
+.sidebar-splitter {--sidebar-border-color: var(--chrome-content-separator-color)}
 
 #sidebar-header {display:none}
 
@@ -99,20 +100,14 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -5px -3p
 
 * {
   --arrowpanel-border-radius: 4px;
-  --arrowpanel-menuitem-margin: 0 1px;
+  --arrowpanel-menuitem-margin: 0;
   --arrowpanel-menuitem-padding: 7px 14px !important;
   --panel-subview-body-padding: 5px 0;
   --panel-separator-margin-vertical: 2px !important;
   --menuitem-disabled-hover-background-color: none;
 }
 
-menuitem[_moz-menuactive][disabled] {background-color: transparent !important} 
-
-#context-navigation > .menuitem-iconic:last-child,
-#context-navigation > .menuitem-iconic:first-child,
-menupopup > menuitem,
-menupopup > menu
-  {margin: 0 1px}
+menuitem[_moz-menuactive][disabled] {background-color: transparent !important}
 
 menu,
 menuitem,
@@ -294,7 +289,7 @@ tooltip {
 
 * {
   scrollbar-width: thin; 
-  scrollbar-color: #80808040 transparent !important;
+  scrollbar-color: #5556 transparent !important;
 
   
   --button-bgcolor: color-mix(in srgb, currentColor 5%, transparent) !important;
@@ -318,9 +313,9 @@ tooltip {
       --toolbarbutton-active-background: var(--toolbarbutton-hover-background) !important;
   
   
-  --panel-separator-color: color-mix(in srgb, currentColor 8%, transparent) !important;
+  --panel-separator-color: color-mix(in srgb, currentColor 7%, transparent) !important;
       --menu-border-color: var(--panel-separator-color);
-  --autocomplete-popup-separator-color: color-mix(in srgb, currentColor 8%, transparent) !important;
+  --autocomplete-popup-separator-color: color-mix(in srgb, currentColor 7%, transparent) !important;
 }
 
 
@@ -333,13 +328,11 @@ tooltip {
     
     --toolbar-color:                  hsl(252, 4%, 95%);  --toolbarbutton-icon-fill: currentColor;  --toolbar-field-focus-color: currentColor;  --autocomplete-popup-highlight-color: currentColor;  --arrowpanel-color: var(--toolbar-color);
     --toolbar-bgcolor:                hsl(252, 4%, 6%);  --lwt-accent-color: var(--toolbar-bgcolor);
-    --arrowpanel-background:          hsl(252, 4%, 8%);  --toolbar-field-focus-background-color: var(--arrowpanel-background);
-    --arrowpanel-border-color:        #00343E !important;
+    --arrowpanel-background:          hsl(252, 4%, 9%);  --toolbar-field-focus-background-color: var(--arrowpanel-background);
+    --arrowpanel-border-color:        black !important;
     --lwt-brighttext-url-color:       #007893 !important;
     --autocomplete-popup-highlight-background: var(--button-hover-bgcolor) !important;
   }
-  
-  #PlacesToolbarItems toolbarbutton.bookmark-item {box-shadow: inset 0 4px 0 var(--lwt-accent-color), inset 0 -4px 0 var(--lwt-accent-color)}
   
   ::-moz-selection {background-color: #0B3C48 !important}
 
