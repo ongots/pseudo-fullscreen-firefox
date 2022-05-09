@@ -1,0 +1,106 @@
+	/*   COLORS   */
+#root.root{
+	--selected-border: none;
+	--nav-btn-active-shadow: none;
+	--clicked-bg: var(--hover-bg);
+}
+
+#root[data-color-scheme=dark]{
+	--toolbar-bg:        hsl(252, 4%, 10%);
+	--frame-bg:          hsl(252, 4%, 6%);
+	--hover-bg:          hsl(252, 4%, 12%);
+	--active-bg:         hsl(252, 4%, 4%);
+	--tabs-activated-bg: hsl(252, 4%, 18%);
+	--selected-bg:       hsl(252, 4%, 22%);
+	--ctx-menu-bg:       hsl(252, 4%, 9%);
+	--popup-bg:          hsl(252, 4%, 9%);
+
+	--tabs-activated-shadow: 0 1px 4px -1px rgba(0,0,0,0.282);
+	--ctx-menu-shadow: 0 0 0 1px var(--ff-popup-border,black), 0 1px 16px 0 rgba(0,0,0,.7);
+}
+
+#root[data-color-scheme=light]{
+	--frame-bg: #fcfcfd;
+}
+
+
+
+
+	/*   NAVBAR   */
+#root.root{
+	--nav-btn-width: 34px;
+	--nav-btn-height: 32px;
+}
+
+.NavigationBar .nav-item:not([data-active="true"]) .icon{
+	opacity:.65}
+
+.NavigationBar .nav-item .len{
+	top:-2px;
+	right:0}
+
+#root.root[data-color-scheme=dark] .NavigationBar{
+	box-shadow:0 0 0 var(--ff-border-width, 1px) var(--ff-border, #0C0C0D)}
+
+
+
+
+	/*   TABS   */
+#root.root[data-color-scheme=dark] .ScrollBox > .top-shadow{
+	box-shadow: 0  1px 12px 0 #000}
+
+#root.root[data-color-scheme=dark] .ScrollBox > .bottom-shadow{
+	box-shadow: 0 -1px 12px 0 #000}
+
+.TabsPanel .scrollable{
+	padding:0}
+
+.Tab .body:before{
+	left:0;
+	width:calc(100% - 1px);
+	height:calc(100% - 1px);
+	border-radius:0}
+
+.Tab[data-pin="false"] .ctx{
+	top:2px;
+	height:calc(100% - 3px);
+	right:1px;
+	width:var(--scroll-progress-height);
+	border-radius:0;
+	opacity:.8}
+
+
+
+
+	/*   MENU   */
+.CtxMenu .box{
+	min-width:180px;
+	padding:0}
+
+.CtxMenu .inline-group{
+	padding:0}
+
+.CtxMenu .inline-group:not(:last-of-type){
+	padding-bottom:2px;
+	box-shadow:inset 0 -1px 0 0 var(--ctx-menu-separator)}
+
+.CtxMenu .icon-opt{
+	min-width:33%}
+
+.CtxMenu .icon-opt:before,
+.CtxMenu .opt:before{
+	border-radius:0;
+	opacity:.1}
+
+.CtxMenu .list-group{
+	padding:2px 0 3px 0}
+
+.CtxMenu .opt{
+	padding:5px 10px}
+
+.CtxMenu .opt[data-separator=true]:after{
+	left:6px;
+	width:calc(100% - 12px)}
+
+.CtxMenu .sub-menu .scrollable{
+	padding:3px 0}
