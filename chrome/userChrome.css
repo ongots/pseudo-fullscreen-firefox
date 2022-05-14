@@ -69,6 +69,8 @@
 .bookmarks-actions-menuseparator
   {display:none}
 
+#PlacesToolbarItems menu.menu-iconic > menupopup {margin: -8px !important}
+
 #PlacesToolbarItems toolbarbutton.bookmark-item {
   margin: 0 !important;
   padding-inline: 6px !important;
@@ -221,7 +223,7 @@ panel {
 
 #downloads-indicator-finish-image {--anim-steps: calc(var(--anim-frames) + 200 !important)}
 
-#downloadsPanel-mainView {padding: 5px 1px !important}
+#downloadsPanel-mainView {padding: 5px 0 !important}
 
 .downloadMainArea {padding-inline-start: 10px !important}
 
