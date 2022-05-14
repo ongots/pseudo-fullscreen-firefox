@@ -8,11 +8,12 @@
 #root[data-color-scheme=dark]{
 	--toolbar-bg:        hsl(252, 4%, 10%);
 	--frame-bg:          hsl(252, 4%, 6%);
-	--hover-bg:          hsl(252, 4%, 12%);
+	--hover-bg:         hsla(252, 4%, 100%, 8%);
 	--active-bg:         hsl(252, 4%, 4%);
 	--tabs-activated-bg: hsl(252, 4%, 18%);
-	--selected-bg:       hsl(252, 4%, 22%);
+	--selected-bg:       hsl(252, 4%, 20%);
 	--ctx-menu-bg:       hsl(252, 4%, 9%);
+	--ctx-menu-separator:hsl(252, 4%, 15%);
 	--popup-bg:          hsl(252, 4%, 9%);
 
 	--tabs-activated-shadow: 0 1px 4px -1px rgba(0,0,0,0.282);
@@ -55,13 +56,15 @@
 .TabsPanel .scrollable{
 	padding:0}
 
-.Tab .body:before{
+
+	/*   not round TABS [experiment]  */
+!.Tab .body:before{
 	left:0;
 	width:calc(100% - 1px);
 	height:calc(100% - 1px);
 	border-radius:0}
 
-.Tab[data-pin="false"] .ctx{
+!.Tab[data-pin="false"] .ctx{
 	top:2px;
 	height:calc(100% - 3px);
 	right:1px;
@@ -97,10 +100,6 @@
 
 .CtxMenu .opt{
 	padding:5px 10px}
-
-.CtxMenu .opt[data-separator=true]:after{
-	left:6px;
-	width:calc(100% - 12px)}
 
 .CtxMenu .sub-menu .scrollable{
 	padding:3px 0}
