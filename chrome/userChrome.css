@@ -14,8 +14,8 @@
 
 [sizemode=maximized]                    #nav-bar:not([customizing]) {margin-bottom: -39px}
 [sizemode=normal]                       #nav-bar:not([customizing]) {margin-bottom: -30px}
-[sizemode=maximized][uidensity=compact] #nav-bar:not([customizing]) {margin-bottom: -35px}
-[sizemode=normal][uidensity=compact]    #nav-bar:not([customizing]) {margin-bottom: -26px}
+[sizemode=maximized][uidensity=compact] #nav-bar:not([customizing]) {margin-bottom: -33px}
+[sizemode=normal][uidensity=compact]    #nav-bar:not([customizing]) {margin-bottom: -25px}
 
 #nav-bar:hover,
 #nav-bar:focus-within,
@@ -236,8 +236,10 @@ panel {
   background-color: transparent !important;
   box-shadow: none !important;
   color: var(--toolbar-color) !important;
-  margin: -11px 0 0 !important;
-  margin-inline-end: -11px !important}
+  margin: -11px -11px 0 !important}
+
+[uidensity=compact] .toolbarbutton-badge {
+  margin: -10px -10px 0 !important}
 
 
 
