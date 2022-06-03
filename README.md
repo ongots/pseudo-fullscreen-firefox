@@ -9,12 +9,6 @@
 4. Copy the chrome folder here
 5. Restart Firefox
 
-⚠️ For Firefox <101 [windows] add to userChrome.css:
-```
-/* Important! Remove when using Firefox 101 and newer */
-@media(-moz-windows-default-theme) {[sizemode="maximized"] #nav-bar {margin-top: 8px}}
-```
-
 - Drag Bookmarks Toolbar Items to the left of the address bar
 - To set the wallpaper in a new tab, place a .jpg or .png image in the Chrome folder and rename it to "bg". Restart Firefox
 
