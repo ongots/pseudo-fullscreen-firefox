@@ -274,12 +274,6 @@ panel {
 
 
 /*   Tooltip   */
-tooltip {
-  appearance: none;
-  background-color: #fff;
-  border: 1px solid #bbb;
-  color: #000}
-
 @media (prefers-color-scheme:dark), (-moz-content-prefers-color-scheme:dark) {
   [lwthemetextcolor="dark"][lwt-popup-brighttext="true"] tooltip,
   #main-window:not([lwthemetextcolor="dark"]) tooltip {
@@ -296,13 +290,13 @@ tooltip {
   scrollbar-color: #5556 transparent !important;
 
   
-  --button-bgcolor: color-mix(in srgb, currentColor 5%, transparent) !important;
+  --button-bgcolor: color-mix(in srgb, currentColor 6%, transparent) !important;
       --input-bgcolor: var(--button-bgcolor);
       --urlbar-box-bgcolor: var(--button-bgcolor);
       --urlbar-box-focus-bgcolor: var(--button-bgcolor);
   
   
-  --button-hover-bgcolor: color-mix(in srgb, currentColor 8%, transparent) !important;
+  --button-hover-bgcolor: color-mix(in srgb, currentColor 9%, transparent) !important;
       --button-active-bgcolor: var(--button-hover-bgcolor) !important;
       --urlbar-box-hover-bgcolor: var(--button-hover-bgcolor);
       --urlbar-box-active-bgcolor: var(--button-hover-bgcolor);
@@ -339,6 +333,7 @@ tooltip {
   }
   
   ::-moz-selection {background-color: #0B3C48 !important}
+  .titleIcon {background-color: transparent !important}
 
   :root[dialogroot], :host(dialog) {--in-content-page-background: hsl(252, 4%, 8%) !important}
 }
