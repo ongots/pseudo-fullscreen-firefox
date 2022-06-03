@@ -36,6 +36,9 @@
 .NavigationBar .nav-item:not([data-active="true"]) .icon{
 	opacity:.65}
 
+#root.root[data-color-scheme=dark] .NavigationBar .nav-item[data-active="true"]:not(:hover){
+	box-shadow: inset 0 0 0 1px black}
+
 .NavigationBar .nav-item .len{
 	top:-2px;
 	right:0}
@@ -47,6 +50,10 @@
 
 
 	/*   TABS   */
+.PinnedTabsBar::after {
+	bottom: 6px;
+	opacity: .12}
+
 #root.root[data-color-scheme=dark] .ScrollBox > .top-shadow{
 	box-shadow: 0  1px 12px 0 #000}
 
@@ -57,22 +64,6 @@
 	padding:0}
 
 
-	/*   not round TABS [experiment]  */
-!.Tab .body:before{
-	left:0;
-	width:calc(100% - 1px);
-	height:calc(100% - 1px);
-	border-radius:0}
-
-!.Tab[data-pin="false"] .ctx{
-	top:2px;
-	height:calc(100% - 3px);
-	right:1px;
-	width:var(--scroll-progress-height);
-	border-radius:0;
-	opacity:.8}
-
-
 
 
 	/*   MENU   */
@@ -80,12 +71,12 @@
 	min-width:180px;
 	padding:0}
 
-.CtxMenu .inline-group{
-	padding:0}
-
 .CtxMenu .inline-group:not(:last-of-type){
-	padding-bottom:2px;
+	padding: 1px 0 2px;
 	box-shadow:inset 0 -1px 0 0 var(--ctx-menu-separator)}
+
+.CtxMenu .inline-group:first-of-type{
+	padding: 0 0 2px}
 
 .CtxMenu .icon-opt{
 	min-width:33%}
@@ -96,7 +87,7 @@
 	opacity:.1}
 
 .CtxMenu .list-group{
-	padding:2px 0 3px 0}
+	padding:1px 0 3px 0}
 
 .CtxMenu .opt{
 	padding:5px 10px}
