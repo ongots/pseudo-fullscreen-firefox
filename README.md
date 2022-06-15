@@ -42,7 +42,9 @@ or
 `general.smoothScroll.mouseWheel.durationMaxMS` `380`
 - Disable add-on recommendations
 `extensions.htmlaboutaddons.recommendations.enabled` `false`
-- Not open download panel
+- Do not open download panel
 `browser.download.alwaysOpenPanel` `false`
 - Restore pinned tabs on demand
 `browser.sessionstore.restore_pinned_tabs_on_demand` `true`
+- [FF 103] OS text scaling settings should only affect text scaling
+`browser.display.os-zoom-behavior` `2`
