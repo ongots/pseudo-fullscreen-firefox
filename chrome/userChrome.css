@@ -72,7 +72,7 @@
 
 #PlacesToolbarItems menu.menu-iconic > menupopup {margin: -8px !important}
 
-toolbarbutton.bookmark-item {
+#PlacesToolbarItems toolbarbutton.bookmark-item {
   margin: 0 !important;
   padding-inline: 6px !important;
   border-radius: 0 !important}
@@ -109,12 +109,13 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -5px -3p
 * {
   --arrowpanel-border-radius: 4px;
   --arrowpanel-menuitem-margin: 0;
-  --arrowpanel-menuitem-padding: 6px 13px !important;
+  --arrowpanel-menuitem-padding: 7px 13px !important;
   --panel-subview-body-padding: 4px 0;
   --panel-separator-margin-vertical: 2px !important;
   --menuitem-disabled-hover-background-color: none;
 }
-.panel-subview-footer-button {margin-bottom: 4px !important}
+
+#appMenu-popup .panel-subview-footer-button {margin-bottom: 4px !important}
 
 menuitem[_moz-menuactive][disabled] {background-color: transparent !important}
 
@@ -137,7 +138,7 @@ menupopup[needsgutter] menuitem:not([checked="true"],[icon],.menuitem-iconic) {
 
 #appMenu-popup panelview,
 #PanelUI-fxa {
-  width: 21em !important}
+  width: 21.8em !important}
 
 #contentAreaContextMenu {max-width: 27em !important}
 
@@ -202,6 +203,8 @@ panel {
 .urlbarView-title-separator
   {display:none !important}
 
+.urlbarView-row:not([dynamicType="quickactions"]) {margin-inline: 0 !important}
+
 .urlbarView-url {padding-left: 5px}
 
 .urlbarView-row[label="Firefox Suggest"]::before {display: none !important}
@@ -239,7 +242,7 @@ panel {
 
 #downloads-indicator-finish-image {--anim-steps: calc(var(--anim-frames) + 200 !important)}
 
-#downloadsPanel-mainView {padding: 5px 0 !important}
+#downloadsPanel-mainView {padding: 4px 0 !important}
 
 .downloadMainArea {padding-inline-start: 10px !important}
 
