@@ -16,7 +16,7 @@ ytd-guide-section-renderer.style-scope:nth-child(4),
     {display:none}
 
 
-/* Сolor sheme */
+/* Color scheme */
 html:not(.style-scope)[dark] {
     --yt-spec-brand-background-primary: #181818f8 !important; 
     --yt-spec-brand-background-solid:   #1a1a1a !important;
@@ -48,7 +48,7 @@ html:not(.style-scope)[dark] {
     background-color: #1e1e1e}
 
 
-/* watching indicator */
+/* Watching indicator */
 #progress.ytd-thumbnail-overlay-resume-playback-renderer {background-color: #f00d}
 ytd-thumbnail-overlay-resume-playback-renderer {background-color: transparent}
 
@@ -80,6 +80,11 @@ ytd-multi-page-menu-renderer,
 .ytp-ce-element,
 .tp-yt-app-drawer::after
     {display:none !important}
+
+
+ytd-thumbnail a.ytd-thumbnail,
+ytd-thumbnail::before
+	{border-radius: 0 !important}
 }
 
 @-moz-document url-prefix("https://www.youtube.com/feed/subscriptions") {
