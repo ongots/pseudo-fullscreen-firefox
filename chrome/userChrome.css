@@ -1,3 +1,4 @@
+/*   Disable Tabs   */
 #titlebar, #tabContextMenu {display:none}
 
 
@@ -71,10 +72,15 @@
 
 #PlacesToolbarItems menu.menu-iconic > menupopup {margin: -8px !important}
 
-#PlacesToolbarItems toolbarbutton.bookmark-item {
+toolbarbutton.bookmark-item {
   margin: 0 !important;
   padding-inline: 6px !important;
   border-radius: 0 !important}
+
+#PlacesToolbarItems .toolbarbutton-text {
+  font-size: 14px;
+  font-weight: 100;
+  margin-bottom: 1px}
 
 toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -5px -3px !important}
 
@@ -90,7 +96,7 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -5px -3p
 /*   Menu   */
 :not(#ContentSelectDropdown) > menupopup > menuitem,
 :not(#ContentSelectDropdown) > menupopup > menu {
-  padding-block: 0.4em !important}
+  padding-block: 6px !important}
 
 #appMenu-new-tab-button2,
 #appMenu-fullscreen-button2,
@@ -103,11 +109,12 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -5px -3p
 * {
   --arrowpanel-border-radius: 4px;
   --arrowpanel-menuitem-margin: 0;
-  --arrowpanel-menuitem-padding: 7px 14px !important;
-  --panel-subview-body-padding: 5px 0;
+  --arrowpanel-menuitem-padding: 6px 13px !important;
+  --panel-subview-body-padding: 4px 0;
   --panel-separator-margin-vertical: 2px !important;
   --menuitem-disabled-hover-background-color: none;
 }
+.panel-subview-footer-button {margin-bottom: 4px !important}
 
 menuitem[_moz-menuactive][disabled] {background-color: transparent !important}
 
@@ -119,9 +126,10 @@ menuitem,
 
 .addon-banner-item,
 .panel-banner-item {
-  margin: 0 5px 4px !important}
+  margin: 0 5px 4px !important;
+  padding-top: 7px !important}
 
-#appMenu-fxa-status2:not([fxastatus]) {padding-block: 4px !important}
+#appMenu-fxa-status2:not([fxastatus]) {padding-block: 6px 10px !important}
 
 menupopup[needsgutter] menu:not([icon],.menu-iconic),
 menupopup[needsgutter] menuitem:not([checked="true"],[icon],.menuitem-iconic) {
@@ -129,7 +137,7 @@ menupopup[needsgutter] menuitem:not([checked="true"],[icon],.menuitem-iconic) {
 
 #appMenu-popup panelview,
 #PanelUI-fxa {
-  width: 22em !important}
+  width: 21em !important}
 
 #contentAreaContextMenu {max-width: 27em !important}
 
@@ -221,6 +229,14 @@ panel {
   z-index: 1;
   position: absolute}
 
+#downloads-button[notification] > stack {
+  background-color: #fff8;
+  border-radius: 30px !important}
+
+@media (prefers-color-scheme:dark) {
+  #downloads-button[notification] > stack {background-color: #0008}
+}
+
 #downloads-indicator-finish-image {--anim-steps: calc(var(--anim-frames) + 200 !important)}
 
 #downloadsPanel-mainView {padding: 5px 0 !important}
@@ -228,6 +244,7 @@ panel {
 .downloadMainArea {padding-inline-start: 10px !important}
 
 #downloadsListBox > richlistitem {border-radius: 0 !important}
+
 
 
 
@@ -244,11 +261,11 @@ panel {
 
 
 
+/*   Dialog   */
+.dialogBox {border-radius: 4px !important}
+
 #window-modal-dialog {--chrome-offset: 20px !important}
 
-
-
-/*   Print   */
 .printDialogBox {--box-top-px: none !important}
 
 
@@ -317,6 +334,7 @@ panel {
 }
 
 
+
 /*   Auto theme in dark mode  */
 @media (prefers-color-scheme:dark) {
   [lwt-default-theme-in-dark-mode] *,
@@ -332,11 +350,22 @@ panel {
     --autocomplete-popup-highlight-background: var(--button-hover-bgcolor) !important;
   }
   
-  ::-moz-selection {background-color: #0B3C48 !important}
+  ::selection {background-color: #0B3C48 !important}
+                 * {caret-color: #FF3641}
+
   .titleIcon {background-color: transparent !important}
 
   :root[dialogroot], :host(dialog) {--in-content-page-background: hsl(252, 4%, 8%) !important}
+  
+  dialog {
+    border: 1px solid black;
+    --in-content-box-background: hsl(252, 4%, 14%) !important;
+    --in-content-button-background: hsl(252, 4%, 14%) !important;
+    --in-content-button-background-hover: hsl(252, 4%, 20%) !important;
+    --in-content-button-background-active: hsl(252, 4%, 20%) !important;
+  }
 }
+
 
 
 /* Highlighting menu items with color */
