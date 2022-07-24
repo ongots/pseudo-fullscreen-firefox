@@ -14,7 +14,7 @@
 
 
 ### Install Sidebery style
-1. [Install Sidebery](https://addons.mozilla.org/firefox/addon/sidebery/)
+1. Install [Sidebery](https://addons.mozilla.org/firefox/addon/sidebery/) or [Sidebery v5 beta](https://github.com/mbnuqw/sidebery/releases) (recommended)
 2. Copy the code from Sidebery-Sidebar.css to Sidebery / Settings / Styles editor / Sidebar
 3. Copy the code from Sidebery-GroupPage.css to Sidebery / Settings / Styles editor / Group page
 
