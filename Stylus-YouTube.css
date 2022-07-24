@@ -82,8 +82,8 @@ ytd-multi-page-menu-renderer,
     {display:none !important}
 
 
-ytd-thumbnail a.ytd-thumbnail,
-ytd-thumbnail::before
+.ytd-playlist-thumbnail,
+.ytd-thumbnail
 	{border-radius: 0 !important}
 }
 
@@ -116,4 +116,6 @@ ytd-toggle-button-renderer.style-scope:nth-child(2) > a:nth-child(1) > yt-format
     {display:none !important}
 
 .ytp-chrome-top, .ytp-chrome-bottom {text-shadow: none}
+
+ytd-macro-markers-list-item-renderer[rounded] #thumbnail.ytd-macro-markers-list-item-renderer {border-radius: 1px}
 }
