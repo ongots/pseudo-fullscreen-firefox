@@ -10,18 +10,27 @@
 	--frame-bg:          hsl(252, 4%, 6%);
 	--hover-bg:         hsla(252, 4%, 100%, 8%);
 	--active-bg:        hsla(252, 4%, 100%, 8%);
-	--tabs-activated-bg: hsl(252, 4%, 18%);
+	--tabs-activated-bg: /*hsl(252, 4%, 18%)*/ hsl(240, 38%, 18%);
+	--tabs-activated-fg: hsl(240, 79%, 80%);
 	--selected-bg:       hsl(252, 4%, 20%);
 	--ctx-menu-bg:       hsl(252, 4%, 9%);
 	--ctx-menu-separator:hsl(252, 4%, 15%);
 	--popup-bg:          hsl(252, 4%, 9%);
+	--ff-border:         transparent;
+	--search-border:     #333;
 
 	--tabs-activated-shadow: 0 1px 4px -1px rgba(0,0,0,0.282);
 	--ctx-menu-shadow: 0 0 0 1px var(--ff-popup-border,black), 0 1px 16px 0 rgba(0,0,0,.7);
 }
 
+#root[data-color-scheme=dark] .Tab[data-pin="true"]{
+	--tabs-activated-bg: /*hsl(252, 4%, 22%)*/ hsl(240, 40%, 22%)}
+
+
 #root[data-color-scheme=light]{
-	--frame-bg: #fcfcfd;
+	--frame-bg:          #F9F9FB;
+	--tabs-activated-bg: #E2E2E3;
+	--tabs-activated-shadow: none;
 }
 
 
@@ -39,9 +48,6 @@
 .NavigationBar .nav-item .len{
 	top:-2px;
 	right:0}
-
-#root.root[data-color-scheme=dark] .NavigationBar{
-	box-shadow:0 0 0 var(--ff-border-width, 1px) var(--ff-border, #0C0C0D)}
 
 
 
@@ -62,8 +68,12 @@
 
 	/*   MENU   */
 .CtxMenu .box{
+	border-radius: 4px;
 	min-width:180px;
 	padding:0}
+
+.CtxMenu .sub-menu{
+	border-radius: 4px}
 
 .CtxMenu .inline-group:not(:last-of-type){
 	padding: 1px 0 2px;
@@ -85,6 +95,9 @@
 
 .CtxMenu .opt{
 	padding:5px 10px}
+
+.CtxMenu .opt[data-separator=true]{
+	padding:1px 0}
 
 .CtxMenu .sub-menu .scrollable{
 	padding:3px 0}
