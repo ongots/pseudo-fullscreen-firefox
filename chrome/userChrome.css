@@ -82,8 +82,7 @@
   font-weight: 100;
   margin-bottom: 1px !important}
 
-[uidensity=compact] #PlacesToolbarItems .toolbarbutton-text {
-  margin-bottom: 2px !important}
+[uidensity=compact] #PlacesToolbarItems .toolbarbutton-text {margin-bottom: 2px !important}
 
 toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -5px -3px !important}
 
@@ -93,18 +92,9 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -5px -3p
 
 .menupopup-arrowscrollbox {border: 1px solid var(--panel-border-color) !important}
 
-#PlacesToolbar menupopup[placespopup="true"] menuseparator::before {
-  height: 1px;
-  background-color: var(--panel-separator-color) !important;
-  border: 1px solid var(--arrowpanel-background) !important}
+#PlacesToolbar menupopup[placespopup="true"] menuseparator::before {display: none}
 
-#PlacesToolbar menupopup[placespopup="true"] menuseparator {
-  padding-top: 0 !important;
-  padding-bottom: var(--panel-separator-margin-vertical) !important}
-
-#PlacesToolbar menupopup menuseparator {
-  margin: 0 .5em !important;
-  height: 3px}
+#PlacesToolbar menupopup menuseparator {height: 1px}
 
 
 
@@ -139,7 +129,15 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -5px -3p
 
 .panel-subview-footer-button {margin-bottom: 3px !important}
 
-menuitem[_moz-menuactive][disabled] {background-color: transparent !important}
+#context-navigation > .menuitem-iconic[_moz-menuactive] > .menu-iconic-left > .menu-iconic-icon,
+menu[_moz-menuactive]:not([disabled]):not([customoptionstyling]),
+menuitem[_moz-menuactive]:not([disabled]):not([customoptionstyling]) {
+  background-color: var(--panel-item-hover-bgcolor) !important}
+
+#context-navigation > .menuitem-iconic[_moz-menuactive] > .menu-iconic-left > .menu-iconic-icon,
+menuitem[_moz-menuactive][disabled] *,
+menuitem[_moz-menuactive][disabled] {
+  background-color: transparent !important}
 
 menu,
 menuitem,
@@ -186,8 +184,9 @@ menupopup[needsgutter] menuitem:not([checked="true"],[icon],.menuitem-iconic) {
   --panel-border-color: var(--arrowpanel-border-color) !important;
   --panel-border-radius: 4px !important;
   --panel-padding: 3px 0 !important;
-  !--menuitem-hover-background-color: var(--panel-item-hover-bgcolor) !important; /*удалить?*/
 }
+
+menuseparator {border-top: 1px solid var(--panel-separator-color) !important}
 
 menupopup menuseparator {margin: 1px .5em !important}
 
@@ -234,6 +233,7 @@ panel {
   margin-block: -4px !important;
   padding: 6.25px 8px !important}
 
+.urlbarView-row[label="Firefox Suggest"]::before,
 .urlbarView-row:not([type="switchtab"]) .urlbarView-action,
 .urlbarView-title-,
 .search-one-offs > hbox,
@@ -243,8 +243,6 @@ panel {
 .urlbarView-row:not([dynamicType="quickactions"]) {margin-inline: 0 !important}
 
 .urlbarView-url {padding-left: 5px}
-
-.urlbarView-row[label="Firefox Suggest"]::before {display: none !important}
 
 .urlbarView-row[label] {margin-block-start: 0 !important}
 
@@ -258,6 +256,12 @@ panel {
 #main-window:not([uidensity=compact]) #urlbar-zoom-button {margin-block: 3px !important}
 
 #urlbar[breakout][breakout-extend][breakout-extend-animate] > #urlbar-background {animation-duration: 0ms !important}
+
+#editBookmarkPanel {max-width: 500px}
+
+#editBMPanel_folderTree * {background-color: var(--panel-background) !important}
+
+richlistbox{background-color: transparent !important}
 
 
 
@@ -350,7 +354,6 @@ panel {
 
   
   --button-bgcolor: color-mix(in srgb, currentColor 6%, transparent) !important;
-      --input-bgcolor: var(--button-bgcolor);
       --urlbar-box-bgcolor: var(--button-bgcolor);
       --urlbar-box-focus-bgcolor: var(--button-bgcolor);
   
@@ -365,6 +368,7 @@ panel {
       --panel-item-active-bgcolor: var(--panel-item-hover-bgcolor) !important;
       --autocomplete-popup-hover-background: var(--panel-item-hover-bgcolor) !important;
       --menuitem-hover-background-color: var(--panel-item-hover-bgcolor) !important;
+  
   
   --toolbarbutton-hover-background: color-mix(in srgb, currentColor 8%, transparent) !important;
       --toolbarbutton-active-background: var(--toolbarbutton-hover-background) !important;
@@ -393,16 +397,15 @@ panel {
     --chrome-content-separator-color: black !important;
     --lwt-brighttext-url-color:       #007893 !important;
     --autocomplete-popup-highlight-background: var(--button-hover-bgcolor) !important;
-    --urlbar-popup-url-color: hsl(225, 99%, 70%) !important;
+    --urlbar-popup-url-color:         hsl(225, 99%, 70%) !important;
+    
   }
-  
-  ::selection {
-    background-color: /*#0B3C48*/ hsl(240, 40%, 22%) !important;
-    color: hsl(240, 99%, 83%) !important}
   
   * {caret-color: #FF3641}
 
   .titleIcon {background-color: transparent !important}
+  
+  .webextension-browser-action {filter: grayscale(20%)}
 
   :root[dialogroot], :host(dialog) {--in-content-page-background: hsl(252, 4%, 8%) !important}
   
@@ -413,26 +416,26 @@ panel {
     --in-content-button-background-hover: hsl(252, 4%, 20%) !important;
     --in-content-button-background-active: hsl(252, 4%, 20%) !important;
   }
+  
+  window#bookmarkproperties menupopup#textbox-contextmenu.textbox-contextmenu {
+    --panel-color: hsl(252, 4%, 95%);
+    --panel-background: hsl(252, 4%, 9%) !important;
+    --panel-border-color: black !important;
+  }
     
-  menupopup#contentAreaContextMenu,
-  .menupopup-arrowscrollbox {
-	  --panel-color: hsl(252, 4%, 95%);
-	  --panel-border-color: black !important;
-    --panel-background: hsl(252, 4%, 9%) !important}
+  ::selection {
+    background-color: hsl(240, 40%, 22%) !important;
+    color: hsl(240, 99%, 83%) !important}
 
-  .webextension-browser-action {filter: grayscale(20%)}
-  
-  
   
   /*   Highlighting menu items with color   */
-  menuitem[data-l10n-id="text-action-copy"]:not([disabled]),
-  #context-copylink:not([disabled]),
-  #context-copy:not([disabled]) {
+  menuitem[data-l10n-id="text-action-copy"]:not([disabled]) label.menu-text,
+  menuitem#context-copylink:not([disabled]) label.menu-text,
+  menuitem#context-copy:not([disabled]) label.menu-text {
     color: hsl(235, 99%, 73%) !important}
   
-  menuitem[data-l10n-id="text-action-copy"]:not([disabled]):hover,
-  #context-copylink:not([disabled]):hover,
-  #context-copy:not([disabled]):hover {
-    background-color: #222224 !important}
+  menuitem#context-saveimage:not([disabled]) label.menu-text,
+  menuitem#context-savevideo label.menu-text {
+    color: #0C96AC !important}
   
 }
