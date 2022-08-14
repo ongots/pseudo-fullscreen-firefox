@@ -75,7 +75,6 @@ ytd-multi-page-menu-renderer,
 .branding-img-container,
 .ytp-cards-button,
 .ytp-cards-teaser,
-.ytp-volume-area,
 .ytp-paid-content-overlay,
 .ytp-ce-element,
 .tp-yt-app-drawer::after
@@ -103,11 +102,12 @@ ytd-section-list-renderer {--yt-spec-10-percent-layer: 0}
 
 
 /* Player */
-:root {--ytd-masthead-height: 0; scrollbar-width: none}
+#page-manager {--ytd-masthead-height: 0; scrollbar-width: none}
 
 #player-theater-container {max-height: 100% !important}
 
 ytd-topbar-logo-renderer,
+.ytp-volume-area,
 .ytp-fullscreen-button,
 .ytp-size-button,
 .ytp-miniplayer-button,
