@@ -3,6 +3,7 @@
 	--selected-border: none;
 	--nav-btn-active-shadow: none;
 	--clicked-bg: var(--hover-bg);
+	--ff-border: transparent;
 }
 
 #root[data-color-scheme=dark]{
@@ -16,7 +17,6 @@
 	--ctx-menu-bg:       hsl(252, 4%, 9%);
 	--ctx-menu-separator:hsl(252, 4%, 15%);
 	--popup-bg:          hsl(252, 4%, 9%);
-	--ff-border:         transparent;
 	--search-border:     #333;
 
 	--tabs-activated-shadow: 0 1px 4px -1px rgba(0,0,0,0.282);
@@ -38,7 +38,7 @@
 
 	/*   NAVBAR   */
 #root.root{
-	--nav-btn-width: 34px;
+	--nav-btn-width: 32px;
 	--nav-btn-height: 32px;
 }
 
