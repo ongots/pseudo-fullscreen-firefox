@@ -4,17 +4,15 @@
 1. In about:config enable:
 - `toolkit.legacyUserProfileCustomizations.stylesheets`
 - `layout.css.color-mix.enabled`
-2. Open about:support
-3. Click on "Profile Folder" -> "Open Folder"
-4. Copy the chrome folder here
-5. Restart Firefox
+2. Copy 'chrome' folder in 'Profile Folder' (Menu > Help > Troubleshooting Information > Profile Folder)
+3. Restart Firefox
 
 - Drag Bookmarks Toolbar Items to the left of the address bar
 - To set the wallpaper in a new tab, place a .jpg or .png image in the Chrome folder and rename it to "bg". Restart Firefox
 
 
 ### Install Sidebery style
-1. Install [Sidebery](https://addons.mozilla.org/firefox/addon/sidebery/) or [Sidebery v5 beta](https://github.com/mbnuqw/sidebery/releases) (recommended)
+1. [Install Sidebery v5](https://github.com/mbnuqw/sidebery/releases)
 2. Copy the code from Sidebery-Sidebar.css to Sidebery / Settings / Styles editor / Sidebar
 3. Copy the code from Sidebery-GroupPage.css to Sidebery / Settings / Styles editor / Group page
 
@@ -27,10 +25,7 @@
 5. Copy the code here from the Stylus-YouTube.css file and click replace style
 6. Save
 
-or
-
-- Copy the code from Stylus-YouTube.css to /chrome/userContent.css
-
+- To open the header, move the cursor to the top edge, but not all the way
 
 
 ### Useful settings about:config
@@ -46,7 +41,7 @@ or
 `browser.download.alwaysOpenPanel` `false`
 - Restore pinned tabs on demand
 `browser.sessionstore.restore_pinned_tabs_on_demand` `true`
-- [FF 103] OS text scaling settings should only affect text scaling
+- OS text scaling settings should only affect text scaling
 `browser.display.os-zoom-behavior` `2`
 - Hide toolbar tips
 `browser.chrome.toolbar_tips` `false`
