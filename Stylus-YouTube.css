@@ -93,6 +93,9 @@ ytd-section-list-renderer {--yt-spec-10-percent-layer: 0}
 }
 
 @-moz-document url-prefix("https://www.youtube.com/watch") {
+:root {scrollbar-width: none}
+
+
 /* Header */
 #container.ytd-masthead {height: 20px; transition: 200ms}
 #masthead {opacity: 0; transition: 200ms}
@@ -102,7 +105,7 @@ ytd-section-list-renderer {--yt-spec-10-percent-layer: 0}
 
 
 /* Player */
-#page-manager {--ytd-masthead-height: 0; scrollbar-width: none}
+#page-manager {--ytd-masthead-height: 0}
 
 #player-theater-container {max-height: 100% !important}
 
