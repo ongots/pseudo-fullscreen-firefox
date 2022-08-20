@@ -129,10 +129,9 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -5px -3p
 
 .panel-subview-footer-button {margin-bottom: 3px !important}
 
-#context-navigation > .menuitem-iconic[_moz-menuactive] > .menu-iconic-left > .menu-iconic-icon,
 menu[_moz-menuactive]:not([disabled]):not([customoptionstyling]),
 menuitem[_moz-menuactive]:not([disabled]):not([customoptionstyling]) {
-  background-color: var(--panel-item-hover-bgcolor) !important}
+  background-color: /*var(--panel-item-hover-bgcolor)*/ color-mix(in srgb, currentColor 5%, transparent) !important}
 
 #context-navigation > .menuitem-iconic[_moz-menuactive] > .menu-iconic-left > .menu-iconic-icon,
 menuitem[_moz-menuactive][disabled] *,
@@ -331,7 +330,7 @@ richlistbox{background-color: transparent !important}
   [lwthemetextcolor="dark"][lwt-popup-brighttext="true"] #statuspanel-label,
   #main-window:not([lwthemetextcolor="dark"]) #statuspanel-label {
     background-color: #000c !important;
-    color: #eee !important}
+    color: #bbb !important}
 }
 
 
