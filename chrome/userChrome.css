@@ -185,7 +185,7 @@ menupopup[needsgutter] menuitem:not([checked="true"],[icon],.menuitem-iconic) {
   --panel-padding: 3px 0 !important;
 }
 
-menuseparator {border-top: 1px solid var(--panel-separator-color) !important}
+menuseparator {border-top: 1px solid /*var(--panel-separator-color)*/ color-mix(in srgb, currentColor 7%, transparent) !important}
 
 menupopup menuseparator {margin: 1px .5em !important}
 
