@@ -12,6 +12,7 @@ ytd-mini-guide-entry-renderer.style-scope:nth-child(5),
 /* More from youtube */
 ytd-guide-section-renderer.style-scope:nth-child(3),
 ytd-guide-section-renderer.style-scope:nth-child(4),
+ytd-guide-section-renderer.style-scope:nth-child(5),
 #guide-renderer > div:nth-child(2)
     {display:none}
 
