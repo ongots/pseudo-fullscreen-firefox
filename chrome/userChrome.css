@@ -272,13 +272,22 @@ richlistbox{background-color: transparent !important}
   z-index: 1;
   position: absolute}
 
-#downloads-button[notification] > stack {
-  background-color: #fff8;
+#downloads-button[notification] > stack,
+#downloads-button[progress] > stack,
+#downloads-button[attention="warning"] > stack {
+  background-color: #fff8 !important;
   border-radius: 30px !important}
 
 @media (prefers-color-scheme:dark) {
-  #downloads-button[notification] > stack {background-color: #0008}
+  #downloads-button[notification] > stack,
+  #downloads-button[progress] > stack,
+  #downloads-button[attention="warning"] > stack {
+    background-color: #0008 !important}
 }
+
+#downloads-button[attention="warning"] > .toolbarbutton-badge-stack > .toolbarbutton-badge {
+  background-color: #000 !important;
+  border-radius: 30px !important}
 
 #downloads-indicator-finish-image {--anim-steps: calc(var(--anim-frames) + 200 !important)}
 
@@ -382,8 +391,10 @@ richlistbox{background-color: transparent !important}
 
 
 
-/*   Auto theme in dark mode   */
 @media (prefers-color-scheme:dark) {
+  
+  
+  /*   Auto theme in dark mode   */
   [lwt-default-theme-in-dark-mode] *,
   [lwt-default-theme-in-dark-mode]:root,
   [style="--lwt-accent-color: white; --lwt-text-color: rgba(0, 0, 0);"] *,
@@ -397,8 +408,9 @@ richlistbox{background-color: transparent !important}
     --lwt-brighttext-url-color:       #007893 !important;
     --autocomplete-popup-highlight-background: var(--button-hover-bgcolor) !important;
     --urlbar-popup-url-color:         hsl(225, 99%, 70%) !important;
-    
   }
+  
+  
   
   * {caret-color: #FF3641}
 
