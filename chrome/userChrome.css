@@ -23,6 +23,9 @@
 #mainPopupSet:hover ~ box > toolbox > .browser-toolbar {
   z-index: 3}
 
+[sizemode=normal] #nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) .toolbarbutton-badge {color: transparent !important}
+[sizemode=normal] #nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #urlbar-zoom-button {background-color: transparent !important}
+
 
 
 
@@ -84,7 +87,7 @@
 
 [uidensity=compact] #PlacesToolbarItems .toolbarbutton-text {margin-bottom: 2px !important}
 
-toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -5px -3px !important}
+toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -8px -4px !important}
 
 @media(-moz-platform: linux) {
   toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -8px !important}
@@ -260,7 +263,7 @@ panel {
 
 #editBMPanel_folderTree * {background-color: var(--panel-background) !important}
 
-richlistbox{background-color: transparent !important}
+richlistbox {background-color: transparent !important}
 
 
 
@@ -269,24 +272,14 @@ richlistbox{background-color: transparent !important}
 #downloads-button[progress="true"],
 #downloads-button[notification="finish"],
 #downloads-button[attention="warning"] {
-  z-index: 1;
-  position: absolute}
+  position: absolute;
+  z-index: 1}
 
-#downloads-button[notification] > stack,
-#downloads-button[progress] > stack,
-#downloads-button[attention="warning"] > stack {
-  background-color: #fff8 !important;
-  border-radius: 30px !important}
-
-@media (prefers-color-scheme:dark) {
-  #downloads-button[notification] > stack,
-  #downloads-button[progress] > stack,
-  #downloads-button[attention="warning"] > stack {
-    background-color: #0008 !important}
-}
-
-#downloads-button[attention="warning"] > .toolbarbutton-badge-stack > .toolbarbutton-badge {
-  background-color: #000 !important;
+#nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #downloads-button[progress]:not([open]) stack,
+#nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #downloads-button[notification]:not([open]) stack,
+#nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #downloads-button[attention="warning"]:not([open]) stack,
+#nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #downloads-button[attention="warning"]:not([open]) .toolbarbutton-badge {
+  background-color: var(--toolbar-bgcolor) !important;
   border-radius: 30px !important}
 
 #downloads-indicator-finish-image {--anim-steps: calc(var(--anim-frames) + 200 !important)}
@@ -400,7 +393,8 @@ richlistbox{background-color: transparent !important}
   [style="--lwt-accent-color: white; --lwt-text-color: rgba(0, 0, 0);"] *,
   [style="--lwt-accent-color: white; --lwt-text-color: rgba(0, 0, 0);"]:root {
     
-    --toolbar-color:                  hsl(252, 4%, 95%);  --toolbarbutton-icon-fill: currentColor;  --toolbar-field-focus-color: currentColor;  --autocomplete-popup-highlight-color: currentColor;  --arrowpanel-color: var(--toolbar-color);
+    --toolbar-color:                  hsl(252, 4%, 95%);  --toolbarbutton-icon-fill: currentColor;  --toolbar-field-focus-color: currentColor; 
+                                                          --autocomplete-popup-highlight-color: currentColor;  --arrowpanel-color: var(--toolbar-color);
     --toolbar-bgcolor:                hsl(252, 4%, 6%);  --lwt-accent-color: var(--toolbar-bgcolor);
     --arrowpanel-background:          hsl(252, 4%, 9%);  --toolbar-field-focus-background-color: var(--arrowpanel-background);
     --arrowpanel-border-color:        black !important;
@@ -435,8 +429,8 @@ richlistbox{background-color: transparent !important}
   }
     
   ::selection {
-    background-color: hsl(240, 40%, 22%) !important;
-    color: hsl(240, 99%, 83%) !important}
+    background-color: hsl(240, 38%, 18%) !important;
+    color: hsl(240, 79%, 80%) !important}
 
   
   /*   Highlighting menu items with color   */
