@@ -23,8 +23,9 @@
 #mainPopupSet:hover ~ box > toolbox > .browser-toolbar {
   z-index: 3}
 
-[sizemode=normal] #nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) .toolbarbutton-badge {color: transparent !important}
+[sizemode=normal] #nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #identity-icon-box,
 [sizemode=normal] #nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #urlbar-zoom-button {background-color: transparent !important}
+[sizemode=normal] #nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) .toolbarbutton-badge {color: transparent !important}
 
 
 
@@ -51,6 +52,7 @@
 }
 
 #sidebar-box:not([hidden]):hover {
+  width: 321px !important;
   max-width: 100%;
   opacity: 1}
 
@@ -136,6 +138,12 @@ menu[_moz-menuactive]:not([disabled]):not([customoptionstyling]),
 menuitem[_moz-menuactive]:not([disabled]):not([customoptionstyling]) {
   background-color: /*var(--panel-item-hover-bgcolor)*/ color-mix(in srgb, currentColor 5%, transparent) !important}
 
+@media(-moz-platform:linux),(prefers-color-scheme:light) {
+  menu[_moz-menuactive]:not([disabled]):not([customoptionstyling]),
+  menuitem[_moz-menuactive]:not([disabled]):not([customoptionstyling]) {
+    background-color: /*var(--panel-item-hover-bgcolor)*/ color-mix(in srgb, black 5%, transparent) !important}
+}
+
 #context-navigation > .menuitem-iconic[_moz-menuactive] > .menu-iconic-left > .menu-iconic-icon,
 menuitem[_moz-menuactive][disabled] *,
 menuitem[_moz-menuactive][disabled] {
@@ -157,7 +165,7 @@ menuitem,
 #appMenu-fxa-status2[fxastatus] > #appMenu-fxa-label2 > vbox > #appMenu-header-description,
 #appMenu-fxa-text,
 #appMenu-proton-update-banner.panel-banner-item label.toolbarbutton-text {
-	margin-top: -3px !important}
+  margin-top: -3px !important}
 
 #appMenu-fxa-status2:not([fxastatus]) {padding-block: 6px 8px !important}
 
@@ -179,7 +187,8 @@ menupopup[needsgutter] menuitem:not([checked="true"],[icon],.menuitem-iconic) {
 
 
 /*   Repaints the bookmark menu and context menus to the main menu color   */
-#main-window :not(#ContentSelectDropdown) > menupopup:not(#context-navigation[hidden]), #textbox-contextmenu {    
+#main-window :not(#ContentSelectDropdown) > menupopup:not(#context-navigation[hidden]),
+#textbox-contextmenu {    
   --panel-background: var(--arrowpanel-background) !important;
   --panel-color: var(--arrowpanel-color) !important;
   --menu-color:  var(--arrowpanel-color) !important;
@@ -195,7 +204,8 @@ menupopup menuseparator {margin: 1px .5em !important}
 @media(-moz-platform: linux) {
   menuseparator {-moz-default-appearance: none !important}
 
-  menuitem {
+  menuitem,
+  menu {
     appearance: none !important;
     padding: 0 6px !important}
 }
