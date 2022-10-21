@@ -37,12 +37,13 @@
   overflow: hidden;
   height: 100%;
   position: fixed;
-  max-width: 1px;
+  min-width: 0 !important;
+  max-width: 0 !important;
   display: block;
   z-index: 2;
   opacity: 0}
 
-[sizemode=normal] #sidebar-box {max-width: 4px}
+[sizemode=normal] #sidebar-box {max-width: 4px !important}
 
 #appcontent {margin-left: -6px}
 
@@ -53,7 +54,7 @@
 
 #sidebar-box:not([hidden]):hover {
   width: 321px !important;
-  max-width: 100%;
+  max-width: 100% !important;
   opacity: 1}
 
 #sidebar {
@@ -139,9 +140,10 @@ menuitem[_moz-menuactive]:not([disabled]):not([customoptionstyling]) {
   background-color: /*var(--panel-item-hover-bgcolor)*/ color-mix(in srgb, currentColor 5%, transparent) !important}
 
 @media(-moz-platform:linux),(prefers-color-scheme:light) {
-  menu[_moz-menuactive]:not([disabled]):not([customoptionstyling]),
-  menuitem[_moz-menuactive]:not([disabled]):not([customoptionstyling]) {
-    background-color: /*var(--panel-item-hover-bgcolor)*/ color-mix(in srgb, black 5%, transparent) !important}
+  :root[lwtheme] menu[_moz-menuactive]:not([disabled]):not([customoptionstyling]),
+  :root[lwtheme] menuitem[_moz-menuactive]:not([disabled]):not([customoptionstyling]) {
+    background-color: /*var(--panel-item-hover-bgcolor)*/ color-mix(in srgb, black 5%, transparent) !important;
+    color: black}
 }
 
 #context-navigation > .menuitem-iconic[_moz-menuactive] > .menu-iconic-left > .menu-iconic-icon,
@@ -314,6 +316,9 @@ richlistbox {background-color: transparent !important}
 [uidensity=compact] .toolbarbutton-badge {
   margin: -10px -10px 0 !important;
   font-size: 8px !important}
+
+.webextension-browser-action[attention] {
+  background-size: 14px 4px !important}
 
 
 
