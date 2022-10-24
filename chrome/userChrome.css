@@ -92,10 +92,6 @@
 
 toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -8px -4px !important}
 
-@media(-moz-platform: linux) {
-  toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -8px !important}
-}
-
 .menupopup-arrowscrollbox {border: 1px solid var(--panel-border-color) !important}
 
 #PlacesToolbar menupopup[placespopup="true"] menuseparator::before {display: none}
@@ -139,11 +135,11 @@ menu[_moz-menuactive]:not([disabled]):not([customoptionstyling]),
 menuitem[_moz-menuactive]:not([disabled]):not([customoptionstyling]) {
   background-color: /*var(--panel-item-hover-bgcolor)*/ color-mix(in srgb, currentColor 5%, transparent) !important}
 
-@media(-moz-platform:linux),(prefers-color-scheme:light) {
-  :root[lwtheme] menu[_moz-menuactive]:not([disabled]):not([customoptionstyling]),
-  :root[lwtheme] menuitem[_moz-menuactive]:not([disabled]):not([customoptionstyling]) {
+@media(-moz-platform:linux) {
+  :root:not([lwt-popup-brighttext]) menu[_moz-menuactive]:not([disabled]):not([customoptionstyling]),
+  :root:not([lwt-popup-brighttext]) menuitem[_moz-menuactive]:not([disabled]):not([customoptionstyling]) {
     background-color: /*var(--panel-item-hover-bgcolor)*/ color-mix(in srgb, black 5%, transparent) !important;
-    color: black}
+    color: inherit !important}
 }
 
 #context-navigation > .menuitem-iconic[_moz-menuactive] > .menu-iconic-left > .menu-iconic-icon,
