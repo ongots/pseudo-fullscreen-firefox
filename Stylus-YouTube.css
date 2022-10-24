@@ -3,9 +3,6 @@
 /* Explore */
 ytd-guide-section-renderer.style-scope:nth-child(1) > div:nth-child(2) > ytd-guide-entry-renderer:nth-child(2),
 ytd-mini-guide-entry-renderer.style-scope:nth-child(2),
-/* Shorts */
-ytd-guide-section-renderer.style-scope:nth-child(1) > div:nth-child(2) > ytd-guide-entry-renderer:nth-child(3),
-ytd-mini-guide-entry-renderer.style-scope:nth-child(3),
 /* Library */
 #header > .ytd-guide-collapsible-section-entry-renderer.style-scope,
 ytd-mini-guide-entry-renderer.style-scope:nth-child(5),
