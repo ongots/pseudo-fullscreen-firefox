@@ -133,14 +133,8 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -8px -4p
 
 menu[_moz-menuactive]:not([disabled]):not([customoptionstyling]),
 menuitem[_moz-menuactive]:not([disabled]):not([customoptionstyling]) {
-  background-color: /*var(--panel-item-hover-bgcolor)*/ color-mix(in srgb, currentColor 5%, transparent) !important}
-
-@media(-moz-platform:linux) {
-  :root:not([lwt-popup-brighttext]) menu[_moz-menuactive]:not([disabled]):not([customoptionstyling]),
-  :root:not([lwt-popup-brighttext]) menuitem[_moz-menuactive]:not([disabled]):not([customoptionstyling]) {
-    background-color: /*var(--panel-item-hover-bgcolor)*/ color-mix(in srgb, black 5%, transparent) !important;
-    color: inherit !important}
-}
+  background-color: /*var(--panel-item-hover-bgcolor)*/ color-mix(in srgb, currentColor 5%, transparent) !important;
+  color: inherit !important}
 
 #context-navigation > .menuitem-iconic[_moz-menuactive] > .menu-iconic-left > .menu-iconic-icon,
 menuitem[_moz-menuactive][disabled] *,
