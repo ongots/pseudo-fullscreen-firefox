@@ -1,6 +1,6 @@
 @-moz-document domain("youtube.com") {
     /* Side menu */
-/* Explore */
+/* Shorts */
 ytd-guide-section-renderer.style-scope:nth-child(1) > div:nth-child(2) > ytd-guide-entry-renderer:nth-child(2),
 ytd-mini-guide-entry-renderer.style-scope:nth-child(2),
 /* Library */
@@ -16,26 +16,29 @@ ytd-guide-section-renderer.style-scope:nth-child(5),
 
 /* Color scheme */
 html:not(.style-scope)[dark] {
-    --yt-spec-brand-background-primary: #181818f8 !important; 
-    --yt-spec-brand-background-solid:   #1a1a1a !important;
-    --yt-spec-general-background-a:     #151515 !important;
-    --yt-spec-text-primary:             #ddd;
-    --yt-spec-icon-active-other:        #ddd;
-    --yt-spec-static-brand-white:       #ddd;
-    --yt-spec-icon-inactive:            #ddd;
-    --yt-spec-brand-icon-inactive:      #ddd;
+    --yt-spec-badge-chip-background:        rgba(255, 255, 255, 0.05);
+    --yt-spec-additive-background:          rgba(255, 255, 255, 0.05);
+    --yt-spec-button-chip-background-hover: rgba(255, 255, 255, 0.09);
+    --yt-spec-text-primary:                 #ddd;
+    --yt-spec-icon-active-other:            #ddd;
+    --yt-spec-static-brand-white:           #ddd;
+    --yt-spec-icon-inactive:                #ddd;
+    --yt-spec-brand-icon-inactive:          #ddd;
 }
 
-/* Search menu */
-[dark] .sbsb_a, [dark] .sbfl_b {background: #111}
-[dark] .sbdd_b {border: 1px solid #1a1a1a}
-[dark] .sbsb_d {background: #242424}
-[dark] .gsfs {color: #ddd}
 
+/* Search menu */
+[dark] .sbsb_a,
+[dark] .sbfl_b,
+[dark] .sbdd_b {
+    background: #111}
+
+[dark] .sbdd_b {border: 1px solid #1a1a1a}
+[dark] .gsfs   {color: #ddd}
 
 [dark] ytd-guide-entry-renderer[active],
 [dark] tp-yt-paper-listbox.yt-dropdown-menu .iron-selected.yt-dropdown-menu,
-[dark] tp-yt-paper-item:hover {
+[dark] .sbsb_d {
 	background-color: #242424}
 
 [dark] tp-yt-paper-item[focused][pressed],
@@ -82,6 +85,10 @@ ytd-multi-page-menu-renderer,
 .ytd-playlist-thumbnail,
 .ytd-thumbnail
 	{border-radius: 0 !important}
+
+ytd-alert-with-button-renderer.style-scope,
+.yt-alert-renderer.style-scope
+	{border-radius: 8px !important}
 }
 
 @-moz-document url-prefix("https://www.youtube.com/feed/subscriptions") {
