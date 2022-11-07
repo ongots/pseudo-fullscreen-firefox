@@ -16,8 +16,7 @@ ytd-guide-section-renderer.style-scope:nth-child(5),
 
 /* Color scheme */
 html:not(.style-scope)[dark] {
-    --yt-spec-badge-chip-background:        rgba(255, 255, 255, 0.05);
-    --yt-spec-additive-background:          rgba(255, 255, 255, 0.05);
+    --yt-spec-badge-chip-background:        rgba(255, 255, 255, 0.07);
     --yt-spec-button-chip-background-hover: rgba(255, 255, 255, 0.09);
     --yt-spec-text-primary:                 #ddd;
     --yt-spec-icon-active-other:            #ddd;
@@ -31,22 +30,15 @@ html:not(.style-scope)[dark] {
 [dark] .sbsb_a,
 [dark] .sbfl_b,
 [dark] .sbdd_b {
-    background: #111}
+    background-color: var(--yt-spec-brand-background-primary)}
 
-[dark] .sbdd_b {border: 1px solid #1a1a1a}
-[dark] .gsfs   {color: #ddd}
+[dark] .sbsb_d {background-color: var(--yt-spec-badge-chip-background)} /*hover*/
+[dark] .gsfs   {color: var(--yt-spec-text-primary)}
+[dark] .sbdd_b {border: 0}
 
 [dark] ytd-guide-entry-renderer[active],
-[dark] tp-yt-paper-listbox.yt-dropdown-menu .iron-selected.yt-dropdown-menu,
-[dark] .sbsb_d {
-	background-color: #242424}
-
-[dark] tp-yt-paper-item[focused][pressed],
-[dark] tp-yt-paper-item:focus {
-    background-color: #0a0a0a}
-
-[dark] ytd-playlist-video-renderer.style-scope:hover {
-    background-color: #1e1e1e}
+[dark] tp-yt-paper-listbox.yt-dropdown-menu .iron-selected.yt-dropdown-menu {
+    background-color: var(--yt-spec-badge-chip-background)}
 
 
 /* Watching indicator */
@@ -93,8 +85,18 @@ ytd-alert-with-button-renderer.style-scope,
 
 @-moz-document url-prefix("https://www.youtube.com/feed/subscriptions") {
 /* Feed */
-.grid-subheader.style-scope.ytd-shelf-renderer {display:none}
+ytd-item-section-renderer.style-scope:nth-child(1) > div:nth-child(3) > ytd-shelf-renderer:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > h2:nth-child(1),
+ytd-item-section-renderer.style-scope:not(:nth-child(1)) > div:nth-child(3) > ytd-shelf-renderer:nth-child(1) > div:nth-child(1) > div:nth-child(1)
+    {display:none}
+
+.grid-subheader.ytd-shelf-renderer {margin-top: 0}
+
 ytd-section-list-renderer {--yt-spec-10-percent-layer: 0}
+}
+
+@-moz-document url-prefix("https://www.youtube.com/results") {
+/* Recommendations in search results */
+ytd-shelf-renderer.ytd-item-section-renderer.style-scope {display:none}
 }
 
 @-moz-document url-prefix("https://www.youtube.com/watch") {
