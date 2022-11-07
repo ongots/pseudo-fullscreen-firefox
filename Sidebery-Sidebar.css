@@ -38,7 +38,7 @@
 
   /*   NAVBAR   */
 #root.root {
-  --nav-btn-width: 32px;
+  --nav-btn-width:  32px;
   --nav-btn-height: 32px;
 }
 
@@ -58,17 +58,11 @@
 
 .PinnedTabsBar::after {bottom: 0}
 
-#root.root[data-color-scheme=dark] .ScrollBox > .top-shadow {
-  box-shadow: 0  1px 12px 0 #000}
+#root.root[data-color-scheme=dark]  .ScrollBox > .top-shadow    {box-shadow: 0  1px 12px 0 #000}
+#root.root[data-color-scheme=dark]  .ScrollBox > .bottom-shadow {box-shadow: 0 -1px 12px 0 #000}
 
-#root.root[data-color-scheme=dark] .ScrollBox > .bottom-shadow {
-  box-shadow: 0 -1px 12px 0 #000}
-
-#root.root[data-color-scheme=light] .ScrollBox > .top-shadow {
-  box-shadow: 0  1px 12px 0 #0006}
-
-#root.root[data-color-scheme=light] .ScrollBox > .bottom-shadow {
-  box-shadow: 0 -1px 12px 0 #0006}
+#root.root[data-color-scheme=light] .ScrollBox > .top-shadow    {box-shadow: 0  1px 12px 0 #0006}
+#root.root[data-color-scheme=light] .ScrollBox > .bottom-shadow {box-shadow: 0 -1px 12px 0 #0006}
 
 
 
@@ -91,7 +85,7 @@
 
 .CtxMenu .icon-opt:before,
 .CtxMenu .opt:before {
-  border-radius:0;
+  border-radius: 0;
   opacity: .1}
 
 .CtxMenu .icon-opt:active {opacity: 1}
