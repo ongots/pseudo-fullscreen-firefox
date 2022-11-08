@@ -7,6 +7,7 @@
 2. Copy 'chrome' folder in 'Profile Folder' (Menu > Help > Troubleshooting Information > Profile Folder)
 3. Restart Firefox
 
+- Use "System theme - auto"
 - Drag Bookmarks Toolbar Items to the left of the address bar
 - To set the wallpaper in a new tab, place a .jpg or .png image in the Chrome folder and rename it to "bg". Restart Firefox
 
