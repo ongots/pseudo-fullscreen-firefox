@@ -85,11 +85,11 @@ ytd-alert-with-button-renderer.style-scope,
 
 @-moz-document url-prefix("https://www.youtube.com/feed/subscriptions") {
 /* Feed */
-ytd-item-section-renderer.style-scope:nth-child(1) > div:nth-child(3) > ytd-shelf-renderer:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > h2:nth-child(1),
-ytd-item-section-renderer.style-scope:not(:nth-child(1)) > div:nth-child(3) > ytd-shelf-renderer:nth-child(1) > div:nth-child(1) > div:nth-child(1)
+ytd-item-section-renderer.style-scope > div > ytd-shelf-renderer > div > div > div > h2,
+ytd-item-section-renderer.style-scope:not(:nth-child(1)) > div > ytd-shelf-renderer > div > div:nth-child(1)
     {display:none}
 
-.grid-subheader.ytd-shelf-renderer {margin-top: 0}
+.grid-subheader.ytd-shelf-renderer {margin-top: 9px}
 
 ytd-section-list-renderer {--yt-spec-10-percent-layer: 0}
 }
