@@ -87,32 +87,27 @@ ytd-alert-with-button-renderer.style-scope,
 
 @-moz-document url-prefix("https://www.youtube.com/feed/subscriptions") {
 /* Feed */
-html {
-    --zoom:                     1.65;
-    --ytd-grid-max-width:       100%;
-    --ytd-grid-1-columns-width: calc(214px * var(--zoom));
-    --ytd-grid-2-columns-width: calc(428px * var(--zoom));
-    --ytd-grid-3-columns-width: calc(642px * var(--zoom));
-    --ytd-grid-4-columns-width: calc(856px * var(--zoom));
-    --ytd-grid-5-columns-width: calc(1070px * var(--zoom));
-    --ytd-grid-6-columns-width: calc(1284px * var(--zoom));
-}
+ytd-two-column-browse-results-renderer.grid:not(.grid-disabled) {max-width: 100%}
+
+ytd-two-column-browse-results-renderer.style-scope.ytd-browse.grid {width: 96% !important}
 
 #items.ytd-grid-renderer > ytd-grid-video-renderer.ytd-grid-renderer {
-    width: calc(210px * var(--zoom));
-    margin: 0 calc(4px * var(--zoom)) calc(27px * var(--zoom))}
+    width: 336px;
+    margin: 0 8px 40px}
 
 ytd-thumbnail.ytd-grid-video-renderer {
-    height: calc(118px * var(--zoom));
-    width: calc(210px * var(--zoom))}
+    height: 188px;
+    width: 336px}
 
-ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer {font-size: 1.5rem}
+ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer {font-size: 1.6rem}
 
 #items.ytd-grid-renderer {justify-content: center}
 
 .grid-subheader.ytd-shelf-renderer {margin-right: 27px}
 
-
+@media (min-width: 1560px) {
+    ytd-expanded-shelf-contents-renderer {margin-left: 10%}
+}
 
 ytd-item-section-renderer.style-scope > div > ytd-shelf-renderer > div > div > div > h2,
 ytd-item-section-renderer.style-scope:not(:nth-child(1)) > div > ytd-shelf-renderer > div > div:nth-child(1)
