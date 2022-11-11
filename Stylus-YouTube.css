@@ -74,9 +74,11 @@ ytd-multi-page-menu-renderer,
     {display:none !important}
 
 
-.ytd-playlist-thumbnail,
-.ytd-thumbnail
-	{border-radius: 0 !important}
+ytd-thumbnail a.ytd-thumbnail,
+ytd-thumbnail::before,
+.ytp-videowall-still-round-large .ytp-videowall-still-image
+    {border-radius: 0 !important}
+
 
 ytd-alert-with-button-renderer.style-scope,
 .yt-alert-renderer.style-scope
@@ -85,6 +87,33 @@ ytd-alert-with-button-renderer.style-scope,
 
 @-moz-document url-prefix("https://www.youtube.com/feed/subscriptions") {
 /* Feed */
+html {
+    --zoom:                     1.65;
+    --ytd-grid-max-width:       100%;
+    --ytd-grid-1-columns-width: calc(214px * var(--zoom));
+    --ytd-grid-2-columns-width: calc(428px * var(--zoom));
+    --ytd-grid-3-columns-width: calc(642px * var(--zoom));
+    --ytd-grid-4-columns-width: calc(856px * var(--zoom));
+    --ytd-grid-5-columns-width: calc(1070px * var(--zoom));
+    --ytd-grid-6-columns-width: calc(1284px * var(--zoom));
+}
+
+#items.ytd-grid-renderer > ytd-grid-video-renderer.ytd-grid-renderer {
+    width: calc(210px * var(--zoom));
+    margin: 0 calc(4px * var(--zoom)) calc(27px * var(--zoom))}
+
+ytd-thumbnail.ytd-grid-video-renderer {
+    height: calc(118px * var(--zoom));
+    width: calc(210px * var(--zoom))}
+
+ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer {font-size: 1.5rem}
+
+#items.ytd-grid-renderer {justify-content: center}
+
+.grid-subheader.ytd-shelf-renderer {margin-right: 27px}
+
+
+
 ytd-item-section-renderer.style-scope > div > ytd-shelf-renderer > div > div > div > h2,
 ytd-item-section-renderer.style-scope:not(:nth-child(1)) > div > ytd-shelf-renderer > div > div:nth-child(1)
     {display:none}
