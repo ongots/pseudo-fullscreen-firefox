@@ -274,7 +274,6 @@ richlistbox {background-color: transparent !important}
 #downloads-button[progress="true"],
 #downloads-button[notification="finish"],
 #downloads-button[attention="warning"] {
-  position: absolute;
   z-index: 1}
 
 #nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #downloads-button[progress]:not([open]) stack,
@@ -290,6 +289,10 @@ richlistbox {background-color: transparent !important}
 
 .downloadMainArea {padding-inline-start: 10px !important}
 
+#downloadsSummary > .downloadTypeIcon {margin-left: 10px}
+
+#downloadsSummary {background: transparent !important}
+
 #downloadsListBox > richlistitem {border-radius: 0 !important}
 
 
@@ -300,11 +303,12 @@ richlistbox {background-color: transparent !important}
   background-color: transparent !important;
   box-shadow: none !important;
   color: var(--toolbar-color) !important;
-  margin: -11px -11px 0 !important;
+  margin: -11px -8px 0 !important;
+  text-align: right !important;
   font-size: 9px !important}
 
 [uidensity=compact] .toolbarbutton-badge {
-  margin: -10px -10px 0 !important;
+  margin: -8px -8px 0 !important;
   font-size: 8px !important}
 
 .webextension-browser-action[attention] {
