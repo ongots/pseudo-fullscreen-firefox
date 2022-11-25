@@ -28,6 +28,19 @@
 [sizemode=normal] #nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) .toolbarbutton-badge {color: transparent !important}
 
 
+.toolbaritem-combined-buttons,
+.toolbaritem-menu-buttons {
+  -moz-box-align: inherit !important}
+
+toolbar .toolbaritem-combined-buttons > .toolbarbutton-1 {background-color: transparent !important}
+
+toolbar .toolbaritem-combined-buttons {
+  padding: 0 !important;
+  margin: 0 !important}
+
+.subviewbutton:not(#appMenu-fxa-label2,.subviewbutton-back) {min-width: 36px}
+
+
 
 
 /*   Auto hide sidebar   */
@@ -80,17 +93,28 @@
 
 #PlacesToolbarItems toolbarbutton.bookmark-item {
   margin: 0 !important;
-  padding-inline: 6px !important;
+  padding-inline: var(--toolbarbutton-outer-padding) !important;
   border-radius: 0 !important}
+
+#PlacesToolbarItems toolbarbutton.bookmark-item:hover,
+#PlacesToolbarItems toolbarbutton.bookmark-item[open] {
+  background-color: transparent !important}
+
+#PlacesToolbarItems > toolbarbutton.bookmark-item > label {
+  padding: calc(var(--toolbarbutton-inner-padding) / 1.5);
+  border-radius: var(--toolbarbutton-border-radius)}
+
+#PlacesToolbarItems > toolbarbutton.bookmark-item:hover > label,
+#PlacesToolbarItems > toolbarbutton.bookmark-item[open] > label {
+  background-color: color-mix(in srgb, currentColor 9%, transparent)}
 
 #PlacesToolbarItems .toolbarbutton-text {
   font-size: 14px;
   font-weight: 100;
   margin-bottom: 1px !important}
 
-[uidensity=compact] #PlacesToolbarItems .toolbarbutton-text {margin-bottom: 2px !important}
-
-toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -8px -4px !important}
+toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -9px -3px !important}
+[uidensity=compact] toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -7px -2px !important}
 
 .menupopup-arrowscrollbox {border: 1px solid var(--panel-border-color) !important}
 
@@ -121,7 +145,7 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -8px -4p
 
 
 * {
-  --arrowpanel-border-radius: 4px;
+  --arrowpanel-border-radius: 5px;
   --arrowpanel-menuitem-margin: 0;
   --arrowpanel-menuitem-padding: 7px 13px !important;
   --panel-subview-body-padding: 3px 0;
@@ -177,6 +201,8 @@ menupopup[needsgutter] menuitem:not([checked="true"],[icon],.menuitem-iconic) {
   --panel-separator-zap-gradient: none;
 }
 
+:is(panel, menupopup)[type="arrow"] {margin: -4px -5px !important}
+
 
 /*   Repaints the bookmark menu and context menus to the main menu color   */
 #main-window :not(#ContentSelectDropdown) > menupopup:not(#context-navigation[hidden]),
@@ -185,7 +211,7 @@ menupopup[needsgutter] menuitem:not([checked="true"],[icon],.menuitem-iconic) {
   --panel-color: var(--arrowpanel-color) !important;
   --menu-color:  var(--arrowpanel-color) !important;
   --panel-border-color: var(--arrowpanel-border-color) !important;
-  --panel-border-radius: 4px !important;
+  --panel-border-radius: 5px !important;
   --panel-padding: 3px 0 !important;
 }
 
@@ -303,12 +329,12 @@ richlistbox {background-color: transparent !important}
   background-color: transparent !important;
   box-shadow: none !important;
   color: var(--toolbar-color) !important;
-  margin: -11px -8px 0 !important;
+  margin: -11px -11px 0 !important;
   text-align: right !important;
   font-size: 9px !important}
 
 [uidensity=compact] .toolbarbutton-badge {
-  margin: -8px -8px 0 !important;
+  margin: -10px -10px 0 !important;
   font-size: 8px !important}
 
 .webextension-browser-action[attention] {
@@ -318,7 +344,7 @@ richlistbox {background-color: transparent !important}
 
 
 /*   Dialog   */
-.dialogBox {border-radius: 4px !important}
+.dialogBox {border-radius: 5px !important}
 
 #window-modal-dialog {--chrome-offset: 20px !important}
 
@@ -330,12 +356,12 @@ richlistbox {background-color: transparent !important}
 /*   Statuspanel   */
 #statuspanel-label {
   border: 0 !important;
-  border-top-right-radius: 3px;
+  border-top-right-radius: 5px;
   background-color: #fffc !important;
   color: #000 !important}
 
 #statuspanel[mirror] #statuspanel-label {
-  border-radius: 3px 0 0}
+  border-radius: 5px 0 0}
 
 @media (prefers-color-scheme:dark), (-moz-content-prefers-color-scheme:dark) {
   [lwthemetextcolor="dark"][lwt-popup-brighttext="true"] #statuspanel-label,
@@ -380,7 +406,7 @@ richlistbox {background-color: transparent !important}
       --menuitem-hover-background-color: var(--panel-item-hover-bgcolor) !important;
   
   
-  --toolbarbutton-hover-background: color-mix(in srgb, currentColor 8%, transparent) !important;
+  --toolbarbutton-hover-background: color-mix(in srgb, currentColor 9%, transparent) !important;
       --toolbarbutton-active-background: var(--toolbarbutton-hover-background) !important;
   
   
