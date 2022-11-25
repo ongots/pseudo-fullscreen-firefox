@@ -21,6 +21,7 @@
   --ff-tab-background-text: hsl(252, 4%, 90%) !important;
   --tabs-activated-shadow:  0 1px 4px -1px rgba(0,0,0,0.282);
   --ctx-menu-shadow:        0 0 0 1px var(--ff-popup-border,black), 0 1px 16px 0 rgba(0,0,0,.7);
+  --notification-bg:        var(--ctx-menu-bg);
 }
 #root[data-color-scheme=dark] .Tab[data-pin="true"] {
   --tabs-activated-bg:      hsl(240, 40%, 25%);
@@ -69,19 +70,16 @@
 
   /*   MENU   */
 .CtxMenu .box {
-  border-radius: 4px;
-  min-width: 180px;
-  padding: 0}
+  border-radius: 5px;
+  min-width: 180px}
 
-.CtxMenu .sub-menu {border-radius: 4px}
+.CtxMenu .sub-menu {border-radius: 5px}
 
-.CtxMenu .inline-group:not(:last-of-type) {
-  padding: 1px 0 2px;
+.CtxMenu .inline-group {
+  padding: 0 0 2px 0 !important;
   box-shadow: inset 0 -1px 0 0 var(--ctx-menu-separator)}
 
-.CtxMenu .inline-group:first-of-type {padding: 0 0 2px}
-
-.CtxMenu .icon-opt {min-width: 33%}
+!.CtxMenu .icon-opt {min-width: 33%}
 
 .CtxMenu .icon-opt:before,
 .CtxMenu .opt:before {
@@ -96,4 +94,10 @@
 
 .CtxMenu .opt[data-separator=true] {padding: 1px 0}
 
-.CtxMenu .sub-menu .scrollable {padding: 3px 0}
+.CtxMenu .scroll-box {
+  padding: 0 0 3px;
+  overflow-x: hidden}
+
+.CtxMenu .opt .label.-header {
+  font-weight: 500;
+  padding: 0}
