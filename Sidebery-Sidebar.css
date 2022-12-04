@@ -6,6 +6,7 @@
   --ff-border:              var(--toolbar-bg) !important;
 }
 
+
 #root[data-color-scheme=dark] {
   --toolbar-bg:             hsl(252, 4%, 6%);
   --frame-bg:               hsl(252, 4%, 6%);
@@ -23,9 +24,17 @@
   --ctx-menu-shadow:        0 0 0 1px var(--ff-popup-border,black), 0 1px 16px 0 rgba(0,0,0,.7);
   --notification-bg:        var(--ctx-menu-bg);
 }
+
 #root[data-color-scheme=dark] .Tab[data-pin="true"] {
   --tabs-activated-bg:      hsl(240, 40%, 25%);
 }
+
+[data-color-scheme=dark] .popup-container {background-color: rgba(0,0,0,.6)}
+[data-color-scheme=dark] .popup {background-color: var(--frame-bg)}
+[data-color-scheme=dark] .TextInput::before {background-color: var(--frame-bg)}
+[data-color-scheme=dark] * {caret-color: #FF3641}
+[data-color-scheme=dark] ::selection {background-color: hsl(240, 38%, 18%); color: hsl(240, 79%, 80%)}
+[data-color-scheme=dark] .btn {background-color: #080808 }
 
 
 #root[data-color-scheme=light] {
@@ -39,9 +48,13 @@
 
   /*   NAVBAR   */
 #root.root {
-  --nav-btn-width:  32px;
-  --nav-btn-height: 32px;
+  --nav-btn-width:          32px;
+  --nav-btn-height:         32px;
+  --tabs-pinned-width:      33px;
+  --tabs-pinned-height:     33px;
 }
+
+
 
 .NavigationBar .nav-item:not([data-active="true"]) .icon {opacity: .65}
 
