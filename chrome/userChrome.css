@@ -106,7 +106,7 @@ toolbar .toolbaritem-combined-buttons {
 
 #PlacesToolbarItems > toolbarbutton.bookmark-item:hover > label,
 #PlacesToolbarItems > toolbarbutton.bookmark-item[open] > label {
-  background-color: color-mix(in srgb, currentColor 9%, transparent)}
+  background-color: color-mix(in srgb, currentColor 8%, transparent)}
 
 #PlacesToolbarItems .toolbarbutton-text {
   font-size: 14px;
@@ -119,6 +119,8 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -9px -3p
 .menupopup-arrowscrollbox {border: 1px solid var(--panel-border-color) !important}
 
 #PlacesToolbar menupopup[placespopup="true"] menuseparator::before {display: none}
+
+#PlacesToolbar menupopup[placespopup="true"] menuseparator {padding: 0 !important}
 
 #PlacesToolbar menupopup menuseparator {height: 1px}
 
@@ -140,8 +142,6 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -9px -3p
   --menuitem-min-width: 53px !important;
   padding: 0 !important}
 
-#contentAreaContextMenu:has(#context-navigation) {
-  --panel-padding: 0 0 3px !important}
 
 
 * {
@@ -157,7 +157,7 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -9px -3p
 
 menu[_moz-menuactive]:not([disabled]):not([customoptionstyling]),
 menuitem[_moz-menuactive]:not([disabled]):not([customoptionstyling]) {
-  background-color: /*var(--panel-item-hover-bgcolor)*/ color-mix(in srgb, currentColor 5%, transparent) !important;
+  background-color: /*var(--panel-item-hover-bgcolor)*/ color-mix(in srgb, currentColor 6%, transparent) !important;
   color: inherit !important}
 
 #context-navigation > .menuitem-iconic[_moz-menuactive] > .menu-iconic-left > .menu-iconic-icon,
@@ -168,13 +168,13 @@ menuitem[_moz-menuactive][disabled] {
 menu,
 menuitem,
 .toolbarbutton-1,
-.subviewbutton:not(#appMenu-fxa-label2,.subviewbutton-back) {
+.subviewbutton:not(#appMenu-fxa-label2, .subviewbutton-back, #appMenu-proton-update-banner) {
   border-radius: 0 !important}
 
 .addon-banner-item,
 .panel-banner-item {
   margin: 2px 5px 3px !important;
-  padding: 7px 7px 7px 0 !important}
+  padding: 7px 7px 7px 8px !important}
 
 .panel-header {padding: 4px !important}
 
@@ -293,6 +293,8 @@ panel {
 
 richlistbox {background-color: transparent !important}
 
+#urlbar-go-button {margin-top: 4px}
+
 
 
 
@@ -384,6 +386,7 @@ richlistbox {background-color: transparent !important}
 
 
 
+/*   Colors   */
 * {
   scrollbar-width: thin; 
   scrollbar-color: #5556 transparent !important;
@@ -400,7 +403,7 @@ richlistbox {background-color: transparent !important}
       --urlbar-box-active-bgcolor: var(--button-hover-bgcolor);
   
   
-  --panel-item-hover-bgcolor: color-mix(in srgb, currentColor 5%, transparent) !important;
+  --panel-item-hover-bgcolor: color-mix(in srgb, currentColor 6%, transparent) !important;
       --panel-item-active-bgcolor: var(--panel-item-hover-bgcolor) !important;
       --autocomplete-popup-hover-background: var(--panel-item-hover-bgcolor) !important;
       --menuitem-hover-background-color: var(--panel-item-hover-bgcolor) !important;
