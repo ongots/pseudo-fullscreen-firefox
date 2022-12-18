@@ -12,8 +12,8 @@
   --frame-bg:               hsl(252, 4%, 6%);
   --hover-bg:               hsla(252, 4%, 100%, 8%);
   --active-bg:              hsla(252, 4%, 100%, 8%);
-  --tabs-activated-bg:      hsl(240, 38%, 18%);
-  --tabs-activated-fg:      hsl(240, 79%, 80%);
+  --tabs-activated-bg:      /*hsl(240, 38%, 18%)*/ var(--hover-bg);
+  --tabs-activated-fg:      /*hsl(240, 79%, 80%)*/ rgba(113,113,255,1);
   --selected-bg:            hsl(252, 4%, 20%);
   --ctx-menu-bg:            hsl(252, 4%, 9%);
   --ctx-menu-separator:     hsl(252, 4%, 15%);
@@ -26,9 +26,10 @@
 }
 
 #root[data-color-scheme=dark] .Tab[data-pin="true"] {
-  --tabs-activated-bg:      hsl(240, 40%, 25%);
+  --tabs-activated-bg:      /*hsl(240, 40%, 25%)*/ rgba(113,113,255,.4);
 }
 
+[data-color-scheme=dark] .Tab[data-active="true"] .fav-icon {fill: #fff}
 [data-color-scheme=dark] .popup-container {background-color: rgba(0,0,0,.6)}
 [data-color-scheme=dark] .popup {background-color: var(--frame-bg)}
 [data-color-scheme=dark] .TextInput::before {background-color: var(--frame-bg)}
@@ -57,6 +58,8 @@
 
 
 .NavigationBar .nav-item:not([data-active="true"]) .icon {opacity: .65}
+
+.NavigationBar .nav-item[data-active="true"] .icon {fill: var(--tabs-activated-fg)}
 
 .NavigationBar .nav-item .len {
   text-shadow: none;
