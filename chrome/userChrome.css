@@ -232,6 +232,10 @@ panel {
   transition-duration: 0ms !important;
   --panelui-subview-transition-duration: 0.1ms}
 
+#unified-extensions-view .panel-header,
+#unified-extensions-view toolbarseparator:first-of-type {
+  display:none !important} 
+
 
 
 
@@ -310,8 +314,6 @@ richlistbox {background-color: transparent !important}
 #nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #downloads-button[attention="warning"]:not([open]) .toolbarbutton-badge {
   background-color: var(--toolbar-bgcolor) !important;
   border-radius: 30px !important}
-
-#downloads-indicator-finish-image {--anim-steps: calc(var(--anim-frames) + 200 !important)}
 
 #downloadsPanel-mainView {padding: 3px 0 0 0 !important}
 
