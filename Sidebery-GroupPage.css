@@ -1,20 +1,27 @@
-#root[data-color-scheme=dark]{
-	--frame-bg: #111}
+#root[data-frame-color-scheme=dark] {
+  --s-toolbar-bg: #111 !important}
 
 
 
-body[data-layout=grid] .tab[data-discarded=false]:not(:hover) .bg{
-	opacity: 1}
 
-body[data-layout="grid"] .tab:not(:hover) .info,
-body[data-layout="grid"] .tab:not(:hover) .ctrls .tab-btn{
-	opacity: 0}
+.title {opacity:.7}
 
 
 
-body[data-layout="list"] .tab{
-	height: 96px}
 
-body[data-layout="list"] .bg{
-	width: 171px;
-	height: 96px}
+body[data-layout=grid] .tab[data-discarded=false]:not(:hover) .bg {
+  opacity: 1}
+
+body[data-layout=grid] .tab:not(:hover) .info,
+body[data-layout=grid] .tab:not(:hover) .ctrls .tab-btn {
+  opacity: 0}
+
+
+
+
+body[data-layout=list] .tab {
+  height: 96px}
+
+body[data-layout=list] .bg {
+  width: 171px;
+  height: 96px}
