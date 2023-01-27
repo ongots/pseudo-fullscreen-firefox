@@ -1,47 +1,43 @@
   /*   COLORS   */
 #root.root {
-  --selected-border:        none;
-  --nav-btn-active-shadow:  none;
-  --clicked-bg:             var(--hover-bg);
-  --ff-border:              var(--toolbar-bg) !important;
+  --toolbar-bg:                    var(--frame-bg);
+  --nav-btn-active-shadow:         none;
+  --frame-el-overlay-clicked-bg:   var(--frame-el-overlay-hover-bg);
+  --toolbar-el-overlay-clicked-bg: var(--toolbar-el-overlay-hover-bg);
 }
 
 
-#root[data-color-scheme=dark] {
-  --toolbar-bg:             hsl(252, 4%, 6%);
-  --frame-bg:               hsl(252, 4%, 6%);
-  --hover-bg:               hsla(252, 4%, 100%, 8%);
-  --active-bg:              hsla(252, 4%, 100%, 8%);
-  --tabs-activated-bg:      /*hsl(240, 38%, 18%)*/ var(--hover-bg);
-  --tabs-activated-fg:      /*hsl(240, 79%, 80%)*/ rgba(113,113,255,1);
-  --selected-bg:            hsl(252, 4%, 20%);
-  --ctx-menu-bg:            hsl(252, 4%, 9%);
-  --ctx-menu-separator:     hsl(252, 4%, 15%);
-  --popup-bg:               hsl(252, 4%, 9%);
-  --search-border:          #333;
-  --ff-tab-background-text: hsl(252, 4%, 90%) !important;
-  --tabs-activated-shadow:  0 1px 4px -1px rgba(0,0,0,0.282);
-  --ctx-menu-shadow:        0 0 0 1px var(--ff-popup-border,black), 0 1px 16px 0 rgba(0,0,0,.7);
-  --notification-bg:        var(--ctx-menu-bg);
+#root[data-frame-color-scheme=dark] {
+  --frame-bg:                      hsl(252, 4%, 6%) !important;
+  --toolbar-el-overlay-hover-bg:   hsl(252, 4%, 15%);
+  --frame-el-overlay-hover-bg:     hsl(252, 4%, 15%);
+  --tabs-activated-bg:             hsl(252, 4%, 15%);
+  --tabs-activated-fg:             hsl(240, 100%, 70%);
+  --frame-el-overlay-selected-bg:  hsl(252, 4%, 15%);
+  --ctx-menu-bg:                   hsl(252, 4%, 9%);
+  --ctx-menu-separator:            hsl(252, 4%, 15%);
+  --popup-bg:                      hsl(252, 4%, 9%);
+  --ctx-menu-shadow:               0 0 0 1px var(--ff-popup-border,black), 0 0 16px 0 black;
+  --notification-bg:               var(--ctx-menu-bg);
 }
 
-#root[data-color-scheme=dark] .Tab[data-pin="true"] {
-  --tabs-activated-bg:      /*hsl(240, 40%, 25%)*/ rgba(113,113,255,.4);
+#root[data-frame-color-scheme=dark] .Tab[data-pin="true"] {
+  --tabs-activated-bg:             hsl(240, 38%, 32%);
 }
 
-[data-color-scheme=dark] .Tab[data-active="true"] .fav-icon {fill: #fff}
-[data-color-scheme=dark] .popup-container {background-color: rgba(0,0,0,.6)}
-[data-color-scheme=dark] .popup {background-color: var(--frame-bg)}
-[data-color-scheme=dark] .TextInput::before {background-color: var(--frame-bg)}
-[data-color-scheme=dark] * {caret-color: #FF3641}
-[data-color-scheme=dark] ::selection {background-color: hsl(240, 38%, 18%); color: hsl(240, 79%, 80%)}
-[data-color-scheme=dark] .btn {background-color: #080808 }
+[data-frame-color-scheme=dark] .Tab[data-active="true"] .fav-icon {fill: #fff}
+[data-frame-color-scheme=dark] .popup-container {background-color: rgba(0,0,0,.6)}
+[data-frame-color-scheme=dark] .popup {background-color: var(--frame-bg)}
+[data-frame-color-scheme=dark] .TextInput::before {background-color: var(--frame-bg)}
+[data-frame-color-scheme=dark] * {caret-color: #FF3641}
+[data-frame-color-scheme=dark] ::selection {background-color: hsl(240, 38%, 18%); color: hsl(240, 79%, 80%)}
+[data-frame-color-scheme=dark] .btn {background-color: #080808}
 
 
-#root[data-color-scheme=light] {
-  --frame-bg:               #F9F9FB;
-  --tabs-activated-bg:      #E2E2E3;
-  --tabs-activated-shadow:  none;
+#root[data-frame-color-scheme=light] {
+  --frame-bg:                      #F9F9FB;
+  --tabs-activated-bg:             #E2E2E3;
+  --tabs-activated-shadow:         none;
 }
 
 
@@ -49,13 +45,13 @@
 
   /*   NAVBAR   */
 #root.root {
-  --nav-btn-width:          32px;
-  --nav-btn-height:         32px;
-  --tabs-pinned-width:      33px;
-  --tabs-pinned-height:     33px;
+  --nav-btn-width:                 32px;
+  --nav-btn-height:                32px;
+  --tabs-pinned-width:             32px;
+  --tabs-pinned-height:            32px;
 }
 
-
+.NavigationBar.-top {padding: 0 var(--tabs-margin) 0}
 
 .NavigationBar .nav-item:not([data-active="true"]) .icon {opacity: .65}
 
@@ -65,21 +61,33 @@
   text-shadow: none;
   top: -2px}
 
+.NavigationBar .nav-item .audio {
+	background-color: transparent !important;
+	box-shadow: none}
+
+.Sidebar .tool-btn[data-disabled="true"] {display: none}
+
+.Sidebar .tool-btn > svg {opacity: .5 !important}
+
 
 
 
   /*   TABS   */
-#root[data-pinned-tabs-position="panel"][data-pinned-tabs-list="true"] .PinnedTabsBar {
-  padding: 0 0 2px;
-  margin-top: -1px}
+.Tab,
+.BookmarkNode {
+  --frame-el-overlay-selected-border: none}
 
-.PinnedTabsBar::after {bottom: 0}
+#root[data-pinned-tabs-position="panel"][data-pinned-tabs-list="true"] .PinnedTabsBar {padding: 0 0 3px}
 
-#root.root[data-color-scheme=dark]  .ScrollBox > .top-shadow    {box-shadow: 0  1px 12px 0 #000}
-#root.root[data-color-scheme=dark]  .ScrollBox > .bottom-shadow {box-shadow: 0 -1px 12px 0 #000}
+.PinnedTabsBar::after {bottom: 2px}
 
-#root.root[data-color-scheme=light] .ScrollBox > .top-shadow    {box-shadow: 0  1px 12px 0 #0006}
-#root.root[data-color-scheme=light] .ScrollBox > .bottom-shadow {box-shadow: 0 -1px 12px 0 #0006}
+.Tab[data-active="true"] .body {box-shadow: none}
+
+#root.root[data-frame-color-scheme=dark]  .ScrollBox > .top-shadow    {box-shadow: 0  1px 12px 0 #000}
+#root.root[data-frame-color-scheme=dark]  .ScrollBox > .bottom-shadow {box-shadow: 0 -1px 12px 0 #000}
+
+#root.root[data-frame-color-scheme=light] .ScrollBox > .top-shadow    {box-shadow: 0  1px 12px 0 #0004}
+#root.root[data-frame-color-scheme=light] .ScrollBox > .bottom-shadow {box-shadow: 0 -1px 12px 0 #0004}
 
 
 
@@ -91,9 +99,7 @@
 
 .CtxMenu .sub-menu {border-radius: 5px}
 
-.CtxMenu .inline-group {
-  padding: 0 0 2px 0 !important;
-  box-shadow: inset 0 -1px 0 0 var(--ctx-menu-separator)}
+.CtxMenu .inline-group {padding: 0 0 2px 0 !important}
 
 !.CtxMenu .icon-opt {min-width: 33%}
 
@@ -114,6 +120,4 @@
   padding: 0 0 3px;
   overflow-x: hidden}
 
-.CtxMenu .opt .label.-header {
-  font-weight: 500;
-  padding: 0}
+.CtxMenu .opt .label.-header {font-weight: 500}
