@@ -1,3 +1,5 @@
+#root.root {--general-margin: 1px;}
+
   /*   COLORS   */
 #root.root {
   --toolbar-bg:                    var(--frame-bg);
@@ -9,15 +11,12 @@
 
 #root[data-frame-color-scheme=dark] {
   --frame-bg:                      hsl(252, 4%, 6%) !important;
-  --toolbar-el-overlay-hover-bg:   hsl(252, 4%, 15%);
-  --frame-el-overlay-hover-bg:     hsl(252, 4%, 15%);
   --tabs-activated-bg:             hsl(252, 4%, 15%);
   --tabs-activated-fg:             hsl(240, 100%, 70%);
-  --frame-el-overlay-selected-bg:  hsl(252, 4%, 15%);
   --ctx-menu-bg:                   hsl(252, 4%, 9%);
   --ctx-menu-separator:            hsl(252, 4%, 15%);
-  --popup-bg:                      hsl(252, 4%, 9%);
   --ctx-menu-shadow:               0 0 0 1px var(--ff-popup-border,black), 0 0 16px 0 black;
+  --popup-bg:                      var(--ctx-menu-bg);
   --notification-bg:               var(--ctx-menu-bg);
 }
 
@@ -51,8 +50,6 @@
   --tabs-pinned-height:            32px;
 }
 
-.NavigationBar.-top {padding: 0 var(--tabs-margin) 0}
-
 .NavigationBar .nav-item:not([data-active="true"]) .icon {opacity: .65}
 
 .NavigationBar .nav-item[data-active="true"] .icon {fill: var(--tabs-activated-fg)}
@@ -77,11 +74,25 @@
 .BookmarkNode {
   --frame-el-overlay-selected-border: none}
 
-#root[data-pinned-tabs-position="panel"][data-pinned-tabs-list="true"] .PinnedTabsBar {padding: 0 0 3px}
+#root[data-pinned-tabs-position="panel"] .PinnedTabsBar,
+#root[data-pinned-tabs-position="top"] .PinnedTabsBar {
+	padding: 0 0 var(--tabs-margin) !important}
 
-.PinnedTabsBar::after {bottom: 2px}
+#root[data-pinned-tabs-position="panel"][data-pinned-tabs-list="true"] .PinnedTabsBar {padding: 0 0 calc(var(--tabs-margin) + 1px) !important}
+
+.PinnedTabsBar::after {bottom: var(--tabs-margin)}
+
+#root[data-pinned-tabs-position="top"] .PinnedTabsBar {padding: 0 1px var(--tabs-margin)}
 
 .Tab[data-active="true"] .body {box-shadow: none}
+
+.Tab[data-pin="true"] .audio {
+	background-color: transparent;
+	box-shadow: none}
+
+.Tab .audio > svg {
+	top: calc(50% - 7px);
+	left: calc(50% - 5px)}
 
 #root.root[data-frame-color-scheme=dark]  .ScrollBox > .top-shadow    {box-shadow: 0  1px 12px 0 #000}
 #root.root[data-frame-color-scheme=dark]  .ScrollBox > .bottom-shadow {box-shadow: 0 -1px 12px 0 #000}
