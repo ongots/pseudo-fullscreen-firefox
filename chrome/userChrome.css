@@ -66,12 +66,12 @@ toolbar .toolbaritem-combined-buttons {
 }
 
 #sidebar-box:not([hidden]):hover {
-  width: 321px !important;
+  width: 330px !important;
   max-width: 100% !important;
   opacity: 1}
 
 #sidebar {
-  width: 320px !important;
+  width: 329px !important;
   height: 100%}
 
 
@@ -156,7 +156,9 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -9px -3p
 .panel-subview-footer-button {margin-bottom: 3px !important}
 
 menu[_moz-menuactive]:not([disabled]):not([customoptionstyling]),
-menuitem[_moz-menuactive]:not([disabled]):not([customoptionstyling]) {
+menuitem[_moz-menuactive]:not([disabled]):not([customoptionstyling]),
+menu:where([_moz-menuactive="true"]:not([disabled="true"])),
+menuitem:where([_moz-menuactive="true"]:not([disabled="true"])) {
   background-color: /*var(--panel-item-hover-bgcolor)*/ color-mix(in srgb, currentColor 6%, transparent) !important;
   color: inherit !important}
 
@@ -193,7 +195,9 @@ menupopup[needsgutter] menuitem:not([checked="true"],[icon],.menuitem-iconic) {
 #PanelUI-fxa {
   width: 21.8em !important}
 
-#contentAreaContextMenu {max-width: 27em !important}
+#contentAreaContextMenu,
+menulist > menupopup
+  {max-width: 27em !important}
 
 #appMenu-popup {
   --panel-disabled-color: color-mix(in srgb, currentColor 35%, transparent);
@@ -291,7 +295,7 @@ panel {
 
 #urlbar[breakout][breakout-extend][breakout-extend-animate] > #urlbar-background {animation-duration: 0ms !important}
 
-#editBookmarkPanel {max-width: 500px}
+#editBMPanel_folderMenuList {max-width: 260px}
 
 #editBMPanel_folderTree * {background-color: var(--panel-background) !important}
 
@@ -333,7 +337,7 @@ richlistbox {background-color: transparent !important}
   background-color: transparent !important;
   box-shadow: none !important;
   color: var(--toolbar-color) !important;
-  margin: -11px -11px 0 !important;
+  margin: -11px -10px 0 !important;
   text-align: right !important;
   font-size: 9px !important}
 
