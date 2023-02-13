@@ -87,6 +87,9 @@ ytd-alert-with-button-renderer.style-scope,
 
 @-moz-document url-prefix("https://www.youtube.com/feed/subscriptions") {
 /* Feed */
+
+/* Increasing thumbnails of subscriptions. YouTube no longer gives higher resolution thumbnails, so I temporarily disabled it. */
+/*
 ytd-two-column-browse-results-renderer.grid:not(.grid-disabled) {max-width: 100%}
 
 ytd-two-column-browse-results-renderer.style-scope.ytd-browse.grid {width: 96% !important}
@@ -108,6 +111,8 @@ ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer 
 @media (min-width: 1560px) {
     ytd-expanded-shelf-contents-renderer {margin-left: 10%}
 }
+*/
+
 
 ytd-item-section-renderer.style-scope > div > ytd-shelf-renderer > div > div > div > h2,
 ytd-item-section-renderer.style-scope:not(:nth-child(1)) > div > ytd-shelf-renderer > div > div:nth-child(1)
@@ -128,7 +133,7 @@ ytd-shelf-renderer.ytd-item-section-renderer.style-scope {display:none}
 
 
 /* Header */
-#container.ytd-masthead {height: 20px; transition: 200ms}
+#container.ytd-masthead {transition: 200ms}
 #masthead {opacity: 0; transition: 200ms}
 
 #container:hover.ytd-masthead {height: 56px}
@@ -141,7 +146,6 @@ ytd-shelf-renderer.ytd-item-section-renderer.style-scope {display:none}
 #player-theater-container {max-height: 100% !important}
 
 ytd-topbar-logo-renderer,
-.ytp-volume-area,
 .ytp-fullscreen-button,
 .ytp-size-button,
 .ytp-miniplayer-button,
