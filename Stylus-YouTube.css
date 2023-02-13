@@ -147,7 +147,7 @@ ytd-shelf-renderer.ytd-item-section-renderer.style-scope {display:none}
 
 ytd-topbar-logo-renderer,
 .ytp-fullscreen-button,
-.ytp-size-button,
+ytd-watch-flexy.style-scope[theater] .ytp-size-button,
 .ytp-miniplayer-button,
 .tp-yt-app-drawer::after,
 ytd-toggle-button-renderer.style-scope:nth-child(2) > a:nth-child(1) > yt-formatted-string:nth-child(2)
