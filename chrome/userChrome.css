@@ -163,8 +163,8 @@ menuitem:where([_moz-menuactive="true"]:not([disabled="true"])) {
   color: inherit !important}
 
 #context-navigation > .menuitem-iconic[_moz-menuactive] > .menu-iconic-left > .menu-iconic-icon,
-menuitem[_moz-menuactive][disabled] *,
-menuitem[_moz-menuactive][disabled] {
+menuitem[_moz-menuactive][disabled="true"] *,
+menuitem[_moz-menuactive][disabled="true"] {
   background-color: transparent !important}
 
 menu,
@@ -188,7 +188,7 @@ menuitem,
 #appMenu-fxa-status2:not([fxastatus]) {padding-block: 6px 8px !important}
 
 menupopup[needsgutter] menu:not([icon],.menu-iconic),
-menupopup[needsgutter] menuitem:not([checked="true"],[icon],.menuitem-iconic) {
+menupopup[needsgutter] menuitem:not([checked="true"],[icon],.menuitem-iconic,[type="radio"]) {
   padding-inline-start: 1em !important}
 
 #appMenu-popup panelview,
@@ -236,9 +236,20 @@ panel {
   transition-duration: 0ms !important;
   --panelui-subview-transition-duration: 0.1ms}
 
+
+/*   Unified extensions menu   */
 #unified-extensions-view .panel-header,
-#unified-extensions-view toolbarseparator:first-of-type {
-  display:none !important} 
+#unified-extensions-view toolbarseparator:first-of-type,
+.unified-extensions-item-menu-button.subviewbutton,
+.unified-extensions-item-message-deck
+  {display:none !important} 
+
+.unified-extensions-item-icon,
+#unified-extensions-panel .unified-extensions-item .webextension-browser-action > .toolbarbutton-badge-stack > .toolbarbutton-icon {
+	height: 16px !important;
+	width: 16px !important}
+
+.panel-subview-body {padding-top: 1px !important}
 
 
 
@@ -484,7 +495,7 @@ richlistbox {background-color: transparent !important}
     color: hsl(235, 99%, 73%) !important}
   
   menuitem#context-saveimage:not([disabled]) label.menu-text,
-  menuitem#context-savevideo label.menu-text {
+  menuitem#context-savevideo:not([disabled]) label.menu-text {
     color: #0C96AC !important}
   
 }
