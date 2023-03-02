@@ -10,7 +10,7 @@
 #nav-bar {
   box-shadow: inset 0 1px black,  0 1px var(--chrome-content-separator-color),  0 2px 14px rgba(0, 0, 0, 0.13)  !important;
   background: inherit !important;
-  background-color: var(--lwt-accent-color) !important;
+  background-color: black !important;
   transition: none !important}
 
 [sizemode=maximized]                    #nav-bar:not([customizing]) {margin-bottom: -39px}
@@ -21,6 +21,7 @@
 #nav-bar:hover,
 #nav-bar:focus-within,
 #mainPopupSet:hover ~ box > toolbox > .browser-toolbar {
+  background-color: var(--lwt-accent-color) !important;
   z-index: 3}
 
 [sizemode=normal] #nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #identity-icon-box,
@@ -250,6 +251,8 @@ panel {
 	width: 16px !important}
 
 .panel-subview-body {padding-top: 1px !important}
+
+#unified-extensions-panel .unified-extensions-item {padding-block: 0 !important}
 
 
 
@@ -490,12 +493,12 @@ richlistbox {background-color: transparent !important}
   
   /*   Highlighting menu items with color   */
   menuitem[data-l10n-id="text-action-copy"]:not([disabled]) label.menu-text,
-  menuitem#context-copylink:not([disabled]) label.menu-text,
-  menuitem#context-copy:not([disabled]) label.menu-text {
+  menuitem#context-copylink:not([disabled="true"]) label.menu-text,
+  menuitem#context-copy:not([disabled="true"]) label.menu-text {
     color: hsl(235, 99%, 73%) !important}
   
-  menuitem#context-saveimage:not([disabled]) label.menu-text,
-  menuitem#context-savevideo:not([disabled]) label.menu-text {
+  menuitem#context-saveimage:not([disabled="true"]) label.menu-text,
+  menuitem#context-savevideo:not([disabled="true"]) label.menu-text {
     color: #0C96AC !important}
   
 }
