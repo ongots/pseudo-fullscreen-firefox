@@ -44,5 +44,3 @@
 `browser.sessionstore.restore_pinned_tabs_on_demand` `true`
 - OS text scaling settings should only affect text scaling
 `browser.display.os-zoom-behavior` `2`
-- Hide toolbar tips
-`browser.chrome.toolbar_tips` `false`
