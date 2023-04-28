@@ -25,15 +25,17 @@
   z-index: 3}
 
 [sizemode=normal] #nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #identity-icon-box,
-[sizemode=normal] #nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #urlbar-zoom-button {background-color: transparent !important}
-[sizemode=normal] #nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) .toolbarbutton-badge {color: transparent !important}
-
+[sizemode=normal] #nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #urlbar-zoom-button,
+[sizemode=normal] #nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) .toolbarbutton-badge
+  {display:none !important}
 
 .toolbaritem-combined-buttons,
 .toolbaritem-menu-buttons {
   -moz-box-align: inherit !important}
 
-toolbar .toolbaritem-combined-buttons > .toolbarbutton-1 {background-color: transparent !important}
+toolbar .toolbaritem-combined-buttons > .toolbarbutton-1 {
+  background-color: transparent !important;
+  height: 100%}
 
 toolbar .toolbaritem-combined-buttons {
   padding: 0 !important;
@@ -250,7 +252,7 @@ panel {
 	height: 16px !important;
 	width: 16px !important}
 
-.panel-subview-body {padding-top: 1px !important}
+.panel-subview-body {padding-top: 3px !important}
 
 #unified-extensions-panel .unified-extensions-item {padding-block: 0 !important}
 
@@ -351,16 +353,17 @@ richlistbox {background-color: transparent !important}
   background-color: transparent !important;
   box-shadow: none !important;
   color: var(--toolbar-color) !important;
-  margin: -11px -10px 0 !important;
+  margin: -11px -8px 0 !important;
   text-align: right !important;
   font-size: 9px !important}
 
 [uidensity=compact] .toolbarbutton-badge {
-  margin: -10px -10px 0 !important;
+  margin: -8px -8px 0 !important;
   font-size: 8px !important}
 
-.webextension-browser-action[attention] {
-  background-size: 14px 4px !important}
+#PanelUI-menu-button > stack > label {margin: -9px -9px 0 !important}
+
+.webextension-browser-action[attention] {background-size: 14px 4px !important}
 
 
 
