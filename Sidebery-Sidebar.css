@@ -11,8 +11,8 @@
 
 #root[data-frame-color-scheme=dark] {
   --frame-bg:                      hsl(252, 4%, 6%) !important;
-  --tabs-activated-bg:             hsl(252, 4%, 15%);
-  --tabs-activated-fg:             hsl(240, 100%, 70%);
+  --tabs-activated-bg:             hsl(252, 4%, 19%);
+  !--tabs-activated-fg:             hsl(240, 100%, 70%);
   --ctx-menu-bg:                   hsl(252, 4%, 9%);
   --ctx-menu-separator:            hsl(252, 4%, 15%);
   --ctx-menu-shadow:               0 0 0 1px var(--ff-popup-border,black), 0 0 16px 0 black;
@@ -59,8 +59,8 @@
   top: -2px}
 
 .NavigationBar .nav-item .audio {
-	background-color: transparent !important;
-	box-shadow: none}
+  background-color: transparent !important;
+  box-shadow: none}
 
 .Sidebar .tool-btn[data-disabled="true"] {display: none}
 
@@ -76,7 +76,7 @@
 
 #root[data-pinned-tabs-position="panel"] .PinnedTabsBar,
 #root[data-pinned-tabs-position="top"] .PinnedTabsBar {
-	padding: 0 0 var(--tabs-margin) !important}
+  padding: 0 0 var(--tabs-margin) !important}
 
 #root[data-pinned-tabs-position="panel"][data-pinned-tabs-list="true"] .PinnedTabsBar {padding: 0 0 calc(var(--tabs-margin) + 1px) !important}
 
@@ -86,13 +86,19 @@
 
 .Tab[data-active="true"] .body {box-shadow: none}
 
-.Tab[data-pin="true"] .audio {
-	background-color: transparent;
-	box-shadow: none}
+.Tab .title {top: -1px}
 
-.Tab .audio > svg {
-	top: calc(50% - 7px);
-	left: calc(50% - 5px)}
+.Tab[data-pin="true"] .audio {
+  background-color: transparent;
+  box-shadow: none}
+
+.Tab .color-layer {
+  opacity: 1;
+  translate: 25px 14px;
+  width: 88%;
+  height: 4px;
+  filter: blur(6px);
+  z-index: 2}
 
 #root.root[data-frame-color-scheme=dark]  .ScrollBox > .top-shadow    {box-shadow: 0  1px 12px 0 #000}
 #root.root[data-frame-color-scheme=dark]  .ScrollBox > .bottom-shadow {box-shadow: 0 -1px 12px 0 #000}
