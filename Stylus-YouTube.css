@@ -17,7 +17,7 @@ ytd-guide-renderer.ytd-app {width: 258px}
 
 
 /* Color scheme */
-html:not(.style-scope)[dark] {
+html[dark], [dark] {
     --yt-spec-badge-chip-background:        rgba(255, 255, 255, 0.07);
     --yt-spec-button-chip-background-hover: rgba(255, 255, 255, 0.09);
     --yt-spec-text-primary:                 #ddd;
@@ -25,6 +25,9 @@ html:not(.style-scope)[dark] {
     --yt-spec-static-brand-white:           #ddd;
     --yt-spec-icon-inactive:                #ddd;
     --yt-spec-brand-icon-inactive:          #ddd;
+    --yt-spec-10-percent-layer:             var(--ytd-searchbox-legacy-border-color);
+    --ytd-searchbox-legacy-button-color:    #202020;
+    --yt-spec-raised-background:            #202020;
 }
 
 
@@ -111,20 +114,18 @@ ytd-shelf-renderer.ytd-item-section-renderer.style-scope {display:none}
 
 /* Header */
 #container.ytd-masthead {transition: 200ms}
-#masthead {opacity: 0; transition: 200ms}
+#masthead[theater] {opacity: 0; transition: 200ms}
 
-#container:hover.ytd-masthead {height: 56px}
-#masthead:hover {opacity: 1}
+#masthead[theater]:hover {opacity: 1}
 
 
 /* Player */
-#page-manager {--ytd-masthead-height: 0}
+ytd-watch-flexy.style-scope[theater] {margin-top: -56px}
 
 #player-theater-container {max-height: 100% !important}
 
 ytd-topbar-logo-renderer,
 .ytp-fullscreen-button,
-ytd-watch-flexy.style-scope[theater] .ytp-size-button,
 .ytp-miniplayer-button,
 .tp-yt-app-drawer::after,
 ytd-toggle-button-renderer.style-scope:nth-child(2) > a:nth-child(1) > yt-formatted-string:nth-child(2)
