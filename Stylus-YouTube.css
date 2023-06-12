@@ -18,17 +18,23 @@ ytd-guide-renderer.ytd-app {width: 258px}
 
 /* Color scheme */
 html[dark], [dark] {
-    --yt-spec-badge-chip-background:        rgba(255, 255, 255, 0.07);
-    --yt-spec-button-chip-background-hover: rgba(255, 255, 255, 0.09);
-    --yt-spec-text-primary:                 #ddd;
-    --yt-spec-icon-active-other:            #ddd;
-    --yt-spec-static-brand-white:           #ddd;
-    --yt-spec-icon-inactive:                #ddd;
-    --yt-spec-brand-icon-inactive:          #ddd;
-    --yt-spec-10-percent-layer:             var(--ytd-searchbox-legacy-border-color);
-    --ytd-searchbox-legacy-button-color:    #202020;
-    --yt-spec-raised-background:            #202020;
+    --ytd-searchbox-legacy-border-color:        #8885;
+    --ytd-searchbox-legacy-button-border-color: var(--ytd-searchbox-legacy-border-color);
+    --yt-spec-badge-chip-background:            rgba(255, 255, 255, 0.07);
+    --yt-spec-button-chip-background-hover:     rgba(255, 255, 255, 0.09);
+    --yt-spec-text-primary:                     #fffd !important;
+    --yt-spec-icon-active-other:                #ddd;
+    --yt-spec-static-brand-white:               #ddd;
+    --yt-spec-icon-inactive:                    #ddd;
+    --yt-spec-brand-icon-inactive:              #ddd;
+    --yt-spec-10-percent-layer:                 var(--ytd-searchbox-legacy-border-color);
+    --yt-spec-general-background-a:             none;
+    --ytd-searchbox-background:                 none;
 }
+
+html[dark] .header.ytd-playlist-panel-renderer,
+html[dark] #header.ytd-engagement-panel-title-header-renderer
+    {background-color: var(--yt-spec-badge-chip-background)}
 
 
 /* Search menu */
@@ -66,7 +72,7 @@ ytd-multi-page-menu-renderer,
 
 #content.ytd-playlist-video-renderer,
 .ytd-section-list-renderer
-  {border-bottom: none !important}
+    {border-bottom: none !important}
 
 
 /* Player */
@@ -134,4 +140,41 @@ ytd-toggle-button-renderer.style-scope:nth-child(2) > a:nth-child(1) > yt-format
 .ytp-chrome-top, .ytp-chrome-bottom {text-shadow: none}
 
 ytd-macro-markers-list-item-renderer[rounded] #thumbnail.ytd-macro-markers-list-item-renderer {border-radius: 1px}
+
+div.ytp-time-display {margin: -2px 0 0 0}
+button.ytp-time-display {margin: -2px 18px 0 0}
+
+
+/* Savefrom */
+#savefrom__yt_btn .sf-quick-dl-btn,
+#savefrom__yt_btn > button:nth-child(4) {
+    background-color: rgba(255, 255, 255, 0.07) !important;
+    border: none !important;
+    border-radius: 30px !important;
+    height: 36px !important;
+    width: 36px}
+
+#savefrom__yt_btn:before {
+    content: "💾";
+    margin-right: -26px}
+
+#savefrom__yt_btn {margin-left: 18px !important}
+
+.sf-quick-dl-btn,
+#savefrom__yt_btn > button:nth-child(4) > span:nth-child(1),
+.sf-televzr-popup-container,
+#savefrom__yt_btn > button:nth-child(4) > i:nth-child(2),
+._6BnMg--item--anchor
+    {display:none !important}
+
+#sf-popupMenu, .A50sa--hidden--viewer {background-color: #ddd}
+
+#sf-popupMenu a:hover {background-color: #333 !important}
+
+
+ytd-menu-renderer.ytd-watch-metadata > div > ytd-button-renderer > yt-button-shape:nth-child(1) > button:nth-child(1) > div:nth-child(2) {display:none !important}
+
+ytd-menu-renderer.ytd-watch-metadata > div > ytd-button-renderer > yt-button-shape:nth-child(1) > button:nth-child(1) > div:nth-child(1) {
+    margin-right: -10px;
+    margin-left: -10px}
 }
