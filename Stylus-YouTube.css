@@ -14,6 +14,7 @@ ytd-guide-section-renderer.style-scope:nth-child(5),
     {display:none}
 
 ytd-guide-renderer.ytd-app {width: 258px}
+ytd-guide-entry-renderer {margin-bottom: 1px}
 
 
 /* Color scheme */
@@ -128,7 +129,7 @@ ytd-shelf-renderer.ytd-item-section-renderer.style-scope {display:none}
 /* Player */
 ytd-watch-flexy.style-scope[theater] {margin-top: -56px}
 
-#player-theater-container {max-height: 100% !important}
+#player-wide-container {max-height: 100% !important}
 
 ytd-topbar-logo-renderer,
 .ytp-fullscreen-button,
@@ -172,9 +173,14 @@ button.ytp-time-display {margin: -2px 18px 0 0}
 #sf-popupMenu a:hover {background-color: #333 !important}
 
 
-ytd-menu-renderer.ytd-watch-metadata > div > ytd-button-renderer > yt-button-shape:nth-child(1) > button:nth-child(1) > div:nth-child(2) {display:none !important}
+ytd-menu-renderer.ytd-watch-metadata > div > ytd-button-renderer > yt-button-shape:nth-child(1) > button:nth-child(1) > div:nth-child(2),
+yt-button-renderer.style-scope:nth-child(2) > yt-button-shape:nth-child(1) > button:nth-child(1) > div:nth-child(2),
+yt-button-renderer.ytd-menu-renderer > yt-button-shape:nth-child(1) > button:nth-child(1) > div:nth-child(2)
+    {display:none !important}
 
-ytd-menu-renderer.ytd-watch-metadata > div > ytd-button-renderer > yt-button-shape:nth-child(1) > button:nth-child(1) > div:nth-child(1) {
+ytd-menu-renderer.ytd-watch-metadata > div > ytd-button-renderer > yt-button-shape:nth-child(1) > button:nth-child(1) > div:nth-child(1),
+yt-button-renderer.style-scope:nth-child(2) > yt-button-shape:nth-child(1) > button:nth-child(1) > div:nth-child(1),
+yt-button-renderer.ytd-menu-renderer > yt-button-shape:nth-child(1) > button:nth-child(1) > div:nth-child(1) {
     margin-right: -10px;
     margin-left: -10px}
 }
