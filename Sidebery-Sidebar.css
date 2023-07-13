@@ -11,8 +11,7 @@
 
 #root[data-frame-color-scheme=dark] {
   --frame-bg:                      hsl(252, 4%, 6%) !important;
-  --tabs-activated-bg:             hsl(252, 4%, 19%);
-  !--tabs-activated-fg:             hsl(240, 100%, 70%);
+  --tabs-activated-bg:             hsl(252, 4%, 20%);
   --ctx-menu-bg:                   hsl(252, 4%, 9%);
   --ctx-menu-separator:            hsl(252, 4%, 15%);
   --ctx-menu-shadow:               0 0 0 1px var(--ff-popup-border,black), 0 0 16px 0 black;
@@ -20,9 +19,6 @@
   --notification-bg:               var(--ctx-menu-bg);
 }
 
-#root[data-frame-color-scheme=dark] .Tab[data-pin="true"] {
-  --tabs-activated-bg:             hsl(240, 38%, 32%);
-}
 
 [data-frame-color-scheme=dark] .Tab[data-active="true"] .fav-icon {fill: #fff}
 [data-frame-color-scheme=dark] .popup-container {background-color: rgba(0,0,0,.6)}
@@ -51,8 +47,6 @@
 }
 
 .NavigationBar .nav-item:not([data-active="true"]) .icon {opacity: .65}
-
-.NavigationBar .nav-item[data-active="true"] .icon {fill: var(--tabs-activated-fg)}
 
 .NavigationBar .nav-item .len {
   text-shadow: none;
@@ -118,8 +112,6 @@
 
 .CtxMenu .inline-group {padding: 0 0 2px 0 !important}
 
-!.CtxMenu .icon-opt {min-width: 33%}
-
 .CtxMenu .icon-opt:before,
 .CtxMenu .opt:before {
   border-radius: 0;
@@ -130,6 +122,8 @@
 .CtxMenu .list-group {padding: 1px 0 3px 0}
 
 .CtxMenu .opt {padding: 5px 10px}
+
+.CtxMenu .opt:not([data-inactive="true"]):active {opacity: 1}
 
 .CtxMenu .opt[data-separator=true] {padding: 1px 0}
 
