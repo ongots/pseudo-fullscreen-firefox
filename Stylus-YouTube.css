@@ -13,7 +13,8 @@ ytd-guide-section-renderer.style-scope:nth-child(5),
 #guide-renderer > div:nth-child(2)
     {display:none}
 
-ytd-guide-renderer.ytd-app {width: 258px}
+
+ytd-guide-renderer.ytd-app {width: 256px}
 ytd-guide-entry-renderer {margin-bottom: 1px}
 
 
@@ -36,21 +37,6 @@ html[dark], [dark] {
 html[dark] .header.ytd-playlist-panel-renderer,
 html[dark] #header.ytd-engagement-panel-title-header-renderer
     {background-color: var(--yt-spec-badge-chip-background)}
-
-
-/* Search menu */
-[dark] .sbsb_a,
-[dark] .sbfl_b,
-[dark] .sbdd_b {
-    background-color: var(--yt-spec-brand-background-primary)}
-
-[dark] .sbsb_d {background-color: var(--yt-spec-badge-chip-background)} /*hover*/
-[dark] .gsfs   {color: var(--yt-spec-text-primary)}
-[dark] .sbdd_b {border: 0}
-
-[dark] ytd-guide-entry-renderer[active],
-[dark] tp-yt-paper-listbox.yt-dropdown-menu .iron-selected.yt-dropdown-menu {
-    background-color: var(--yt-spec-badge-chip-background)}
 
 
 /* Watching indicator */
@@ -78,7 +64,6 @@ ytd-multi-page-menu-renderer,
 
 /* Player */
 .ytp-pause-overlay,
-.ytp-gradient-bottom,
 .branding-img-container,
 .ytp-cards-button,
 .ytp-cards-teaser,
@@ -97,6 +82,10 @@ ytd-thumbnail::before,
 ytd-alert-with-button-renderer.style-scope,
 .yt-alert-renderer.style-scope
 	{border-radius: 8px !important}
+
+
+/* Playlist menu */
+ytd-add-to-playlist-renderer[dialog] #playlists.ytd-add-to-playlist-renderer {max-height: 800px}
 }
 
 @-moz-document url-prefix("https://www.youtube.com/feed/subscriptions") {
@@ -137,8 +126,6 @@ ytd-topbar-logo-renderer,
 .tp-yt-app-drawer::after,
 ytd-toggle-button-renderer.style-scope:nth-child(2) > a:nth-child(1) > yt-formatted-string:nth-child(2)
     {display:none !important}
-
-.ytp-chrome-top, .ytp-chrome-bottom {text-shadow: none}
 
 ytd-macro-markers-list-item-renderer[rounded] #thumbnail.ytd-macro-markers-list-item-renderer {border-radius: 1px}
 
