@@ -29,10 +29,6 @@
 [sizemode=normal] #nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) .toolbarbutton-badge
   {display:none !important}
 
-.toolbaritem-combined-buttons,
-.toolbaritem-menu-buttons {
-  -moz-box-align: inherit !important}
-
 toolbar .toolbaritem-combined-buttons > .toolbarbutton-1 {
   background-color: transparent !important;
   height: 100%}
@@ -61,12 +57,7 @@ toolbar .toolbaritem-combined-buttons {
 
 [sizemode=normal] #sidebar-box {max-width: 4px !important}
 
-#appcontent {margin-left: -6px}
-
-@media(-moz-windows-default-theme) {
-  [sizemode=normal] #sidebar-box {height: calc(100% - 10px)}
-  #appcontent {margin-left: 0}
-}
+@media(-moz-platform: windows) { [sizemode=normal] #sidebar-box {height: calc(100% - 10px)} }
 
 #sidebar-box:not([hidden]):hover {
   width: 330px !important;
@@ -77,8 +68,9 @@ toolbar .toolbaritem-combined-buttons {
   width: 329px !important;
   height: 100%}
 
+@media(-moz-platform: linux) { #appcontent {margin-left: -6px} }
 
-.sidebar-splitter {--sidebar-border-color: var(--chrome-content-separator-color)}
+
 
 #sidebar-header {display:none}
 
@@ -137,15 +129,10 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -9px -3p
 
 #appMenu-new-tab-button2,
 #appMenu-fullscreen-button2,
-#appmenu-developer-tools,
-#context-sep-navigation
+#appmenu-developer-tools
   {display:none !important}
 
-#context-navigation:not([hidden]) {
-  --menuitem-min-width: 53px !important;
-  padding: 0 !important}
-
-
+#context-navigation:not([hidden]) {--menuitem-min-width: 53px !important}
 
 * {
   --arrowpanel-border-radius: 5px;
@@ -222,9 +209,10 @@ menulist > menupopup
   --panel-padding: 3px 0 !important;
 }
 
-menuseparator {border-top: 1px solid /*var(--panel-separator-color)*/ color-mix(in srgb, currentColor 7%, transparent) !important}
-
-menupopup menuseparator {margin: 1px .5em !important}
+menupopup menuseparator {
+  padding-block: 0 !important;
+  padding-inline: 0em !important;
+  margin: 1px .5em !important}
 
 @media(-moz-platform: linux) {
   menuseparator {-moz-default-appearance: none !important}
@@ -249,8 +237,8 @@ panel {
 
 .unified-extensions-item-icon,
 #unified-extensions-panel .unified-extensions-item .webextension-browser-action > .toolbarbutton-badge-stack > .toolbarbutton-icon {
-	height: 16px !important;
-	width: 16px !important}
+  height: 16px !important;
+  width: 16px !important}
 
 .panel-subview-body {padding-top: 3px !important}
 
@@ -281,7 +269,7 @@ panel {
 
 .protections-popup-footer-button,
 .protections-popup-category {
-	border-radius: 0 !important}
+  border-radius: 0 !important}
 
 .urlbarView-action {
   margin-block: -4px !important;
