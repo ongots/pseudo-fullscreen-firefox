@@ -1,9 +1,7 @@
 ![alt text](demo.gif)
 
 ### Install Firefox style
-1. In about:config enable:
-- `toolkit.legacyUserProfileCustomizations.stylesheets`
-- `layout.css.color-mix.enabled`
+1. In about:config enable `toolkit.legacyUserProfileCustomizations.stylesheets`
 2. Copy 'chrome' folder in 'Profile Folder' (Menu > Help > Troubleshooting Information > Profile Folder)
 3. Restart Firefox
 
@@ -13,7 +11,7 @@
 
 
 ### Install Sidebery style
-1. [Install Sidebery v5](https://github.com/mbnuqw/sidebery/releases)
+1. [Install Sidebery v5](https://github.com/mbnuqw/sidebery/releases) (updated automatically)
 2. Copy the code from Sidebery-Sidebar.css to Sidebery / Settings / Styles editor / Sidebar
 3. Copy the code from Sidebery-GroupPage.css to Sidebery / Settings / Styles editor / Group page
 
@@ -32,8 +30,6 @@
 ### Useful settings about:config
 - Opening a bookmark in a new tab
 `browser.tabs.loadBookmarksInTabs` `true`
-- Scroll step
-`mousewheel.min_line_scroll_amount` `25`
 - Smoothness of scrolling
 `general.smoothScroll.mouseWheel.durationMaxMS` `380`
 - Disable add-on recommendations
