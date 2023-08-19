@@ -118,7 +118,7 @@ ytd-shelf-renderer.ytd-item-section-renderer.style-scope {display:none}
 /* Player */
 ytd-watch-flexy.style-scope[theater] {margin-top: -56px}
 
-#player-wide-container {max-height: 100% !important}
+#player-full-bleed-container {max-height: 100% !important}
 
 ytd-topbar-logo-renderer,
 .ytp-fullscreen-button,
