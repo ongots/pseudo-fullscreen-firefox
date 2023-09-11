@@ -10,7 +10,7 @@ ytd-mini-guide-entry-renderer.style-scope:nth-child(5),
 ytd-guide-section-renderer.style-scope:nth-child(3),
 ytd-guide-section-renderer.style-scope:nth-child(4),
 ytd-guide-section-renderer.style-scope:nth-child(5),
-#guide-renderer > div:nth-child(2)
+.ytd-guide-renderer:nth-child(3)
     {display:none}
 
 
@@ -104,7 +104,7 @@ ytd-section-list-renderer {--yt-spec-10-percent-layer: 0}
 ytd-shelf-renderer.ytd-item-section-renderer.style-scope {display:none}
 }
 
-@-moz-document url-prefix("https://www.youtube.com/watch") {
+@-moz-document url-prefix("https://www.youtube.com/watch"), url-prefix("https://www.youtube.com/clip") {
 :root {scrollbar-width: none}
 
 
