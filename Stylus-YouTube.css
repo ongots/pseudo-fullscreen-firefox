@@ -1,16 +1,14 @@
 @-moz-document domain("youtube.com") {
     /* Side menu */
 /* Shorts */
-ytd-guide-section-renderer.style-scope:nth-child(1) > div:nth-child(3) > ytd-guide-entry-renderer:nth-child(2),
-ytd-mini-guide-entry-renderer.style-scope:nth-child(2),
+ytd-guide-section-renderer.style-scope:nth-child(1) > div:nth-child(2) > ytd-guide-entry-renderer:nth-child(2),
 /* Library */
 #header > .ytd-guide-collapsible-section-entry-renderer.style-scope,
-ytd-mini-guide-entry-renderer.style-scope:nth-child(5),
 /* More from youtube */
 ytd-guide-section-renderer.style-scope:nth-child(3),
 ytd-guide-section-renderer.style-scope:nth-child(4),
 ytd-guide-section-renderer.style-scope:nth-child(5),
-.ytd-guide-renderer:nth-child(3)
+#footer
     {display:none}
 
 
@@ -81,7 +79,7 @@ ytd-thumbnail::before,
 
 ytd-alert-with-button-renderer.style-scope,
 .yt-alert-renderer.style-scope
-	{border-radius: 8px !important}
+    {border-radius: 8px !important}
 
 
 /* Playlist menu */
