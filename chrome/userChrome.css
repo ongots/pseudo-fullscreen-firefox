@@ -333,6 +333,8 @@ richlistbox {background-color: transparent !important}
 
 #downloadsListBox > richlistitem {border-radius: 0 !important}
 
+panel toolbarseparator {margin: 1px .5em !important}
+
 
 
 
