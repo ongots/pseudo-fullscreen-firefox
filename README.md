@@ -1,6 +1,6 @@
 ![alt text](demo.gif)
 
-### Install Firefox style
+### Firefox
 1. In about:config enable `toolkit.legacyUserProfileCustomizations.stylesheets`
 2. Copy 'chrome' folder in 'Profile Folder' (Menu > Help > Troubleshooting Information > Profile Folder)
 3. Restart Firefox
@@ -10,13 +10,13 @@
 - To set the wallpaper in a new tab, place a .jpg or .png image in the Chrome folder and rename it to "bg". Restart Firefox
 
 
-### Install Sidebery style
-1. [Install Sidebery v5](https://github.com/mbnuqw/sidebery/releases) (updated automatically)
+### Sidebery
+1. [Install Sidebery](https://github.com/mbnuqw/sidebery/releases) (updated automatically)
 2. Copy the code from Sidebery-Sidebar.css to Sidebery / Settings / Styles editor / Sidebar
 3. Copy the code from Sidebery-GroupPage.css to Sidebery / Settings / Styles editor / Group page
 
 
-### Install YouTube style
+### YouTube
 1. [Install Stylus](https://addons.mozilla.org/firefox/addon/styl-us/)
 2. Open YouTube
 3. In Stylus, click New Style ...
@@ -27,7 +27,7 @@
 - To open the header, move the cursor to the top edge, but not all the way
 
 
-### Useful settings about:config
+### about:config
 - Opening a bookmark in a new tab
 `browser.tabs.loadBookmarksInTabs` `true`
 - Smoothness of scrolling
