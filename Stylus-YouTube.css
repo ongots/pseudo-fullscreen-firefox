@@ -18,18 +18,18 @@ ytd-guide-entry-renderer {margin-bottom: 1px}
 
 /* Color scheme */
 html[dark], [dark] {
-    --ytd-searchbox-legacy-border-color:        #8885;
-    --ytd-searchbox-legacy-button-border-color: var(--ytd-searchbox-legacy-border-color);
     --yt-spec-badge-chip-background:            rgba(255, 255, 255, 0.07);
     --yt-spec-button-chip-background-hover:     rgba(255, 255, 255, 0.09);
+    --ytd-searchbox-legacy-border-color:        var(--yt-spec-badge-chip-background);
+    --yt-spec-10-percent-layer:                 var(--yt-spec-badge-chip-background);
     --yt-spec-text-primary:                     #fffd !important;
     --yt-spec-icon-active-other:                #ddd;
     --yt-spec-static-brand-white:               #ddd;
     --yt-spec-icon-inactive:                    #ddd;
     --yt-spec-brand-icon-inactive:              #ddd;
-    --yt-spec-10-percent-layer:                 var(--ytd-searchbox-legacy-border-color);
     --yt-spec-general-background-a:             none;
     --ytd-searchbox-background:                 none;
+    --ytd-searchbox-legacy-button-border-color: none;
 }
 
 html[dark] .header.ytd-playlist-panel-renderer,
@@ -149,7 +149,7 @@ button.ytp-time-display {margin: -2px 18px 0 0}
 .sf-quick-dl-btn,
 #savefrom__yt_btn > button:nth-child(4) > span:nth-child(1),
 .sf-televzr-popup-container,
-#savefrom__yt_btn > button:nth-child(4) > i:nth-child(2),
+#savefrom__yt_btn > button:nth-child(4) > i,
 ._6BnMg--item--anchor
     {display:none !important}
 
@@ -168,4 +168,7 @@ yt-button-renderer.style-scope:nth-child(2) > yt-button-shape:nth-child(1) > but
 yt-button-renderer.ytd-menu-renderer > yt-button-shape:nth-child(1) > button:nth-child(1) > div:nth-child(1) {
     margin-right: -10px;
     margin-left: -10px}
+
+
+.ytd-watch-flexy {--ytd-watch-flexy-panel-max-height: 917px}
 }
