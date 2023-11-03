@@ -56,7 +56,8 @@ ytd-multi-page-menu-renderer,
     {--yt-spec-10-percent-layer: 0}
 
 #content.ytd-playlist-video-renderer,
-.ytd-section-list-renderer
+.ytd-section-list-renderer,
+ytd-c4-tabbed-header-renderer[modern-tabs] #tabs-divider.ytd-c4-tabbed-header-renderer
     {border-bottom: none !important}
 
 
@@ -84,6 +85,9 @@ ytd-alert-with-button-renderer.style-scope,
 
 /* Playlist menu */
 ytd-add-to-playlist-renderer[dialog] #playlists.ytd-add-to-playlist-renderer {max-height: 800px}
+
+
+ytd-c4-tabbed-header-renderer.style-scope[has-channel-art] div.tp-yt-app-header-layout:nth-child(2) {padding-top: 500px !important}
 }
 
 @-moz-document url-prefix("https://www.youtube.com/feed/subscriptions") {
@@ -102,6 +106,10 @@ ytd-section-list-renderer {--yt-spec-10-percent-layer: 0}
 ytd-shelf-renderer.ytd-item-section-renderer.style-scope {display:none}
 }
 
+@-moz-document url-prefix("https://www.youtube.com/playlist") {
+.metadata-stats.ytd-playlist-byline-renderer {display: ruby}
+}
+
 @-moz-document url-prefix("https://www.youtube.com/watch"), url-prefix("https://www.youtube.com/clip") {
 :root {scrollbar-width: none}
 
@@ -114,7 +122,7 @@ ytd-shelf-renderer.ytd-item-section-renderer.style-scope {display:none}
 
 
 /* Player */
-ytd-watch-flexy.style-scope[theater] {margin-top: -56px}
+ytd-watch-flexy.style-scope[theater]:not([fullscreen]) {margin-top: -56px}
 
 #full-bleed-container {max-height: 100% !important}
 
@@ -134,7 +142,7 @@ button.ytp-time-display {margin: -2px 18px 0 0}
 /* Savefrom */
 #savefrom__yt_btn .sf-quick-dl-btn,
 #savefrom__yt_btn > button:nth-child(4) {
-    background-color: rgba(255, 255, 255, 0.07) !important;
+    background-color: var(--yt-spec-badge-chip-background) !important;
     border: none !important;
     border-radius: 30px !important;
     height: 36px !important;
@@ -142,7 +150,7 @@ button.ytp-time-display {margin: -2px 18px 0 0}
 
 #savefrom__yt_btn:before {
     content: "💾";
-    margin-right: -26px}
+    position: absolute}
 
 #savefrom__yt_btn {margin-left: 18px !important}
 
@@ -171,4 +179,12 @@ yt-button-renderer.ytd-menu-renderer > yt-button-shape:nth-child(1) > button:nth
 
 
 .ytd-watch-flexy {--ytd-watch-flexy-panel-max-height: 917px}
+
+
+.ytp-probably-keyboard-focus :focus {box-shadow: none !important}
+
+
+/* Fix of rolling-number offset at 110% scaling text of Windows and browser.display.os-zoom-behavior 2 */
+/*.animated-rolling-number-wiz {line-height: 2rem !important}
+yt-animated-rolling-number:nth-child(1) {line-height: 32.7px !important}*/
 }
