@@ -96,7 +96,7 @@ toolbar .toolbaritem-combined-buttons {
   background-color: transparent !important}
 
 #PlacesToolbarItems > toolbarbutton.bookmark-item > label {
-  padding: calc(var(--toolbarbutton-inner-padding) / 1.5);
+  padding: calc(var(--toolbarbutton-inner-padding) / 1.5) !important;
   border-radius: var(--toolbarbutton-border-radius)}
 
 #PlacesToolbarItems > toolbarbutton.bookmark-item:hover > label,
@@ -414,6 +414,8 @@ panel toolbarseparator {margin: 1px .5em !important}
       --button-active-bgcolor: var(--button-hover-bgcolor) !important;
       --urlbar-box-hover-bgcolor: var(--button-hover-bgcolor);
       --urlbar-box-active-bgcolor: var(--button-hover-bgcolor);
+      --urlbarView-hover-background: var(--button-hover-bgcolor);
+      --urlbarView-highlight-background: var(--button-hover-bgcolor);
   
   
   --panel-item-hover-bgcolor: color-mix(in srgb, currentColor 6%, transparent) !important;
@@ -428,6 +430,7 @@ panel toolbarseparator {margin: 1px .5em !important}
   
   --panel-separator-color: color-mix(in srgb, currentColor 7%, transparent) !important;
       --menu-border-color: var(--panel-separator-color);
+      --urlbarView-separator-color: var(--panel-separator-color);
   --autocomplete-popup-separator-color: color-mix(in srgb, currentColor 7%, transparent) !important;
   
   --input-bgcolor: transparent;
