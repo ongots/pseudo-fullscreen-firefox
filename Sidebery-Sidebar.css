@@ -25,6 +25,8 @@
 [data-frame-color-scheme=dark] * {caret-color: #FF3641}
 [data-frame-color-scheme=dark] ::selection {background-color: hsl(240, 38%, 18%); color: hsl(240, 79%, 80%)}
 [data-frame-color-scheme=dark] .btn {background-color: #080808}
+[data-frame-color-scheme=dark] .Tab,
+  [data-frame-color-scheme=dark] .BookmarkNode {--frame-el-overlay-selected-border: hsl(195.7, 100%, 50%)}
 
 
 #root[data-frame-color-scheme=light] {
@@ -46,9 +48,7 @@
 
 .NavigationBar .nav-item:not([data-active="true"]) .icon {opacity: .65}
 
-.NavigationBar .nav-item .len {
-  text-shadow: none;
-  top: -2px}
+.NavigationBar .nav-item .len {top: -2px}
 
 .NavigationBar .nav-item .audio {
   background-color: transparent !important;
@@ -62,10 +62,6 @@
 
 
   /*   TABS   */
-.Tab,
-.BookmarkNode {
-  --frame-el-overlay-selected-border: none}
-
 #root[data-pinned-tabs-position="panel"] .PinnedTabsBar,
 #root[data-pinned-tabs-position="top"] .PinnedTabsBar {
   padding: 0 0 var(--tabs-margin) !important}
