@@ -11,7 +11,7 @@
 
 
 ### Sidebery
-1. [Install Sidebery](https://github.com/mbnuqw/sidebery/releases) (updated automatically)
+1. [Install Sidebery](https://github.com/mbnuqw/sidebery)
 2. Copy the code from Sidebery-Sidebar.css to Sidebery / Settings / Styles editor / Sidebar
 3. Copy the code from Sidebery-GroupPage.css to Sidebery / Settings / Styles editor / Group page
 
