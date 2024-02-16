@@ -1,6 +1,9 @@
 #root[data-frame-color-scheme=dark] {
   --s-toolbar-bg: #111 !important}
 
+html {
+  background-color: var(--s-toolbar-bg) !important}
+
 
 
 
