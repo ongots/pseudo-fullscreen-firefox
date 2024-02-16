@@ -93,7 +93,8 @@ ytd-c4-tabbed-header-renderer.style-scope[has-channel-art] div.tp-yt-app-header-
 @-moz-document url-prefix("https://www.youtube.com/feed/subscriptions") {
 /* Feed */
 ytd-item-section-renderer.style-scope > div > ytd-shelf-renderer > div > div > div > h2,
-ytd-item-section-renderer.style-scope:not(:nth-child(1)) > div > ytd-shelf-renderer > div > div:nth-child(1)
+ytd-item-section-renderer.style-scope:not(:nth-child(1)) > div > ytd-shelf-renderer > div > div:nth-child(1),
+ytd-item-section-renderer.style-scope:nth-child(5) > div:nth-child(3)
     {display:none}
 
 .grid-subheader.ytd-shelf-renderer {margin-top: 9px}
@@ -168,12 +169,18 @@ button.ytp-time-display {margin: -2px 18px 0 0}
 
 ytd-menu-renderer.ytd-watch-metadata > div > ytd-button-renderer > yt-button-shape:nth-child(1) > button:nth-child(1) > div:nth-child(2),
 yt-button-renderer.style-scope:nth-child(2) > yt-button-shape:nth-child(1) > button:nth-child(1) > div:nth-child(2),
-yt-button-renderer.ytd-menu-renderer > yt-button-shape:nth-child(1) > button:nth-child(1) > div:nth-child(2)
+yt-button-renderer.ytd-menu-renderer > yt-button-shape:nth-child(1) > button:nth-child(1) > div:nth-child(2),
+ytd-menu-renderer.ytd-watch-metadata > div:nth-child(2) > yt-button-view-model > button-view-model:nth-child(1) > button:nth-child(1) > div:nth-child(2),
+ytd-menu-renderer.ytd-watch-metadata > div:nth-child(1) > yt-button-view-model:nth-child(3) > button-view-model:nth-child(1) > button:nth-child(1) > div:nth-child(2),
+button.ytd-menu-renderer > div:nth-child(2)
     {display:none !important}
 
 ytd-menu-renderer.ytd-watch-metadata > div > ytd-button-renderer > yt-button-shape:nth-child(1) > button:nth-child(1) > div:nth-child(1),
 yt-button-renderer.style-scope:nth-child(2) > yt-button-shape:nth-child(1) > button:nth-child(1) > div:nth-child(1),
-yt-button-renderer.ytd-menu-renderer > yt-button-shape:nth-child(1) > button:nth-child(1) > div:nth-child(1) {
+yt-button-renderer.ytd-menu-renderer > yt-button-shape:nth-child(1) > button:nth-child(1) > div:nth-child(1),
+ytd-menu-renderer.ytd-watch-metadata > div:nth-child(2) > yt-button-view-model > button-view-model:nth-child(1) > button:nth-child(1) > div,
+ytd-menu-renderer.ytd-watch-metadata > div:nth-child(1) > yt-button-view-model:nth-child(3) > button-view-model:nth-child(1) > button:nth-child(1) > div:nth-child(1),
+button.ytd-menu-renderer > div:nth-child(2) {
     margin-right: -10px;
     margin-left: -10px}
 
