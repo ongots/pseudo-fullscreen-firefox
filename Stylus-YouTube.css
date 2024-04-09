@@ -123,7 +123,7 @@ ytd-shelf-renderer.ytd-item-section-renderer.style-scope {display:none}
 
 
 /* Player */
-ytd-watch-flexy.style-scope[theater]:not([fullscreen]) {margin-top: -56px}
+ytd-watch-flexy.style-scope[theater]:not([fullscreen]) #full-bleed-container {margin-top: -56px}
 
 #full-bleed-container {max-height: 100% !important}
 
@@ -167,17 +167,11 @@ button.ytp-time-display {margin: -2px 18px 0 0}
 #sf-popupMenu a:hover {background-color: #333 !important}
 
 
-ytd-menu-renderer.ytd-watch-metadata > div > ytd-button-renderer > yt-button-shape:nth-child(1) > button:nth-child(1) > div:nth-child(2),
-yt-button-renderer.style-scope:nth-child(2) > yt-button-shape:nth-child(1) > button:nth-child(1) > div:nth-child(2),
-yt-button-renderer.ytd-menu-renderer > yt-button-shape:nth-child(1) > button:nth-child(1) > div:nth-child(2),
 ytd-menu-renderer.ytd-watch-metadata > div:nth-child(2) > yt-button-view-model > button-view-model:nth-child(1) > button:nth-child(1) > div:nth-child(2),
 ytd-menu-renderer.ytd-watch-metadata > div:nth-child(1) > yt-button-view-model:nth-child(3) > button-view-model:nth-child(1) > button:nth-child(1) > div:nth-child(2),
 button.ytd-menu-renderer > div:nth-child(2)
     {display:none !important}
 
-ytd-menu-renderer.ytd-watch-metadata > div > ytd-button-renderer > yt-button-shape:nth-child(1) > button:nth-child(1) > div:nth-child(1),
-yt-button-renderer.style-scope:nth-child(2) > yt-button-shape:nth-child(1) > button:nth-child(1) > div:nth-child(1),
-yt-button-renderer.ytd-menu-renderer > yt-button-shape:nth-child(1) > button:nth-child(1) > div:nth-child(1),
 ytd-menu-renderer.ytd-watch-metadata > div:nth-child(2) > yt-button-view-model > button-view-model:nth-child(1) > button:nth-child(1) > div,
 ytd-menu-renderer.ytd-watch-metadata > div:nth-child(1) > yt-button-view-model:nth-child(3) > button-view-model:nth-child(1) > button:nth-child(1) > div:nth-child(1),
 button.ytd-menu-renderer > div:nth-child(2) {
@@ -190,8 +184,4 @@ button.ytd-menu-renderer > div:nth-child(2) {
 
 .ytp-probably-keyboard-focus :focus {box-shadow: none !important}
 
-
-/* Fix of rolling-number offset at 110% scaling text of Windows and browser.display.os-zoom-behavior 2 */
-/*.animated-rolling-number-wiz {line-height: 2rem !important}
-yt-animated-rolling-number:nth-child(1) {line-height: 32.7px !important}*/
 }
