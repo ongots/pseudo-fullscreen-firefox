@@ -13,15 +13,15 @@
   background-color: black !important;
   transition: none !important}
 
-[sizemode=maximized]                    #nav-bar:not([customizing]) {margin-bottom: -39px}
-[sizemode=normal]                       #nav-bar:not([customizing]) {margin-bottom: -30px}
+[sizemode=maximized]                    #nav-bar:not([customizing]) {margin-bottom: -40px}
+[sizemode=normal]                       #nav-bar:not([customizing]) {margin-bottom: -31px}
 [sizemode=maximized][uidensity=compact] #nav-bar:not([customizing]) {margin-bottom: -33px}
 [sizemode=normal][uidensity=compact]    #nav-bar:not([customizing]) {margin-bottom: -25px}
 
 #nav-bar:hover,
 #nav-bar:focus-within,
 #mainPopupSet:hover ~ box > toolbox > .browser-toolbar {
-  background-color: var(--lwt-accent-color) !important;
+  background-color: var(--toolbar-bgcolor) !important;
   z-index: 3}
 
 [sizemode=normal] #nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #identity-icon-box,
@@ -60,12 +60,12 @@ toolbar .toolbaritem-combined-buttons {
 @media(-moz-platform: windows) { [sizemode=normal] #sidebar-box {height: calc(100% - 10px)} }
 
 #sidebar-box:not([hidden]):hover {
-  width: 330px !important;
+  width: 430px !important;
   max-width: 100% !important;
   opacity: 1}
 
 #sidebar {
-  width: 329px !important;
+  width: 429px !important;
   height: 100%}
 
 @media(-moz-platform: linux) { #appcontent {margin-left: -6px} }
@@ -248,11 +248,9 @@ panel {
 
 
 /*   Urlbar   */
-#urlbar-container * {
-  --urlbar-height: var(--urlbar-toolbar-height) !important;
-}
-
 #urlbar-container {margin-inline: 12px !important}
+
+#urlbar[breakout] {min-height: 41px !important}
 
 #urlbar-background:not(#urlbar[breakout][breakout-extend][open] > #urlbar-background) {
   background-color: transparent !important;
@@ -304,8 +302,6 @@ panel {
 #editBMPanel_folderTree * {background-color: var(--panel-background) !important}
 
 richlistbox {background-color: transparent !important}
-
-#urlbar-go-button {margin-top: 4px}
 
 
 
@@ -442,14 +438,10 @@ panel toolbarseparator {margin: 1px .5em !important}
   
   
   /*   Auto theme in dark mode   */
-  [lwt-default-theme-in-dark-mode] *,
-  [lwt-default-theme-in-dark-mode]:root,
-  [style="--lwt-accent-color: white; --lwt-text-color: rgba(0, 0, 0);"] *,
-  [style="--lwt-accent-color: white; --lwt-text-color: rgba(0, 0, 0);"]:root {
-    
+  * {
     --toolbar-color:                  hsl(252, 4%, 95%);  --toolbarbutton-icon-fill: currentColor;  --toolbar-field-focus-color: currentColor; 
                                                           --autocomplete-popup-highlight-color: currentColor;  --arrowpanel-color: var(--toolbar-color);
-    --toolbar-bgcolor:                hsl(252, 4%, 6%);  --lwt-accent-color: var(--toolbar-bgcolor);
+    --toolbar-bgcolor:                hsl(252, 4%, 6%);
     --arrowpanel-background:          hsl(252, 4%, 9%);  --toolbar-field-focus-background-color: var(--arrowpanel-background);
     --arrowpanel-border-color:        black !important;
     --chrome-content-separator-color: black !important;
