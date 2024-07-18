@@ -7,10 +7,15 @@
 /*   Newtab   */
 @-moz-document url("about:home"), url("about:newtab") {
   body {
-    background-image: url(bg.jpg), url(bg.png);
+    background-image: url(bg.jpg), url(bg.png) !important;
     background-size: cover}
 
   .icon.icon-settings {opacity: .5}
 
   .wallpaper-attribution {display: none}
+
+  @media (prefers-color-scheme:dark) {
+    .customize-menu,
+    .customize-menu .close-button-wrapper {
+      background-color: hsl(252, 4%, 9%) !important}
 }
