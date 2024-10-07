@@ -265,6 +265,16 @@ panel {
 
 #identity-popup-security-button {margin-bottom: 0 !important}
 
+#urlbar-label-box,
+.urlbar-revert-button,
+.urlbar-go-button,
+.urlbarView-row[label="Firefox Suggest"]::before,
+.urlbarView-row:not([type="switchtab"]) .urlbarView-action,
+.urlbarView-title-,
+.search-one-offs > hbox,
+.urlbarView-title-separator
+  {display:none !important}
+
 .protections-popup-footer-button,
 .protections-popup-category {
   border-radius: 0 !important}
@@ -272,13 +282,6 @@ panel {
 .urlbarView-action {
   margin-block: -4px !important;
   padding: 6.25px 8px !important}
-
-.urlbarView-row[label="Firefox Suggest"]::before,
-.urlbarView-row:not([type="switchtab"]) .urlbarView-action,
-.urlbarView-title-,
-.search-one-offs > hbox,
-.urlbarView-title-separator
-  {display:none !important}
 
 .urlbarView-row:not([dynamicType="quickactions"]) {margin-inline: 0 !important}
 
