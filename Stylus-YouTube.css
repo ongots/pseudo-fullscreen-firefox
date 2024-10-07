@@ -57,7 +57,7 @@ ytd-multi-page-menu-renderer,
 
 #content.ytd-playlist-video-renderer,
 .ytd-section-list-renderer,
-ytd-c4-tabbed-header-renderer[modern-tabs] #tabs-divider.ytd-c4-tabbed-header-renderer
+#tabs-divider.ytd-tabbed-page-header
     {border-bottom: none !important}
 
 
@@ -108,7 +108,9 @@ ytd-shelf-renderer.ytd-item-section-renderer.style-scope {display:none}
 }
 
 @-moz-document url-prefix("https://www.youtube.com/playlist") {
-.metadata-stats.ytd-playlist-byline-renderer {display: ruby}
+.yt-content-metadata-view-model-wiz__metadata-row {
+    display: block;
+    word-break: break-all}
 }
 
 @-moz-document url-prefix("https://www.youtube.com/watch"), url-prefix("https://www.youtube.com/clip") {
