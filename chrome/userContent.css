@@ -16,6 +16,7 @@
 
   @media (prefers-color-scheme:dark) {
     .customize-menu,
-    .customize-menu .close-button-wrapper {
+    .customize-menu .close-button-wrapper,
+    .wallpaper-list.category {
       background-color: hsl(252, 4%, 9%) !important}
 }
