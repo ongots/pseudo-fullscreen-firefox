@@ -1,10 +1,10 @@
-/*   Disable Tabs   */
+/*   Tabs   */
 #titlebar, #tabContextMenu {display:none}
 
 
 
 
-/*   Auto hide navbar   */
+/*   Navbar   */
 #navigator-toolbox {border: 0 !important}
 
 #nav-bar {
@@ -27,7 +27,7 @@
 [sizemode=normal] #nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #identity-icon-box,
 [sizemode=normal] #nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #urlbar-zoom-button,
 [sizemode=normal] #nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) .toolbarbutton-badge
-  {display:none !important}
+  {display:none}
 
 toolbar .toolbaritem-combined-buttons > .toolbarbutton-1 {
   background-color: transparent !important;
@@ -42,7 +42,7 @@ toolbar .toolbaritem-combined-buttons {
 
 
 
-/*   Auto hide sidebar   */
+/*   Sidebar   */
 #sidebar-box:not([hidden]) {
   border-right: solid 1px var(--chrome-content-separator-color) !important;
   box-shadow: 2px 0 14px rgba(0, 0, 0, 0.13) !important;
@@ -406,6 +406,7 @@ panel toolbarseparator {margin: 1px .5em !important}
   --button-bgcolor: color-mix(in srgb, currentColor 6%, transparent) !important;
       --urlbar-box-bgcolor: var(--button-bgcolor);
       --urlbar-box-focus-bgcolor: var(--button-bgcolor);
+      --button-background-color: var(--button-bgcolor);
   
   
   --button-hover-bgcolor: color-mix(in srgb, currentColor 9%, transparent) !important;
@@ -439,7 +440,6 @@ panel toolbarseparator {margin: 1px .5em !important}
 @media (prefers-color-scheme:dark) {
   
   
-  /*   Auto theme in dark mode   */
   * {
     --toolbar-color:                  hsl(252, 4%, 95%);  --toolbarbutton-icon-fill: currentColor;  --toolbar-field-focus-color: currentColor; 
                                                           --autocomplete-popup-highlight-color: currentColor;  --arrowpanel-color: var(--toolbar-color);
@@ -450,12 +450,11 @@ panel toolbarseparator {margin: 1px .5em !important}
     --lwt-brighttext-url-color:       #007893 !important;
     --autocomplete-popup-highlight-background: var(--button-hover-bgcolor) !important;
     --urlbar-popup-url-color:         hsl(225, 99%, 70%) !important;
+    
+      caret-color: #FF3641;
   }
   
   
-  
-  * {caret-color: #FF3641}
-
   .titleIcon {background-color: transparent !important}
   
   .webextension-browser-action {filter: grayscale(20%)}
