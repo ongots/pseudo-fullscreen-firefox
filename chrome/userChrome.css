@@ -1,17 +1,16 @@
 /*   Tabs   */
-#titlebar, #tabContextMenu {display:none}
+#TabsToolbar, #tabContextMenu {display:none}
 
 
 
 
 /*   Navbar   */
-#navigator-toolbox {border: 0 !important}
-
 #nav-bar {
   box-shadow: inset 0 1px black,  0 1px var(--chrome-content-separator-color),  0 2px 14px rgba(0, 0, 0, 0.13)  !important;
   background: inherit !important;
   background-color: black !important;
-  transition: none !important}
+  transition: none !important;
+  border: none !important}
 
 [sizemode=maximized]                    #nav-bar:not([customizing]) {margin-bottom: -40px}
 [sizemode=normal]                       #nav-bar:not([customizing]) {margin-bottom: -31px}
@@ -20,14 +19,22 @@
 
 #nav-bar:hover,
 #nav-bar:focus-within,
-#mainPopupSet:hover ~ box > toolbox > .browser-toolbar {
-  background-color: var(--toolbar-bgcolor) !important;
-  z-index: 3}
+#nav-bar[customizing],
+#nav-bar:hover ~ box > toolbox > .browser-toolbar {
+  background-color: var(--toolbar-bgcolor) !important}
 
-[sizemode=normal] #nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #identity-icon-box,
-[sizemode=normal] #nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #urlbar-zoom-button,
-[sizemode=normal] #nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) .toolbarbutton-badge
-  {display:none}
+#navigator-toolbox {background-image: none !important}
+
+#navigator-toolbox:hover,
+#navigator-toolbox:focus-within,
+#navigator-toolbox[customizing],
+#mainPopupSet:hover ~ box > toolbox > .browser-toolbar {
+  background-image: var(--lwt-additional-images) !important;
+  z-index: 4 !important}
+
+#nav-bar:not(:hover):not(:focus-within):not([customizing]):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #nav-bar-customization-target * {
+  inset: revert !important;
+  opacity: 0}
 
 toolbar .toolbaritem-combined-buttons > .toolbarbutton-1 {
   background-color: transparent !important;
@@ -52,7 +59,7 @@ toolbar .toolbaritem-combined-buttons {
   min-width: 0 !important;
   max-width: 0 !important;
   display: block;
-  z-index: 2;
+  z-index: 3;
   opacity: 0}
 
 [sizemode=normal] #sidebar-box {max-width: 4px !important}
@@ -70,8 +77,6 @@ toolbar .toolbaritem-combined-buttons {
 
 @media(-moz-platform: linux) { #appcontent {margin-left: -6px} }
 
-
-
 #sidebar-header {display:none}
 
 
@@ -79,10 +84,11 @@ toolbar .toolbaritem-combined-buttons {
 
 /*   Bookmarks   */
 #PersonalToolbar:not([customizing]),
-.bookmark-item .toolbarbutton-icon,
-.openintabs-menuitem,
-.bookmarks-actions-menuseparator
-  {display:none}
+#PlacesToolbarItems .bookmark-item[type="menu"] .toolbarbutton-icon,
+#PlacesToolbarItems .bookmark-item[scheme="https"] .toolbarbutton-text,
+.bookmarks-actions-menuseparator,
+.openintabs-menuitem
+  {display:none !important}
 
 #PlacesToolbarItems menu.menu-iconic > menupopup {margin: -8px !important}
 
@@ -99,6 +105,15 @@ toolbar .toolbaritem-combined-buttons {
   padding: calc(var(--toolbarbutton-inner-padding) / 1.5) !important;
   border-radius: var(--toolbarbutton-border-radius)}
 
+#PlacesToolbarItems > toolbarbutton.bookmark-item > .toolbarbutton-icon {
+  padding: 8px;
+  margin: 0 !important;
+  border-radius: var(--urlbar-icon-border-radius);
+  width: 32px !important;
+  height: 32px !important}
+
+#PlacesToolbarItems > toolbarbutton.bookmark-item:hover > image,
+#PlacesToolbarItems > toolbarbutton.bookmark-item[open] > image,
 #PlacesToolbarItems > toolbarbutton.bookmark-item:hover > label,
 #PlacesToolbarItems > toolbarbutton.bookmark-item[open] > label {
   background-color: color-mix(in srgb, currentColor 8%, transparent)}
@@ -160,7 +175,7 @@ menuitem[_moz-menuactive][disabled="true"] {
 menu,
 menuitem,
 .toolbarbutton-1,
-.subviewbutton:not(#appMenu-fxa-label2, .subviewbutton-back, #appMenu-proton-update-banner) {
+.subviewbutton:not(#appMenu-fxa-label2, .subviewbutton-back, #appMenu-update-banner) {
   border-radius: 0 !important}
 
 .addon-banner-item,
@@ -250,7 +265,7 @@ panel {
 /*   Urlbar   */
 #urlbar-container {margin-inline: 12px !important}
 
-#urlbar[breakout] {min-height: 41px !important}
+#urlbar[breakout] {min-height: 42px !important}
 
 #urlbar-background:not(#urlbar[breakout][breakout-extend][open] > #urlbar-background) {
   background-color: transparent !important;
@@ -434,6 +449,7 @@ panel toolbarseparator {margin: 1px .5em !important}
       --menu-border-color: var(--panel-separator-color);
       --urlbarView-separator-color: var(--panel-separator-color);
   --autocomplete-popup-separator-color: color-mix(in srgb, currentColor 7%, transparent) !important;
+  
   
   --input-bgcolor: transparent;
 }
