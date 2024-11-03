@@ -14,8 +14,6 @@
 
 [sizemode=maximized]                    #nav-bar:not([customizing]) {margin-bottom: -40px}
 [sizemode=normal]                       #nav-bar:not([customizing]) {margin-bottom: -31px}
-[sizemode=maximized][uidensity=compact] #nav-bar:not([customizing]) {margin-bottom: -33px}
-[sizemode=normal][uidensity=compact]    #nav-bar:not([customizing]) {margin-bottom: -25px}
 
 #nav-bar:hover,
 #nav-bar:focus-within,
@@ -124,7 +122,6 @@ toolbar .toolbaritem-combined-buttons {
   margin-bottom: 1px !important}
 
 toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -9px -3px !important}
-[uidensity=compact] toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -7px -2px !important}
 
 .menupopup-arrowscrollbox {border: 1px solid var(--panel-border-color) !important}
 
@@ -263,7 +260,9 @@ panel {
 
 
 /*   Urlbar   */
-#urlbar-container {margin-inline: 12px !important}
+#urlbar-container {
+  padding-block: 0 !important;
+  margin-inline: 12px !important}
 
 #urlbar[breakout] {min-height: 42px !important}
 
@@ -313,8 +312,6 @@ panel {
 #tracking-protection-icon-container {
   margin: 2.5px 0}
 
-#main-window:not([uidensity=compact]) #urlbar-zoom-button {margin-block: 3px !important}
-
 #urlbar[breakout][breakout-extend][breakout-extend-animate] > #urlbar-background {animation-duration: 0ms !important}
 
 #editBMPanel_folderMenuList {max-width: 260px}
@@ -362,10 +359,6 @@ panel toolbarseparator {margin: 1px .5em !important}
   margin: -11px -8px 0 !important;
   text-align: right !important;
   font-size: 9px !important}
-
-[uidensity=compact] .toolbarbutton-badge {
-  margin: -8px -8px 0 !important;
-  font-size: 8px !important}
 
 #PanelUI-menu-button > stack > label {margin: -9px -9px 0 !important}
 
@@ -476,7 +469,7 @@ panel toolbarseparator {margin: 1px .5em !important}
   
   .titleIcon {background-color: transparent !important}
   
-  .webextension-browser-action {filter: grayscale(20%)}
+  !.webextension-browser-action {filter: grayscale(20%)}
 
   :root[dialogroot], :host(dialog) {--in-content-page-background: hsl(252, 4%, 8%) !important}
   
