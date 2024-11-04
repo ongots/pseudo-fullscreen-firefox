@@ -5,34 +5,26 @@
 
 
 /*   Navbar   */
-#nav-bar {
+#nav-bar:not([customizing]) {
   box-shadow: inset 0 1px black,  0 1px var(--chrome-content-separator-color),  0 2px 14px rgba(0, 0, 0, 0.13)  !important;
   background: inherit !important;
   background-color: black !important;
   transition: none !important;
   border: none !important}
 
-[sizemode=maximized]                    #nav-bar:not([customizing]) {margin-bottom: -40px}
-[sizemode=normal]                       #nav-bar:not([customizing]) {margin-bottom: -31px}
+[sizemode=maximized] #nav-bar:not([customizing]) {margin-bottom: -40px; top: -40px}
+[sizemode=normal] #nav-bar:not([customizing]) {margin-bottom: -31px; top: -31px}
+[sizemode=normal] #nav-bar:not([customizing]):not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #nav-bar-customization-target * {opacity: 0}
 
 #nav-bar:hover,
 #nav-bar:focus-within,
-#nav-bar[customizing],
 #nav-bar:hover ~ box > toolbox > .browser-toolbar {
-  background-color: var(--toolbar-bgcolor) !important}
+  background-color: var(--toolbar-bgcolor) !important;
+  top: auto !important}
 
-#navigator-toolbox {background-image: none !important}
+#navigator-toolbox {z-index: 4 !important}
 
-#navigator-toolbox:hover,
-#navigator-toolbox:focus-within,
-#navigator-toolbox[customizing],
-#mainPopupSet:hover ~ box > toolbox > .browser-toolbar {
-  background-image: var(--lwt-additional-images) !important;
-  z-index: 4 !important}
-
-#nav-bar:not(:hover):not(:focus-within):not([customizing]):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #nav-bar-customization-target * {
-  inset: revert !important;
-  opacity: 0}
+#navigator-toolbox:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) {background-image: none !important}
 
 toolbar .toolbaritem-combined-buttons > .toolbarbutton-1 {
   background-color: transparent !important;
@@ -122,14 +114,6 @@ toolbar .toolbaritem-combined-buttons {
   margin-bottom: 1px !important}
 
 toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -9px -3px !important}
-
-.menupopup-arrowscrollbox {border: 1px solid var(--panel-border-color) !important}
-
-#PlacesToolbar menupopup[placespopup="true"] menuseparator::before {display: none}
-
-#PlacesToolbar menupopup[placespopup="true"] menuseparator {padding: 0 !important}
-
-#PlacesToolbar menupopup menuseparator {height: 1px}
 
 
 
@@ -324,10 +308,11 @@ richlistbox {background-color: transparent !important}
 
 
 /*   Downloads   */
-#downloads-button[progress="true"],
-#downloads-button[notification="finish"],
-#downloads-button[attention="warning"] {
-  z-index: 1}
+#nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #downloads-button[progress="true"],
+#nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #downloads-button[notification="finish"],
+#nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #downloads-button[attention="warning"] {
+  position: relative;
+  top: 40px}
 
 #nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #downloads-button[progress]:not([open]) stack,
 #nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #downloads-button[notification]:not([open]) stack,
@@ -468,8 +453,6 @@ panel toolbarseparator {margin: 1px .5em !important}
   
   
   .titleIcon {background-color: transparent !important}
-  
-  !.webextension-browser-action {filter: grayscale(20%)}
 
   :root[dialogroot], :host(dialog) {--in-content-page-background: hsl(252, 4%, 8%) !important}
   
