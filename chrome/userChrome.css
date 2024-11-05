@@ -5,34 +5,30 @@
 
 
 /*   Navbar   */
-#nav-bar:not([customizing]) {
-  box-shadow: inset 0 1px black,  0 1px var(--chrome-content-separator-color),  0 2px 14px rgba(0, 0, 0, 0.13)  !important;
-  background: inherit !important;
-  background-color: black !important;
-  transition: none !important;
+#navigator-toolbox {
+  background-color: var(--toolbar-bgcolor) !important;
+  z-index: 4 !important;
   border: none !important}
 
+#nav-bar {border: none !important}
+
 [sizemode=maximized] #nav-bar:not([customizing]) {margin-bottom: -40px; top: -40px}
-[sizemode=normal] #nav-bar:not([customizing]) {margin-bottom: -31px; top: -31px}
-[sizemode=normal] #nav-bar:not([customizing]):not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #nav-bar-customization-target * {opacity: 0}
+   [sizemode=normal] #nav-bar:not([customizing]) {margin-bottom: -31px; top: -31px}
+   [sizemode=normal] #nav-bar:not([customizing]):not(:hover):not(:focus-within):not(:has(*[open])):not(:has(*[dragstart])) #nav-bar-customization-target * {opacity: 0}
+                     #nav-bar:not([customizing]):not(:hover):not(:focus-within):not(:has(*[open])):not(:has(*[dragstart])) {background-image: none;  background-color: black !important}
 
 #nav-bar:hover,
 #nav-bar:focus-within,
-#nav-bar:hover ~ box > toolbox > .browser-toolbar {
+#nav-bar:has(*[open]),
+#nav-bar:has(*[dragstart]),
+#nav-bar[customizing] {
+  box-shadow: 0 1px var(--chrome-content-separator-color), 0 2px 14px rgba(0, 0, 0, 0.13) !important;
+  background: inherit;
   background-color: var(--toolbar-bgcolor) !important;
   top: auto !important}
 
-#navigator-toolbox {z-index: 4 !important}
-
-#navigator-toolbox:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) {background-image: none !important}
-
-toolbar .toolbaritem-combined-buttons > .toolbarbutton-1 {
-  background-color: transparent !important;
-  height: 100%}
-
-toolbar .toolbaritem-combined-buttons {
-  padding: 0 !important;
-  margin: 0 !important}
+toolbar .toolbaritem-combined-buttons > .toolbarbutton-1 {height: 100%}
+toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !important}
 
 .subviewbutton:not(#appMenu-fxa-label2,.subviewbutton-back) {min-width: 36px}
 
@@ -107,6 +103,8 @@ toolbar .toolbaritem-combined-buttons {
 #PlacesToolbarItems > toolbarbutton.bookmark-item:hover > label,
 #PlacesToolbarItems > toolbarbutton.bookmark-item[open] > label {
   background-color: color-mix(in srgb, currentColor 8%, transparent)}
+
+#PlacesToolbarItems > toolbarbutton.bookmark-item[dragover] > label {color: SelectedItem}
 
 #PlacesToolbarItems .toolbarbutton-text {
   font-size: 14px;
@@ -308,16 +306,16 @@ richlistbox {background-color: transparent !important}
 
 
 /*   Downloads   */
-#nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #downloads-button[progress="true"],
-#nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #downloads-button[notification="finish"],
-#nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #downloads-button[attention="warning"] {
+#nav-bar:not(:hover):not(:focus-within):not(:has(*[open])):not(:has(*[dragstart])) #downloads-button[progress="true"],
+#nav-bar:not(:hover):not(:focus-within):not(:has(*[open])):not(:has(*[dragstart])) #downloads-button[notification="finish"],
+#nav-bar:not(:hover):not(:focus-within):not(:has(*[open])):not(:has(*[dragstart])) #downloads-button[attention="warning"] {
   position: relative;
   top: 40px}
 
-#nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #downloads-button[progress]:not([open]) stack,
-#nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #downloads-button[notification]:not([open]) stack,
-#nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #downloads-button[attention="warning"]:not([open]) stack,
-#nav-bar:not(:hover):not(:focus-within):not(#mainPopupSet:hover ~ box > toolbox > .browser-toolbar) #downloads-button[attention="warning"]:not([open]) .toolbarbutton-badge {
+#downloads-button[progress]:not(:hover):not([open]) stack,
+#downloads-button[notification]:not(:hover):not([open]) stack,
+#downloads-button[attention="warning"]:not(:hover):not([open]) stack,
+#downloads-button[attention="warning"]:not(:hover):not([open]) .toolbarbutton-badge {
   background-color: var(--toolbar-bgcolor) !important;
   border-radius: 30px !important}
 
@@ -440,7 +438,7 @@ panel toolbarseparator {margin: 1px .5em !important}
   * {
     --toolbar-color:                  hsl(252, 4%, 95%);  --toolbarbutton-icon-fill: currentColor;  --toolbar-field-focus-color: currentColor; 
                                                           --autocomplete-popup-highlight-color: currentColor;  --arrowpanel-color: var(--toolbar-color);
-    --toolbar-bgcolor:                hsl(252, 4%, 6%);
+    --toolbar-bgcolor:                hsl(252, 4%, 6%);  --toolbar-non-lwt-bgcolor: var(--toolbar-bgcolor);
     --arrowpanel-background:          hsl(252, 4%, 9%);  --toolbar-field-focus-background-color: var(--arrowpanel-background);
     --arrowpanel-border-color:        black !important;
     --chrome-content-separator-color: black !important;
