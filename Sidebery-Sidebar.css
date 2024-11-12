@@ -80,7 +80,15 @@
   background-color: transparent;
   box-shadow: none}
 
-.Tab .color-layer {
+[data-frame-color-scheme=dark]  .ScrollBox > .top-shadow    {box-shadow: 0  1px 12px 0 #000}
+[data-frame-color-scheme=dark]  .ScrollBox > .bottom-shadow {box-shadow: 0 -1px 12px 0 #000}
+
+[data-frame-color-scheme=light] .ScrollBox > .top-shadow    {box-shadow: 0  1px 12px 0 #0004}
+[data-frame-color-scheme=light] .ScrollBox > .bottom-shadow {box-shadow: 0 -1px 12px 0 #0004}
+
+
+   /*   Tab colorized variant 1 (blur)   */
+!.Tab .color-layer {
   opacity: 1;
   translate: 25px 14px;
   width: 88%;
@@ -88,12 +96,10 @@
   filter: blur(6px);
   z-index: 2}
 
-#root.root[data-frame-color-scheme=dark]  .ScrollBox > .top-shadow    {box-shadow: 0  1px 12px 0 #000}
-#root.root[data-frame-color-scheme=dark]  .ScrollBox > .bottom-shadow {box-shadow: 0 -1px 12px 0 #000}
-
-#root.root[data-frame-color-scheme=light] .ScrollBox > .top-shadow    {box-shadow: 0  1px 12px 0 #0004}
-#root.root[data-frame-color-scheme=light] .ScrollBox > .bottom-shadow {box-shadow: 0 -1px 12px 0 #0004}
-
+   /*   Tab colorized variant 2 (colorized of title (only one color is possible)(https://github.com/mbnuqw/sidebery/issues/1111))   */
+.Tab .color-layer {display: none}
+[data-frame-color-scheme=dark]  .Tab[data-colorized="true"] .title {color: hsl(160, 70%, 50%) !important}
+[data-frame-color-scheme=light] .Tab[data-colorized="true"] .title {color: hsl(160, 95%, 35%) !important}
 
 
 
