@@ -88,6 +88,15 @@ ytd-add-to-playlist-renderer[dialog] #playlists.ytd-add-to-playlist-renderer {ma
 
 
 ytd-c4-tabbed-header-renderer.style-scope[has-channel-art] div.tp-yt-app-header-layout:nth-child(2) {padding-top: 500px !important}
+
+
+#progress,
+.YtThumbnailOverlayProgressBarHostWatchedProgressBarSegmentModern,
+yt-page-navigation-progress[enable-refresh-signature-moments-web] #progress.yt-page-navigation-progress,
+.ytp-play-progress.ytp-swatch-background-color {
+    background: #f03 !important}
+
+
 }
 
 @-moz-document url-prefix("https://www.youtube.com/feed/subscriptions") {
@@ -153,7 +162,8 @@ button.ytp-time-display {margin: -2px 18px 0 0}
 
 #savefrom__yt_btn:before {
     content: "💾";
-    position: absolute}
+    position: absolute;
+    margin-top: 8px}
 
 #savefrom__yt_btn {margin-left: 18px !important}
 
@@ -169,11 +179,13 @@ button.ytp-time-display {margin: -2px 18px 0 0}
 #sf-popupMenu a:hover {background-color: #333 !important}
 
 
+ytd-menu-renderer.ytd-watch-metadata > div:nth-child(1) > yt-button-view-model:nth-child(2) > button-view-model:nth-child(1) > button:nth-child(1) > div:nth-child(2),
 ytd-menu-renderer.ytd-watch-metadata > div:nth-child(2) > yt-button-view-model > button-view-model:nth-child(1) > button:nth-child(1) > div:nth-child(2),
 ytd-menu-renderer.ytd-watch-metadata > div:nth-child(1) > yt-button-view-model:nth-child(3) > button-view-model:nth-child(1) > button:nth-child(1) > div:nth-child(2),
 button.ytd-menu-renderer > div:nth-child(2)
     {display:none !important}
 
+ytd-menu-renderer.ytd-watch-metadata > div:nth-child(1) > yt-button-view-model:nth-child(2) > button-view-model:nth-child(1) > button:nth-child(1) > div:nth-child(1),
 ytd-menu-renderer.ytd-watch-metadata > div:nth-child(2) > yt-button-view-model > button-view-model:nth-child(1) > button:nth-child(1) > div,
 ytd-menu-renderer.ytd-watch-metadata > div:nth-child(1) > yt-button-view-model:nth-child(3) > button-view-model:nth-child(1) > button:nth-child(1) > div:nth-child(1),
 button.ytd-menu-renderer > div:nth-child(2) {
