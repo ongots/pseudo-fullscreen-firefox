@@ -15,8 +15,28 @@
   .wallpaper-attribution {display: none}
 
   @media (prefers-color-scheme:dark) {
+    .search-handoff-button,
+    .top-site-outer .tile,
+    .card-outer {
+      background-color: hsla(252, 4%, 6%, 50%) !important;
+      color: hsl(252, 4%, 95%) !important}
+    
+    .top-site-outer .top-site-icon,
+    .top-site-outer .context-menu-button{background-color: transparent !important}
+    
+    .top-sites-list:not(.dnd-active) .top-site-outer:is(.active, :focus, :hover) {background: hsla(252, 4%, 6%, 30%) !important}
+    
+    .context-menu,
     .customize-menu,
     .customize-menu .close-button-wrapper,
-    .wallpaper-list.category {
+    .wallpaper-list {
       background-color: hsl(252, 4%, 9%) !important}
+    
+    .modal {
+      box-shadow: 0 1px 4px 0 hsla(252, 4%, 6%, 20%) !important;
+      background: hsl(252, 4%, 9%) !important;
+      border: 1px solid black !important}
+
+    .modalOverlayOuter {background: hsla(252, 4%, 6%, 50%)}
+  }
 }
