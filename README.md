@@ -5,9 +5,10 @@
 2. Copy 'chrome' folder in 'Profile Folder' (Menu > Help > Troubleshooting Information > Profile Folder)
 3. Restart Firefox
 
-- Use "System theme - auto"
+- Use padding around the edges of the address bar to scale and move the window
 - Drag Bookmarks Toolbar Items to the left of the address bar
 - To set the wallpaper in a new tab, place a .jpg or .png image in the Chrome folder and rename it to "bg". Restart Firefox
+- Use "System theme - auto"
 
 
 ### Sidebery
@@ -27,7 +28,7 @@
 - To open the header, move the cursor to the top edge, but not all the way
 
 
-### about:config
+### about:config (enter into the address bar)
 - Opening a bookmark in a new tab
 `browser.tabs.loadBookmarksInTabs` `true`
 - Smoothness of scrolling
