@@ -1,9 +1,10 @@
 ![alt text](demo.gif)
 
 ### Firefox
-1. In about:config enable `toolkit.legacyUserProfileCustomizations.stylesheets`
-2. Copy 'chrome' folder in 'Profile Folder' (Menu > Help > Troubleshooting Information > Profile Folder)
-3. Restart Firefox
+1. If you have compact icons enabled, switch to normal
+2. In about:config enable `toolkit.legacyUserProfileCustomizations.stylesheets`
+3. Copy 'chrome' folder in 'Profile Folder' (Menu > Help > Troubleshooting Information > Profile Folder)
+4. Restart Firefox
 
 - Use padding around the edges of the address bar to scale and move the window
 - Drag Bookmarks Toolbar Items to the left of the address bar
@@ -43,3 +44,5 @@
 `browser.display.os-zoom-behavior` `2`
 - Trim https
 `browser.urlbar.trimHttps` `true`
+- Decode URLs on copy
+`browser.urlbar.decodeURLsOnCopy` `true`
