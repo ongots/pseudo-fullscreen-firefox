@@ -66,11 +66,22 @@
 #root[data-pinned-tabs-position="top"] .PinnedTabsBar {
   padding: 0 0 var(--tabs-margin) !important}
 
-#root[data-pinned-tabs-position="panel"][data-pinned-tabs-list="true"] .PinnedTabsBar {padding: 0 0 calc(var(--tabs-margin) + 1px) !important}
-
 .PinnedTabsBar::after {bottom: var(--tabs-margin)}
 
 #root[data-pinned-tabs-position="top"] .PinnedTabsBar {padding: 0 1px var(--tabs-margin)}
+
+    /*   Scrolling pinned tabs   */
+  #root[data-pinned-tabs-position="top"][data-pinned-tabs-list="true"] .PinnedTabsBar,
+  #root[data-pinned-tabs-position="panel"][data-pinned-tabs-list="true"] .PinnedTabsBar {
+    height: calc(var(--tabs-height) * 8 + var(--tabs-margin) * 2);
+    overflow-y: auto;
+    margin-bottom: 2px !important;
+    padding: 0 !important}
+
+  #root[data-pinned-tabs-position="top"][data-pinned-tabs-list="true"] .PinnedTabsBar::after,
+  #root[data-pinned-tabs-position="panel"][data-pinned-tabs-list="true"] .PinnedTabsBar::after {
+    position: sticky;
+    bottom: 0 !important}
 
 .Tab[data-active="true"] .body {box-shadow: none}
 
