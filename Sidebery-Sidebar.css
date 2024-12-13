@@ -71,15 +71,13 @@
 #root[data-pinned-tabs-position="top"] .PinnedTabsBar {padding: 0 1px var(--tabs-margin)}
 
     /*   Scrolling pinned tabs   */
-  #root[data-pinned-tabs-position="top"][data-pinned-tabs-list="true"] .PinnedTabsBar,
-  #root[data-pinned-tabs-position="panel"][data-pinned-tabs-list="true"] .PinnedTabsBar {
-    height: calc(var(--tabs-height) * 8 + var(--tabs-margin) * 2);
+  #root:is([data-pinned-tabs-position="top"], [data-pinned-tabs-position="panel"])[data-pinned-tabs-list="true"] .PinnedTabsBar:has(:nth-child(9)) { 
+    height: calc(var(--tabs-height) * 11.3);
     overflow-y: auto;
     margin-bottom: 2px !important;
     padding: 0 !important}
 
-  #root[data-pinned-tabs-position="top"][data-pinned-tabs-list="true"] .PinnedTabsBar::after,
-  #root[data-pinned-tabs-position="panel"][data-pinned-tabs-list="true"] .PinnedTabsBar::after {
+  #root:is([data-pinned-tabs-position="top"], [data-pinned-tabs-position="panel"])[data-pinned-tabs-list="true"] .PinnedTabsBar::after {
     position: sticky;
     bottom: 0 !important}
 
