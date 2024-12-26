@@ -12,10 +12,11 @@
 
 #nav-bar {border: none !important}
 
-[sizemode=maximized] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {margin-bottom: -37px; top: -37px}
-   [sizemode=normal] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {margin-bottom: -31px; top: -31px}
-   [sizemode=normal] #nav-bar:not([customizing]):not(:hover):not(:focus-within):not(:has(*[open])):not(:has(*[dragstart])) #nav-bar-customization-target * {opacity: 0}
-                     #nav-bar:not([customizing]):not(:hover):not(:focus-within):not(:has(*[open])):not(:has(*[dragstart])) {background-image: none;  background-color: black !important}
+                              [sizemode=maximized] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {margin-bottom: -39px; top: -39px}
+@media(-moz-platform: linux) {[sizemode=maximized] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {margin-bottom: -35px; top: -35px}}
+                                 [sizemode=normal] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {margin-bottom: -31px; top: -31px}
+                                 [sizemode=normal] #nav-bar:not([customizing]):not(:hover):not(:focus-within):not(:has(*[open])):not(:has(*[dragstart])) #nav-bar-customization-target * {opacity: 0}
+                                                   #nav-bar:not([customizing]):not(:hover):not(:focus-within):not(:has(*[open])):not(:has(*[dragstart])) {background-image: none;  background-color: black !important}
 
 #nav-bar:is(:hover, :focus-within, :has(*[open]), :has(*[dragstart]), [customizing]) {
   box-shadow: 0 1px var(--chrome-content-separator-color), 0 2px 14px rgba(0, 0, 0, 0.13) !important;
@@ -61,7 +62,9 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
 
 @media(-moz-platform: linux) { #appcontent {margin-left: -6px} }
 
-#sidebar-header {display:none}
+#sidebar-header,
+#sidebar-splitter {
+  display: none}
 
 
 
@@ -225,7 +228,7 @@ panel {
 
 
 /*   Urlbar   */
-#urlbar-container {
+#nav-bar:not([customizing]) #urlbar-container {
   padding-block: 0 !important;
   margin-inline: 12px !important}
 
@@ -289,7 +292,7 @@ richlistbox {background-color: transparent !important}
 /*   Downloads   */
 #nav-bar:not(:hover):not(:focus-within):not(:has(*[open])):not(:has(*[dragstart])) #downloads-button:is([progress="true"], [notification="finish"], [attention="warning"]) {
   position: relative;
-  top: 37px}
+  top: 39px}
 
 #downloads-button:is([progress], [notification], [attention="warning"]):not(:hover):not([open]) :is(stack, .toolbarbutton-badge) {
   background-color: var(--toolbar-bgcolor) !important;
@@ -377,6 +380,7 @@ panel toolbarseparator {margin: 1px .5em !important}
       --urlbar-box-bgcolor: var(--button-bgcolor);
       --urlbar-box-focus-bgcolor: var(--button-bgcolor);
       --button-background-color: var(--button-bgcolor);
+      --panel-banner-item-background-color: var(--button-bgcolor);
   
   
   --button-hover-bgcolor: color-mix(in srgb, currentColor 9%, transparent) !important;
@@ -385,6 +389,8 @@ panel toolbarseparator {margin: 1px .5em !important}
       --urlbar-box-active-bgcolor: var(--button-hover-bgcolor);
       --urlbarView-hover-background: var(--button-hover-bgcolor);
       --urlbarView-highlight-background: var(--button-hover-bgcolor);
+      --panel-banner-item-hover-bgcolor: var(--button-hover-bgcolor);
+      --button-background-color-hover: var(--button-hover-bgcolor);
   
   
   --panel-item-hover-bgcolor: color-mix(in srgb, currentColor 6%, transparent) !important;
@@ -453,3 +459,20 @@ panel toolbarseparator {margin: 1px .5em !important}
   menuitem:is(#context-saveimage, #context-savevideo):not([disabled]) label.menu-text {color: #0C96AC !important}
   
 }
+
+
+
+/*   Yellow-red separators appMenu   */
+#appMenu-fxa-separator                                                 {border-top: 1px solid #ffff00 !important}
+#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:nth-child(11) {border-top: 1px solid #fbc200 !important}
+#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:nth-child(17) {border-top: 1px solid #fc8800 !important}
+#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:nth-child(23) {border-top: 1px solid #ff4100 !important}
+#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:nth-child(28) {border-top: 1px solid #ff0100 !important}
+
+@media (prefers-color-scheme:dark) {
+  #appMenu-fxa-separator,
+  #appMenu-mainView > vbox:nth-child(1) > toolbarseparator {
+    opacity: .3}}
+
+#appMenu-update-banner {background-color: hsl(110, 28%, 12%) !important} 
+#appMenu-update-banner:hover {background-color: hsl(110, 28%, 15%) !important} 
