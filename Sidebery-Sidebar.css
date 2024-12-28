@@ -9,13 +9,20 @@
 
 #root[data-frame-color-scheme=dark] {
   --frame-bg:                      hsl(252, 4%, 6%) !important;
-  --tabs-activated-bg:             hsl(252, 4%, 20%);
+  !--tabs-activated-bg:             hsl(252, 4%, 20%);
   --ctx-menu-bg:                   hsl(252, 4%, 9%);
   --ctx-menu-separator:            hsl(252, 4%, 15%);
   --ctx-menu-shadow:               0 0 0 1px var(--ff-popup-border,black), 0 0 16px 0 black;
   --popup-bg:                      var(--ctx-menu-bg);
   --notification-bg:               var(--ctx-menu-bg);
 }
+
+
+  /*   Active tab gradient   */
+#root[data-frame-color-scheme=dark] .Tab[data-active="true"] .body {
+  background: linear-gradient(145deg, transparent, hsl(186, 82%, 26%), hsl(184, 79%, 36%), transparent)}
+#root[data-frame-color-scheme=light] .Tab[data-active="true"] .body {
+  background: linear-gradient(145deg, transparent, hsl(186, 50%, 58%), hsl(184, 55%, 48%), transparent)}
 
 
 [data-frame-color-scheme=dark] .Tab[data-active="true"] .fav-icon {fill: #fff}
@@ -70,19 +77,23 @@
 
 #root[data-pinned-tabs-position="top"] .PinnedTabsBar {padding: 0 1px var(--tabs-margin)}
 
+
     /*   Scrolling pinned tabs   */
-  #root:is([data-pinned-tabs-position="top"], [data-pinned-tabs-position="panel"])[data-pinned-tabs-list="true"] .PinnedTabsBar:has(:nth-child(9)) { 
-    height: calc(var(--tabs-height) * 11.3);
-    overflow-y: auto;
-    margin-bottom: 2px !important;
-    padding: 0 !important}
+#root:is([data-pinned-tabs-position="top"], [data-pinned-tabs-position="panel"])[data-pinned-tabs-list="true"] .PinnedTabsBar:has(:nth-child(9)) { 
+  height: calc(var(--tabs-height) * 11.3);
+  overflow-y: auto;
+  margin-bottom: 2px !important;
+  padding: 0 !important}
 
-  #root:is([data-pinned-tabs-position="top"], [data-pinned-tabs-position="panel"])[data-pinned-tabs-list="true"] .PinnedTabsBar::after {
-    position: sticky;
-    bottom: 0 !important}
+#root:is([data-pinned-tabs-position="top"], [data-pinned-tabs-position="panel"])[data-pinned-tabs-list="true"] .PinnedTabsBar::after {
+  position: sticky;
+  bottom: 0 !important}
 
-.Tab[data-active="true"] .body {box-shadow: none}
 
+!.Tab[data-active="true"] .body {box-shadow: none}
+
+
+  /*   Colorize title of tabs   */
 .Tab .color-layer {display: none}
 
 .Tab[data-colorized]:has([style="--tab-color: #37adff;"]) .title {color: #37adff}
@@ -93,6 +104,7 @@
 .Tab[data-colorized]:has([style="--tab-color: #ff613d;"]) .title {color: #ff613d}
 .Tab[data-colorized]:has([style="--tab-color: #ff4bda;"]) .title {color: #ff4bda}
 .Tab[data-colorized]:has([style="--tab-color: #af51f5;"]) .title {color: #af51f5}
+
 
 .Tab .title {top: -1px}
 
