@@ -24,6 +24,9 @@
 #root[data-frame-color-scheme=light] .Tab[data-active="true"] .body {
   background: linear-gradient(145deg, transparent, hsl(186, 50%, 58%), hsl(184, 55%, 48%), transparent)}
 
+#root[data-frame-color-scheme="dark"] .Tab[data-colorized="true"] {
+	--tabs-activated-shadow: 0 1px 4px -1px rgba(0,0,0,0.282), inset 0 0 0 1px var(--s-act-el-border, rgba(255,255,255,0.031))}
+
 
 [data-frame-color-scheme=dark] .Tab[data-active="true"] .fav-icon {fill: #fff}
 [data-frame-color-scheme=dark] .popup-container {background-color: rgba(0,0,0,.6)}
