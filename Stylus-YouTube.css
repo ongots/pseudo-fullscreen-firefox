@@ -1,15 +1,18 @@
 @-moz-document domain("youtube.com") {
     /* Side menu */
+#savefrom__yt_notification,
 /* Shorts */
 ytd-guide-section-renderer.style-scope:nth-child(1) > div:nth-child(2) > ytd-guide-entry-renderer:nth-child(2),
 /* Library */
 #header > .ytd-guide-collapsible-section-entry-renderer.style-scope,
+/* List of subscriptions */
+ytd-guide-section-renderer.ytd-guide-renderer.style-scope:nth-of-type(2),
 /* More from youtube */
 ytd-guide-section-renderer.style-scope:nth-child(3),
 ytd-guide-section-renderer.style-scope:nth-child(4),
 ytd-guide-section-renderer.style-scope:nth-child(5),
-#footer
-    {display:none}
+#footer.style-scope.ytd-guide-renderer
+    {display:none !important}
 
 
 ytd-guide-renderer.ytd-app {width: 256px}
@@ -197,5 +200,9 @@ button.ytd-menu-renderer > div:nth-child(2) {
 
 
 .ytp-probably-keyboard-focus :focus {box-shadow: none !important}
+
+/* Fix of rolling-number offset at 110% scaling text of Windows and browser.display.os-zoom-behavior 2 */
+/*.animated-rolling-number-wiz {line-height: 2rem !important}
+yt-animated-rolling-number:nth-child(1) {line-height: 32.7px !important}*/
 
 }
