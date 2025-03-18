@@ -1,12 +1,14 @@
 /*   Tabs   */
-#TabsToolbar, #tabContextMenu, #toolbar-menubar {display:none}
+#TabsToolbar, #tabContextMenu, #toolbar-menubar, .titlebar-buttonbox-container, #vertical-spacer {display: none}
 
 
 
 
 /*   Navbar   */
+.browser-titlebar {:root[customtitlebar] &, :root[customtitlebar] & #urlbar:popover-open {&:-moz-window-inactive {opacity: 1 !important}}}
+
 #navigator-toolbox {
-  background-color: var(--toolbar-bgcolor) !important;
+  !background-color: var(--toolbar-bgcolor) !important;
   z-index: 4 !important;
   border: none !important}
 
@@ -27,7 +29,7 @@
 toolbar .toolbaritem-combined-buttons > .toolbarbutton-1 {height: 100%}
 toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !important}
 
-.subviewbutton:not(#appMenu-fxa-label2,.subviewbutton-back) {min-width: 36px}
+.webextension-browser-action {min-height: 40px}
 
 #tab-notification-deck {z-index: -1}
 
@@ -35,12 +37,17 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
 
 
 /*   Sidebar   */
-#sidebar-box:not([hidden]) {
+#sidebar {
+  border-radius: 0 !important;
+  box-shadow: 0 !important;
+  border: 0 !important}
+
+#sidebar-box:not([hidden])  {
   border-right: solid 1px var(--chrome-content-separator-color) !important;
   box-shadow: 2px 0 14px rgba(0, 0, 0, 0.13) !important;
-  overflow: hidden;
+  overflow: hidden !important;
   height: 100%;
-  position: fixed;
+  position: fixed !important;
   min-width: 0 !important;
   max-width: 0 !important;
   display: block;
@@ -49,10 +56,14 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
 
 [sizemode=normal] #sidebar-box {max-width: 4px !important}
 
-@media(-moz-platform: windows) { [sizemode=normal] #sidebar-box {height: calc(100% - 10px)} }
+@media(-moz-platform: windows) { [sizemode=normal] #sidebar-box {height: calc(100% - 10px)} !important }
 
 #sidebar-box:not([hidden]):hover {
   width: 430px !important;
+  max-width: 100% !important;
+  opacity: 1}
+
+#sidebar-main:hover {
   max-width: 100% !important;
   opacity: 1}
 
@@ -173,8 +184,8 @@ menulist > menupopup
   {max-width: 27em !important}
 
 #appMenu-popup {
-  --panel-disabled-color: color-mix(in srgb, currentColor 35%, transparent);
-  --panel-shortcut-color: color-mix(in srgb, currentColor 35%, transparent);
+  --text-color-disabled: color-mix(in srgb, currentColor 40%, transparent);
+  --text-color-deemphasized: color-mix(in srgb, currentColor 40%, transparent);
   --panel-separator-zap-gradient: none;
 }
 
@@ -254,16 +265,13 @@ panel {
 .urlbarView-row:not([type="switchtab"]) .urlbarView-action,
 .urlbarView-title-,
 .search-one-offs > hbox,
-.urlbarView-title-separator
+.urlbarView-title-separator,
+#picture-in-picture-button
   {display:none !important}
 
 .protections-popup-footer-button,
 .protections-popup-category {
   border-radius: 0 !important}
-
-.urlbarView-action {
-  margin-block: -4px !important;
-  padding: 6.25px 8px !important}
 
 .urlbarView-row:not([dynamicType="quickactions"]) {margin-inline: 0 !important}
 
@@ -278,13 +286,19 @@ panel {
 #page-action-buttons,
 #urlbar-search-mode-indicator,
 #tracking-protection-icon-container {
-  margin: 2.5px 0}
+  margin: 2.5px 0 !important}
+
+#urlbar > .urlbar-input-container {padding-block: calc((var(--urlbar-container-height) - var(--urlbar-height)) / 2 + var(--urlbar-container-padding)) !important}
+
+#searchmode-switcher-popup { & > menuitem {margin-inline: 0 !important}}
 
 #editBMPanel_folderMenuList {max-width: 260px}
 
 #editBMPanel_folderTree * {background-color: var(--panel-background) !important}
 
 richlistbox {background-color: transparent !important}
+
+
 
 
 
@@ -372,8 +386,17 @@ panel toolbarseparator {margin: 1px .5em !important}
 
 /*   Colors   */
 * {
+  --accent-lightness: 50%;
+  --accent-text-lightness: 35%;
+  
+  --accent-color: 190;
+  --interval-of-colors: 8;
+  
+  
   scrollbar-width: thin; 
   scrollbar-color: #5556 transparent !important;
+  
+  caret-color:     #FF3641;
 
   
   --button-bgcolor: color-mix(in srgb, currentColor 6%, transparent) !important;
@@ -397,6 +420,8 @@ panel toolbarseparator {margin: 1px .5em !important}
       --panel-item-active-bgcolor: var(--panel-item-hover-bgcolor) !important;
       --autocomplete-popup-hover-background: var(--panel-item-hover-bgcolor) !important;
       --menuitem-hover-background-color: var(--panel-item-hover-bgcolor) !important;
+      --button-background-color-ghost-hover: var(--panel-item-hover-bgcolor);
+      --button-background-color-ghost-active: var(--panel-item-hover-bgcolor);
   
   
   --toolbarbutton-hover-background: color-mix(in srgb, currentColor 9%, transparent) !important;
@@ -410,14 +435,17 @@ panel toolbarseparator {margin: 1px .5em !important}
   
   
   --input-bgcolor: transparent;
+  
 }
-
 
 
 @media (prefers-color-scheme:dark) {
   
-  
   * {
+    --accent-lightness: 20%;
+    --accent-text-lightness: 35%;
+    
+    
     --toolbar-color:                  hsl(252, 4%, 95%);  --toolbarbutton-icon-fill: currentColor;  --toolbar-field-focus-color: currentColor; 
                                                           --autocomplete-popup-highlight-color: currentColor;  --arrowpanel-color: var(--toolbar-color);
     --toolbar-bgcolor:                hsl(252, 4%, 6%);  --toolbar-non-lwt-bgcolor: var(--toolbar-bgcolor);
@@ -425,9 +453,11 @@ panel toolbarseparator {margin: 1px .5em !important}
     --arrowpanel-border-color:        black !important;
     --chrome-content-separator-color: black !important;
     --lwt-brighttext-url-color:       #007893 !important;
+    --link-color:                     hsl(var(--accent-color), 82%, var(--accent-text-lightness));
+    --urlbarView-highlight-color:     hsl(var(--accent-color), 82%, var(--accent-text-lightness));
+    .urlbarView-row[selected] .urlbarView-title {color: hsl(0, 99%, 60%)}
     --autocomplete-popup-highlight-background: var(--button-hover-bgcolor) !important;
     --urlbar-popup-url-color:         hsl(225, 99%, 70%) !important;
-    caret-color:                      #FF3641;
   }
   
   
@@ -449,30 +479,36 @@ panel toolbarseparator {margin: 1px .5em !important}
     --panel-border-color: black !important}
     
   ::selection {
-    background-color: hsl(240, 38%, 18%) !important;
-    color: hsl(240, 79%, 80%) !important}
+    background-color: hsl(calc(var(--accent-color) - 0), 82%, calc(var(--accent-lightness) - 5%)) !important;
+    color: hsl(calc(var(--accent-color) - 0), 82%, 85%) !important;}
 
-  
-  /*   Highlighting menu items with color   */
-  menuitem:is([data-l10n-id="text-action-copy"], #context-copylink, #context-copy):not([disabled]) label.menu-text {color: hsl(235, 99%, 73%) !important}
-  
-  menuitem:is(#context-saveimage, #context-savevideo):not([disabled]) label.menu-text {color: #0C96AC !important}
-  
 }
 
 
 
-/*   Yellow-red separators appMenu   */
-#appMenu-fxa-separator                                                 {border-top: 1px solid #ffff00 !important}
-#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:nth-child(11) {border-top: 1px solid #fbc200 !important}
-#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:nth-child(17) {border-top: 1px solid #fc8800 !important}
-#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:nth-child(23) {border-top: 1px solid #ff4100 !important}
-#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:nth-child(28) {border-top: 1px solid #ff0100 !important}
+/*   Highlighting menu items with color   */
+menuitem:is([data-l10n-id="text-action-copy"], #context-copylink, #context-copy):not([disabled="true"]) label        {color: hsl(calc(var(--accent-color) - 11), 82%, var(--accent-text-lightness)) !important}
+menuitem:is(#context-saveimage, #context-savevideo):not([disabled="true"]) label                                     {color: hsl(calc(var(--accent-color) + 11), 82%, var(--accent-text-lightness)) !important}
+#context-searchselect:not([disabled="true"]) label,
+#_e040cf12-0537-4265-8ce0-ee195356ed60_-menuitem-_ACksGPdpnlwU:not([disabled="true"])>label                          {color: coral !important}
 
-@media (prefers-color-scheme:dark) {
-  #appMenu-fxa-separator,
-  #appMenu-mainView > vbox:nth-child(1) > toolbarseparator {
-    opacity: .3}}
 
-#appMenu-update-banner {background-color: hsl(110, 28%, 12%) !important} 
-#appMenu-update-banner:hover {background-color: hsl(110, 28%, 15%) !important} 
+
+
+/*   appMenu separators color   */
+#appMenu-fxa-separator                                                 {border-top: 1px solid hsl(calc(var(--accent-color) - calc(var(--interval-of-colors) * 2)), 82%, var(--accent-lightness)) !important}
+#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:nth-child(11) {border-top: 1px solid hsl(calc(var(--accent-color) - var(--interval-of-colors)), 82%, var(--accent-lightness)) !important}
+#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:nth-child(17) {border-top: 1px solid hsl(calc(var(--accent-color) - 0), 82%, var(--accent-lightness)) !important}
+#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:nth-child(23) {border-top: 1px solid hsl(calc(var(--accent-color) + var(--interval-of-colors)), 82%, var(--accent-lightness)) !important}
+#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:nth-child(28) {border-top: 1px solid hsl(calc(var(--accent-color) + calc(var(--interval-of-colors) * 2)), 82%, var(--accent-lightness)) !important}
+
+#appMenu-update-banner       {background: linear-gradient(145deg, black, hsl(170, 82%, 14%), black, hsl(170, 79%, 24%)) !important}
+#appMenu-update-banner:hover {background: linear-gradient(145deg, black, hsl(170, 82%, 17%), black, hsl(170, 79%, 27%)) !important}
+
+
+
+
+toolbarbutton.bookmark-item > image[src="page-icon:https://github.com/ongots/pseudo-fullscreen-firefox/graphs/traffic"],
+toolbarbutton.bookmark-item > image[src="page-icon:https://github.com/ongots?direction=desc&sort=updated&tab=stars"] {
+  filter: invert(.9)}
+
