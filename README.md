@@ -2,13 +2,13 @@
 
 ### Firefox
 1. If you have compact icons enabled, switch to normal
-2. In about:config enable `toolkit.legacyUserProfileCustomizations.stylesheets`
-3. Copy 'chrome' folder in 'Profile Folder' (Menu > Help > Troubleshooting Information > Profile Folder)
-4. Restart Firefox
+3. In about:config enable `toolkit.legacyUserProfileCustomizations.stylesheets`
+5. Copy 'chrome' folder in 'Profile Folder' (Menu > Help > Troubleshooting Information > Profile Folder)
+6. Restart Firefox
 
 - Use padding around the edges of the address bar to scale and move the window
 - Drag Bookmarks Toolbar Items to the left of the address bar
-- To set the wallpaper in a new tab, place a .jpg or .png image in the Chrome folder and rename it to "bg". Restart Firefox
+- ~~To set the wallpaper in a new tab, place a .jpg or .png image in the Chrome folder and rename it to "bg". Restart Firefox~~ (Custom wallpapers added to FF138 `browser.newtabpage.activity-stream.newtabWallpapers.customWallpaper.enabled`)
 - Use "System theme - auto"
 
 
@@ -30,6 +30,10 @@
 
 
 ### about:config (enter into the address bar)
+- ⚠️Disable native vertical tabs for correct display Sidebery
+`sidebar.revamp` `false`
+- Thin scrollbars
+`widget.non-native-theme.scrollbar.style` `3`
 - Opening a bookmark in a new tab
 `browser.tabs.loadBookmarksInTabs` `true`
 - Smoothness of scrolling
