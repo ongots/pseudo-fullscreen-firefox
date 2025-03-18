@@ -1,51 +1,58 @@
   /*   COLORS   */
 #root.root {
   --toolbar-bg:                    var(--frame-bg);
-  --nav-btn-active-shadow:         none;
   --frame-el-overlay-clicked-bg:   var(--frame-el-overlay-hover-bg);
   --toolbar-el-overlay-clicked-bg: var(--toolbar-el-overlay-hover-bg);
 }
 
 
 #root[data-frame-color-scheme=dark] {
-  --frame-bg:                      hsl(252, 4%, 6%) !important;
-  !--tabs-activated-bg:             hsl(252, 4%, 20%);
-  --ctx-menu-bg:                   hsl(252, 4%, 9%);
-  --ctx-menu-separator:            hsl(252, 4%, 15%);
-  --ctx-menu-shadow:               0 0 0 1px var(--ff-popup-border,black), 0 0 16px 0 black;
-  --popup-bg:                      var(--ctx-menu-bg);
-  --notification-bg:               var(--ctx-menu-bg);
+
+  --accent-color:                      175;
+  --accent-lightness:                  15%;
+  --accent-text-lightness:             45%;
+
+
+  --frame-bg:                          hsl(252, 4%, 6%) !important;
+  --ctx-menu-bg:                       hsl(252, 4%, 9%);
+  --ctx-menu-separator:                hsl(252, 4%, 15%);
+  --ctx-menu-shadow:                   0 0 0 1px var(--ff-popup-border,black), 0 0 16px 0 black;
+  --popup-bg:                          var(--ctx-menu-bg);
+  --notification-bg:                   var(--ctx-menu-bg);
+
+
+  .Tab[data-active="true"] .fav-icon   {fill: #fff}
+  .popup-container                     {background-color: rgba(0,0,0,.6)}
+  .popup,                                         
+    .TextInput::before                 {background-color: var(--frame-bg)}
+  *                                    {caret-color: #FF3641}
+  ::selection                          {background-color: hsl(calc(var(--accent-color) - 0), 82%, var(--accent-lightness)); 
+                                                   color: hsl(calc(var(--accent-color) - 0), 82%, 85%)}
+  .btn                                 {background-color: #080808}
+  .Tab,
+    .BookmarkNode                      {--frame-el-overlay-selected-border: hsl(195.7, 100%, 50%)}
 }
 
 
-  /*   Active tab gradient   */
-#root[data-frame-color-scheme=dark] .Tab[data-active="true"] .body {
-  background: linear-gradient(145deg, transparent, hsl(186, 82%, 26%), hsl(184, 79%, 36%), transparent)}
-#root[data-frame-color-scheme=light] .Tab[data-active="true"] .body {
-  background: linear-gradient(145deg, transparent, hsl(186, 50%, 58%), hsl(184, 55%, 48%), transparent)}
+  /*   Active tab color   */
+
+#root[data-frame-color-scheme="dark"] :is(.Tab[data-active="true"][data-edit="false"] .body, .NavigationBar .nav-item[data-active="true"]) {
+  background: linear-gradient(145deg, transparent, hsl(var(--accent-color), 82%, var(--accent-lightness)), hsl(var(--accent-color), 79%, calc(var(--accent-lightness) + 10%)), transparent)}
+
+#root[data-frame-color-scheme=light] :is(.Tab[data-active="true"][data-edit="false"] .body, .NavigationBar .nav-item[data-active="true"]) {
+  background: linear-gradient(145deg, #9498e7, #d29ce6)}
+
 
 #root[data-frame-color-scheme="dark"] .Tab[data-colorized="true"] {
 	--tabs-activated-shadow: 0 1px 4px -1px rgba(0,0,0,0.282), inset 0 0 0 1px var(--s-act-el-border, rgba(255,255,255,0.031))}
 
-
-[data-frame-color-scheme=dark] .Tab[data-active="true"] .fav-icon {fill: #fff}
-[data-frame-color-scheme=dark] .popup-container {background-color: rgba(0,0,0,.6)}
-[data-frame-color-scheme=dark] .popup {background-color: var(--frame-bg)}
-[data-frame-color-scheme=dark] .TextInput::before {background-color: var(--frame-bg)}
-[data-frame-color-scheme=dark] * {caret-color: #FF3641}
-[data-frame-color-scheme=dark] ::selection {background-color: hsl(240, 38%, 18%); color: hsl(240, 79%, 80%)}
-[data-frame-color-scheme=dark] .btn {background-color: #080808}
-[data-frame-color-scheme=dark] .Tab,
-  [data-frame-color-scheme=dark] .BookmarkNode {--frame-el-overlay-selected-border: hsl(195.7, 100%, 50%)}
+#root[data-act-el-color-scheme="light"], #root[data-frame-color-scheme="light"] .Tab[data-colorized="true"]  {
+  --tabs-activated-shadow: inset 0 0 0 1px var(--s-act-el-border, rgba(0,0,0,0.1))}
 
 
 #root[data-frame-color-scheme=light] {
   --frame-bg:                      #F9F9FB;
-  --tabs-activated-bg:             #E2E2E3;
-  --tabs-activated-shadow:         none;
 }
-
-
 
 
   /*   NAVBAR   */
@@ -93,8 +100,6 @@
   bottom: 0 !important}
 
 
-!.Tab[data-active="true"] .body {box-shadow: none}
-
 
   /*   Colorize title of tabs   */
 .Tab .color-layer {display: none}
@@ -109,15 +114,18 @@
 .Tab[data-colorized]:has([style="--tab-color: #af51f5;"]) .title {color: #af51f5}
 
 
+
 .Tab .title {top: -1px}
 
 .Tab[data-pin="true"] .audio {
   background-color: transparent;
   box-shadow: none}
 
+.Notifications + .main-box .central-box {margin-top: 0}
+.ScrollBox > .scroll-container > .scrollable {margin-top: calc(var(--general-margin) - var(--s-darker-border-width, 0px))}
+
 [data-frame-color-scheme=dark]  .ScrollBox > .top-shadow    {box-shadow: 0  1px 12px 0 #000}
 [data-frame-color-scheme=dark]  .ScrollBox > .bottom-shadow {box-shadow: 0 -1px 12px 0 #000}
-
 [data-frame-color-scheme=light] .ScrollBox > .top-shadow    {box-shadow: 0  1px 12px 0 #0004}
 [data-frame-color-scheme=light] .ScrollBox > .bottom-shadow {box-shadow: 0 -1px 12px 0 #0004}
 
