@@ -505,10 +505,3 @@ menuitem:is(#context-saveimage, #context-savevideo):not([disabled="true"]) label
 #appMenu-update-banner       {background: linear-gradient(145deg, black, hsl(170, 82%, 14%), black, hsl(170, 79%, 24%)) !important}
 #appMenu-update-banner:hover {background: linear-gradient(145deg, black, hsl(170, 82%, 17%), black, hsl(170, 79%, 27%)) !important}
 
-
-
-
-toolbarbutton.bookmark-item > image[src="page-icon:https://github.com/ongots/pseudo-fullscreen-firefox/graphs/traffic"],
-toolbarbutton.bookmark-item > image[src="page-icon:https://github.com/ongots?direction=desc&sort=updated&tab=stars"] {
-  filter: invert(.9)}
-
