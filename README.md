@@ -2,7 +2,7 @@
 
 ### Firefox
 1. If you have compact icons enabled, switch to normal
-3. In about:config enable `toolkit.legacyUserProfileCustomizations.stylesheets`
+3. In about:config (enter into the address bar) `toolkit.legacyUserProfileCustomizations.stylesheets` `true`
 5. Copy 'chrome' folder in 'Profile Folder' (Menu > Help > Troubleshooting Information > Profile Folder)
 6. Restart Firefox
 
@@ -14,8 +14,16 @@
 
 ### Sidebery
 1. [Install Sidebery](https://github.com/mbnuqw/sidebery)
-2. Copy the code from Sidebery-Sidebar.css to Sidebery / Settings / Styles editor / Sidebar
-3. Copy the code from Sidebery-GroupPage.css to Sidebery / Settings / Styles editor / Group page
+2. Copy the code from Sidebery.css to Sidebery / Settings / Styles editor / Sidebar
+<details><summary><b1>3. Copy this to Styles editor / Group page </b1></summary>
+
+> #root[data-frame-color-scheme=dark] {--s-toolbar-bg: hsl(252, 4%, 9%) !important}
+> 
+> html {background-color: var(--s-toolbar-bg) !important}
+> 
+> .title {opacity: .7}
+
+</details>
 
 
 ### YouTube
@@ -29,7 +37,7 @@
 - To open the header, move the cursor to the top edge, but not all the way
 
 
-### about:config (enter into the address bar)
+### about:config
 - ⚠️Disable native vertical tabs for correct display Sidebery
 `sidebar.revamp` `false`
 - Thin scrollbars
@@ -40,8 +48,6 @@
 `general.smoothScroll.mouseWheel.durationMaxMS` `380`
 - Disable add-on recommendations
 `extensions.htmlaboutaddons.recommendations.enabled` `false`
-- Do not open download panel
-`browser.download.alwaysOpenPanel` `false`
 - Restore pinned tabs on demand
 `browser.sessionstore.restore_pinned_tabs_on_demand` `true`
 - OS text scaling settings should only affect text scaling
@@ -50,3 +56,5 @@
 `browser.urlbar.trimHttps` `true`
 - Decode URLs on copy
 `browser.urlbar.decodeURLsOnCopy` `true`
+- Custom wallpapers (FF138)
+`browser.newtabpage.activity-stream.newtabWallpapers.customWallpaper.enabled`
