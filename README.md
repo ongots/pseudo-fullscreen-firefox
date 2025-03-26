@@ -8,14 +8,14 @@
 
 - Use padding around the edges of the address bar to scale and move the window
 - Drag Bookmarks Toolbar Items to the left of the address bar
-- ~~To set the wallpaper in a new tab, place a .jpg or .png image in the Chrome folder and rename it to "bg". Restart Firefox~~ (Custom wallpapers added to FF138 `browser.newtabpage.activity-stream.newtabWallpapers.customWallpaper.enabled`)
-- Use "System theme - auto"
+- Use "System theme - auto" (Third-party themes are not supported because variables are not available for all elements)
+
 
 
 ### Sidebery
 1. [Install Sidebery](https://github.com/mbnuqw/sidebery)
-2. Copy the code from Sidebery.css to Sidebery / Settings / Styles editor / Sidebar
-<details><summary><b1>3. Copy this to Styles editor / Group page </b1></summary>
+2. Copy code from Sidebery.css to Sidebery / Settings / Styles editor / Sidebar
+<details><summary><b1>3. Copy code to Styles editor / Group page </b1></summary>
 
 > #root[data-frame-color-scheme=dark] {--s-toolbar-bg: hsl(252, 4%, 9%) !important}
 > 
@@ -28,11 +28,8 @@
 
 ### YouTube
 1. [Install Stylus](https://addons.mozilla.org/firefox/addon/styl-us/)
-2. Open YouTube
-3. In Stylus, click New Style ...
-4. In the window that opens, click Import
-5. Copy the code here from the Stylus-YouTube.css file and click replace style
-6. Save
+2. Open [YouTube](https://youtube.com)
+3. Stylus: `New Style` > `Import` > Copy code from YouTube.css > `Replace style` > `Save`
 
 - To open the header, move the cursor to the top edge, but not all the way
 
@@ -50,7 +47,7 @@
 `extensions.htmlaboutaddons.recommendations.enabled` `false`
 - Restore pinned tabs on demand
 `browser.sessionstore.restore_pinned_tabs_on_demand` `true`
-- OS text scaling settings should only affect text scaling
+- OS text scaling settings should only affect text scaling (prevents blurring of icons)
 `browser.display.os-zoom-behavior` `2`
 - Trim https
 `browser.urlbar.trimHttps` `true`
