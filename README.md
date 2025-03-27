@@ -2,9 +2,10 @@
 
 ### Firefox
 1. If you have compact icons enabled, switch to normal
-3. In about:config (enter into the address bar) `toolkit.legacyUserProfileCustomizations.stylesheets` `true`
-5. Copy 'chrome' folder in 'Profile Folder' (Menu > Help > Troubleshooting Information > Profile Folder)
-6. Restart Firefox
+2. In about:config (enter into the address bar) `toolkit.legacyUserProfileCustomizations.stylesheets` `true`
+3. Create a "chrome" folder in 'Profile Folder' (Menu > Help > Troubleshooting Information > Profile Folder)
+4. Copy there userChrome.css
+5. Restart Firefox
 
 - Use padding around the edges of the address bar to scale and move the window
 - Drag Bookmarks Toolbar Items to the left of the address bar
