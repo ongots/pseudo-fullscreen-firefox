@@ -1,5 +1,0 @@
-#root[data-frame-color-scheme=dark] {--s-toolbar-bg: hsl(252, 4%, 9%) !important}
-
-html {background-color: var(--s-toolbar-bg) !important}
-
-.title {opacity:.7}
