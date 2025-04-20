@@ -1,14 +1,13 @@
-/*   Tabs   */
-#TabsToolbar, #tabContextMenu, #toolbar-menubar, .titlebar-buttonbox-container, #vertical-spacer {display: none}
-
-
-
-
 /*   Navbar   */
+#TabsToolbar,
+#sidebar-button,
+#vertical-spacer,
+.titlebar-buttonbox-container
+  {display: none}
+
 .browser-titlebar {:root[customtitlebar] &, :root[customtitlebar] & #urlbar:popover-open {&:-moz-window-inactive {opacity: 1 !important}}}
 
 #navigator-toolbox {
-  !background-color: var(--toolbar-bgcolor) !important;
   z-index: 4 !important;
   border: none !important}
 
@@ -37,45 +36,67 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
 
 
 /*   Sidebar   */
-#sidebar {
-  border-radius: 0 !important;
-  box-shadow: 0 !important;
-  border: 0 !important}
-
-#sidebar-box:not([hidden])  {
+#sidebar-main {
+  display: block !important;
+  position: fixed !important;
+  height: 100% !important;
+  width: 400px !important;
+  left: -395px !important;
+  background-color: var(--toolbar-bgcolor);
   border-right: solid 1px var(--chrome-content-separator-color) !important;
   box-shadow: 2px 0 14px rgba(0, 0, 0, 0.13) !important;
-  overflow: hidden !important;
-  height: 100%;
-  position: fixed !important;
-  min-width: 0 !important;
-  max-width: 0 !important;
-  display: block;
-  z-index: 3;
-  opacity: 0}
-
-[sizemode=normal] #sidebar-box {max-width: 4px !important}
-
-@media(-moz-platform: windows) { [sizemode=normal] #sidebar-box {height: calc(100% - 10px)} !important }
-
-#sidebar-box:not([hidden]):hover {
-  width: 430px !important;
-  max-width: 100% !important;
-  opacity: 1}
+  z-index: 3 !important;
+  opacity: 0 !important;
+  --tab-block-margin: 0 !important;}
 
 #sidebar-main:hover {
-  max-width: 100% !important;
-  opacity: 1}
+  left: 0 !important;
+  opacity: 1 !important;}
+
+#main-window[titlepreface*="Sidebery"] :is(#vertical-tabs, #tabContextMenu, #sidebar-launcher-splitter, #sidebar-splitter) {display: none !important}
+
+#main-window[titlepreface*="Sidebery"] #sidebar-box {
+  position: fixed !important;
+  height: 100% !important;
+  width: 430px !important;
+  left: -425px !important;
+  padding: 0 !important;
+  border-right: solid 1px var(--chrome-content-separator-color) !important;
+  box-shadow: 2px 0 14px rgba(0, 0, 0, 0.13) !important;
+  z-index: 3 !important;
+  opacity: 0 !important;}
+
+#main-window[titlepreface*="Sidebery"][sizemode=normal] #sidebar-box {
+  padding: 0 0 8px 0 !important;}
+
+#main-window[titlepreface*="Sidebery"] #sidebar-box:hover{
+  left: 0 !important;
+  opacity: 1 !important;}
 
 #sidebar {
-  width: 429px !important;
-  height: 100%}
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;}
 
-@media(-moz-platform: linux) { #appcontent {margin-left: -6px} }
+#tabbrowser-tabs[orient="vertical"] {&[overflow]::after {display: none;}}
 
-#sidebar-header,
-#sidebar-splitter {
+#vertical-tabs-newtab-button > label,
+.button-background > label:nth-child(2) {
   display: none}
+
+.button-background {& img, &[type~="icon"]:not(.labelled) {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: content-box !important;}}
+
+.actions-list {& > moz-button:not(.tools-overflow) {&:first-of-type {--button-outer-padding-block-start: inherit !important;}}}
+
+.tools-and-extensions {
+  flex-direction: inherit !important;
+  justify-content: space-around !important;}
+
+#vertical-pinned-tabs-container {& .tab-background {.tabbrowser-tab:not(:hover) > .tab-stack > &:not([selected], [multiselected]) {
+  background-color: color-mix(in srgb, currentColor 5%, transparent) !important;}}}
 
 
 
@@ -87,8 +108,6 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
 .bookmarks-actions-menuseparator,
 .openintabs-menuitem
   {display:none !important}
-
-#PlacesToolbarItems menu.menu-iconic > menupopup {margin: -8px !important}
 
 #PlacesToolbarItems toolbarbutton.bookmark-item {
   margin: 0 !important;
@@ -123,61 +142,18 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -9px -3p
 
 
 /*   Menu   */
-:not(#ContentSelectDropdown) > menupopup > :is(menuitem, menu) {padding-block: 6px !important}
-
 #appMenu-new-tab-button2,
 #appMenu-fullscreen-button2,
 #appmenu-developer-tools
   {display:none !important}
 
-#context-navigation:not([hidden]) {--menuitem-min-width: 53px !important}
-
-* {
-  --arrowpanel-border-radius: 5px;
-  --arrowpanel-menuitem-margin: 0;
-  --arrowpanel-menuitem-padding: 7px 13px !important;
-  --panel-subview-body-padding: 3px 0;
-  --panel-separator-margin-vertical: 1px !important;
-  --menuitem-disabled-hover-background-color: none;
-}
-
-.panel-subview-footer-button {margin-bottom: 3px !important}
-
-:is(menu, menuitem)[_moz-menuactive]:not([disabled="true"]):not([customoptionstyling]) {
-  background-color: /*var(--panel-item-hover-bgcolor)*/ color-mix(in srgb, currentColor 6%, transparent) !important;
-  color: inherit !important}
-
 #context-navigation > .menuitem-iconic[_moz-menuactive] > .menu-iconic-left > .menu-iconic-icon,
 menuitem[_moz-menuactive][disabled] {
   background-color: transparent !important}
 
-menu,
-menuitem,
-.toolbarbutton-1,
-.subviewbutton:not(#appMenu-fxa-label2, .subviewbutton-back, #appMenu-update-banner) {
-  border-radius: 0 !important}
-
-.addon-banner-item,
-.panel-banner-item {
-  margin: 2px 5px 3px !important;
-  padding: 7px 7px 7px 8px !important}
-
-.panel-header {padding: 4px !important}
-
-#appMenu-fxa-status2[fxastatus] > #appMenu-fxa-label2 > vbox > #appMenu-header-description,
-#appMenu-fxa-text,
-#appMenu-proton-update-banner.panel-banner-item label.toolbarbutton-text {
-  margin-top: -3px !important}
-
-#appMenu-fxa-status2:not([fxastatus]) {padding-block: 6px 8px !important}
-
 menupopup[needsgutter] menu:not([icon], .menu-iconic),
 menupopup[needsgutter] menuitem:not([checked], [icon], .menuitem-iconic, [type="radio"]) {
   padding-inline-start: 1em !important}
-
-#appMenu-popup panelview,
-#PanelUI-fxa {
-  width: 21.8em !important}
 
 #contentAreaContextMenu,
 menulist > menupopup
@@ -196,14 +172,13 @@ menulist > menupopup
   --panel-color: var(--arrowpanel-color) !important;
   --menu-color:  var(--arrowpanel-color) !important;
   --panel-border-color: var(--arrowpanel-border-color) !important;
-  --panel-border-radius: 5px !important;
-  --panel-padding: 3px 0 !important;
 }
 
-menupopup menuseparator {
-  padding-block: 0 !important;
-  padding-inline: 0em !important;
-  margin: 1px .5em !important}
+:is(menu, menuitem)[_moz-menuactive]:not([disabled="true"]):not([customoptionstyling]) {
+  background-color: /*var(--panel-item-hover-bgcolor)*/ color-mix(in srgb, currentColor 6%, transparent) !important;
+  color: inherit !important}
+
+#context-sep-navigation{margin: auto 1em !important}
 
 @media(-moz-platform: linux) {
   menuseparator {-moz-default-appearance: none !important}
@@ -214,9 +189,7 @@ menupopup menuseparator {
     padding: 0 6px !important}
 }
 
-panel {
-  transition-duration: 0ms !important;
-  --panelui-subview-transition-duration: 0.1ms}
+
 
 
 /*   Unified extensions menu   */
@@ -226,79 +199,48 @@ panel {
 .unified-extensions-item-message-deck
   {display:none !important} 
 
+#unified-extensions-view {padding-block: var(--panel-subview-body-padding)  !important}
+
 .unified-extensions-item-icon,
 #unified-extensions-panel .unified-extensions-item .webextension-browser-action > .toolbarbutton-badge-stack > .toolbarbutton-icon {
   height: 16px !important;
   width: 16px !important}
-
-.panel-subview-body {padding-top: 3px !important}
-
-#unified-extensions-panel .unified-extensions-item {padding-block: 0 !important}
 
 
 
 
 /*   Urlbar   */
 #nav-bar:not([customizing]) #urlbar-container {
-  padding-block: 0 !important;
-  margin-inline: 12px !important}
+  --urlbar-container-height: 40px !important;
+  margin-inline: 20px !important}
 
-#urlbar[breakout] {
-  --urlbar-container-height: 40px;
-  min-height: 40px !important}
+#urlbar[breakout] {min-height: 40px !important}
 
 #urlbar-background:not(#urlbar[breakout][breakout-extend][open] > #urlbar-background) {
   background-color: transparent !important;
   border: transparent !important;
-  border-radius: 0 !important;
   box-shadow: none !important;
   outline: none !important}
 
-#notification-popup-box:is(:hover, [open]) {background-color: var(--toolbarbutton-hover-background) !important}
-
-#identity-popup-security-button {margin-bottom: 0 !important}
-
-#urlbar-label-box,
-.urlbar-revert-button,
 .urlbar-go-button,
 .urlbarView-row[label="Firefox Suggest"]::before,
 .urlbarView-row:not([type="switchtab"]) .urlbarView-action,
-.urlbarView-title-,
+.urlbarView-row[type="search"] .urlbarView-title-,
+.urlbarView-row[type="search"] .urlbarView-title-separator,
 .search-one-offs > hbox,
-.urlbarView-title-separator,
 #picture-in-picture-button
   {display:none !important}
 
-.protections-popup-footer-button,
-.protections-popup-category {
-  border-radius: 0 !important}
-
-.urlbarView-row:not([dynamicType="quickactions"]) {margin-inline: 0 !important}
-
-.urlbarView-url {padding-left: 5px}
 
 .urlbarView-row[label="Firefox Suggest"] {margin-block-start: 0 !important}
 
 .urlbarView-userContext {border-top: 2px solid var(--identity-tab-color) !important}
 
-#identity-box,
-#urlbar-label-box,
-#page-action-buttons,
-#urlbar-search-mode-indicator,
-#tracking-protection-icon-container {
-  margin: 2.5px 0 !important}
-
 #urlbar > .urlbar-input-container {padding-block: calc((var(--urlbar-container-height) - var(--urlbar-height)) / 2 + var(--urlbar-container-padding)) !important}
-
-#searchmode-switcher-popup { & > menuitem {margin-inline: 0 !important}}
 
 #editBMPanel_folderMenuList {max-width: 260px}
 
 #editBMPanel_folderTree * {background-color: var(--panel-background) !important}
-
-richlistbox {background-color: transparent !important}
-
-
 
 
 
@@ -311,18 +253,6 @@ richlistbox {background-color: transparent !important}
 #downloads-button:is([progress], [notification], [attention="warning"]):not(:hover):not([open]) :is(stack, .toolbarbutton-badge) {
   background-color: var(--toolbar-bgcolor) !important;
   border-radius: 30px !important}
-
-#downloadsPanel-mainView {padding: 3px 0 0 0 !important}
-
-.downloadMainArea {padding-inline-start: 10px !important}
-
-#downloadsSummary > .downloadTypeIcon {margin-left: 10px}
-
-#downloadsSummary {background: transparent !important}
-
-#downloadsListBox > richlistitem {border-radius: 0 !important}
-
-panel toolbarseparator {margin: 1px .5em !important}
 
 
 
@@ -387,16 +317,20 @@ panel toolbarseparator {margin: 1px .5em !important}
 /*   Colors   */
 * {
   --accent-lightness: 50%;
-  --accent-text-lightness: 35%;
+  --accent-text-lightness: 50%;
   
-  --accent-color: 190;
-  --interval-of-colors: 8;
+  --accent-color: 260;
+  --interval-of-colors: 5;
   
   
   scrollbar-width: thin; 
   scrollbar-color: #5556 transparent !important;
   
   caret-color:     #FF3641;
+  
+  ::selection {
+    background-color: hsl(calc(var(--accent-color) - 15), 82%, calc(var(--accent-lightness) - 5%)) !important;
+    color: hsl(calc(var(--accent-color) - 0), 82%, 85%) !important;}
 
   
   --button-bgcolor: color-mix(in srgb, currentColor 6%, transparent) !important;
@@ -442,14 +376,14 @@ panel toolbarseparator {margin: 1px .5em !important}
 @media (prefers-color-scheme:dark) {
   
   * {
-    --accent-lightness: 20%;
-    --accent-text-lightness: 35%;
+    --accent-lightness: 45%;
+    --accent-text-lightness: 60%;
     
     
     --toolbar-color:                  hsl(252, 4%, 95%);  --toolbarbutton-icon-fill: currentColor;  --toolbar-field-focus-color: currentColor; 
                                                           --autocomplete-popup-highlight-color: currentColor;  --arrowpanel-color: var(--toolbar-color);
-    --toolbar-bgcolor:                hsl(252, 4%, 6%);  --toolbar-non-lwt-bgcolor: var(--toolbar-bgcolor);
-    --arrowpanel-background:          hsl(252, 4%, 9%);  --toolbar-field-focus-background-color: var(--arrowpanel-background); --info-bar-background-color: var(--arrowpanel-background) !important;
+    --toolbar-bgcolor:                hsl(252, 4%, 5%);  --toolbar-non-lwt-bgcolor: var(--toolbar-bgcolor);
+    --arrowpanel-background:          hsl(252, 4%, 8%);  --toolbar-field-focus-background-color: var(--arrowpanel-background); --info-bar-background-color: var(--arrowpanel-background) !important;
     --arrowpanel-border-color:        black !important;
     --chrome-content-separator-color: black !important;
     --lwt-brighttext-url-color:       #007893 !important;
@@ -479,7 +413,7 @@ panel toolbarseparator {margin: 1px .5em !important}
     --panel-border-color: black !important}
     
   ::selection {
-    background-color: hsl(calc(var(--accent-color) - 0), 82%, calc(var(--accent-lightness) - 5%)) !important;
+    background-color: hsl(calc(var(--accent-color) - 0), 82%, calc(var(--accent-lightness) - 20%)) !important;
     color: hsl(calc(var(--accent-color) - 0), 82%, 85%) !important;}
 
 }
@@ -487,10 +421,10 @@ panel toolbarseparator {margin: 1px .5em !important}
 
 
 /*   Highlighting menu items with color   */
-menuitem:is([data-l10n-id="text-action-copy"], #context-copylink, #context-copy):not([disabled="true"]) label        {color: hsl(calc(var(--accent-color) - 11), 82%, var(--accent-text-lightness)) !important}
-menuitem:is(#context-saveimage, #context-savevideo):not([disabled="true"]) label                                     {color: hsl(calc(var(--accent-color) + 11), 82%, var(--accent-text-lightness)) !important}
+menuitem:is([data-l10n-id="text-action-copy"], #context-copylink, #context-copy):not([disabled="true"]) label,
+menuitem:is(#context-saveimage, #context-savevideo):not([disabled="true"]) label                                     {color: hsl(var(--accent-color), 82%, var(--accent-text-lightness)) !important}
 #context-searchselect:not([disabled="true"]) label,
-#_e040cf12-0537-4265-8ce0-ee195356ed60_-menuitem-_ACksGPdpnlwU:not([disabled="true"])>label                          {color: coral !important}
+#_e040cf12-0537-4265-8ce0-ee195356ed60_-menuitem-_ACksGPdpnlwU:not([disabled="true"])>label                          {color: hsl(calc(var(--accent-color) + var(--interval-of-colors) * 5), 82%, var(--accent-text-lightness)) !important}
 
 
 
@@ -501,7 +435,3 @@ menuitem:is(#context-saveimage, #context-savevideo):not([disabled="true"]) label
 #appMenu-mainView > vbox:nth-child(1) > toolbarseparator:nth-child(17) {border-top: 1px solid hsl(calc(var(--accent-color) - 0), 82%, var(--accent-lightness)) !important}
 #appMenu-mainView > vbox:nth-child(1) > toolbarseparator:nth-child(23) {border-top: 1px solid hsl(calc(var(--accent-color) + var(--interval-of-colors)), 82%, var(--accent-lightness)) !important}
 #appMenu-mainView > vbox:nth-child(1) > toolbarseparator:nth-child(28) {border-top: 1px solid hsl(calc(var(--accent-color) + calc(var(--interval-of-colors) * 2)), 82%, var(--accent-lightness)) !important}
-
-#appMenu-update-banner       {background: linear-gradient(145deg, black, hsl(170, 82%, 14%), black, hsl(170, 79%, 24%)) !important}
-#appMenu-update-banner:hover {background: linear-gradient(145deg, black, hsl(170, 82%, 17%), black, hsl(170, 79%, 27%)) !important}
-
