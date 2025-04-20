@@ -1,20 +1,21 @@
   /*   COLORS   */
 #root.root {
-  --toolbar-bg:                    var(--frame-bg);
-  --frame-el-overlay-clicked-bg:   var(--frame-el-overlay-hover-bg);
-  --toolbar-el-overlay-clicked-bg: var(--toolbar-el-overlay-hover-bg);
+  --toolbar-bg:                        var(--frame-bg);
+  --nav-btn-active-shadow:             none;
+  --frame-el-overlay-clicked-bg:       var(--frame-el-overlay-hover-bg);
+  --toolbar-el-overlay-clicked-bg:     var(--toolbar-el-overlay-hover-bg);
 }
 
 
 #root[data-frame-color-scheme=dark] {
 
-  --accent-color:                      175;
-  --accent-lightness:                  15%;
+  --accent-color:                      260;
+  --accent-lightness:                  29%;
   --accent-text-lightness:             45%;
 
 
-  --frame-bg:                          hsl(252, 4%, 6%) !important;
-  --ctx-menu-bg:                       hsl(252, 4%, 9%);
+  --frame-bg:                          hsl(252, 4%, 5%) !important;
+  --ctx-menu-bg:                       hsl(252, 4%, 8%);
   --ctx-menu-separator:                hsl(252, 4%, 15%);
   --ctx-menu-shadow:                   0 0 0 1px var(--ff-popup-border,black), 0 0 16px 0 black;
   --popup-bg:                          var(--ctx-menu-bg);
@@ -37,7 +38,7 @@
   /*   Active tab color   */
 
 #root[data-frame-color-scheme="dark"] :is(.Tab[data-active="true"][data-edit="false"] .body, .NavigationBar .nav-item[data-active="true"]) {
-  background: linear-gradient(145deg, transparent, hsl(var(--accent-color), 82%, var(--accent-lightness)), hsl(var(--accent-color), 79%, calc(var(--accent-lightness) + 10%)), transparent)}
+  background: linear-gradient(145deg, transparent, hsl(calc(var(--accent-color) - 10), 82%, var(--accent-lightness)), hsl(var(--accent-color), 82%, calc(var(--accent-lightness) + 10%)), transparent)}
 
 #root[data-frame-color-scheme=light] :is(.Tab[data-active="true"][data-edit="false"] .body, .NavigationBar .nav-item[data-active="true"]) {
   background: linear-gradient(145deg, #9498e7, #d29ce6)}
@@ -133,31 +134,6 @@
 
 
   /*   MENU   */
-.CtxMenu .box {
-  border-radius: 5px;
-  min-width: 180px}
-
-.CtxMenu .sub-menu {border-radius: 5px}
-
-.CtxMenu .inline-group {padding: 0 0 2px 0 !important}
-
-.CtxMenu .icon-opt:before,
-.CtxMenu .opt:before {
-  border-radius: 0;
-  opacity: .1}
-
-.CtxMenu .icon-opt:active {opacity: 1}
-
-.CtxMenu .list-group {padding: 1px 0 3px 0}
-
-.CtxMenu .opt {padding: 5px 10px}
-
-.CtxMenu .opt:not([data-inactive="true"]):active {opacity: 1}
-
-.CtxMenu .opt[data-separator=true] {padding: 1px 0}
-
-.CtxMenu .scroll-box {
-  padding: 0 0 3px;
-  overflow-x: hidden}
+.CtxMenu :is(.icon-opt, .opt):not([data-inactive="true"]):active {opacity: 1}
 
 .CtxMenu .opt .label.-header {font-weight: 500}
