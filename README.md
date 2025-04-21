@@ -2,7 +2,8 @@
 
 ### Firefox
 1. If you have compact icons enabled, switch to normal
-2. In about:config (enter into the address bar) turn it on:  
+2. The native auto-hiding of the sidebar should be disabled
+3. In about:config (enter into the address bar) turn it on:  
 `toolkit.legacyUserProfileCustomizations.stylesheets` `true`  
 `sidebar.revamp` `true`  
 4. Create a "chrome" folder in 'Profile Folder' (Menu > Help > Troubleshooting Information > Profile Folder)
@@ -11,7 +12,7 @@
 
 Use padding around the edges of the address bar to scale and move the window.  
 Drag Bookmarks Toolbar Items to the left of the address bar.  
-Use "System/Light/Dark/" theme (Third-party themes are not supported because variables are not available for all elements).  
+Use "System/Light/Dark" theme (Third-party themes are not supported because variables are not available for all elements).  
 
 
 ### Sidebery
