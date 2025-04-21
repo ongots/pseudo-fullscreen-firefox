@@ -2,10 +2,10 @@
 
 ### Firefox
 1. If you have compact icons enabled, switch to normal
-2. The native auto-hiding of the sidebar should be disabled
-3. In about:config (enter into the address bar) turn it on:  
+2. In about:config (enter into the address bar) turn it on:  
 `toolkit.legacyUserProfileCustomizations.stylesheets` `true`  
-`sidebar.revamp` `true`  
+`sidebar.revamp` `true`
+3. The native auto-hiding of the sidebar should be disabled (In the sidebar settings)
 4. Create a "chrome" folder in 'Profile Folder' (Menu > Help > Troubleshooting Information > Profile Folder)
 5. Copy there userChrome.css
 6. Restart Firefox
