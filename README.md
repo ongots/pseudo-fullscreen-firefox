@@ -12,7 +12,6 @@
 
 Use padding around the edges of the address bar to scale and move the window.  
 Drag Bookmarks Toolbar Items to the left of the address bar.  
-Use "System/Light/Dark" theme (Third-party themes are not supported because variables are not available for all elements).  
 
 
 ### Sidebery
@@ -60,3 +59,5 @@ Decode URLs on copy
 `browser.urlbar.decodeURLsOnCopy` `true`  
 Custom wallpapers (FF138)
 `browser.newtabpage.activity-stream.newtabWallpapers.customWallpaper.enabled`  
+Unload tab in context menu
+`browser.tabs.unloadTabInContextMenu`
