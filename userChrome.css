@@ -5,8 +5,6 @@
 .titlebar-buttonbox-container
   {display: none}
 
-.browser-titlebar {:root[customtitlebar] &, :root[customtitlebar] & #urlbar:popover-open {&:-moz-window-inactive {opacity: 1 !important}}}
-
 #navigator-toolbox {
   z-index: 4 !important;
   border: none !important}
@@ -23,6 +21,7 @@
   box-shadow: 0 1px var(--chrome-content-separator-color), 0 2px 14px rgba(0, 0, 0, 0.13) !important;
   background: inherit;
   background-color: var(--toolbar-bgcolor) !important;
+  opacity: 1 !important;
   top: auto !important}
 
 toolbar .toolbaritem-combined-buttons > .toolbarbutton-1 {height: 100%}
@@ -30,74 +29,102 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
 
 .webextension-browser-action {min-height: 40px}
 
-#tab-notification-deck {z-index: -1}
+#notifications-toolbar {z-index: -1}
+#notifications-toolbar:has(notification-message[value="pending-crash-reports"]) {display: none}
 
 
 
 
 /*   Sidebar   */
-#sidebar-main {
-  display: block !important;
-  position: fixed !important;
-  height: 100% !important;
+  /* --------------- auto-hide sidebar --------------- */
+#sidebar-main{
+  display: block;
+  position: fixed;
+  height: 100%;
   width: 400px !important;
-  left: -395px !important;
+  left: -395px;
   background-color: var(--toolbar-bgcolor);
-  border-right: solid 1px var(--chrome-content-separator-color) !important;
-  box-shadow: 2px 0 14px rgba(0, 0, 0, 0.13) !important;
-  z-index: 3 !important;
-  opacity: 0 !important;
-  --tab-block-margin: 0 !important;}
+  z-index: 3;
+  opacity: 0;
+  --tab-block-margin: 0}
 
 #sidebar-main:hover {
+  left: 0;
+  opacity: 1}
+
+#main-window:not([titlepreface*="Sidebery"]) #sidebar-main[sidebar-panel-open] {
   left: 0 !important;
   opacity: 1 !important;}
 
+.sidebar-panel {
+
+  height: 100% !important;
+  width: 400px !important;
+  margin-left: 400px !important;
+  background-color: var(--toolbar-bgcolor);
+  !padding: 0 !important;}
+
+!.chromeclass-extrachrome {max-width: auto !important;}
+
+  /* --------------- auto-hide sidebery --------------- */
 #main-window[titlepreface*="Sidebery"] :is(#vertical-tabs, #tabContextMenu, #sidebar-launcher-splitter, #sidebar-splitter) {display: none !important}
 
 #main-window[titlepreface*="Sidebery"] #sidebar-box {
   position: fixed !important;
-  height: 100% !important;
+  height: 100%;
   width: 430px !important;
-  left: -425px !important;
+  left: -425px;
   padding: 0 !important;
-  border-right: solid 1px var(--chrome-content-separator-color) !important;
-  box-shadow: 2px 0 14px rgba(0, 0, 0, 0.13) !important;
   z-index: 3 !important;
-  opacity: 0 !important;}
+  opacity: 0}
 
-#main-window[titlepreface*="Sidebery"][sizemode=normal] #sidebar-box {
-  padding: 0 0 8px 0 !important;}
+#main-window[titlepreface*="Sidebery"][sizemode=normal] #sidebar-box {padding: 0 0 8px 0 !important}
 
 #main-window[titlepreface*="Sidebery"] #sidebar-box:hover{
-  left: 0 !important;
-  opacity: 1 !important;}
+  left: 0;
+  opacity: 1}
 
 #sidebar {
   border-radius: 0 !important;
-  box-shadow: none !important;
-  outline: none !important;}
+  box-shadow: none;
+  outline: none}
 
-#tabbrowser-tabs[orient="vertical"] {&[overflow]::after {display: none;}}
+#sidebar-box {padding: 0 !important; width: 800px !important;}
+
+  /* --------------- sidebar improvement --------------- */
+
+#tabbrowser-tabs[orient="vertical"] {&[overflow]::after {display: none}}
 
 #vertical-tabs-newtab-button > label,
 .button-background > label:nth-child(2) {
   display: none}
 
 .button-background {& img, &[type~="icon"]:not(.labelled) {
-  margin-left: auto !important;
-  margin-right: auto !important;
-  box-sizing: content-box !important;}}
+  margin: auto;
+  box-sizing: content-box !important}}
 
-.actions-list {& > moz-button:not(.tools-overflow) {&:first-of-type {--button-outer-padding-block-start: inherit !important;}}}
+.actions-list {& > moz-button:not(.tools-overflow) {&:first-of-type {--button-outer-padding-block-start: inherit !important}}}
 
 .tools-and-extensions {
   flex-direction: inherit !important;
   justify-content: space-around !important;}
 
 #vertical-pinned-tabs-container {& .tab-background {.tabbrowser-tab:not(:hover) > .tab-stack > &:not([selected], [multiselected]) {
-  background-color: color-mix(in srgb, currentColor 5%, transparent) !important;}}}
+  background-color: color-mix(in srgb, currentColor 5%, transparent) !important}}}
 
+@media (prefers-color-scheme:dark) {
+.tab-background[selected] {
+  background: linear-gradient(145deg, black, hsl(calc(var(--accent-color) - 10), 82%, var(--accent-lightness)), hsl(var(--accent-color), 82%, calc(var(--accent-lightness))), black);
+  --tab-selected-outline-color: #fff2}
+
+tab.tabbrowser-tab:hover .tab-background:not([selected]) {
+  background: linear-gradient(145deg, black, hsl(300, 82%, 13%), hsl(300, 82%, 13%), black);
+  --tab-selected-outline-color: #fff2}
+}
+
+.tab-label {font-size: 15px}
+
+.tabbrowser-tab[pending] :is(.tab-icon-image, .tab-label) {opacity: .75 !important}
 
 
 
@@ -226,7 +253,7 @@ menulist > menupopup
 .urlbarView-row[label="Firefox Suggest"]::before,
 .urlbarView-row:not([type="switchtab"]) .urlbarView-action,
 .urlbarView-row[type="search"] .urlbarView-title-,
-.urlbarView-row[type="search"] .urlbarView-title-separator,
+.urlbarView-row:is([type="search"], [type="autofill_origin"]) .urlbarView-title-separator,
 .search-one-offs > hbox,
 #picture-in-picture-button
   {display:none !important}
@@ -285,25 +312,19 @@ menulist > menupopup
 
 /*   Statuspanel   */
 #statuspanel-label {
+  background-color: light-dark(#fffc, #000c) !important;
+  color: light-dark(#000, #bbb) !important;
   border: 0 !important;
-  border-top-right-radius: 5px;
-  background-color: #fffc !important;
-  color: #000 !important}
+  border-top-right-radius: 5px}
 
 #statuspanel[mirror] #statuspanel-label {
   border-radius: 5px 0 0}
 
-@media (prefers-color-scheme:dark), (-moz-content-prefers-color-scheme:dark) {
-  [lwthemetextcolor="dark"][lwt-popup-brighttext] #statuspanel-label,
-  #main-window:not([lwthemetextcolor="dark"]) #statuspanel-label {
-    background-color: #000c !important;
-    color: #bbb !important}
-}
 
 
 
 /*   Tooltip   */
-@media (prefers-color-scheme:dark), (-moz-content-prefers-color-scheme:dark) {
+@media (prefers-color-scheme:dark) {
   [lwthemetextcolor="dark"][lwt-popup-brighttext] tooltip,
   #main-window:not([lwthemetextcolor="dark"]) tooltip {
     background-color: #121215;
@@ -323,9 +344,6 @@ menulist > menupopup
   --interval-of-colors: 5;
   
   
-  scrollbar-width: thin; 
-  scrollbar-color: #5556 transparent !important;
-  
   caret-color:     #FF3641;
   
   ::selection {
@@ -333,21 +351,19 @@ menulist > menupopup
     color: hsl(calc(var(--accent-color) - 0), 82%, 85%) !important;}
 
   
-  --button-bgcolor: color-mix(in srgb, currentColor 6%, transparent) !important;
-      --urlbar-box-bgcolor: var(--button-bgcolor);
-      --urlbar-box-focus-bgcolor: var(--button-bgcolor);
-      --button-background-color: var(--button-bgcolor);
-      --panel-banner-item-background-color: var(--button-bgcolor);
+  --button-background-color: color-mix(in srgb, currentColor 6%, transparent) !important;
+      --urlbar-box-bgcolor: var(--button-background-color);
+      --urlbar-box-focus-bgcolor: var(--button-background-color);
+      --panel-banner-item-background-color: var(--button-background-color);
   
   
-  --button-hover-bgcolor: color-mix(in srgb, currentColor 9%, transparent) !important;
-      --button-active-bgcolor: var(--button-hover-bgcolor) !important;
-      --urlbar-box-hover-bgcolor: var(--button-hover-bgcolor);
-      --urlbar-box-active-bgcolor: var(--button-hover-bgcolor);
-      --urlbarView-hover-background: var(--button-hover-bgcolor);
-      --urlbarView-highlight-background: var(--button-hover-bgcolor);
-      --panel-banner-item-hover-bgcolor: var(--button-hover-bgcolor);
-      --button-background-color-hover: var(--button-hover-bgcolor);
+  --button-background-color-hover: color-mix(in srgb, currentColor 9%, transparent) !important;
+      --button-active-bgcolor: var(--button-background-color-hover) !important;
+      --urlbar-box-hover-bgcolor: var(--button-background-color-hover);
+      --urlbar-box-active-bgcolor: var(--button-background-color-hover);
+      --urlbarView-hover-background: var(--button-background-color-hover);
+      --urlbarView-highlight-background: var(--button-background-color-hover);
+      --panel-banner-item-hover-bgcolor: var(--button-background-color-hover);
   
   
   --panel-item-hover-bgcolor: color-mix(in srgb, currentColor 6%, transparent) !important;
@@ -380,12 +396,12 @@ menulist > menupopup
     --accent-text-lightness: 60%;
     
     
-    --toolbar-color:                  hsl(252, 4%, 95%);  --toolbarbutton-icon-fill: currentColor;  --toolbar-field-focus-color: currentColor; 
-                                                          --autocomplete-popup-highlight-color: currentColor;  --arrowpanel-color: var(--toolbar-color);
+    --toolbar-color:                  hsl(252, 4%, 95%); --toolbarbutton-icon-fill: currentColor; --toolbar-field-focus-color: currentColor; --autocomplete-popup-highlight-color: currentColor; --arrowpanel-color: var(--toolbar-color);
     --toolbar-bgcolor:                hsl(252, 4%, 5%);  --toolbar-non-lwt-bgcolor: var(--toolbar-bgcolor);
     --arrowpanel-background:          hsl(252, 4%, 8%);  --toolbar-field-focus-background-color: var(--arrowpanel-background); --info-bar-background-color: var(--arrowpanel-background) !important;
-    --arrowpanel-border-color:        black !important;
-    --chrome-content-separator-color: black !important;
+    --arrowpanel-border-color:        black;
+    --chrome-content-separator-color: black;
+    --sidebar-border-color:           black;
     --lwt-brighttext-url-color:       #007893 !important;
     --link-color:                     hsl(var(--accent-color), 82%, var(--accent-text-lightness));
     --urlbarView-highlight-color:     hsl(var(--accent-color), 82%, var(--accent-text-lightness));
@@ -413,7 +429,7 @@ menulist > menupopup
     --panel-border-color: black !important}
     
   ::selection {
-    background-color: hsl(calc(var(--accent-color) - 0), 82%, calc(var(--accent-lightness) - 20%)) !important;
+    background-color: hsl(calc(var(--accent-color) - 5), 82%, calc(var(--accent-lightness) - 20%)) !important;
     color: hsl(calc(var(--accent-color) - 0), 82%, 85%) !important;}
 
 }
@@ -421,10 +437,11 @@ menulist > menupopup
 
 
 /*   Highlighting menu items with color   */
-menuitem:is([data-l10n-id="text-action-copy"], #context-copylink, #context-copy):not([disabled="true"]) label,
-menuitem:is(#context-saveimage, #context-savevideo):not([disabled="true"]) label                                     {color: hsl(var(--accent-color), 82%, var(--accent-text-lightness)) !important}
-#context-searchselect:not([disabled="true"]) label,
-#_e040cf12-0537-4265-8ce0-ee195356ed60_-menuitem-_ACksGPdpnlwU:not([disabled="true"])>label                          {color: hsl(calc(var(--accent-color) + var(--interval-of-colors) * 5), 82%, var(--accent-text-lightness)) !important}
+menuitem:is([data-l10n-id="text-action-copy"], #context-copylink, #context-copy, #context-saveimage, #context-savevideo):not([disabled="true"]) label
+  {color: hsl(var(--accent-color), 82%, var(--accent-text-lightness)) !important}
+
+menuitem:is(#context-searchselect, #_e040cf12-0537-4265-8ce0-ee195356ed60_-menuitem-_ACksGPdpnlwU):not([disabled="true"]) label
+  {color: hsl(calc(var(--accent-color) + var(--interval-of-colors) * 5), 82%, var(--accent-text-lightness)) !important}
 
 
 
