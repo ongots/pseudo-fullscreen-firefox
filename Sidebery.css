@@ -38,10 +38,13 @@
   /*   Active tab color   */
 
 #root[data-frame-color-scheme="dark"] :is(.Tab[data-active="true"][data-edit="false"] .body, .NavigationBar .nav-item[data-active="true"]) {
-  background: linear-gradient(145deg, transparent, hsl(calc(var(--accent-color) - 10), 82%, var(--accent-lightness)), hsl(var(--accent-color), 82%, calc(var(--accent-lightness) + 10%)), transparent)}
+  background: linear-gradient(145deg, black, hsl(calc(var(--accent-color) - 10), 82%, var(--accent-lightness)), hsl(var(--accent-color), 82%, calc(var(--accent-lightness) + 10%)), black); --tabs-activated-shadow: 0 1px 4px -1px rgba(0,0,0,0.9), inset 0 0 0 1px var(--s-act-el-border, rgba(255,255,255,0.1))}
 
 #root[data-frame-color-scheme=light] :is(.Tab[data-active="true"][data-edit="false"] .body, .NavigationBar .nav-item[data-active="true"]) {
   background: linear-gradient(145deg, #9498e7, #d29ce6)}
+
+
+
 
 
 #root[data-frame-color-scheme="dark"] .Tab[data-colorized="true"] {
@@ -51,19 +54,15 @@
   --tabs-activated-shadow: inset 0 0 0 1px var(--s-act-el-border, rgba(0,0,0,0.1))}
 
 
+
 #root[data-frame-color-scheme=light] {
   --frame-bg:                      #F9F9FB;
 }
 
 
-  /*   NAVBAR   */
-#root.root {
-  --nav-btn-width:                 32px;
-  --nav-btn-height:                32px;
-  --tabs-pinned-width:             32px;
-  --tabs-pinned-height:            32px;
-}
 
+
+  /*   NAVBAR   */
 .NavigationBar .nav-item:not([data-active="true"]) .icon {opacity: .65}
 
 .NavigationBar .nav-item .len {top: -2px}
@@ -121,9 +120,6 @@
 .Tab[data-pin="true"] .audio {
   background-color: transparent;
   box-shadow: none}
-
-.Notifications + .main-box .central-box {margin-top: 0}
-.ScrollBox > .scroll-container > .scrollable {margin-top: calc(var(--general-margin) - var(--s-darker-border-width, 0px))}
 
 [data-frame-color-scheme=dark]  .ScrollBox > .top-shadow    {box-shadow: 0  1px 12px 0 #000}
 [data-frame-color-scheme=dark]  .ScrollBox > .bottom-shadow {box-shadow: 0 -1px 12px 0 #000}
