@@ -54,20 +54,19 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
 
 #main-window:not([titlepreface*="Sidebery"]) #sidebar-main[sidebar-panel-open] {
   left: 0 !important;
-  opacity: 1 !important;}
+  opacity: 1 !important}
 
 .sidebar-panel {
-
   height: 100% !important;
   width: 400px !important;
   margin-left: 400px !important;
-  background-color: var(--toolbar-bgcolor);
-  !padding: 0 !important;}
+  background-color: var(--toolbar-bgcolor)}
 
-!.chromeclass-extrachrome {max-width: auto !important;}
+
 
   /* --------------- auto-hide sidebery --------------- */
-#main-window[titlepreface*="Sidebery"] :is(#vertical-tabs, #tabContextMenu, #sidebar-launcher-splitter, #sidebar-splitter) {display: none !important}
+#main-window[titlepreface*="Sidebery"] :is(#vertical-tabs, #tabContextMenu, #sidebar-panel-header, #sidebar-launcher-splitter, #sidebar-splitter) {display: none !important}
+#sidebar-panel-header {display: none}
 
 #main-window[titlepreface*="Sidebery"] #sidebar-box {
   position: fixed !important;
@@ -89,7 +88,7 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
   box-shadow: none;
   outline: none}
 
-#sidebar-box {padding: 0 !important; width: 800px !important;}
+
 
   /* --------------- sidebar improvement --------------- */
 
@@ -125,6 +124,8 @@ tab.tabbrowser-tab:hover .tab-background:not([selected]) {
 .tab-label {font-size: 15px}
 
 .tabbrowser-tab[pending] :is(.tab-icon-image, .tab-label) {opacity: .75 !important}
+
+
 
 
 
@@ -328,7 +329,7 @@ menulist > menupopup
   [lwthemetextcolor="dark"][lwt-popup-brighttext] tooltip,
   #main-window:not([lwthemetextcolor="dark"]) tooltip {
     background-color: #121215;
-    border: 1px solid #333;
+    border: 1px solid black;
     color: #e8e8e9}
 }
 
@@ -396,8 +397,8 @@ menulist > menupopup
     --accent-text-lightness: 60%;
     
     
-    --toolbar-color:                  hsl(252, 4%, 95%); --toolbarbutton-icon-fill: currentColor; --toolbar-field-focus-color: currentColor; --autocomplete-popup-highlight-color: currentColor; --arrowpanel-color: var(--toolbar-color);
-    --toolbar-bgcolor:                hsl(252, 4%, 5%);  --toolbar-non-lwt-bgcolor: var(--toolbar-bgcolor);
+    --toolbar-color:                  hsl(252, 4%, 95%);
+    --toolbar-bgcolor:                hsl(252, 4%, 5%);
     --arrowpanel-background:          hsl(252, 4%, 8%);  --toolbar-field-focus-background-color: var(--arrowpanel-background); --info-bar-background-color: var(--arrowpanel-background) !important;
     --arrowpanel-border-color:        black;
     --chrome-content-separator-color: black;
@@ -449,6 +450,6 @@ menuitem:is(#context-searchselect, #_e040cf12-0537-4265-8ce0-ee195356ed60_-menui
 /*   appMenu separators color   */
 #appMenu-fxa-separator                                                 {border-top: 1px solid hsl(calc(var(--accent-color) - calc(var(--interval-of-colors) * 2)), 82%, var(--accent-lightness)) !important}
 #appMenu-mainView > vbox:nth-child(1) > toolbarseparator:nth-child(11) {border-top: 1px solid hsl(calc(var(--accent-color) - var(--interval-of-colors)), 82%, var(--accent-lightness)) !important}
-#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:nth-child(17) {border-top: 1px solid hsl(calc(var(--accent-color) - 0), 82%, var(--accent-lightness)) !important}
-#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:nth-child(23) {border-top: 1px solid hsl(calc(var(--accent-color) + var(--interval-of-colors)), 82%, var(--accent-lightness)) !important}
-#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:nth-child(28) {border-top: 1px solid hsl(calc(var(--accent-color) + calc(var(--interval-of-colors) * 2)), 82%, var(--accent-lightness)) !important}
+#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:is(:nth-child(17),:nth-child(18)) {border-top: 1px solid hsl(calc(var(--accent-color) - 0), 82%, var(--accent-lightness)) !important}
+#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:is(:nth-child(23),:nth-child(24)) {border-top: 1px solid hsl(calc(var(--accent-color) + var(--interval-of-colors)), 82%, var(--accent-lightness)) !important}
+#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:is(:nth-child(28),:nth-child(29)) {border-top: 1px solid hsl(calc(var(--accent-color) + calc(var(--interval-of-colors) * 2)), 82%, var(--accent-lightness)) !important}
