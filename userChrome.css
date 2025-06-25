@@ -36,7 +36,6 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
 
 
 /*   Sidebar   */
-  /* --------------- auto-hide sidebar --------------- */
 #sidebar-main{
   display: block;
   position: fixed;
@@ -48,7 +47,7 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
   opacity: 0;
   --tab-block-margin: 0}
 
-#sidebar-main:hover {
+#sidebar-main:hover, #sidebar-main:has(#tabContextMenu[hasbeenopened]), #tabContextMenu[hasbeenopened] #sidebar-main{
   left: 0;
   opacity: 1}
 
@@ -58,15 +57,27 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
 
 .sidebar-panel {
   height: 100% !important;
-  width: 400px !important;
+  width: 434px !important;
   margin-left: 400px !important;
   background-color: var(--toolbar-bgcolor)}
 
+#sidebar {
+  background-color: var(--toolbar-bgcolor) !important;
+  border-radius: 0 !important;
+  box-shadow: none;
+  outline: none}
+
+#sidebar-box {
+	width: 840px !important;
+  padding-right: 0 !important}
+
+#sidebar-launcher-splitter,
+#sidebar-splitter 
+ {display: none !important}
 
 
-  /* --------------- auto-hide sidebery --------------- */
-#main-window[titlepreface*="Sidebery"] :is(#vertical-tabs, #tabContextMenu, #sidebar-panel-header, #sidebar-launcher-splitter, #sidebar-splitter) {display: none !important}
-#sidebar-panel-header {display: none}
+
+#main-window[titlepreface*="Sidebery"] :is(#vertical-tabs, #tabContextMenu) {display: none !important}
 
 #main-window[titlepreface*="Sidebery"] #sidebar-box {
   position: fixed !important;
@@ -83,20 +94,16 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
   left: 0;
   opacity: 1}
 
-#sidebar {
-  border-radius: 0 !important;
-  box-shadow: none;
-  outline: none}
 
-
-
-  /* --------------- sidebar improvement --------------- */
 
 #tabbrowser-tabs[orient="vertical"] {&[overflow]::after {display: none}}
 
+sidebar-panel-header,
+#sidebar-panel-header,
 #vertical-tabs-newtab-button > label,
-.button-background > label:nth-child(2) {
-  display: none}
+.button-background > label:nth-child(2),
+moz-button.expanded-button[view="_b9db16a4-6edc-47ec-a1f4-b86292ed211d_-sidebar-action"] {
+  display: none !important}
 
 .button-background {& img, &[type~="icon"]:not(.labelled) {
   margin: auto;
@@ -106,26 +113,27 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
 
 .tools-and-extensions {
   flex-direction: inherit !important;
-  justify-content: space-around !important;}
+  justify-content: space-around !important}
 
 #vertical-pinned-tabs-container {& .tab-background {.tabbrowser-tab:not(:hover) > .tab-stack > &:not([selected], [multiselected]) {
-  background-color: color-mix(in srgb, currentColor 5%, transparent) !important}}}
+  background-color: color-mix(in srgb, currentColor 0%, transparent) !important}}}
 
 @media (prefers-color-scheme:dark) {
 .tab-background[selected] {
   background: linear-gradient(145deg, black, hsl(calc(var(--accent-color) - 10), 82%, var(--accent-lightness)), hsl(var(--accent-color), 82%, calc(var(--accent-lightness))), black);
   --tab-selected-outline-color: #fff2}
 
-tab.tabbrowser-tab:hover .tab-background:not([selected]) {
-  background: linear-gradient(145deg, black, hsl(300, 82%, 13%), hsl(300, 82%, 13%), black);
-  --tab-selected-outline-color: #fff2}
-}
-
 .tab-label {font-size: 15px}
 
-.tabbrowser-tab[pending] :is(.tab-icon-image, .tab-label) {opacity: .75 !important}
+.tabbrowser-tab[pending] :is(.tab-icon-image, .tab-label) {opacity: .6 !important}
 
+#vertical-tabs-newtab-button:hover {background-color: var(--button-background-color-hover) !important}
 
+#vertical-pinned-tabs-splitter {
+  margin-top: -4px;
+  margin-bottom: -8px}
+  
+  
 
 
 
@@ -179,9 +187,10 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -9px -3p
 menuitem[_moz-menuactive][disabled] {
   background-color: transparent !important}
 
+
 menupopup[needsgutter] menu:not([icon], .menu-iconic),
 menupopup[needsgutter] menuitem:not([checked], [icon], .menuitem-iconic, [type="radio"]) {
-  padding-inline-start: 1em !important}
+  padding-inline-start: 1em  !important}
 
 #contentAreaContextMenu,
 menulist > menupopup
@@ -195,7 +204,8 @@ menulist > menupopup
 
 /*   Repaints the bookmark menu and context menus to the main menu color   */
 #main-window :not(#ContentSelectDropdown) > menupopup:not(#context-navigation[hidden]),
-#textbox-contextmenu {    
+#textbox-contextmenu,
+.menupopup-arrowscrollbox {    
   --panel-background: var(--arrowpanel-background) !important;
   --panel-color: var(--arrowpanel-color) !important;
   --menu-color:  var(--arrowpanel-color) !important;
@@ -206,7 +216,7 @@ menulist > menupopup
   background-color: /*var(--panel-item-hover-bgcolor)*/ color-mix(in srgb, currentColor 6%, transparent) !important;
   color: inherit !important}
 
-#context-sep-navigation{margin: auto 1em !important}
+#context-sep-navigation {margin: auto 1em !important}
 
 @media(-moz-platform: linux) {
   menuseparator {-moz-default-appearance: none !important}
@@ -379,10 +389,10 @@ menulist > menupopup
       --toolbarbutton-active-background: var(--toolbarbutton-hover-background) !important;
   
   
-  --panel-separator-color: color-mix(in srgb, currentColor 7%, transparent) !important;
+  --panel-separator-color: color-mix(in srgb, currentColor 9%, transparent) !important;
       --menu-border-color: var(--panel-separator-color);
       --urlbarView-separator-color: var(--panel-separator-color);
-  --autocomplete-popup-separator-color: color-mix(in srgb, currentColor 7%, transparent) !important;
+  --autocomplete-popup-separator-color: color-mix(in srgb, currentColor 9%, transparent) !important;
   
   
   --input-bgcolor: transparent;
