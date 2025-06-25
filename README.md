@@ -57,7 +57,3 @@ Trim https
 `browser.urlbar.trimHttps` `true`  
 Decode URLs on copy
 `browser.urlbar.decodeURLsOnCopy` `true`  
-Custom wallpapers (FF138)
-`browser.newtabpage.activity-stream.newtabWallpapers.customWallpaper.enabled`  
-Unload tab in context menu
-`browser.tabs.unloadTabInContextMenu`
