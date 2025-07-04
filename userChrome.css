@@ -11,11 +11,10 @@
 
 #nav-bar {border: none !important}
 
-                              [sizemode=maximized] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {margin-bottom: -39px; top: -39px}
-@media(-moz-platform: linux) {[sizemode=maximized] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {margin-bottom: -35px; top: -35px}}
-                                 [sizemode=normal] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {margin-bottom: -31px; top: -31px}
-                                 [sizemode=normal] #nav-bar:not([customizing]):not(:hover):not(:focus-within):not(:has(*[open])):not(:has(*[dragstart])) #nav-bar-customization-target * {opacity: 0}
-                                                   #nav-bar:not([customizing]):not(:hover):not(:focus-within):not(:has(*[open])):not(:has(*[dragstart])) {background-image: none;  background-color: black !important}
+[sizemode=maximized] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {margin-bottom: -39px; top: -39px}
+   [sizemode=normal] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {margin-bottom: -31px; top: -31px}
+   [sizemode=normal] #nav-bar:not([customizing]):not(:hover):not(:focus-within):not(:has(*[open])):not(:has(*[dragstart])) #nav-bar-customization-target * {opacity: 0}
+                     #nav-bar:not([customizing]):not(:hover):not(:focus-within):not(:has(*[open])):not(:has(*[dragstart])) {background-image: none;  background-color: black !important}
 
 #nav-bar:is(:hover, :focus-within, :has(*[open]), :has(*[dragstart]), [customizing]) {
   box-shadow: 0 1px var(--chrome-content-separator-color), 0 2px 14px rgba(0, 0, 0, 0.13) !important;
@@ -41,6 +40,7 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
   position: fixed;
   height: 100%;
   width: 400px !important;
+  max-width: 400px !important;
   left: -395px;
   background-color: var(--toolbar-bgcolor);
   z-index: 3;
@@ -102,8 +102,10 @@ sidebar-panel-header,
 #sidebar-panel-header,
 #vertical-tabs-newtab-button > label,
 .button-background > label:nth-child(2),
-moz-button.expanded-button[view="_b9db16a4-6edc-47ec-a1f4-b86292ed211d_-sidebar-action"] {
-  display: none !important}
+#vertical-pinned-tabs-splitter,
+#sidebar-tools-and-extensions-splitter,
+moz-button.more-tools-button
+  {display: none !important}
 
 .button-background {& img, &[type~="icon"]:not(.labelled) {
   margin: auto;
@@ -112,18 +114,20 @@ moz-button.expanded-button[view="_b9db16a4-6edc-47ec-a1f4-b86292ed211d_-sidebar-
 .actions-list {& > moz-button:not(.tools-overflow) {&:first-of-type {--button-outer-padding-block-start: inherit !important}}}
 
 .tools-and-extensions {
-  flex-direction: inherit !important;
-  justify-content: space-around !important}
+  justify-content: space-around !important;
+  width: -moz-available !important}
 
 #vertical-pinned-tabs-container {& .tab-background {.tabbrowser-tab:not(:hover) > .tab-stack > &:not([selected], [multiselected]) {
   background-color: color-mix(in srgb, currentColor 0%, transparent) !important}}}
 
-@media (prefers-color-scheme:dark) {
+#pinned-tabs-container > tab:not(:hover, [selected], [multiselected]) > stack > vbox {
+  background-color: transparent !important}
+
 .tab-background[selected] {
-  background: linear-gradient(145deg, black, hsl(calc(var(--accent-color) - 10), 82%, var(--accent-lightness)), hsl(var(--accent-color), 82%, calc(var(--accent-lightness))), black);
+  background: linear-gradient(145deg, transparent, hsl(calc(var(--accent-color) - 10), 82%, var(--accent-lightness)), hsl(var(--accent-color), 82%, calc(var(--accent-lightness))), transparent) !important;
   --tab-selected-outline-color: #fff2}
 
-.tab-label {font-size: 15px}
+.tab-label {font-size: 14px}
 
 .tabbrowser-tab[pending] :is(.tab-icon-image, .tab-label) {opacity: .6 !important}
 
@@ -133,6 +137,16 @@ moz-button.expanded-button[view="_b9db16a4-6edc-47ec-a1f4-b86292ed211d_-sidebar-
   margin-top: -4px;
   margin-bottom: -8px}
   
+@media(-moz-platform: linux) {
+  .wrapper {@media -moz-pref("sidebar.verticalTabs") {:host([expanded]) & {width: 400px}}}
+  
+  #tabbrowser-arrowscrollbox {&[orient="vertical"] {&::part(overflow-start-indicator), &::part(overflow-end-indicator) {
+    height: 10px;
+    margin-block: -6px -10px}}}
+  
+  .actions-list {flex-direction: inherit !important}
+}
+
   
 
 
@@ -217,15 +231,6 @@ menulist > menupopup
   color: inherit !important}
 
 #context-sep-navigation {margin: auto 1em !important}
-
-@media(-moz-platform: linux) {
-  menuseparator {-moz-default-appearance: none !important}
-
-  menuitem,
-  menu {
-    appearance: none !important;
-    padding: 0 6px !important}
-}
 
 
 
@@ -419,9 +424,10 @@ menulist > menupopup
     .urlbarView-row[selected] .urlbarView-title {color: hsl(0, 99%, 60%)}
     --autocomplete-popup-highlight-background: var(--button-hover-bgcolor) !important;
     --urlbar-popup-url-color:         hsl(225, 99%, 70%) !important;
+    --tab-selected-outline-color:     #fff2
   }
   
-  
+
   .titleIcon {background-color: transparent !important}
 
   :root[dialogroot], :host(dialog) {--in-content-page-background: hsl(252, 4%, 8%) !important}
@@ -458,8 +464,8 @@ menuitem:is(#context-searchselect, #_e040cf12-0537-4265-8ce0-ee195356ed60_-menui
 
 
 /*   appMenu separators color   */
-#appMenu-fxa-separator                                                 {border-top: 1px solid hsl(calc(var(--accent-color) - calc(var(--interval-of-colors) * 2)), 82%, var(--accent-lightness)) !important}
-#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:nth-child(11) {border-top: 1px solid hsl(calc(var(--accent-color) - var(--interval-of-colors)), 82%, var(--accent-lightness)) !important}
+#appMenu-fxa-separator                                                                     {border-top: 1px solid hsl(calc(var(--accent-color) - calc(var(--interval-of-colors) * 2)), 82%, var(--accent-lightness)) !important}
+#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:nth-child(11)                     {border-top: 1px solid hsl(calc(var(--accent-color) - var(--interval-of-colors)), 82%, var(--accent-lightness)) !important}
 #appMenu-mainView > vbox:nth-child(1) > toolbarseparator:is(:nth-child(17),:nth-child(18)) {border-top: 1px solid hsl(calc(var(--accent-color) - 0), 82%, var(--accent-lightness)) !important}
 #appMenu-mainView > vbox:nth-child(1) > toolbarseparator:is(:nth-child(23),:nth-child(24)) {border-top: 1px solid hsl(calc(var(--accent-color) + var(--interval-of-colors)), 82%, var(--accent-lightness)) !important}
 #appMenu-mainView > vbox:nth-child(1) > toolbarseparator:is(:nth-child(28),:nth-child(29)) {border-top: 1px solid hsl(calc(var(--accent-color) + calc(var(--interval-of-colors) * 2)), 82%, var(--accent-lightness)) !important}
