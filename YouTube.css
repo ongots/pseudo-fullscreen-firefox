@@ -120,7 +120,7 @@ ytd-shelf-renderer.ytd-item-section-renderer.style-scope {display:none}
 }
 
 @-moz-document url-prefix("https://www.youtube.com/playlist") {
-.yt-content-metadata-view-model-wiz__metadata-row {
+.yt-content-metadata-view-model__metadata-row {
     display: block;
     word-break: break-all}
 }
