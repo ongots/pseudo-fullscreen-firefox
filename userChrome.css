@@ -51,6 +51,8 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
   left: 0;
   opacity: 1}
 
+#sidebar-box[sidebarcommand="viewGenaiChatSidebar"] #sidebar {padding-left: 400px !important}
+
 #main-window:not([titlepreface*="Sidebery"]) #sidebar-main[sidebar-panel-open] {
   left: 0 !important;
   opacity: 1 !important}
@@ -235,23 +237,6 @@ menulist > menupopup
 
 
 
-/*   Unified extensions menu   */
-#unified-extensions-view .panel-header,
-#unified-extensions-view toolbarseparator:first-of-type,
-.unified-extensions-item-menu-button.subviewbutton,
-.unified-extensions-item-message-deck
-  {display:none !important} 
-
-#unified-extensions-view {padding-block: var(--panel-subview-body-padding)  !important}
-
-.unified-extensions-item-icon,
-#unified-extensions-panel .unified-extensions-item .webextension-browser-action > .toolbarbutton-badge-stack > .toolbarbutton-icon {
-  height: 16px !important;
-  width: 16px !important}
-
-
-
-
 /*   Urlbar   */
 #nav-bar:not([customizing]) #urlbar-container {
   --urlbar-container-height: 40px !important;
@@ -259,11 +244,13 @@ menulist > menupopup
 
 #urlbar[breakout] {min-height: 40px !important}
 
-#urlbar-background:not(#urlbar[breakout][breakout-extend][open] > #urlbar-background) {
+.urlbar-background:not(#urlbar[breakout][breakout-extend][open] > .urlbar-background) {
   background-color: transparent !important;
   border: transparent !important;
   box-shadow: none !important;
   outline: none !important}
+
+[focused]:not([suppress-focus-border]) > .urlbar-background {outline: none !important}
 
 .urlbar-go-button,
 .urlbarView-row[label="Firefox Suggest"]::before,
@@ -271,7 +258,8 @@ menulist > menupopup
 .urlbarView-row[type="search"] .urlbarView-title-,
 .urlbarView-row:is([type="search"], [type="autofill_origin"]) .urlbarView-title-separator,
 .search-one-offs > hbox,
-#picture-in-picture-button
+#picture-in-picture-button,
+#taskbar-tabs-button
   {display:none !important}
 
 
@@ -316,6 +304,23 @@ menulist > menupopup
 
 
 
+/*   Unified extensions menu   */
+#unified-extensions-view .panel-header,
+#unified-extensions-view toolbarseparator:first-of-type,
+.unified-extensions-item-menu-button.subviewbutton,
+.unified-extensions-item-message-deck
+  {display:none !important} 
+
+#unified-extensions-view {padding-block: var(--panel-subview-body-padding)  !important}
+
+.unified-extensions-item-icon,
+#unified-extensions-panel .unified-extensions-item .webextension-browser-action > .toolbarbutton-badge-stack > .toolbarbutton-icon {
+  height: 16px !important;
+  width: 16px !important}
+
+
+
+
 /*   Dialog   */
 .dialogBox {border-radius: 5px !important}
 
@@ -353,14 +358,17 @@ menulist > menupopup
 
 /*   Colors   */
 * {
-  --accent-lightness: 50%;
+  --accent-lightness: 70%;
   --accent-text-lightness: 50%;
   
-  --accent-color: 260;
+  --accent-color: 345;
   --interval-of-colors: 5;
   
   
-  caret-color:     #FF3641;
+  caret-color:                      #FF3641;
+  --input-bgcolor:                  transparent;
+  --link-color:                     hsl(var(--accent-color), 82%, var(--accent-text-lightness));
+  --urlbarView-highlight-color:     hsl(var(--accent-color), 82%, var(--accent-text-lightness));
   
   ::selection {
     background-color: hsl(calc(var(--accent-color) - 15), 82%, calc(var(--accent-lightness) - 5%)) !important;
@@ -400,7 +408,7 @@ menulist > menupopup
   --autocomplete-popup-separator-color: color-mix(in srgb, currentColor 9%, transparent) !important;
   
   
-  --input-bgcolor: transparent;
+
   
 }
 
@@ -419,8 +427,6 @@ menulist > menupopup
     --chrome-content-separator-color: black;
     --sidebar-border-color:           black;
     --lwt-brighttext-url-color:       #007893 !important;
-    --link-color:                     hsl(var(--accent-color), 82%, var(--accent-text-lightness));
-    --urlbarView-highlight-color:     hsl(var(--accent-color), 82%, var(--accent-text-lightness));
     .urlbarView-row[selected] .urlbarView-title {color: hsl(0, 99%, 60%)}
     --autocomplete-popup-highlight-background: var(--button-hover-bgcolor) !important;
     --urlbar-popup-url-color:         hsl(225, 99%, 70%) !important;
@@ -464,8 +470,9 @@ menuitem:is(#context-searchselect, #_e040cf12-0537-4265-8ce0-ee195356ed60_-menui
 
 
 /*   appMenu separators color   */
-#appMenu-fxa-separator                                                                     {border-top: 1px solid hsl(calc(var(--accent-color) - calc(var(--interval-of-colors) * 2)), 82%, var(--accent-lightness)) !important}
-#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:nth-child(11)                     {border-top: 1px solid hsl(calc(var(--accent-color) - var(--interval-of-colors)), 82%, var(--accent-lightness)) !important}
-#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:is(:nth-child(17),:nth-child(18)) {border-top: 1px solid hsl(calc(var(--accent-color) - 0), 82%, var(--accent-lightness)) !important}
-#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:is(:nth-child(23),:nth-child(24)) {border-top: 1px solid hsl(calc(var(--accent-color) + var(--interval-of-colors)), 82%, var(--accent-lightness)) !important}
-#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:is(:nth-child(28),:nth-child(29)) {border-top: 1px solid hsl(calc(var(--accent-color) + calc(var(--interval-of-colors) * 2)), 82%, var(--accent-lightness)) !important}
+#appMenu-fxa-separator::before                                                                     {border-top: 1px solid hsl(calc(var(--accent-color) - calc(var(--interval-of-colors) * 2)), 82%, var(--accent-lightness)) !important}
+#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:nth-child(11)::before                     {border-top: 1px solid hsl(calc(var(--accent-color) - var(--interval-of-colors)), 82%, var(--accent-lightness)) !important}
+#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:is(:nth-child(17),:nth-child(18))::before {border-top: 1px solid hsl(calc(var(--accent-color) - 0), 82%, var(--accent-lightness)) !important}
+#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:is(:nth-child(23),:nth-child(24))::before {border-top: 1px solid hsl(calc(var(--accent-color) + var(--interval-of-colors)), 82%, var(--accent-lightness)) !important}
+#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:is(:nth-child(28),:nth-child(29))::before {border-top: 1px solid hsl(calc(var(--accent-color) + calc(var(--interval-of-colors) * 2)), 82%, var(--accent-lightness)) !important}
+
