@@ -105,8 +105,7 @@ sidebar-panel-header,
 #vertical-tabs-newtab-button > label,
 .button-background > label:nth-child(2),
 #vertical-pinned-tabs-splitter,
-#sidebar-tools-and-extensions-splitter,
-moz-button.more-tools-button
+#sidebar-tools-and-extensions-splitter
   {display: none !important}
 
 .button-background {& img, &[type~="icon"]:not(.labelled) {
