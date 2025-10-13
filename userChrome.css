@@ -98,25 +98,15 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
 
 
 
-#tabbrowser-tabs[orient="vertical"] {&[overflow]::after {display: none}}
-
+#tabbrowser-tabs[orient="vertical"]::after,
 sidebar-panel-header,
 #sidebar-panel-header,
 #vertical-tabs-newtab-button > label,
 .button-background > label:nth-child(2),
 #vertical-pinned-tabs-splitter,
-#sidebar-tools-and-extensions-splitter
+#sidebar-tools-and-extensions-splitter,
+moz-button.more-tools-button
   {display: none !important}
-
-.button-background {& img, &[type~="icon"]:not(.labelled) {
-  margin: auto;
-  box-sizing: content-box !important}}
-
-.actions-list {& > moz-button:not(.tools-overflow) {&:first-of-type {--button-outer-padding-block-start: inherit !important}}}
-
-.tools-and-extensions {
-  justify-content: space-around !important;
-  width: -moz-available !important}
 
 #vertical-pinned-tabs-container {& .tab-background {.tabbrowser-tab:not(:hover) > .tab-stack > &:not([selected], [multiselected]) {
   background-color: color-mix(in srgb, currentColor 0%, transparent) !important}}}
@@ -133,10 +123,6 @@ sidebar-panel-header,
 .tabbrowser-tab[pending] :is(.tab-icon-image, .tab-label) {opacity: .6 !important}
 
 #vertical-tabs-newtab-button:hover {background-color: var(--button-background-color-hover) !important}
-
-#vertical-pinned-tabs-splitter {
-  margin-top: -4px;
-  margin-bottom: -8px}
   
 @media(-moz-platform: linux) {
   .wrapper {@media -moz-pref("sidebar.verticalTabs") {:host([expanded]) & {width: 400px}}}
@@ -148,7 +134,6 @@ sidebar-panel-header,
   .actions-list {flex-direction: inherit !important}
 }
 
-  
 
 
 
@@ -214,7 +199,6 @@ menulist > menupopup
 #appMenu-popup {
   --text-color-disabled: color-mix(in srgb, currentColor 40%, transparent);
   --text-color-deemphasized: color-mix(in srgb, currentColor 40%, transparent);
-  --panel-separator-zap-gradient: none;
 }
 
 /*   Repaints the bookmark menu and context menus to the main menu color   */
@@ -435,7 +419,9 @@ menulist > menupopup
 
   .titleIcon {background-color: transparent !important}
 
-  :root[dialogroot], :host(dialog) {--in-content-page-background: hsl(252, 4%, 8%) !important}
+  :root[dialogroot], :host(dialog) {
+    --in-content-page-background: hsl(252, 4%, 8%) !important;
+    --background-color-canvas: hsl(252, 4%, 8%) !important}
   
   #tab-notification-deck,
   dialog {
@@ -454,6 +440,8 @@ menulist > menupopup
     background-color: hsl(calc(var(--accent-color) - 5), 82%, calc(var(--accent-lightness) - 20%)) !important;
     color: hsl(calc(var(--accent-color) - 0), 82%, 85%) !important;}
 
+  toolbarbutton.bookmark-item > image[src^="page-icon:https://github.com/"] {filter: invert(0.9)}
+
 }
 
 
@@ -469,9 +457,4 @@ menuitem:is(#context-searchselect, #_e040cf12-0537-4265-8ce0-ee195356ed60_-menui
 
 
 /*   appMenu separators color   */
-#appMenu-fxa-separator::before                                                                     {border-top: 1px solid hsl(calc(var(--accent-color) - calc(var(--interval-of-colors) * 2)), 82%, var(--accent-lightness)) !important}
-#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:nth-child(11)::before                     {border-top: 1px solid hsl(calc(var(--accent-color) - var(--interval-of-colors)), 82%, var(--accent-lightness)) !important}
-#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:is(:nth-child(17),:nth-child(18))::before {border-top: 1px solid hsl(calc(var(--accent-color) - 0), 82%, var(--accent-lightness)) !important}
-#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:is(:nth-child(23),:nth-child(24))::before {border-top: 1px solid hsl(calc(var(--accent-color) + var(--interval-of-colors)), 82%, var(--accent-lightness)) !important}
-#appMenu-mainView > vbox:nth-child(1) > toolbarseparator:is(:nth-child(28),:nth-child(29))::before {border-top: 1px solid hsl(calc(var(--accent-color) + calc(var(--interval-of-colors) * 2)), 82%, var(--accent-lightness)) !important}
-
+#appMenu-mainView > vbox:nth-child(1) > toolbarseparator::before {border-image: linear-gradient(135deg, hsl(var(--accent-color), 82%, var(--accent-lightness)), #00508a90) 1 !important}
