@@ -154,32 +154,10 @@ div.ytp-time-display {margin: -2px 0 0 0}
 button.ytp-time-display {margin: -2px 18px 0 0}
 
 
-/* Savefrom */
-#savefrom__yt_btn .sf-quick-dl-btn,
-#savefrom__yt_btn > button:nth-child(4) {
-    background-color: var(--yt-spec-badge-chip-background) !important;
-    border: none !important;
-    border-radius: 30px !important;
-    height: 36px !important;
-    width: 36px}
 
-#savefrom__yt_btn:before {
-    content: "💾";
-    position: absolute;
-    margin-top: 8px}
+/* YouTube Screenshot */
+.ytp-right-controls > .ytp-time-display {padding: 0 !important}
 
-#savefrom__yt_btn {margin-left: 18px !important}
-
-.sf-quick-dl-btn,
-#savefrom__yt_btn > button:nth-child(4) > span:nth-child(1),
-.sf-televzr-popup-container,
-#savefrom__yt_btn > button:nth-child(4) > i,
-._6BnMg--item--anchor
-    {display:none !important}
-
-#sf-popupMenu, .A50sa--hidden--viewer {background-color: #ddd}
-
-#sf-popupMenu a:hover {background-color: #333 !important}
 
 
 ytd-menu-renderer.ytd-watch-metadata > div:nth-child(1) > yt-button-view-model:nth-child(2) > button-view-model:nth-child(1) > button:nth-child(1) > div:nth-child(2),
