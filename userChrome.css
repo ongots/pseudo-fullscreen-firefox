@@ -1,5 +1,4 @@
 /*   Navbar   */
-#TabsToolbar,
 #sidebar-button,
 #vertical-spacer,
 .titlebar-buttonbox-container
@@ -8,8 +7,6 @@
 #navigator-toolbox {
   z-index: 4 !important;
   border: none !important}
-
-#nav-bar {border: none !important}
 
 [sizemode=maximized] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {margin-bottom: -39px; top: -39px}
    [sizemode=normal] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {margin-bottom: -31px; top: -31px}
@@ -108,15 +105,8 @@ sidebar-panel-header,
 moz-button.more-tools-button
   {display: none !important}
 
-#vertical-pinned-tabs-container {& .tab-background {.tabbrowser-tab:not(:hover) > .tab-stack > &:not([selected], [multiselected]) {
-  background-color: color-mix(in srgb, currentColor 0%, transparent) !important}}}
-
 #pinned-tabs-container > tab:not(:hover, [selected], [multiselected]) > stack > vbox {
   background-color: transparent !important}
-
-.tab-background[selected] {
-  background: linear-gradient(145deg, transparent, hsl(calc(var(--accent-color) - 10), 82%, var(--accent-lightness)), hsl(var(--accent-color), 82%, calc(var(--accent-lightness))), transparent) !important;
-  --tab-selected-outline-color: #fff2}
 
 .tab-label {font-size: 14px}
 
@@ -143,29 +133,30 @@ moz-button.more-tools-button
 #PlacesToolbarItems .bookmark-item[scheme="https"] .toolbarbutton-text,
 .bookmarks-actions-menuseparator,
 .openintabs-menuitem
-  {display:none !important}
+  {display: none !important}
 
 #PlacesToolbarItems toolbarbutton.bookmark-item {
   margin: 0 !important;
   padding-inline: var(--toolbarbutton-outer-padding) !important;
-  border-radius: 0 !important}
+  border-radius: 0 !important;
+  background-color: transparent !important}
 
-#PlacesToolbarItems toolbarbutton.bookmark-item:is(:hover, [open]) {background-color: transparent !important}
+#PlacesToolbarItems toolbarbutton.bookmark-item:is(:hover, [open]) > :is(image, label) {background-color: color-mix(in srgb, currentColor 8%, transparent)}
 
-#PlacesToolbarItems > toolbarbutton.bookmark-item > label {
-  padding: calc(var(--toolbarbutton-inner-padding) / 1.6) !important;
-  border-radius: var(--toolbarbutton-border-radius)}
+#PlacesToolbarItems toolbarbutton.bookmark-item > label {
+  padding: 5px !important;
+  border-radius: var(--button-border-radius)}
 
-#PlacesToolbarItems > toolbarbutton.bookmark-item > .toolbarbutton-icon {
+#PlacesToolbarItems toolbarbutton.bookmark-item > .toolbarbutton-icon {
   padding: 8px;
   margin: 0 !important;
-  border-radius: var(--urlbar-icon-border-radius);
+  border-radius: var(--button-border-radius);
   width: 32px !important;
   height: 32px !important}
 
-#PlacesToolbarItems > toolbarbutton.bookmark-item:is(:hover, [open]) > :is(image, label) {background-color: color-mix(in srgb, currentColor 8%, transparent)}
+@media (prefers-color-scheme: dark) {toolbarbutton.bookmark-item > image[src^="page-icon:https://github.com/"] {filter: invert(0.9)}}
 
-#PlacesToolbarItems > toolbarbutton.bookmark-item[dragover] > label {color: SelectedItem}
+#PlacesToolbarItems toolbarbutton.bookmark-item[dragover] > label {color: SelectedItem}
 
 #PlacesToolbarItems .toolbarbutton-text {
   font-size: 14px;
@@ -181,20 +172,11 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -9px -3p
 #appMenu-new-tab-button2,
 #appMenu-fullscreen-button2,
 #appmenu-developer-tools
-  {display:none !important}
+  {display: none !important}
 
 #context-navigation > .menuitem-iconic[_moz-menuactive] > .menu-iconic-left > .menu-iconic-icon,
 menuitem[_moz-menuactive][disabled] {
   background-color: transparent !important}
-
-
-menupopup[needsgutter] menu:not([icon], .menu-iconic),
-menupopup[needsgutter] menuitem:not([checked], [icon], .menuitem-iconic, [type="radio"]) {
-  padding-inline-start: 1em  !important}
-
-#contentAreaContextMenu,
-menulist > menupopup
-  {max-width: 27em !important}
 
 #appMenu-popup {
   --text-color-disabled: color-mix(in srgb, currentColor 40%, transparent);
@@ -212,7 +194,7 @@ menulist > menupopup
 }
 
 :is(menu, menuitem)[_moz-menuactive]:not([disabled="true"]):not([customoptionstyling]) {
-  background-color: /*var(--panel-item-hover-bgcolor)*/ color-mix(in srgb, currentColor 6%, transparent) !important;
+  background-color: var(--panel-item-hover-bgcolor) !important;
   color: inherit !important}
 
 #context-sep-navigation {margin: auto 1em !important}
@@ -227,6 +209,8 @@ menulist > menupopup
 
 #urlbar[breakout] {min-height: 40px !important}
 
+#urlbar:not([open]) :is(#urlbar-searchmode-switcher, #trust-icon-container, #identity-box) {margin-block: 4px !important}
+
 .urlbar-background:not(#urlbar[breakout][breakout-extend][open] > .urlbar-background) {
   background-color: transparent !important;
   border: transparent !important;
@@ -237,25 +221,19 @@ menulist > menupopup
 
 .urlbar-go-button,
 .urlbarView-row[label="Firefox Suggest"]::before,
-.urlbarView-row:not([type="switchtab"]) .urlbarView-action,
 .urlbarView-row[type="search"] .urlbarView-title-,
-.urlbarView-row:is([type="search"], [type="autofill_origin"]) .urlbarView-title-separator,
 .search-one-offs > hbox,
 #picture-in-picture-button,
 #taskbar-tabs-button
-  {display:none !important}
-
+  {display: none !important}
 
 .urlbarView-row[label="Firefox Suggest"] {margin-block-start: 0 !important}
 
 .urlbarView-userContext {border-top: 2px solid var(--identity-tab-color) !important}
 
-#urlbar > .urlbar-input-container {padding-block: calc((var(--urlbar-container-height) - var(--urlbar-height)) / 2 + var(--urlbar-container-padding)) !important}
+#editBMPanel_folderMenuList menuitem.folder-icon {max-width: 260px !important}
 
-#editBMPanel_folderMenuList {max-width: 260px}
-
-#editBMPanel_folderTree * {background-color: var(--panel-background) !important}
-
+tree {background-color: transparent !important}
 
 
 
@@ -292,7 +270,7 @@ menulist > menupopup
 #unified-extensions-view toolbarseparator:first-of-type,
 .unified-extensions-item-menu-button.subviewbutton,
 .unified-extensions-item-message-deck
-  {display:none !important} 
+  {display: none !important} 
 
 #unified-extensions-view {padding-block: var(--panel-subview-body-padding)  !important}
 
@@ -305,11 +283,11 @@ menulist > menupopup
 
 
 /*   Dialog   */
-.dialogBox {border-radius: 5px !important}
-
 #window-modal-dialog {--chrome-offset: 20px !important}
 
-.printDialogBox {--box-top-px: none !important}
+.printDialogBox {
+  margin-top: 0px !important;
+  --box-max-height-default: 100% !important}
 
 
 
@@ -328,7 +306,7 @@ menulist > menupopup
 
 
 /*   Tooltip   */
-@media (prefers-color-scheme:dark) {
+@media (prefers-color-scheme: dark) {
   [lwthemetextcolor="dark"][lwt-popup-brighttext] tooltip,
   #main-window:not([lwthemetextcolor="dark"]) tooltip {
     background-color: #121215;
@@ -341,87 +319,83 @@ menulist > menupopup
 
 /*   Colors   */
 * {
-  --accent-lightness: 70%;
-  --accent-text-lightness: 50%;
   
-  --accent-color: 345;
-  --interval-of-colors: 5;
-  
-  
-  caret-color:                      #FF3641;
-  --input-bgcolor:                  transparent;
-  --link-color:                     hsl(var(--accent-color), 82%, var(--accent-text-lightness));
-  --urlbarView-highlight-color:     hsl(var(--accent-color), 82%, var(--accent-text-lightness));
-  
-  ::selection {
-    background-color: hsl(calc(var(--accent-color) - 15), 82%, calc(var(--accent-lightness) - 5%)) !important;
-    color: hsl(calc(var(--accent-color) - 0), 82%, 85%) !important;}
-
-  
-  --button-background-color: color-mix(in srgb, currentColor 6%, transparent) !important;
+  --button-background-color: color-mix(in srgb, currentColor 6%, transparent);
       --urlbar-box-bgcolor: var(--button-background-color);
       --urlbar-box-focus-bgcolor: var(--button-background-color);
       --panel-banner-item-background-color: var(--button-background-color);
   
   
-  --button-background-color-hover: color-mix(in srgb, currentColor 9%, transparent) !important;
-      --button-active-bgcolor: var(--button-background-color-hover) !important;
+  --button-background-color-hover: color-mix(in srgb, currentColor 9%, transparent);
+      --button-active-bgcolor: var(--button-background-color-hover);
       --urlbar-box-hover-bgcolor: var(--button-background-color-hover);
       --urlbar-box-active-bgcolor: var(--button-background-color-hover);
       --urlbarView-hover-background: var(--button-background-color-hover);
-      --urlbarView-highlight-background: var(--button-background-color-hover);
       --panel-banner-item-hover-bgcolor: var(--button-background-color-hover);
   
   
-  --panel-item-hover-bgcolor: color-mix(in srgb, currentColor 6%, transparent) !important;
-      --panel-item-active-bgcolor: var(--panel-item-hover-bgcolor) !important;
-      --autocomplete-popup-hover-background: var(--panel-item-hover-bgcolor) !important;
-      --menuitem-hover-background-color: var(--panel-item-hover-bgcolor) !important;
+  --panel-item-hover-bgcolor: color-mix(in srgb, currentColor 6%, transparent);
+      --panel-item-active-bgcolor: var(--panel-item-hover-bgcolor);
+      --autocomplete-popup-hover-background: var(--panel-item-hover-bgcolor);
+      --menuitem-hover-background-color: var(--panel-item-hover-bgcolor);
       --button-background-color-ghost-hover: var(--panel-item-hover-bgcolor);
       --button-background-color-ghost-active: var(--panel-item-hover-bgcolor);
   
   
-  --toolbarbutton-hover-background: color-mix(in srgb, currentColor 9%, transparent) !important;
-      --toolbarbutton-active-background: var(--toolbarbutton-hover-background) !important;
+  --toolbarbutton-hover-background: color-mix(in srgb, currentColor 9%, transparent);
+      --toolbarbutton-active-background: var(--toolbarbutton-hover-background);
   
   
-  --panel-separator-color: color-mix(in srgb, currentColor 9%, transparent) !important;
+  --panel-separator-color: color-mix(in srgb, currentColor 9%, transparent);
       --menu-border-color: var(--panel-separator-color);
       --urlbarView-separator-color: var(--panel-separator-color);
-  --autocomplete-popup-separator-color: color-mix(in srgb, currentColor 9%, transparent) !important;
   
-  
-
+  --input-bgcolor:                  transparent;
+  --background-color-box:           transparent;
+    caret-color:                    red;
+  --link-color:                     hsl(334,98%,57%);
   
 }
 
 
-@media (prefers-color-scheme:dark) {
+/*   Active Tab   */
+.tab-background[selected] {
+  background: radial-gradient(circle at center, hsla(202,100%,30%,.5), transparent, hsla(202,100%,30%,.5), transparent) !important;
+  --tab-selected-outline-color: #fff1 !important}
+
+/*   Selection   */
+::selection {background-color: hsl(334,98%,57%) !important}
+
+/*   urlbarView selected   */
+.urlbarView-row[selected] {background: linear-gradient(135deg, hsla(265, 100%, 50%, .35), hsla(240, 100%, 50%, .35), var(--arrowpanel-background))}
+
+/*   appMenu separators color   */
+#appMenu-mainView > vbox:nth-child(1) > toolbarseparator::before {border-image: linear-gradient(135deg, hsl(334,98%,57%), transparent) 1 !important}
+
+/*   Highlighting menu items with color   */
+menuitem:is([data-l10n-id="text-action-copy"], #context-copylink, #context-copy, #context-saveimage, #context-savevideo, #context-searchselect):not([disabled="true"]) label {color: hsl(334,98%,57%)}
+
+
+
+
+@media (prefers-color-scheme: dark) {
   
   * {
-    --accent-lightness: 45%;
-    --accent-text-lightness: 60%;
-    
-    
     --toolbar-color:                  hsl(252, 4%, 95%);
     --toolbar-bgcolor:                hsl(252, 4%, 5%);
-    --arrowpanel-background:          hsl(252, 4%, 8%);  --toolbar-field-focus-background-color: var(--arrowpanel-background); --info-bar-background-color: var(--arrowpanel-background) !important;
+    --arrowpanel-background:          hsl(252, 4%, 8%); --arrowpanel-dimmed: var(--arrowpanel-background); --toolbar-field-focus-background-color: var(--arrowpanel-background); --info-bar-background-color: var(--arrowpanel-background) !important;
     --arrowpanel-border-color:        black;
     --chrome-content-separator-color: black;
     --sidebar-border-color:           black;
-    --lwt-brighttext-url-color:       #007893 !important;
-    .urlbarView-row[selected] .urlbarView-title {color: hsl(0, 99%, 60%)}
-    --autocomplete-popup-highlight-background: var(--button-hover-bgcolor) !important;
-    --urlbar-popup-url-color:         hsl(225, 99%, 70%) !important;
-    --tab-selected-outline-color:     #fff2
+    --tab-selected-outline-color:     #fff2;
+    --urlbarView-highlight-color:     #fff;
   }
   
-
   .titleIcon {background-color: transparent !important}
 
   :root[dialogroot], :host(dialog) {
     --in-content-page-background: hsl(252, 4%, 8%) !important;
-    --background-color-canvas: hsl(252, 4%, 8%) !important}
+    --background-color-canvas: hsl(252, 4%, 9%) !important}
   
   #tab-notification-deck,
   dialog {
@@ -433,28 +407,7 @@ menulist > menupopup
   
   window#bookmarkproperties menupopup#textbox-contextmenu.textbox-contextmenu {
     --panel-color: hsl(252, 4%, 95%);
-    --panel-background: hsl(252, 4%, 9%) !important;
+    --panel-background: hsl(252, 4%, 7%) !important;
     --panel-border-color: black !important}
-    
-  ::selection {
-    background-color: hsl(calc(var(--accent-color) - 5), 82%, calc(var(--accent-lightness) - 20%)) !important;
-    color: hsl(calc(var(--accent-color) - 0), 82%, 85%) !important;}
-
-  toolbarbutton.bookmark-item > image[src^="page-icon:https://github.com/"] {filter: invert(0.9)}
 
 }
-
-
-
-/*   Highlighting menu items with color   */
-menuitem:is([data-l10n-id="text-action-copy"], #context-copylink, #context-copy, #context-saveimage, #context-savevideo):not([disabled="true"]) label
-  {color: hsl(var(--accent-color), 82%, var(--accent-text-lightness)) !important}
-
-menuitem:is(#context-searchselect, #_e040cf12-0537-4265-8ce0-ee195356ed60_-menuitem-_ACksGPdpnlwU):not([disabled="true"]) label
-  {color: hsl(calc(var(--accent-color) + var(--interval-of-colors) * 5), 82%, var(--accent-text-lightness)) !important}
-
-
-
-
-/*   appMenu separators color   */
-#appMenu-mainView > vbox:nth-child(1) > toolbarseparator::before {border-image: linear-gradient(135deg, hsl(var(--accent-color), 82%, var(--accent-lightness)), #00508a90) 1 !important}
