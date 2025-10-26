@@ -12,33 +12,32 @@ ytd-guide-section-renderer.style-scope:nth-child(3),
 ytd-guide-section-renderer.style-scope:nth-child(4),
 ytd-guide-section-renderer.style-scope:nth-child(5),
 #footer.style-scope.ytd-guide-renderer
-    {display:none !important}
+    {display: none !important}
+
+ytd-guide-collapsible-section-entry-renderer.ytd-guide-section-renderer:not(:first-child),
+#sections.ytd-guide-renderer > .ytd-guide-renderer:not(:last-child) {border: none}
 
 
-ytd-guide-renderer.ytd-app {width: 256px}
+/*ytd-guide-renderer.ytd-app {width: 256px}
 ytd-guide-entry-renderer {margin-bottom: 1px}
-
+*/
 
 /* Color scheme */
 html[dark], [dark] {
-    --yt-spec-badge-chip-background:            rgba(255, 255, 255, 0.07);
-    --yt-spec-button-chip-background-hover:     rgba(255, 255, 255, 0.09);
-    --ytd-searchbox-legacy-border-color:        var(--yt-spec-badge-chip-background);
-    --yt-spec-10-percent-layer:                 var(--yt-spec-badge-chip-background);
-    --yt-spec-text-primary:                     #fffd !important;
-    --yt-spec-icon-active-other:                #ddd;
-    --yt-spec-static-brand-white:               #ddd;
-    --yt-spec-icon-inactive:                    #ddd;
-    --yt-spec-brand-icon-inactive:              #ddd;
-    --yt-spec-general-background-a:             none;
-    --ytd-searchbox-background:                 none;
-    --ytd-searchbox-legacy-button-border-color: none;
-}
 
+  --yt-spec-10-percent-layer:               rgba(255, 255, 255, 0.07);
+  --yt-spec-15-percent-layer:               rgba(255, 255, 255, 0.09);
+  --yt-spec-text-primary:                   rgba(255, 255, 255, 0.87);
+  --yt-spec-icon-inactive:                  #ddd;
+  --yt-spec-icon-active:                    #fff;
+  !--yt-spec-base-background:                #0008;/*фон шапки*/
+  --yt-spec-raised-background:              #1110;
+}
+/*
 html[dark] .header.ytd-playlist-panel-renderer,
 html[dark] #header.ytd-engagement-panel-title-header-renderer
     {background-color: var(--yt-spec-badge-chip-background)}
-
+*/
 
 /* Watching indicator */
 #progress.ytd-thumbnail-overlay-resume-playback-renderer {background-color: #f00d}
@@ -71,33 +70,51 @@ ytd-multi-page-menu-renderer,
 .ytp-cards-teaser,
 .ytp-paid-content-overlay,
 .ytp-ce-element,
+.ytp-ce-hide-button-container,
 .tp-yt-app-drawer::after
-    {display:none !important}
+    {display: none !important}
 
 
-ytd-thumbnail a.ytd-thumbnail,
-ytd-thumbnail::before,
-.ytp-videowall-still-round-large .ytp-videowall-still-image
-    {border-radius: 0 !important}
+.ytd-thumbnail,
+.ytThumbnailViewModelMedium,
+.ytThumbnailViewModelLarge
+    {border-radius: 1px !important}
 
 
-ytd-alert-with-button-renderer.style-scope,
+/*ytd-alert-with-button-renderer.style-scope,
 .yt-alert-renderer.style-scope
-    {border-radius: 8px !important}
+    {border-radius: 8px !important}*/
+
+
 
 
 /* Playlist menu */
 ytd-add-to-playlist-renderer[dialog] #playlists.ytd-add-to-playlist-renderer {max-height: 800px}
 
+toggleable-list-item-view-model.toggleableListItemViewModelHost > yt-list-item-view-model:nth-child(1) > div:nth-child(1) > div:nth-child(1),
+toggleable-list-item-view-model.toggleableListItemViewModelHost > yt-list-item-view-model:nth-child(1) > div:nth-child(1) > div:nth-child(2) > span:nth-child(2)
+{display: none !important}
 
-ytd-c4-tabbed-header-renderer.style-scope[has-channel-art] div.tp-yt-app-header-layout:nth-child(2) {padding-top: 500px !important}
+.ytListViewModelHost {max-height: none !important}
+
+toggleable-list-item-view-model.toggleableListItemViewModelHost > yt-list-item-view-model[aria-pressed="true"] > div > div > span > span > div > svg {color: #ff0033}
+
+.ytContextualSheetLayoutHost {background-color: #141414}
+
+
+
+.yt-list-item-view-model__container--has-subtitle {padding: 0 16px}
+
+
+/*ytd-c4-tabbed-header-renderer.style-scope[has-channel-art] div.tp-yt-app-header-layout:nth-child(2) {padding-top: 1500px !important}*/
 
 
 #progress,
-.YtThumbnailOverlayProgressBarHostWatchedProgressBarSegmentModern,
+.ytThumbnailOverlayProgressBarHostWatchedProgressBarSegment,
 yt-page-navigation-progress[enable-refresh-signature-moments-web] #progress.yt-page-navigation-progress,
 .ytp-play-progress.ytp-swatch-background-color {
     background: #f03 !important}
+
 
 
 }
@@ -107,7 +124,7 @@ yt-page-navigation-progress[enable-refresh-signature-moments-web] #progress.yt-p
 ytd-item-section-renderer.style-scope > div > ytd-shelf-renderer > div > div > div > h2,
 ytd-item-section-renderer.style-scope:not(:nth-child(1)) > div > ytd-shelf-renderer > div > div:nth-child(1),
 ytd-item-section-renderer.style-scope:nth-child(5) > div:nth-child(3)
-    {display:none}
+    {display: none}
 
 .grid-subheader.ytd-shelf-renderer {margin-top: 9px}
 
@@ -146,12 +163,11 @@ ytd-topbar-logo-renderer,
 .ytp-miniplayer-button,
 .tp-yt-app-drawer::after,
 ytd-toggle-button-renderer.style-scope:nth-child(2) > a:nth-child(1) > yt-formatted-string:nth-child(2)
-    {display:none !important}
+    {display: none !important}
 
-ytd-macro-markers-list-item-renderer[rounded] #thumbnail.ytd-macro-markers-list-item-renderer {border-radius: 1px}
 
-div.ytp-time-display {margin: -2px 0 0 0}
-button.ytp-time-display {margin: -2px 18px 0 0}
+/*div.ytp-time-display {margin: -2px 0 0 0}
+button.ytp-time-display {margin: -2px 18px 0 0}*/
 
 
 
@@ -159,12 +175,12 @@ button.ytp-time-display {margin: -2px 18px 0 0}
 .ytp-right-controls > .ytp-time-display {padding: 0 !important}
 
 
-
+/* Button names */
 ytd-menu-renderer.ytd-watch-metadata > div:nth-child(1) > yt-button-view-model:nth-child(2) > button-view-model:nth-child(1) > button:nth-child(1) > div:nth-child(2),
 ytd-menu-renderer.ytd-watch-metadata > div:nth-child(2) > yt-button-view-model > button-view-model:nth-child(1) > button:nth-child(1) > div:nth-child(2),
 ytd-menu-renderer.ytd-watch-metadata > div:nth-child(1) > yt-button-view-model:nth-child(3) > button-view-model:nth-child(1) > button:nth-child(1) > div:nth-child(2),
 button.ytd-menu-renderer > div:nth-child(2)
-    {display:none !important}
+    {display: none !important}
 
 ytd-menu-renderer.ytd-watch-metadata > div:nth-child(1) > yt-button-view-model:nth-child(2) > button-view-model:nth-child(1) > button:nth-child(1) > div:nth-child(1),
 ytd-menu-renderer.ytd-watch-metadata > div:nth-child(2) > yt-button-view-model > button-view-model:nth-child(1) > button:nth-child(1) > div,
@@ -177,10 +193,12 @@ button.ytd-menu-renderer > div:nth-child(2) {
 .ytd-watch-flexy {--ytd-watch-flexy-panel-max-height: 917px}
 
 
-.ytp-probably-keyboard-focus :focus {box-shadow: none !important}
+/*.ytp-probably-keyboard-focus :focus {box-shadow: none !important}*/
 
 /* Fix of rolling-number offset at 110% scaling text of Windows and browser.display.os-zoom-behavior 2 */
 /*.animated-rolling-number-wiz {line-height: 2rem !important}
 yt-animated-rolling-number:nth-child(1) {line-height: 32.7px !important}*/
+
+
 
 }
