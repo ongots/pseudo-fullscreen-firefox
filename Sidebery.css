@@ -1,105 +1,44 @@
   /*   COLORS   */
 
 #root.root {
-  --toolbar-bg:                        var(--frame-bg);
-  --nav-btn-active-shadow:             none;
+  --frame-bg:                          #F9F9FB;
+  --toolbar-bg:                        transparent;
   --frame-el-overlay-clicked-bg:       var(--frame-el-overlay-hover-bg);
   --toolbar-el-overlay-clicked-bg:     var(--toolbar-el-overlay-hover-bg);
+    caret-color:                       red;
+  ::selection                          {background-color: hsl(334,98%,57%) !important; color: white};
 }
 
 
 #root[data-frame-color-scheme=dark] {
-  --accent-color:                      345;
-
-  --accent-lightness:                  29%;
-  --accent-text-lightness:             45%;
-
   --frame-bg:                          hsl(252, 4%, 5%) !important;
-  --ctx-menu-bg:                       hsl(252, 4%, 8%);
+  --ctx-menu-bg:                       hsl(252, 4%, 8%); --popup-bg: var(--ctx-menu-bg); --notification-bg: var(--ctx-menu-bg);
   --ctx-menu-separator:                hsl(252, 4%, 15%);
   --ctx-menu-shadow:                   0 0 0 1px var(--ff-popup-border,black), 0 0 16px 0 black;
-  --popup-bg:                          var(--ctx-menu-bg);
-  --notification-bg:                   var(--ctx-menu-bg);
+
 
   .Tab[data-active="true"] .fav-icon   {fill: #fff}
   .popup-container                     {background-color: rgba(0,0,0,.6)}
-  .popup,                                         
-    .TextInput::before                 {background-color: var(--frame-bg)}
-  *                                    {caret-color: #FF3641}
-  ::selection                          {background-color: hsl(calc(var(--accent-color) - 0), 82%, var(--accent-lightness)); 
-                                                   color: hsl(calc(var(--accent-color) - 0), 82%, 85%)}
+  .popup, .TextInput::before           {background-color: var(--frame-bg)}
   .btn                                 {background-color: #080808}
-  .Tab,
-    .BookmarkNode                      {--frame-el-overlay-selected-border: hsl(195.7, 100%, 50%)}
+  .Tab, .BookmarkNode                  {--frame-el-overlay-selected-border: hsl(196, 100%, 40%)}
 }
-
-
-#root[data-frame-color-scheme=light] {
-  --accent-lightness:                  70%;
-  --accent-text-lightness:             50%;
-
-  --frame-bg:                          #F9F9FB;
-}
-
-
-
-  /*   Active tab color   */
-
-#root :is(.Tab[data-active="true"][data-edit="false"] .body, .NavigationBar .nav-item[data-active="true"]) {
-  background: linear-gradient(145deg, transparent, hsl(calc(var(--accent-color) - 10), 82%, var(--accent-lightness)), hsl(var(--accent-color), 82%, calc(var(--accent-lightness) + 10%)), transparent); --tabs-activated-shadow: 0 1px 4px -1px rgba(0,0,0,0.9), inset 0 0 0 1px var(--s-act-el-border, rgba(255,255,255,0.1))}
-
-
-
-#root[data-frame-color-scheme="dark"] .Tab[data-colorized="true"] {
-	--tabs-activated-shadow: 0 1px 4px -1px rgba(0,0,0,0.282), inset 0 0 0 1px var(--s-act-el-border, rgba(255,255,255,0.031))}
-
-#root[data-act-el-color-scheme="light"], #root[data-frame-color-scheme="light"] .Tab[data-colorized="true"]  {
-  --tabs-activated-shadow: inset 0 0 0 1px var(--s-act-el-border, rgba(0,0,0,0.1))}
-
-
-
-  /*   NAVBAR   */
-.NavigationBar .nav-item:not([data-active="true"]) .icon {opacity: .65}
-
-.NavigationBar .nav-item .len {top: -2px}
-
-.NavigationBar .nav-item .audio {
-  background-color: transparent !important;
-  box-shadow: none}
-
-.Sidebar .tool-btn[data-disabled="true"] {display: none}
-
-.Sidebar .tool-btn > svg {opacity: .5 !important}
-
 
 
 
   /*   TABS   */
-#root[data-pinned-tabs-position="panel"] .PinnedTabsBar,
-#root[data-pinned-tabs-position="top"] .PinnedTabsBar {
-  padding: 0 0 var(--tabs-margin) !important}
+  /*   Active tab color   */
+#root :is(.Tab[data-active="true"][data-edit="false"] .body, .NavigationBar .nav-item[data-active="true"]) {
+  background: radial-gradient(circle at center, hsla(202,100%,30%,.5), transparent, hsla(202,100%,30%,.5), transparent)}
 
-.PinnedTabsBar::after {bottom: var(--tabs-margin)}
+.Tab .title {top: -1px}
 
-#root[data-pinned-tabs-position="top"] .PinnedTabsBar {padding: 0 1px var(--tabs-margin)}
-
-
-    /*   Scrolling pinned tabs   */
-#root:is([data-pinned-tabs-position="top"], [data-pinned-tabs-position="panel"])[data-pinned-tabs-list="true"] .PinnedTabsBar:has(:nth-child(9)) { 
-  height: calc(var(--tabs-height) * 11.3);
-  overflow-y: auto;
-  margin-bottom: 2px !important;
-  padding: 0 !important}
-
-#root:is([data-pinned-tabs-position="top"], [data-pinned-tabs-position="panel"])[data-pinned-tabs-list="true"] .PinnedTabsBar::after {
-  position: sticky;
-  bottom: 0 !important}
-
-
+.Tab[data-pin="true"] .audio {
+  background-color: transparent;
+  box-shadow: none}
 
   /*   Colorize title of tabs   */
 .Tab .color-layer {display: none}
-
 .Tab[data-colorized]:has([style="--tab-color: #37adff;"]) .title {color: #37adff}
 .Tab[data-colorized]:has([style="--tab-color: #00c79a;"]) .title {color: #00c79a}
 .Tab[data-colorized]:has([style="--tab-color: #51cd00;"]) .title {color: #51cd00}
@@ -111,21 +50,18 @@
 
 
 
-.Tab .title {top: -1px}
+  /*   NAVBAR   */
+.NavigationBar .nav-item:not([data-active="true"]) .icon {opacity: .5}
 
-.Tab[data-pin="true"] .audio {
-  background-color: transparent;
+.NavigationBar .nav-item .len {top: -2px}
+
+.NavigationBar .nav-item .audio {
+  background-color: transparent !important;
   box-shadow: none}
 
-[data-frame-color-scheme=dark]  .ScrollBox > .top-shadow    {box-shadow: 0  1px 12px 0 #000}
-[data-frame-color-scheme=dark]  .ScrollBox > .bottom-shadow {box-shadow: 0 -1px 12px 0 #000}
-[data-frame-color-scheme=light] .ScrollBox > .top-shadow    {box-shadow: 0  1px 12px 0 #0004}
-[data-frame-color-scheme=light] .ScrollBox > .bottom-shadow {box-shadow: 0 -1px 12px 0 #0004}
-
+.Sidebar .tool-btn > svg {opacity: .5 !important}
 
 
 
   /*   MENU   */
 .CtxMenu :is(.icon-opt, .opt):not([data-inactive="true"]):active {opacity: 1}
-
-.CtxMenu .opt .label.-header {font-weight: 500}
