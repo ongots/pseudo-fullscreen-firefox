@@ -19,15 +19,6 @@ Drag Bookmarks Toolbar Items to the left of the address bar.
 2. Enable [Sidebery] prefix in the Sidebery settings.
 The enabled Sidebery (by icon or hotkey) replaces the native side tabs.
 3. Copy code from Sidebery.css to Sidebery / Settings / Styles editor / Sidebar
-<details><summary><b1>4. Copy code to Styles editor / Group page </b1></summary>
-
-> #root[data-frame-color-scheme=dark] {--s-toolbar-bg: hsl(252, 4%, 9%) !important}
-> 
-> html {background-color: var(--s-toolbar-bg) !important}
-> 
-> .title {opacity: .7}
-
-</details>
 
 
 ### YouTube
