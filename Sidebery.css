@@ -6,13 +6,13 @@
   --frame-el-overlay-clicked-bg:       var(--frame-el-overlay-hover-bg);
   --toolbar-el-overlay-clicked-bg:     var(--toolbar-el-overlay-hover-bg);
     caret-color:                       red;
-  ::selection                          {background-color: hsl(334,98%,57%) !important; color: white};
+  ::selection                          {background-color: hsl(334,98%,50%) !important; color: white};
 }
 
 
 #root[data-frame-color-scheme=dark] {
   --frame-bg:                          hsl(252, 4%, 5%) !important;
-  --ctx-menu-bg:                       hsl(252, 4%, 8%); --popup-bg: var(--ctx-menu-bg); --notification-bg: var(--ctx-menu-bg);
+  --ctx-menu-bg:                       hsl(252, 4%, 7%); --popup-bg: var(--ctx-menu-bg); --notification-bg: var(--ctx-menu-bg);
   --ctx-menu-separator:                hsl(252, 4%, 15%);
   --ctx-menu-shadow:                   0 0 0 1px var(--ff-popup-border,black), 0 0 16px 0 black;
 
@@ -29,7 +29,9 @@
   /*   TABS   */
   /*   Active tab color   */
 #root :is(.Tab[data-active="true"][data-edit="false"] .body, .NavigationBar .nav-item[data-active="true"]) {
-  background: radial-gradient(circle at center, hsla(202,100%,30%,.5), transparent, hsla(202,100%,30%,.5), transparent)}
+  !background: radial-gradient(circle at center, hsla(202,100%,30%,.5), transparent, hsla(202,100%,30%,.5), transparent);
+  background: linear-gradient(135deg, transparent, #4960fcaa, #0011f5aa, transparent)
+}
 
 .Tab .title {top: -1px}
 
