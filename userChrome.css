@@ -4,9 +4,7 @@
 .titlebar-buttonbox-container
   {display: none}
 
-#navigator-toolbox {
-  z-index: 4 !important;
-  border: none !important}
+#navigator-toolbox {z-index: 4 !important}
 
 [sizemode=maximized] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {margin-bottom: -39px; top: -39px}
    [sizemode=normal] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {margin-bottom: -31px; top: -31px}
@@ -14,8 +12,9 @@
                      #nav-bar:not([customizing]):not(:hover):not(:focus-within):not(:has(*[open])):not(:has(*[dragstart])) {background-image: none;  background-color: black !important}
 
 #nav-bar:is(:hover, :focus-within, :has(*[open]), :has(*[dragstart]), [customizing]) {
-  box-shadow: 0 1px var(--chrome-content-separator-color), 0 2px 14px rgba(0, 0, 0, 0.13) !important;
+  box-shadow: 0 1px var(--chrome-content-separator-color), 0 2px 14px rgba(0, 0, 0, 0.13);
   background: inherit;
+  background: linear-gradient(135deg, black 35%, #0011f580 65%, black);
   background-color: var(--toolbar-bgcolor) !important;
   opacity: 1 !important;
   top: auto !important}
@@ -199,6 +198,10 @@ menuitem[_moz-menuactive][disabled] {
 
 #context-sep-navigation {margin: auto 1em !important}
 
+.printDialogBox {
+  margin-top: 0 !important;
+  --box-max-height-default: 100% !important}
+
 
 
 
@@ -282,16 +285,6 @@ tree {background-color: transparent !important}
 
 
 
-/*   Dialog   */
-#window-modal-dialog {--chrome-offset: 20px !important}
-
-.printDialogBox {
-  margin-top: 0px !important;
-  --box-max-height-default: 100% !important}
-
-
-
-
 /*   Statuspanel   */
 #statuspanel-label {
   background-color: light-dark(#fffc, #000c) !important;
@@ -350,10 +343,10 @@ tree {background-color: transparent !important}
       --menu-border-color: var(--panel-separator-color);
       --urlbarView-separator-color: var(--panel-separator-color);
   
+  caret-color:                      red;
   --input-bgcolor:                  transparent;
   --background-color-box:           transparent;
-    caret-color:                    red;
-  --link-color:                     hsl(334,98%,57%);
+  --link-color:                     hsl(334,98%,50%);
   
 }
 
@@ -364,13 +357,13 @@ tree {background-color: transparent !important}
   --tab-selected-outline-color: #fff1 !important}
 
 /*   Selection   */
-::selection {background-color: hsl(334,98%,57%) !important}
+::selection {background-color: hsl(334,98%,50%) !important}
 
 /*   urlbarView selected   */
-.urlbarView-row[selected] {background: linear-gradient(135deg, hsla(265, 100%, 50%, .35), hsla(240, 100%, 50%, .35), var(--arrowpanel-background))}
+.urlbarView-row[selected] {background: linear-gradient(135deg, var(--arrowpanel-background) 1%, #4960fcaa, #0011f5aa, var(--arrowpanel-background))}
 
 /*   appMenu separators color   */
-#appMenu-mainView > vbox:nth-child(1) > toolbarseparator::before {border-image: linear-gradient(135deg, hsl(334,98%,57%), transparent) 1 !important}
+#appMenu-mainView > vbox:nth-child(1) > toolbarseparator::before {border-image: linear-gradient(135deg, #4960fcaa, #0011f5aa, transparent) 1 !important}
 
 /*   Highlighting menu items with color   */
 menuitem:is([data-l10n-id="text-action-copy"], #context-copylink, #context-copy, #context-saveimage, #context-savevideo, #context-searchselect):not([disabled="true"]) label {color: hsl(334,98%,57%)}
@@ -379,35 +372,16 @@ menuitem:is([data-l10n-id="text-action-copy"], #context-copylink, #context-copy,
 
 
 @media (prefers-color-scheme: dark) {
-  
   * {
     --toolbar-color:                  hsl(252, 4%, 95%);
-    --toolbar-bgcolor:                hsl(252, 4%, 5%);
-    --arrowpanel-background:          hsl(252, 4%, 8%); --arrowpanel-dimmed: var(--arrowpanel-background); --toolbar-field-focus-background-color: var(--arrowpanel-background); --info-bar-background-color: var(--arrowpanel-background) !important;
+    --toolbar-bgcolor:                hsl(252, 4%, 4%);
+    --arrowpanel-background:          hsl(252, 4%, 7%); --arrowpanel-dimmed: var(--arrowpanel-background); --toolbar-field-focus-background-color: var(--arrowpanel-background); --info-bar-background-color: var(--arrowpanel-background) !important;
+    --in-content-page-background:     hsl(252, 4%, 7%);
+    --background-color-canvas:        hsl(252, 4%, 7%) !important;
     --arrowpanel-border-color:        black;
     --chrome-content-separator-color: black;
     --sidebar-border-color:           black;
     --tab-selected-outline-color:     #fff2;
     --urlbarView-highlight-color:     #fff;
-  }
-  
-  .titleIcon {background-color: transparent !important}
-
-  :root[dialogroot], :host(dialog) {
-    --in-content-page-background: hsl(252, 4%, 8%) !important;
-    --background-color-canvas: hsl(252, 4%, 9%) !important}
-  
-  #tab-notification-deck,
-  dialog {
-    border: 1px solid black;
-    --in-content-box-background: transparent !important;
-    --in-content-button-background: hsl(252, 4%, 14%) !important;
-    --in-content-button-background-hover: hsl(252, 4%, 20%) !important;
-    --in-content-button-background-active: hsl(252, 4%, 20%) !important}
-  
-  window#bookmarkproperties menupopup#textbox-contextmenu.textbox-contextmenu {
-    --panel-color: hsl(252, 4%, 95%);
-    --panel-background: hsl(252, 4%, 7%) !important;
-    --panel-border-color: black !important}
-
+    }
 }
