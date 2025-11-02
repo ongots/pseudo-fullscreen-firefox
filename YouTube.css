@@ -18,10 +18,6 @@ ytd-guide-collapsible-section-entry-renderer.ytd-guide-section-renderer:not(:fir
 #sections.ytd-guide-renderer > .ytd-guide-renderer:not(:last-child) {border: none}
 
 
-/*ytd-guide-renderer.ytd-app {width: 256px}
-ytd-guide-entry-renderer {margin-bottom: 1px}
-*/
-
 /* Color scheme */
 html[dark], [dark] {
 
@@ -31,7 +27,7 @@ html[dark], [dark] {
   --yt-spec-icon-inactive:                  #ddd;
   --yt-spec-icon-active:                    #fff;
   !--yt-spec-base-background:                #0008;/*фон шапки*/
-  --yt-spec-raised-background:              #1110;
+  !--yt-spec-raised-background:              #1110;
 }
 /*
 html[dark] .header.ytd-playlist-panel-renderer,
@@ -81,9 +77,9 @@ ytd-multi-page-menu-renderer,
     {border-radius: 1px !important}
 
 
-/*ytd-alert-with-button-renderer.style-scope,
+ytd-alert-with-button-renderer.style-scope,
 .yt-alert-renderer.style-scope
-    {border-radius: 8px !important}*/
+    {border-radius: 8px !important}
 
 
 
@@ -106,17 +102,12 @@ toggleable-list-item-view-model.toggleableListItemViewModelHost > yt-list-item-v
 .yt-list-item-view-model__container--has-subtitle {padding: 0 16px}
 
 
-/*ytd-c4-tabbed-header-renderer.style-scope[has-channel-art] div.tp-yt-app-header-layout:nth-child(2) {padding-top: 1500px !important}*/
-
 
 #progress,
 .ytThumbnailOverlayProgressBarHostWatchedProgressBarSegment,
 yt-page-navigation-progress[enable-refresh-signature-moments-web] #progress.yt-page-navigation-progress,
 .ytp-play-progress.ytp-swatch-background-color {
     background: #f03 !important}
-
-
-
 }
 
 @-moz-document url-prefix("https://www.youtube.com/feed/subscriptions") {
@@ -134,6 +125,9 @@ ytd-section-list-renderer {--yt-spec-10-percent-layer: 0}
 @-moz-document url-prefix("https://www.youtube.com/results") {
 /* Recommendations in search results */
 ytd-shelf-renderer.ytd-item-section-renderer.style-scope {display:none}
+
+/* Thumbnail Rating Bar for YouTube fix */
+ytd-item-section-renderer.style-scope > div > ytd-video-renderer > div > div > div > ytd-expandable-metadata-renderer > div > div > div > yt-img-shadow > ytrb-bar {display:none}
 }
 
 @-moz-document url-prefix("https://www.youtube.com/playlist") {
@@ -149,7 +143,6 @@ ytd-shelf-renderer.ytd-item-section-renderer.style-scope {display:none}
 /* Header */
 #container.ytd-masthead {transition: 200ms}
 #masthead[theater] {opacity: 0; transition: 200ms}
-
 #masthead[theater]:hover {opacity: 1}
 
 
@@ -164,11 +157,6 @@ ytd-topbar-logo-renderer,
 .tp-yt-app-drawer::after,
 ytd-toggle-button-renderer.style-scope:nth-child(2) > a:nth-child(1) > yt-formatted-string:nth-child(2)
     {display: none !important}
-
-
-/*div.ytp-time-display {margin: -2px 0 0 0}
-button.ytp-time-display {margin: -2px 18px 0 0}*/
-
 
 
 /* YouTube Screenshot */
@@ -191,14 +179,4 @@ button.ytd-menu-renderer > div:nth-child(2) {
 
 
 .ytd-watch-flexy {--ytd-watch-flexy-panel-max-height: 917px}
-
-
-/*.ytp-probably-keyboard-focus :focus {box-shadow: none !important}*/
-
-/* Fix of rolling-number offset at 110% scaling text of Windows and browser.display.os-zoom-behavior 2 */
-/*.animated-rolling-number-wiz {line-height: 2rem !important}
-yt-animated-rolling-number:nth-child(1) {line-height: 32.7px !important}*/
-
-
-
 }
