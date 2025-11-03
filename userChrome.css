@@ -14,7 +14,7 @@
 #nav-bar:is(:hover, :focus-within, :has(*[open]), :has(*[dragstart]), [customizing]) {
   box-shadow: 0 1px var(--chrome-content-separator-color), 0 2px 14px rgba(0, 0, 0, 0.13);
   background: inherit;
-  background: linear-gradient(135deg, black 35%, #0011f580 65%, black);
+  background: linear-gradient(135deg, var(--toolbar-bgcolor) 35%, #0011f580 65%, var(--toolbar-bgcolor));
   background-color: var(--toolbar-bgcolor) !important;
   opacity: 1 !important;
   top: auto !important}
@@ -374,7 +374,7 @@ menuitem:is([data-l10n-id="text-action-copy"], #context-copylink, #context-copy,
 @media (prefers-color-scheme: dark) {
   * {
     --toolbar-color:                  hsl(252, 4%, 95%);
-    --toolbar-bgcolor:                hsl(252, 4%, 4%);
+    --toolbar-bgcolor:                hsl(252, 4%, 0%);
     --arrowpanel-background:          hsl(252, 4%, 7%); --arrowpanel-dimmed: var(--arrowpanel-background); --toolbar-field-focus-background-color: var(--arrowpanel-background); --info-bar-background-color: var(--arrowpanel-background) !important;
     --in-content-page-background:     hsl(252, 4%, 7%);
     --background-color-canvas:        hsl(252, 4%, 7%) !important;
