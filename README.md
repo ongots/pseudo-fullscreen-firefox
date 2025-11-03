@@ -26,6 +26,8 @@ Drag Bookmarks Toolbar Items to the left of the address bar.
 >4. Your userChrome.css appears on the right. Once you are done editing it, you can either close the toolbox which won't save your edits, or save edits by clicking the 'Save' link on the left.
 </details>
 
+Note: Development is being carried out in Firefox Beta win10, and it is being tested on Linux (lubuntu 18.04) every six months.
+
 
 ### Sidebery
 1. [Install Sidebery](https://github.com/mbnuqw/sidebery)
