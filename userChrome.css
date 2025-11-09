@@ -58,7 +58,7 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
 
 .sidebar-panel {
   height: 100% !important;
-  width: 434px !important;
+  width: auto !important;
   margin-left: 400px !important;
   background-color: var(--toolbar-bgcolor)}
 
@@ -70,7 +70,7 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
 
 #sidebar-box {
 	width: 840px !important;
-  padding-right: 0 !important}
+  padding: 0 !important}
 
 #sidebar-launcher-splitter,
 #sidebar-splitter 
@@ -170,24 +170,7 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -9px -3p
 menuitem[_moz-menuactive][disabled] {
   background-color: transparent !important}
 
-#appMenu-popup {
-  --text-color-disabled: color-mix(in srgb, currentColor 40%, transparent);
-  --text-color-deemphasized: color-mix(in srgb, currentColor 40%, transparent);
-}
-
-/*   Repaints the bookmark menu and context menus to the main menu color   */
-#main-window :not(#ContentSelectDropdown) > menupopup:not(#context-navigation[hidden]),
-#textbox-contextmenu,
-.menupopup-arrowscrollbox {    
-  --panel-background: var(--arrowpanel-background) !important;
-  --panel-color: var(--arrowpanel-color) !important;
-  --menu-color:  var(--arrowpanel-color) !important;
-  --panel-border-color: var(--arrowpanel-border-color) !important;
-}
-
-:is(menu, menuitem)[_moz-menuactive]:not([disabled="true"]):not([customoptionstyling]) {
-  background-color: var(--panel-item-hover-bgcolor) !important;
-  color: inherit !important}
+:is(menu, menuitem)[_moz-menuactive]:not([disabled="true"]):not([customoptionstyling]) {background-color: var(--panel-item-hover-bgcolor) !important}
 
 #context-sep-navigation {margin: auto 1em !important}
 
@@ -332,13 +315,14 @@ tree {background-color: transparent !important}
   caret-color:                            red;
   --input-bgcolor:                        transparent;
   --background-color-box:                 transparent;
-  --link-color:                           hsl(334,98%,50%);
+  --link-color:                           hsl(334,100%,60%);
+  --text-color-deemphasized:              var(--text-color-disabled);
 }
 
 
 /*   Active Tab   */
 .tab-background[selected] {
-  background: radial-gradient(circle at center, hsla(202,100%,30%,.5), transparent, hsla(202,100%,30%,.5), transparent) !important;
+  background: radial-gradient(circle at center, #0011f590, transparent, #0011f590, transparent) !important;
   --tab-selected-outline-color: #fff1 !important}
 
 /*   Navbar   */
@@ -346,7 +330,7 @@ tree {background-color: transparent !important}
   background: linear-gradient(135deg, var(--toolbar-bgcolor) 35%, #0011f580 65%, var(--toolbar-bgcolor))}
 
 /*   Selection   */
-::selection {background-color: hsl(334,98%,50%) !important}
+::selection {background-color: hsl(334,98%,45%) !important}
 
 /*   urlbarView selected   */
 .urlbarView-row[selected] {background: linear-gradient(135deg, var(--arrowpanel-background) 1%, #4960fcaa, #0011f5aa, var(--arrowpanel-background))}
@@ -355,7 +339,7 @@ tree {background-color: transparent !important}
 #appMenu-mainView > vbox:nth-child(1) > toolbarseparator::before {border-image: linear-gradient(135deg, #4960fcaa, #0011f5aa, transparent) 1 !important}
 
 /*   Highlighting menu items with color   */
-menuitem:is([data-l10n-id="text-action-copy"], #context-copylink, #context-copy, #context-saveimage, #context-savevideo, #context-searchselect):not([disabled="true"]) label {color: hsl(334,98%,57%)}
+menuitem:is([data-l10n-id="text-action-copy"], #context-copylink, #context-copy, #context-saveimage, #context-savevideo, #context-searchselect):not([disabled="true"]) label {color: var(--link-color)}
 
 
 
@@ -365,6 +349,7 @@ menuitem:is([data-l10n-id="text-action-copy"], #context-copylink, #context-copy,
     --toolbar-bgcolor:                      black;
     --arrowpanel-background:                #121113; 
     --arrowpanel-dimmed:                    #121113; 
+    --panel-background:                     #121113;
     --toolbar-field-focus-background-color: #121113; 
     --info-bar-background-color:            #121113 !important;
     --in-content-page-background:           #121113;
@@ -372,6 +357,7 @@ menuitem:is([data-l10n-id="text-action-copy"], #context-copylink, #context-copy,
     --arrowpanel-border-color:              black;
     --chrome-content-separator-color:       black;
     --sidebar-border-color:                 black;
+    --panel-border-color:                   black;
     --tab-selected-outline-color:           #fff2;
     --urlbarView-highlight-color:           #fff;
     }
