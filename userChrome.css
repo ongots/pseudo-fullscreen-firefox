@@ -6,10 +6,12 @@
 
 #navigator-toolbox {z-index: 4 !important}
 
+#nav-bar {transition: none !important}
+
 [sizemode=maximized] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {margin-bottom: -39px; top: -39px}
    [sizemode=normal] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {margin-bottom: -31px; top: -31px}
    [sizemode=normal] #nav-bar:not([customizing]):not(:hover):not(:focus-within):not(:has(*[open])):not(:has(*[dragstart])) #nav-bar-customization-target * {opacity: 0}
-                     #nav-bar:not([customizing]):not(:hover):not(:focus-within):not(:has(*[open])):not(:has(*[dragstart])) {background-image: none;  background-color: black !important}
+                     #nav-bar:not([customizing]):not(:hover):not(:focus-within):not(:has(*[open])):not(:has(*[dragstart])) {background-color: black !important}
 
 #nav-bar:is(:hover, :focus-within, :has(*[open]), :has(*[dragstart]), [customizing]) {
   box-shadow: 0 1px var(--chrome-content-separator-color), 0 2px 14px rgba(0, 0, 0, 0.13);
@@ -37,7 +39,7 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
   width: 400px !important;
   max-width: 400px !important;
   left: -395px;
-  background-color: var(--toolbar-bgcolor);
+  background-color: var(--sidebar-background-color) !important;
   z-index: 3;
   opacity: 0;
   --tab-block-margin: 0}
@@ -60,10 +62,10 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
   height: 100% !important;
   width: auto !important;
   margin-left: 400px !important;
-  background-color: var(--toolbar-bgcolor)}
+  background-color: var(--sidebar-background-color)}
 
 #sidebar {
-  background-color: var(--toolbar-bgcolor) !important;
+  background-color: var(--sidebar-background-color) !important;
   border-radius: 0 !important;
   box-shadow: none;
   outline: none}
@@ -107,10 +109,9 @@ sidebar-panel-header,
 moz-button.more-tools-button
   {display: none !important}
 
-#pinned-tabs-container > tab:not(:hover, [selected], [multiselected]) > stack > vbox {
-  background-color: transparent !important}
+#pinned-tabs-container > tab:not(:hover, [selected], [multiselected]) > stack > vbox {background-color: transparent !important}
 
-.tab-label {font-size: 14px}
+.tab-label {font-size: 15px}
 
 .tabbrowser-tab[pending] :is(.tab-icon-image, .tab-label) {opacity: .6 !important}
 
@@ -146,8 +147,6 @@ moz-button.more-tools-button
   width: 32px !important;
   height: 32px !important}
 
-@media (prefers-color-scheme: dark) {toolbarbutton.bookmark-item > image[src^="page-icon:https://github.com/"] {filter: invert(1)}}
-
 #PlacesToolbarItems toolbarbutton.bookmark-item[dragover] > label {color: SelectedItem}
 
 #PlacesToolbarItems .toolbarbutton-text {
@@ -169,8 +168,6 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -9px -3p
 #context-navigation > .menuitem-iconic[_moz-menuactive] > .menu-iconic-left > .menu-iconic-icon,
 menuitem[_moz-menuactive][disabled] {
   background-color: transparent !important}
-
-:is(menu, menuitem)[_moz-menuactive]:not([disabled="true"]):not([customoptionstyling]) {background-color: var(--panel-item-hover-bgcolor) !important}
 
 #context-sep-navigation {margin: auto 1em !important}
 
@@ -297,9 +294,7 @@ tree {background-color: transparent !important}
   --panel-item-active-bgcolor:            #8892;
   --panel-item-hover-bgcolor:             #8892;
   --urlbarView-hover-background:          #8892;
-  
   --urlbar-box-focus-bgcolor:             #8893;
-  
   --button-active-bgcolor:                #8894;
   --button-background-color-hover:        #8894;
   --menu-border-color:                    #8894;
@@ -311,54 +306,52 @@ tree {background-color: transparent !important}
   --urlbar-box-hover-bgcolor:             #8894;
   --urlbar-box-bgcolor:                   #8894;
   --urlbarView-separator-color:           #8894;
-  
-  caret-color:                            red;
   --input-bgcolor:                        transparent;
   --background-color-box:                 transparent;
-  --link-color:                           hsl(334,100%,60%);
+  --inactive-titlebar-opacity:            none;
   --text-color-deemphasized:              var(--text-color-disabled);
+  --in-content-page-background:           var(--arrowpanel-background);
+  --background-color-canvas:              var(--arrowpanel-background) !important;
+  --info-bar-background-color:            var(--arrowpanel-background) !important;
+  --panel-background:                     var(--arrowpanel-background);
+  --panel-border-color:                   var(--arrowpanel-border-color);
 }
 
+:is(menu, menuitem)[_moz-menuactive]:not([disabled="true"]):not([customoptionstyling]) {background-color: #8893 !important}
 
-/*   Active Tab   */
-.tab-background[selected] {
-  background: radial-gradient(circle at center, #0011f590, transparent, #0011f590, transparent) !important;
-  --tab-selected-outline-color: #fff1 !important}
-
-/*   Navbar   */
-#nav-bar:is(:hover, :focus-within, :has(*[open]), :has(*[dragstart]), [customizing]) {
-  background: linear-gradient(135deg, var(--toolbar-bgcolor) 35%, #0011f580 65%, var(--toolbar-bgcolor))}
-
-/*   Selection   */
-::selection {background-color: hsl(334,98%,45%) !important}
-
-/*   urlbarView selected   */
-.urlbarView-row[selected] {background: linear-gradient(135deg, var(--arrowpanel-background) 1%, #4960fcaa, #0011f5aa, var(--arrowpanel-background))}
-
-/*   appMenu separators color   */
-#appMenu-mainView > vbox:nth-child(1) > toolbarseparator::before {border-image: linear-gradient(135deg, #4960fcaa, #0011f5aa, transparent) 1 !important}
-
-/*   Highlighting menu items with color   */
 menuitem:is([data-l10n-id="text-action-copy"], #context-copylink, #context-copy, #context-saveimage, #context-savevideo, #context-searchselect):not([disabled="true"]) label {color: var(--link-color)}
 
 
 
 
+
+/*            Theme            (Disable to use themes from addons.mozilla.org)      */
+.tab-background[selected] {
+  background: radial-gradient(circle at center, #0011f580, transparent, #0011f580, transparent) !important;
+  --tab-selected-outline-color: #fff1}
+
+.urlbarView-row[selected] {background: linear-gradient(135deg, var(--arrowpanel-background) 1%, #4960fcaa, #0011f5aa, var(--arrowpanel-background))}
+
+#appMenu-mainView > vbox:nth-child(1) > toolbarseparator::before {border-image: linear-gradient(135deg, #4960fcaa, #0011f5aa, transparent) 1 !important}
+
+::selection {background-color: hsl(334,98%,45%) !important}
+
+* {
+  caret-color:                              red;
+  --link-color:                             hsl(334,100%,60%);
+}
+
 @media (prefers-color-scheme: dark) {
   * {
     --toolbar-bgcolor:                      black;
+    --sidebar-background-color:             #121113; 
     --arrowpanel-background:                #121113; 
     --arrowpanel-dimmed:                    #121113; 
-    --panel-background:                     #121113;
     --toolbar-field-focus-background-color: #121113; 
-    --info-bar-background-color:            #121113 !important;
-    --in-content-page-background:           #121113;
     --background-color-canvas:              #121113 !important;
     --arrowpanel-border-color:              black;
     --chrome-content-separator-color:       black;
     --sidebar-border-color:                 black;
-    --panel-border-color:                   black;
-    --tab-selected-outline-color:           #fff2;
-    --urlbarView-highlight-color:           #fff;
     }
+  toolbarbutton.bookmark-item > image[src^="page-icon:https://github.com/"] {filter: invert(1)}
 }
