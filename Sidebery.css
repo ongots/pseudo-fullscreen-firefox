@@ -1,68 +1,19 @@
-  /* Firefox 145 radius */
-#root.root {--btn-border-radius: 8px;}
-#root.root {--notification-border-radius: 8px;}
-#root.root {--ntb-border-radius: 8px;}
-#root.root {--search-border-radius: 8px;}
-#root.root {--slt-border-radius: 8px;}
-#root.root {--history-item-border-radius: 8px;}
-#root.root {--bookmarks-border-radius: 8px;}
-#root.root {--tabs-border-radius: 8px;}
-#root.root {--nav-btn-border-radius: 8px;}
-#root.root {--nav-hidden-btn-border-radius: 8px;}
-#root.root {--general-border-radius: 8px;}
-
-
-
-
-
-
-
-
-
-  /*   THEME   (Disable to use themes from addons.mozilla.org)      */
-#root.root {
-  caret-color:                         red;
-  ::selection                          {background-color: hsl(334,98%,50%) !important; color: white};
-  --frame-bg:                          #F9F9FB;
-}
-
-#root[data-frame-color-scheme=dark] {
-  --frame-bg:                          hsl(252, 4%, 5%) !important;
-  --frame-el-overlay-selected-border:  hsl(196, 100%, 40%);
-  --frame-el-overlay-selected-bg:      #8892;
-  --ctx-menu-bg:                       hsl(252, 4%, 7%); --popup-bg: var(--ctx-menu-bg); --notification-bg: var(--ctx-menu-bg);
-  --ctx-menu-separator:                hsl(252, 4%, 15%);
-  --ctx-menu-shadow:                   0 0 0 1px var(--ff-popup-border,black), 0 0 16px 0 black;
-
-  .Tab[data-active="true"] .fav-icon   {fill: #fff}
-  .popup-container                     {background-color: rgba(0,0,0,.6)}
-  .popup, .TextInput::before           {background-color: var(--frame-bg)}
-  .btn                                 {background-color: #080808}
-}
-
-#root :is(.Tab[data-active="true"][data-edit="false"] .body, .NavigationBar .nav-item[data-active="true"]) {
-  !background: radial-gradient(circle at center, hsla(202,100%,30%,.5), transparent, hsla(202,100%,30%,.5), transparent);
-  background: linear-gradient(135deg, transparent, #4960fcaa, #0011f5aa, transparent)}
-
-
-
-
-
-
-
-
-
-  /*   COLORS   */
 #root.root {
   --toolbar-bg:                        transparent;
   --frame-el-overlay-clicked-bg:       var(--frame-el-overlay-hover-bg);
   --toolbar-el-overlay-clicked-bg:     var(--toolbar-el-overlay-hover-bg);
 }
 
-  /*   TABS   */
-.Tab[data-pin="true"] .audio {
-  background-color: transparent;
-  box-shadow: none}
+.NavigationBar .nav-item:not([data-active="true"]) .icon {opacity: .6}
+
+.NavigationBar .nav-item .len {top: -2px}
+
+.Sidebar .tool-btn > svg {opacity: .6 !important}
+.Sidebar .tool-btn[data-disabled="true"] > svg {opacity: .3 !important}
+
+
+.CtxMenu :is(.icon-opt, .opt):not([data-inactive="true"]):active {opacity: 1}
+
 
   /*   Colorize title of tabs   */
 .Tab .color-layer {display: none}
@@ -74,21 +25,3 @@
 .Tab[data-colorized]:has([style="--tab-color: #ff613d;"]) .title {color: #ff613d}
 .Tab[data-colorized]:has([style="--tab-color: #ff4bda;"]) .title {color: #ff4bda}
 .Tab[data-colorized]:has([style="--tab-color: #af51f5;"]) .title {color: #af51f5}
-
-
-
-  /*   NAVBAR   */
-.NavigationBar .nav-item:not([data-active="true"]) .icon {opacity: .5}
-
-.NavigationBar .nav-item .len {top: -2px}
-
-.NavigationBar .nav-item .audio {
-  background-color: transparent !important;
-  box-shadow: none}
-
-.Sidebar .tool-btn > svg {opacity: .5 !important}
-.Sidebar .tool-btn[data-disabled="true"] > svg {opacity: .25 !important}
-
-
-  /*   MENU   */
-.CtxMenu :is(.icon-opt, .opt):not([data-inactive="true"]):active {opacity: 1}
