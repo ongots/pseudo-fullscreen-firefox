@@ -39,7 +39,7 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
   width: 400px !important;
   max-width: 400px !important;
   left: -395px;
-  background-color: var(--sidebar-background-color) !important;
+  background-color: inherit !important;
   z-index: 3;
   opacity: 0;
   --tab-block-margin: 0}
@@ -62,10 +62,10 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
   height: 100% !important;
   width: auto !important;
   margin-left: 400px !important;
-  background-color: var(--sidebar-background-color)}
+  background-color: inherit}
 
 #sidebar {
-  background-color: var(--sidebar-background-color) !important;
+  background-color: inherit !important;
   border-radius: 0 !important;
   box-shadow: none;
   outline: none}
@@ -159,25 +159,6 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -9px -3p
 
 
 
-/*   Menu   */
-#appMenu-new-tab-button2,
-#appMenu-fullscreen-button2,
-#appmenu-developer-tools
-  {display: none !important}
-
-#context-navigation > .menuitem-iconic[_moz-menuactive] > .menu-iconic-left > .menu-iconic-icon,
-menuitem[_moz-menuactive][disabled] {
-  background-color: transparent !important}
-
-#context-sep-navigation {margin: auto 1em !important}
-
-.printDialogBox {
-  margin-top: 0 !important;
-  --box-max-height-default: 100% !important}
-
-
-
-
 /*   Urlbar   */
 #nav-bar:not([customizing]) #urlbar-container {
   --urlbar-container-height: 40px !important;
@@ -258,6 +239,26 @@ tree {background-color: transparent !important}
 
 
 
+/*   Menu   */
+#appMenu-new-tab-button2,
+#appMenu-fullscreen-button2,
+#appmenu-developer-tools
+  {display: none !important}
+
+#context-sep-navigation {margin: auto 1em !important}
+
+menuitem:is([data-l10n-id="text-action-copy"], #context-copylink, #context-copy, #context-saveimage, #context-savevideo, #context-searchselect):not([disabled="true"]) label {color: var(--link-color)}
+
+
+
+
+.printDialogBox {
+  margin-top: 0 !important;
+  --box-max-height-default: 100% !important}
+
+
+
+
 /*   Statuspanel   */
 #statuspanel-label {
   background-color: light-dark(#fffc, #000c) !important;
@@ -285,25 +286,21 @@ tree {background-color: transparent !important}
 
 /*   Colors   */
 * {
+  --button-background-color-ghost-hover:  #8892; --button-background-color-ghost-active: var(--button-background-color-ghost-hover);
+  --panel-item-hover-bgcolor:             #8892; --panel-item-active-bgcolor: var (--panel-item-hover-bgcolor);
+  --button-background-color-hover:        #8894; --button-active-bgcolor: var(--button-background-color-hover);
+  --toolbarbutton-hover-background:       #8894; --toolbarbutton-active-background: var(--toolbarbutton-hover-background);
+  --urlbar-box-hover-bgcolor:             #8894; --urlbar-box-active-bgcolor: var(--urlbar-box-hover-bgcolor);
+  
   --autocomplete-popup-hover-background:  #8892;
-  --button-background-color-ghost-active: #8892;
-  --button-background-color-ghost-hover:  #8892;
   --button-background-color:              #8892;
   --menuitem-hover-background-color:      #8892;
   --panel-banner-item-background-color:   #8892;
-  --panel-item-active-bgcolor:            #8892;
-  --panel-item-hover-bgcolor:             #8892;
   --urlbarView-hover-background:          #8892;
   --urlbar-box-focus-bgcolor:             #8893;
-  --button-active-bgcolor:                #8894;
-  --button-background-color-hover:        #8894;
   --menu-border-color:                    #8894;
   --panel-banner-item-hover-bgcolor:      #8894;
   --panel-separator-color:                #8894;
-  --toolbarbutton-active-background:      #8894;
-  --toolbarbutton-hover-background:       #8894;
-  --urlbar-box-active-bgcolor:            #8894;
-  --urlbar-box-hover-bgcolor:             #8894;
   --urlbar-box-bgcolor:                   #8894;
   --urlbarView-separator-color:           #8894;
   --input-bgcolor:                        transparent;
@@ -315,43 +312,25 @@ tree {background-color: transparent !important}
   --info-bar-background-color:            var(--arrowpanel-background) !important;
   --panel-background:                     var(--arrowpanel-background);
   --panel-border-color:                   var(--arrowpanel-border-color);
+  
+  --link-color:                           hsl(168, 94%, 42%);
 }
 
-:is(menu, menuitem)[_moz-menuactive]:not([disabled="true"]):not([customoptionstyling]) {background-color: #8893 !important}
-
-menuitem:is([data-l10n-id="text-action-copy"], #context-copylink, #context-copy, #context-saveimage, #context-savevideo, #context-searchselect):not([disabled="true"]) label {color: var(--link-color)}
-
-
+:is(menu, menuitem)[_moz-menuactive]:not([customoptionstyling]) {background-color: var(--button-background-color-ghost-hover) !important}
+:is(menu, menuitem):not([disabled="true"]):not([customoptionstyling]) {color: var(--arrowpanel-color) !important}
+:is(menu, menuitem)[disabled]:not([customoptionstyling]) {color: color-mix(in srgb, var(--arrowpanel-color) 40%, transparent) !important}
 
 
+@media (prefers-color-scheme: dark) {toolbarbutton.bookmark-item > image[src^="page-icon:https://github.com/"] {filter: invert(1)}}
 
-/*            Theme            (Disable to use themes from addons.mozilla.org)      */
-.tab-background[selected] {
-  background: radial-gradient(circle at center, #0011f580, transparent, #0011f580, transparent) !important;
-  --tab-selected-outline-color: #fff1}
 
-.urlbarView-row[selected] {background: linear-gradient(135deg, var(--arrowpanel-background) 1%, #4960fcaa, #0011f5aa, var(--arrowpanel-background))}
+#appMenu-mainView > vbox:nth-child(1) > toolbarseparator::before {border-image: linear-gradient(135deg, var(--tab-selected-outline-color), transparent) 1 !important}
 
-#appMenu-mainView > vbox:nth-child(1) > toolbarseparator::before {border-image: linear-gradient(135deg, #4960fcaa, #0011f5aa, transparent) 1 !important}
 
-::selection {background-color: hsl(334,98%,45%) !important}
-
-* {
-  caret-color:                              red;
-  --link-color:                             hsl(334,100%,60%);
-}
-
-@media (prefers-color-scheme: dark) {
+!@media (prefers-color-scheme: dark) {
   * {
-    --toolbar-bgcolor:                      black;
-    --sidebar-background-color:             #121113; 
-    --arrowpanel-background:                #121113; 
-    --arrowpanel-dimmed:                    #121113; 
-    --toolbar-field-focus-background-color: #121113; 
-    --background-color-canvas:              #121113 !important;
     --arrowpanel-border-color:              black;
     --chrome-content-separator-color:       black;
     --sidebar-border-color:                 black;
     }
-  toolbarbutton.bookmark-item > image[src^="page-icon:https://github.com/"] {filter: invert(1)}
 }
