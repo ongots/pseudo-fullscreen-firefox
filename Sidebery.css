@@ -11,12 +11,12 @@
 .Sidebar .tool-btn > svg {opacity: .6 !important}
 .Sidebar .tool-btn[data-disabled="true"] > svg {opacity: .3 !important}
 
-
 .CtxMenu :is(.icon-opt, .opt):not([data-inactive="true"]):active {opacity: 1}
 
 
   /*   Colorize title of tabs   */
 .Tab .color-layer {display: none}
+.Tab[data-colorized] {--tabs-activated-shadow: inherit !important}
 .Tab[data-colorized]:has([style="--tab-color: #37adff;"]) .title {color: #37adff}
 .Tab[data-colorized]:has([style="--tab-color: #00c79a;"]) .title {color: #00c79a}
 .Tab[data-colorized]:has([style="--tab-color: #51cd00;"]) .title {color: #51cd00}
