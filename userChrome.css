@@ -1,24 +1,25 @@
 /*   Navbar   */
-#sidebar-button,
-#vertical-spacer,
-.titlebar-buttonbox-container
-  {display: none}
+[sidebar-expand-on-hover] #sidebar-button,
+.titlebar-buttonbox-container {
+  display: none}
 
 #navigator-toolbox {z-index: 4 !important}
 
 #nav-bar {transition: none !important}
 
-[sizemode=maximized] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {margin-bottom: -39px; top: -39px}
-   [sizemode=normal] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {margin-bottom: -31px; top: -31px}
-   [sizemode=normal] #nav-bar:not([customizing]):not(:hover):not(:focus-within):not(:has(*[open])):not(:has(*[dragstart])) #nav-bar-customization-target * {opacity: 0}
-                     #nav-bar:not([customizing]):not(:hover):not(:focus-within):not(:has(*[open])):not(:has(*[dragstart])) {background-color: black !important}
+[sizemode=maximized][sidebar-expand-on-hover] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {margin-bottom: -39px; top: -39px}
+   [sizemode=normal][sidebar-expand-on-hover] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {margin-bottom: -31px; top: -31px}
+   [sizemode=normal][sidebar-expand-on-hover] #nav-bar:not([customizing]):not(:hover):not(:focus-within):not(:has(*[open])):not(:has(*[dragstart])) #nav-bar-customization-target * {opacity: 0}
+                    [sidebar-expand-on-hover] #nav-bar:not([customizing]):not(:hover):not(:focus-within):not(:has(*[open])):not(:has(*[dragstart])) {background-color: black !important}
 
-#nav-bar:is(:hover, :focus-within, :has(*[open]), :has(*[dragstart]), [customizing]) {
+[sidebar-expand-on-hover] #nav-bar:is(:hover, :focus-within, :has(*[open]), :has(*[dragstart]), [customizing]) {
   box-shadow: 0 1px var(--chrome-content-separator-color), 0 2px 14px rgba(0, 0, 0, 0.13);
   background: inherit;
-  background-color: var(--toolbar-bgcolor) !important;
+  background-color: inherit !important;
   opacity: 1 !important;
   top: auto !important}
+
+/* optimizing the animated background */ [sidebar-expand-on-hover] #navigator-toolbox:has(#nav-bar:not(:is(:hover, :focus-within, :has(*[open]), :has(*[dragstart]), [customizing]))) {background-image: none !important}
 
 toolbar .toolbaritem-combined-buttons > .toolbarbutton-1 {height: 100%}
 toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !important}
@@ -31,91 +32,36 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
 
 
 
-/*   Sidebar   */
-#sidebar-main {
-  display: block;
-  position: fixed;
-  height: 100%;
-  width: 400px !important;
-  max-width: 400px !important;
-  left: -395px;
-  background-color: inherit !important;
-  z-index: 3;
-  opacity: 0;
-  --tab-block-margin: 0}
-
-#vertical-tabs {width: 400px}
-
-#sidebar-main:hover,
-#sidebar-main:has(#tabContextMenu[hasbeenopened]),
-#tabContextMenu[hasbeenopened] #sidebar-main{
-  left: 0;
-  opacity: 1}
-
-#sidebar-box[sidebarcommand="viewGenaiChatSidebar"] #sidebar {padding-left: 400px !important}
-
-#main-window:not([titlepreface*="Sidebery"]) #sidebar-main[sidebar-panel-open] {
-  left: 0 !important;
-  opacity: 1 !important}
-
-.sidebar-panel {
-  height: 100% !important;
-  width: auto !important;
-  margin-left: 400px !important;
-  background-color: inherit}
-
-#sidebar {
-  background-color: inherit !important;
-  border-radius: 0 !important;
-  box-shadow: none;
-  outline: none}
-
-#sidebar-box {
-	width: 840px !important;
-  padding: 0 !important}
-
-#sidebar-launcher-splitter,
-#sidebar-splitter 
- {display: none !important}
 
 
 
-#main-window[titlepreface*="Sidebery"] :is(#vertical-tabs, #tabContextMenu) {display: none !important}
+/*   Sidebar  */
+[titlepreface*="Sidebery"] #sidebar-main,
+[titlepreface*="Sidebery"] #sidebar-splitter,
+#sidebar-panel-header {
+  display: none}
 
-#main-window[titlepreface*="Sidebery"] #sidebar-box {
+[titlepreface*="Sidebery"] #sidebar-box:not([sidebar-launcher-expanded]) {
   position: fixed !important;
+  transform: translateX(calc(-100% + 5px));
   height: 100%;
-  width: 430px !important;
-  left: -425px;
+  top: 0;
   padding: 0 !important;
   z-index: 3 !important;
   opacity: 0}
 
-#main-window[titlepreface*="Sidebery"][sizemode=normal] #sidebar-box {padding: 0 0 8px 0 !important}
-
-#main-window[titlepreface*="Sidebery"] #sidebar-box:hover{
-  left: 0;
+[titlepreface*="Sidebery"] #sidebar-box:hover {
+  transform: translateX(0);
   opacity: 1}
 
-
-
-#tabbrowser-tabs[orient="vertical"]::after,
-sidebar-panel-header,
-#sidebar-panel-header,
-#vertical-tabs-newtab-button > label,
-.button-background > label:nth-child(2),
-#vertical-pinned-tabs-splitter,
-#sidebar-tools-and-extensions-splitter,
-moz-button.more-tools-button
-  {display: none !important}
-
-#pinned-tabs-container > tab:not(:hover, [selected], [multiselected]) > stack > vbox {background-color: transparent !important}
-
-.tab-label {font-size: 15px}
+#sidebar {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: none !important}
 
 .tabbrowser-tab[pending] :is(.tab-icon-image, .tab-label) {opacity: .6 !important}
 
-#vertical-tabs-newtab-button:hover {background-color: var(--button-background-color-hover) !important}
+!.tab-label {font-size: 14px}
 
 
 
@@ -160,9 +106,7 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -9px -3p
 
 
 /*   Urlbar   */
-#nav-bar:not([customizing]) #urlbar-container {
-  --urlbar-container-height: 40px !important;
-  margin-inline: 20px !important}
+#nav-bar:not([customizing]) #urlbar-container {--urlbar-container-height: 40px !important}
 
 #urlbar[breakout] {min-height: 40px !important}
 
@@ -185,8 +129,6 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -9px -3p
   {display: none !important}
 
 .urlbarView-row[label="Firefox Suggest"] {margin-block-start: 0 !important}
-
-.urlbarView-userContext {border-top: 2px solid var(--identity-tab-color) !important}
 
 #editBMPanel_folderMenuList menuitem.folder-icon {max-width: 260px !important}
 
@@ -298,18 +240,15 @@ menuitem:is([data-l10n-id="text-action-copy"], #context-copylink, #context-copy,
   --panel-banner-item-background-color:   #8892;
   --urlbarView-hover-background:          #8892;
   --urlbar-box-focus-bgcolor:             #8893;
-  --menu-border-color:                    #8894;
   --panel-banner-item-hover-bgcolor:      #8894;
-  --panel-separator-color:                #8894;
-  --urlbar-box-bgcolor:                   #8894;
-  --urlbarView-separator-color:           #8894;
-  --input-bgcolor:                        transparent;
-  --background-color-box:                 transparent;
+  !--panel-separator-color:                #8894;
+  !--urlbarView-separator-color:           red;
+  !--background-color-box:                 transparent;/* box-переименование закладок */
   --inactive-titlebar-opacity:            none;
   --text-color-deemphasized:              var(--text-color-disabled);
   --in-content-page-background:           var(--arrowpanel-background);
   --background-color-canvas:              var(--arrowpanel-background) !important;
-  --info-bar-background-color:            var(--arrowpanel-background) !important;
+  !--info-bar-background-color:            /*var(--arrowpanel-background)*/red !important;
   --panel-background:                     var(--arrowpanel-background);
   --panel-border-color:                   var(--arrowpanel-border-color);
   
