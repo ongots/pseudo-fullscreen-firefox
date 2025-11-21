@@ -21,7 +21,6 @@ ytd-guide-collapsible-section-entry-renderer.ytd-guide-section-renderer:not(:fir
 /* Color scheme */
 html[dark], [dark] {
   --yt-spec-additive-background: rgba(255,255,255,0.06);
-  --yt-spec-raised-background: rgba(255,255,255,0.06);
   --yt-spec-menu-background: #1c1c1c;
 }
 
@@ -172,6 +171,7 @@ button.ytd-menu-renderer > div:nth-child(2) {
     margin-right: -10px;
     margin-left: -10px}
 
+html[dark], [dark] {--yt-spec-raised-background: rgba(255,255,255,0.06)}
 
 .ytd-watch-flexy {--ytd-watch-flexy-panel-max-height: 917px}
 }
