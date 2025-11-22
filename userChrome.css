@@ -18,7 +18,7 @@
   --text-color-deemphasized:               var(--text-color-disabled);
 }
 
-@media (prefers-color-scheme: dark) {
+!@media (prefers-color-scheme: dark) {
   * {
     --arrowpanel-border-color:              black;
     --chrome-content-separator-color:       black;
