@@ -2,15 +2,12 @@
 
 ### Firefox
 1. If you have compact icons enabled, switch to normal
-2. In about:config (enter into the address bar) turn it on:  
-`toolkit.legacyUserProfileCustomizations.stylesheets` `true`  
-`sidebar.revamp` `true`
-3. The native auto-hiding of the sidebar should be disabled (In the sidebar settings)
-4. Create a "chrome" folder in 'Profile Folder' (Menu > Help > Troubleshooting Information > Profile Folder)
-5. Copy there userChrome.css
-6. Restart Firefox
+2. In about:config (enter into the address bar) turn it on: `toolkit.legacyUserProfileCustomizations.stylesheets` `true`  
+3. Create a "chrome" folder in 'Profile Folder' (Menu > Help > Troubleshooting Information > Profile Folder)
+4. Copy there userChrome.css
+5. Restart Firefox
 
-Use padding around the edges of the address bar to scale and move the window.  
+
 Drag Bookmarks Toolbar Items to the left of the address bar. 
 
 
@@ -26,14 +23,17 @@ Drag Bookmarks Toolbar Items to the left of the address bar.
 >4. Your userChrome.css appears on the right. Once you are done editing it, you can either close the toolbox which won't save your edits, or save edits by clicking the 'Save' link on the left.
 </details>
 
-Note: Development is being carried out in Firefox Beta win10, and it is being tested on Linux (lubuntu 18.04) every six months.
-
 
 ### Sidebery
 1. [Install Sidebery](https://github.com/mbnuqw/sidebery)
 2. Enable [Sidebery] prefix in the Sidebery settings.
 The enabled Sidebery (by icon or hotkey) replaces the native side tabs.
 3. Copy code from Sidebery.css to Sidebery / Settings / Styles editor / Sidebar
+
+To adjust Sidebery width: disable Sidebery > open Firefox's Side Tab Settings > adjust panel width > enable Sidebery.
+
+Auto-hide Sidebery is enabled in the same way as Firefox side tabs.
+
 
 
 ### YouTube
@@ -63,3 +63,5 @@ Trim https
 `browser.urlbar.trimHttps` `true`  
 Decode URLs on copy
 `browser.urlbar.decodeURLsOnCopy` `true`  
+Disable AI
+`browser.ml.enable``false`
