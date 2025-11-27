@@ -8,9 +8,11 @@ ytd-guide-section-renderer.style-scope:nth-child(1) > div:nth-child(2) > ytd-gui
 /* List of subscriptions */
 ytd-guide-section-renderer.ytd-guide-renderer.style-scope:nth-of-type(2),
 /* More from youtube */
-ytd-guide-section-renderer.style-scope:nth-child(3),
 ytd-guide-section-renderer.style-scope:nth-child(4),
-ytd-guide-section-renderer.style-scope:nth-child(5),
+ytd-guide-section-renderer.style-scope:nth-child(5) > h3,
+ytd-guide-section-renderer.style-scope:nth-child(5) > div:nth-child(2) > ytd-guide-entry-renderer:nth-child(1),
+ytd-guide-section-renderer.style-scope:nth-child(5) > div:nth-child(2) > ytd-guide-entry-renderer:nth-child(3),
+ytd-guide-section-renderer.style-scope:nth-child(6),
 #footer.style-scope.ytd-guide-renderer
     {display: none !important}
 
