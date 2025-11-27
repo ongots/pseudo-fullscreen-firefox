@@ -18,6 +18,8 @@
   --text-color-deemphasized:               var(--text-color-disabled);
 }
 
+@media (prefers-color-scheme: dark) and (not (forced-colors)) {:root[dialogroot] {--background-color-canvas: #27262d !important}}
+
 !@media (prefers-color-scheme: dark) {
   * {
     --arrowpanel-border-color:              black;
@@ -62,6 +64,8 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
 
 .webextension-browser-action {min-height: 40px}
 
+#notifications-toolbar {z-index: -1}
+
 
 
 
@@ -75,10 +79,13 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
   position: fixed !important;
   transform: translateX(calc(-100% + 5px));
   height: 100%;
-  top: 0;
   padding: 0 !important;
   z-index: 3 !important;
   opacity: 0}
+
+[titlepreface*="Sidebery"][sizemode=normal] #sidebar-box:not([sidebar-launcher-expanded]) {
+  top: 9px;
+  height: calc(100% - 9px)}
 
 [titlepreface*="Sidebery"] #sidebar-box:hover {
   transform: translateX(0);
@@ -141,9 +148,9 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -9px -3p
 
 #urlbar[breakout] {min-height: 40px !important}
 
-:not([window-modal-open]).urlbar-input-container {padding-block: 4px !important}
+#main-window:not([window-modal-open]) .urlbar-input-container {padding-block: 4px !important}
 
-#window-modal-dialog {--chrome-offset: auto !important}
+#window-modal-dialog {--chrome-offset: 12px !important}
 
 .urlbar-background:not(#urlbar[breakout][breakout-extend][open] > .urlbar-background) {
   background-color: transparent !important;
