@@ -1,8 +1,7 @@
-#root.root {
-  --toolbar-bg:                        transparent;
-  --frame-el-overlay-clicked-bg:       var(--frame-el-overlay-hover-bg);
-  --toolbar-el-overlay-clicked-bg:     var(--toolbar-el-overlay-hover-bg);
-}
+#root.root {--general-border-radius: 8px;}
+#root.root {--toolbar-bg: var(--frame-bg);}
+#root.root {--toolbar-el-overlay-clicked-bg: var(--toolbar-el-overlay-hover-bg);}
+#root.root {--frame-el-overlay-clicked-bg: var(--frame-el-overlay-hover-bg);}
 
 .NavigationBar .nav-item:not([data-active="true"]) .icon {opacity: .6}
 
