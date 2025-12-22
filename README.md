@@ -30,10 +30,6 @@ Drag Bookmarks Toolbar Items to the left of the address bar.
 The enabled Sidebery (by icon or hotkey) replaces the native side tabs.
 3. Copy code from Sidebery.css to Sidebery / Settings / Styles editor / Sidebar
 
-To adjust Sidebery width: disable Sidebery > open Firefox's Side Tab Settings > adjust panel width > enable Sidebery.
-
-Auto-hide Sidebery is enabled in the same way as Firefox side tabs.
-
 
 
 ### YouTube
@@ -64,4 +60,4 @@ Trim https
 Decode URLs on copy
 `browser.urlbar.decodeURLsOnCopy` `true`  
 Disable AI
-`browser.ml.enable``false`
+`browser.ml.enable` `false`
