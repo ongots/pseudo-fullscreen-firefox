@@ -3,7 +3,7 @@
 ### Firefox
 1. If you have compact icons enabled, switch to normal
 2. In about:config (enter into the address bar) turn it on: `toolkit.legacyUserProfileCustomizations.stylesheets` `true`  
-3. Create a "chrome" folder in 'Profile Folder' (Menu > Help > Troubleshooting Information > Profile Folder)
+3. Create a "chrome" folder in `Menu` > `Help` > `Troubleshooting Information` > `Profile Folder`
 4. Copy there userChrome.css
 5. Restart Firefox
 
@@ -51,8 +51,8 @@ Drag Bookmarks Toolbar Items to the left of the address bar.
 
 ### Sidebery
 1. [Install Sidebery](https://github.com/mbnuqw/sidebery)
-2. Enable [Sidebery] prefix in the Sidebery settings.
-The enabled Sidebery (by icon or hotkey) replaces the native side tabs.
+2. Enable [Sidebery] prefix in Sidebery settings.
+Enabled Sidebery replaces native side tabs.
 3. Copy code from Sidebery.css to Sidebery / Settings / Styles editor / Sidebar
 
 
