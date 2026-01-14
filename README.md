@@ -21,8 +21,33 @@ Drag Bookmarks Toolbar Items to the left of the address bar.
 >2. Activate the Style Editor tab of the toolbox
 >3. Type userChrome.css in the 'Filter stylesheets' box on the left
 >4. Your userChrome.css appears on the right. Once you are done editing it, you can either close the toolbox which won't save your edits, or save edits by clicking the 'Save' link on the left.
+
 </details>
 
+<details><summary><b1> Useful settings about:config </b1></summary>
+
+>Thin scrollbars
+>`widget.non-native-theme.scrollbar.style` `3`  
+>Open a bookmark in a new tab
+>`browser.tabs.loadBookmarksInTabs` `true`  
+>Open tab after current
+>`browser.tabs.insertAfterCurrent` `true`  
+>Smoothness of scrolling
+>`general.smoothScroll.mouseWheel.durationMaxMS` `380`  
+>Disable add-on recommendations
+>`extensions.htmlaboutaddons.recommendations.enabled` `false`  
+>Restore pinned tabs on demand
+>`browser.sessionstore.restore_pinned_tabs_on_demand` `true`  
+>OS text scaling settings should only affect text scaling
+>`browser.display.os-zoom-behavior` `2`  
+>Trim https
+>`browser.urlbar.trimHttps` `true`  
+>Decode URLs on copy
+>`browser.urlbar.decodeURLsOnCopy` `true`  
+>Disable machine learning
+>`browser.ml.enable` `false`
+
+</details>
 
 ### Sidebery
 1. [Install Sidebery](https://github.com/mbnuqw/sidebery)
@@ -36,28 +61,3 @@ The enabled Sidebery (by icon or hotkey) replaces the native side tabs.
 1. [Install Stylus](https://addons.mozilla.org/firefox/addon/styl-us/)
 2. Open [YouTube](https://youtube.com)
 3. Stylus: `New Style` > `Import` > Copy code from YouTube.css > `Replace style` > `Save`
-
-To open the header, move the cursor to the top edge, but not all the way.
-
-
-### about:config
-Thin scrollbars
-`widget.non-native-theme.scrollbar.style` `3`  
-Open a bookmark in a new tab
-`browser.tabs.loadBookmarksInTabs` `true`  
-Open tab after current
-`browser.tabs.insertAfterCurrent` `true`  
-Smoothness of scrolling
-`general.smoothScroll.mouseWheel.durationMaxMS` `380`  
-Disable add-on recommendations
-`extensions.htmlaboutaddons.recommendations.enabled` `false`  
-Restore pinned tabs on demand
-`browser.sessionstore.restore_pinned_tabs_on_demand` `true`  
-OS text scaling settings should only affect text scaling (prevents blurring of icons)
-`browser.display.os-zoom-behavior` `2`  
-Trim https
-`browser.urlbar.trimHttps` `true`  
-Decode URLs on copy
-`browser.urlbar.decodeURLsOnCopy` `true`  
-Disable AI
-`browser.ml.enable` `false`
