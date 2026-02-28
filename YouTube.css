@@ -1,8 +1,5 @@
 @-moz-document domain("youtube.com") {
     /* Side menu */
-#savefrom__yt_notification,
-/* Shorts */
-ytd-guide-section-renderer.style-scope:nth-child(1) > div:nth-child(2) > ytd-guide-entry-renderer:nth-child(2),
 /* List of subscriptions */
 ytd-guide-section-renderer.style-scope:nth-child(2) > div:nth-child(2) > ytd-guide-entry-renderer,
 ytd-guide-collapsible-entry-renderer.style-scope:nth-child(9),
@@ -23,15 +20,10 @@ ytd-guide-collapsible-section-entry-renderer.ytd-guide-section-renderer:not(:fir
 /* Color scheme */
 html[dark], [dark] {
   --yt-spec-additive-background: rgba(255,255,255,0.06);
-  --yt-spec-menu-background: #1c1c1c;
+  --yt-spec-menu-background: #1c1c1c !important;
 }
 
 .ytVideoMetadataCarouselViewModelHost {background-color: var(--yt-spec-additive-background)}
-
-
-/* Watching indicator */
-#progress.ytd-thumbnail-overlay-resume-playback-renderer {background-color: #f00d}
-ytd-thumbnail-overlay-resume-playback-renderer {background-color: transparent}
 
 
 /* Feed */
@@ -81,27 +73,13 @@ ytd-alert-with-button-renderer.style-scope,
 /* Playlist menu */
 ytd-add-to-playlist-renderer[dialog] #playlists.ytd-add-to-playlist-renderer {max-height: 800px}
 
-toggleable-list-item-view-model.toggleableListItemViewModelHost > yt-list-item-view-model:nth-child(1) > div:nth-child(1) > div:nth-child(1),
-toggleable-list-item-view-model.toggleableListItemViewModelHost > yt-list-item-view-model:nth-child(1) > div:nth-child(1) > div:nth-child(2) > span:nth-child(2)
-{display: none !important}
-
 .ytListViewModelHost {max-height: none !important}
 
-toggleable-list-item-view-model.toggleableListItemViewModelHost > yt-list-item-view-model[aria-pressed="true"] > div > div > span > span > div > svg {color: #ff0033}
-
-.ytContextualSheetLayoutHost {background-color: var(--yt-spec-menu-background)}
+.ytContextualSheetLayoutHost {background-color: var(--yt-spec-menu-background) !important}
 
 
 
 .yt-list-item-view-model__container--has-subtitle {padding: 0 16px}
-
-
-
-#progress,
-.ytThumbnailOverlayProgressBarHostWatchedProgressBarSegment,
-yt-page-navigation-progress[enable-refresh-signature-moments-web] #progress.yt-page-navigation-progress,
-.ytp-play-progress.ytp-swatch-background-color {
-    background: #f03 !important}
 }
 
 @-moz-document url-prefix("https://www.youtube.com/feed/subscriptions") {
@@ -153,10 +131,6 @@ ytd-topbar-logo-renderer,
 .tp-yt-app-drawer::after,
 ytd-toggle-button-renderer.style-scope:nth-child(2) > a:nth-child(1) > yt-formatted-string:nth-child(2)
     {display: none !important}
-
-
-/* YouTube Screenshot */
-.ytp-right-controls > .ytp-time-display {padding: 0 !important}
 
 
 /* Button names */
