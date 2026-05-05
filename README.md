@@ -44,8 +44,6 @@ Drag Bookmarks Toolbar Items to the left of the address bar.
 >`browser.urlbar.trimHttps` `true`  
 >Decode URLs on copy
 >`browser.urlbar.decodeURLsOnCopy` `true`  
->Disable machine learning
->`browser.ml.enable` `false`
 
 </details>
 
