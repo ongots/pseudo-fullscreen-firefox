@@ -10,14 +10,19 @@
   --button-background-color-hover:         color-mix(in srgb, currentColor 12%, transparent) !important; --button-background-color-active: var(--button-background-color-hover) !important;
   --urlbarView-hover-background:           color-mix(in srgb, currentColor 12%, transparent);
   --panel-separator-color:                 color-mix(in srgb, currentColor 12%, transparent);
-  --panel-background:                      var(--arrowpanel-background);
-  --panel-border-color:                    var(--arrowpanel-border-color);
   --border-color-card:                     var(--arrowpanel-border-color);
   --urlbar-box-active-bgcolor:             var(--urlbar-box-hover-bgcolor);
   --text-color-deemphasized:               var(--text-color-disabled);
   --input-bgcolor:                         transparent;
   --background-color-canvas:               light-dark(#fff, #27262d) !important;
 }
+
+!:is(menupopup, panel):where(:not([type="arrow"])):not(.bookmark-item menupopup) {
+	--panel-background: #11111a !important;
+	--panel-border-radius: 8px !important;
+	--panel-border-color: #222 !important;
+}
+
 
 [lwtheme] #appMenu-mainView > vbox:nth-child(1) > toolbarseparator::before {border-image: linear-gradient(135deg, var(--tab-selected-outline-color), transparent) 1 !important}
 [lwtheme] menuitem:is([data-l10n-id="text-action-copy"], #context-copylink, #context-copy, #context-saveimage, #context-savevideo, #context-searchselect):not([disabled="true"]) label {color: var(--link-color)}
@@ -41,7 +46,7 @@
 [sidebar-expand-on-hover] #nav-bar:is(:hover, :focus-within, :has(*[open]), :has(*[dragstart]), [customizing]) {
   box-shadow: 0 1px var(--chrome-content-separator-color), 0 2px 14px rgba(0, 0, 0, 0.13);
   background: inherit;
-  background-color: inherit !important;
+  background-color: var(--toolbar-bgcolor) !important;
   opacity: 1 !important;
   top: auto !important}
 
@@ -177,7 +182,7 @@ tree {background-color: transparent !important}
   top: 39px}
 
 #downloads-button:is([progress], [notification], [attention="warning"]):not(:hover):not([open]) :is(stack, .toolbarbutton-badge) {
-  background-color: var(--toolbar-bgcolor) !important;
+  background-color: light-dark(#fffc, #000c);
   border-radius: 30px !important}
 
 
