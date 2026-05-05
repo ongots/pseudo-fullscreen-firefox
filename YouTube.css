@@ -82,9 +82,7 @@ ytd-add-to-playlist-renderer[dialog] #playlists.ytd-add-to-playlist-renderer {ma
 /* Feed */
 ytd-item-section-renderer.style-scope > div > ytd-shelf-renderer > div > div > div > h2,
 ytd-item-section-renderer.style-scope:not(:nth-child(1)) > div > ytd-shelf-renderer > div > div:nth-child(1),
-ytd-item-section-renderer.style-scope:nth-child(5) > div:nth-child(3),
-/* Самые актуальные */
-ytd-rich-section-renderer.style-scope:nth-child(2) > div:nth-child(1) > ytd-rich-shelf-renderer:nth-child(1) > div:nth-child(1)
+ytd-item-section-renderer.style-scope:nth-child(5) > div:nth-child(3)
     {display: none}
 
 .grid-subheader.ytd-shelf-renderer {margin-top: 9px}
