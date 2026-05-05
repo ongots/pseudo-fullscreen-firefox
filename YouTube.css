@@ -7,7 +7,7 @@ ytd-guide-collapsible-entry-renderer.style-scope:nth-child(9),
 ytd-guide-section-renderer.style-scope:nth-child(3) > div:nth-child(2) > ytd-guide-collapsible-section-entry-renderer:nth-child(1) > div:nth-child(1),
 ytd-guide-section-renderer.style-scope:nth-child(4),
 ytd-guide-section-renderer.style-scope:nth-child(5) > h3,
-ytd-guide-section-renderer.style-scope:nth-child(5) > div:nth-child(2) > ytd-guide-entry-renderer:nth-child(1),
+ytd-guide-section-renderer.style-scope:nth-child(5) > div:nth-child(2) > ytd-guide-entry-renderer:nth-child(2),
 ytd-guide-section-renderer.style-scope:nth-child(5) > div:nth-child(2) > ytd-guide-entry-renderer:nth-child(3),
 ytd-guide-section-renderer.style-scope:nth-child(6),
 #footer.style-scope.ytd-guide-renderer
@@ -25,10 +25,6 @@ html[dark], [dark] {
 
 .ytVideoMetadataCarouselViewModelHost {background-color: var(--yt-spec-additive-background)}
 
-
-/* Feed */
-#contents.ytd-shelf-renderer {margin-top: 16px}
-ytd-expanded-shelf-contents-renderer {margin-bottom: 16px}
 
 
 /* Borders */
@@ -86,7 +82,9 @@ ytd-add-to-playlist-renderer[dialog] #playlists.ytd-add-to-playlist-renderer {ma
 /* Feed */
 ytd-item-section-renderer.style-scope > div > ytd-shelf-renderer > div > div > div > h2,
 ytd-item-section-renderer.style-scope:not(:nth-child(1)) > div > ytd-shelf-renderer > div > div:nth-child(1),
-ytd-item-section-renderer.style-scope:nth-child(5) > div:nth-child(3)
+ytd-item-section-renderer.style-scope:nth-child(5) > div:nth-child(3),
+/* Самые актуальные */
+ytd-rich-section-renderer.style-scope:nth-child(2) > div:nth-child(1) > ytd-rich-shelf-renderer:nth-child(1) > div:nth-child(1)
     {display: none}
 
 .grid-subheader.ytd-shelf-renderer {margin-top: 9px}
@@ -103,7 +101,7 @@ ytd-item-section-renderer.style-scope > div > ytd-video-renderer > div > div > d
 }
 
 @-moz-document url-prefix("https://www.youtube.com/playlist") {
-.yt-content-metadata-view-model__metadata-row {
+div.ytContentMetadataViewModelMetadataRow {
     display: block;
     word-break: break-all}
 }
