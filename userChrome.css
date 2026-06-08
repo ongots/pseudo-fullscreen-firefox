@@ -1,11 +1,6 @@
 /*   Colors   */
 * {
-  !--link-color:                            var(--lwt-toolbar-field-highlight);
   --link-color:                            var(--tab-selected-outline-color);
-  !--link-color:                            var(--tab-selected-bgcolor);
-  !--arrowpanel-border-color:               #323;
-  !--chrome-content-separator-color:        #323;
-  !--sidebar-border-color:                  #323;
   --toolbarbutton-hover-background:        color-mix(in srgb, currentColor 12%, transparent) !important; --toolbarbutton-active-background: var(--toolbarbutton-hover-background); --urlbar-box-hover-bgcolor: var(--toolbarbutton-hover-background);
   --button-background-color-hover:         color-mix(in srgb, currentColor 12%, transparent) !important; --button-background-color-active: var(--button-background-color-hover) !important;
   --urlbarView-hover-background:           color-mix(in srgb, currentColor 12%, transparent);
@@ -15,12 +10,6 @@
   --text-color-deemphasized:               var(--text-color-disabled);
   --input-bgcolor:                         transparent;
   --background-color-canvas:               light-dark(#fff, #27262d) !important;
-}
-
-!:is(menupopup, panel):where(:not([type="arrow"])):not(.bookmark-item menupopup) {
-	--panel-background: #11111a !important;
-	--panel-border-radius: 8px !important;
-	--panel-border-color: #222 !important;
 }
 
 
@@ -44,11 +33,13 @@
                     [sidebar-expand-on-hover] #nav-bar:not([customizing]):not(:hover):not(:focus-within):not(:has(*[open])):not(:has(*[dragstart])) {background-color: black !important}
 
 [sidebar-expand-on-hover] #nav-bar:is(:hover, :focus-within, :has(*[open]), :has(*[dragstart]), [customizing]) {
-  box-shadow: 0 1px var(--chrome-content-separator-color), 0 2px 14px rgba(0, 0, 0, 0.13);
-  background: inherit;
-  background-color: var(--toolbar-bgcolor) !important;
-  opacity: 1 !important;
-  top: auto !important}
+    box-shadow: 0 1px var(--chrome-content-separator-color), 0 2px 14px rgba(0, 0, 0, 0.13);
+    background-color: var(--toolbar-bgcolor, var(--lwt-accent-color)) !important;
+    background-image: var(--lwt-additional-images, none), var(--lwt-header-image, none);
+    background-position: var(--lwt-background-alignment, right top);
+    background-repeat: var(--lwt-background-tiling, no-repeat);
+    opacity: 1 !important;
+    top: auto !important}
 
 toolbar .toolbaritem-combined-buttons > .toolbarbutton-1 {height: 100%}
 toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !important}
@@ -79,6 +70,7 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
 /*   Sidebery   */
 [titlepreface*="Sidebery"] #sidebar-main,
 [titlepreface*="Sidebery"] #browser:has(#sidebar-launcher-splitter:not([sidebar-launcher-expanded])) #sidebar-splitter,
+[titlepreface*="Sidebery"] #sidebar-launcher-splitter,
 #sidebar-panel-header {
   display: none}
 
