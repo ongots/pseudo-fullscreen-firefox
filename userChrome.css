@@ -1,10 +1,9 @@
 /*   Colors   */
 * {
   --link-color:                            var(--tab-selected-outline-color);
-  --toolbarbutton-hover-background:        color-mix(in srgb, currentColor 12%, transparent) !important; --toolbarbutton-active-background: var(--toolbarbutton-hover-background); --urlbar-box-hover-bgcolor: var(--toolbarbutton-hover-background);
+  --toolbarbutton-background-color-hover:  color-mix(in srgb, currentColor 12%, transparent) !important; --toolbarbutton-background-color-active: var(--toolbarbutton-background-color-hover); --urlbar-box-hover-bgcolor: var(--toolbarbutton-background-color-hover);
   --button-background-color-hover:         color-mix(in srgb, currentColor 12%, transparent) !important; --button-background-color-active: var(--button-background-color-hover) !important;
-  --urlbarView-hover-background:           color-mix(in srgb, currentColor 12%, transparent);
-  --panel-separator-color:                 color-mix(in srgb, currentColor 12%, transparent);
+  --panel-separator-color:                 color-mix(in srgb, currentColor 12%, transparent); 
   --border-color-card:                     var(--arrowpanel-border-color);
   --urlbar-box-active-bgcolor:             var(--urlbar-box-hover-bgcolor);
   --text-color-deemphasized:               var(--text-color-disabled);
@@ -25,21 +24,23 @@
 
 #navigator-toolbox {z-index: 4 !important}
 
-#nav-bar {transition: none !important}
+[sidebar-expand-on-hover] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {
+  position:  absolute !important;
+  width: 100%}
 
-[sizemode=maximized][sidebar-expand-on-hover] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {margin-bottom: -39px; top: -39px}
-   [sizemode=normal][sidebar-expand-on-hover] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {margin-bottom: -31px; top: -31px}
-   [sizemode=normal][sidebar-expand-on-hover] #nav-bar:not([customizing]):not(:hover):not(:focus-within):not(:has(*[open])):not(:has(*[dragstart])) #nav-bar-customization-target * {opacity: 0}
-                    [sidebar-expand-on-hover] #nav-bar:not([customizing]):not(:hover):not(:focus-within):not(:has(*[open])):not(:has(*[dragstart])) {background-color: black !important}
+[sizemode=maximized][sidebar-expand-on-hover] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {top: -39px}
+   [sizemode=normal][sidebar-expand-on-hover] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {top: -31px}
 
 [sidebar-expand-on-hover] #nav-bar:is(:hover, :focus-within, :has(*[open]), :has(*[dragstart]), [customizing]) {
-    box-shadow: 0 1px var(--chrome-content-separator-color), 0 2px 14px rgba(0, 0, 0, 0.13);
-    background-color: var(--toolbar-bgcolor, var(--lwt-accent-color)) !important;
-    background-image: var(--lwt-additional-images, none), var(--lwt-header-image, none);
-    background-position: var(--lwt-background-alignment, right top);
-    background-repeat: var(--lwt-background-tiling, no-repeat);
-    opacity: 1 !important;
-    top: auto !important}
+  box-shadow: 0 1px var(--chrome-content-separator-color), 0 2px 14px rgba(0, 0, 0, 0.13);
+  background-color: var(--toolbox-background-color, var(--toolbar-non-lwt-bgcolor, var(--toolbar-bgcolor, var(--lwt-accent-color)))) !important;
+  background-image: var(--lwt-additional-images, none), var(--lwt-header-image, none);
+  background-position: var(--lwt-background-alignment, right top);
+  background-repeat: var(--lwt-background-tiling, no-repeat);
+  transition: none !important;
+  top: auto !important}
+
+[sidebar-expand-on-hover] #nav-bar:is(:hover, :focus-within, :has(*[open]), :has(*[dragstart]), [customizing]) #urlbar {transform: translateY(0)}
 
 toolbar .toolbaritem-combined-buttons > .toolbarbutton-1 {height: 100%}
 toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !important}
@@ -54,12 +55,11 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
 /*   Sidebar   */
 .tab-label {font-size: 14px}
 
-@media -moz-pref("sidebar.verticalTabs") {:root {--tab-block-margin: 0 !important}}
-
 .tabbrowser-tab[pending] :is(.tab-icon-image, .tab-label) {opacity: .6 !important}
 
 #sidebar {
   background-color: inherit !important;
+  margin-block-start: 0 !important;
   border-radius: 0 !important;
   box-shadow: none !important;
   outline: none !important}
@@ -68,17 +68,22 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
 
 
 /*   Sidebery   */
+[titlepreface*="Sidebery"] #sidebar-container,
 [titlepreface*="Sidebery"] #sidebar-main,
 [titlepreface*="Sidebery"] #browser:has(#sidebar-launcher-splitter:not([sidebar-launcher-expanded])) #sidebar-splitter,
 [titlepreface*="Sidebery"] #sidebar-launcher-splitter,
 #sidebar-panel-header {
-  display: none}
+  display: none !important}
 
-[titlepreface*="Sidebery"] #sidebar-box {padding: 0 !important}
+@media -moz-pref('browser.nova.enabled') {
+  #browser {padding: 0 !important}
+  #sidebar-box:not([sidebar-launcher-expanded])[sidebar-panel-open] {margin-inline-start: 0 !important}
+}
 
 [titlepreface*="Sidebery"] #sidebar-box:not([sidebar-launcher-expanded]) {
   position: fixed !important;
   transform: translateX(calc(-100% + 5px));
+  padding: 0 !important;
   height: 100%;
   top: 0;
   z-index: 3 !important;
@@ -109,7 +114,7 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
   border-radius: 0 !important;
   background-color: transparent !important}
 
-#PlacesToolbarItems toolbarbutton.bookmark-item:is(:hover, [open]) > :is(image, label) {background-color: var(--toolbarbutton-hover-background)}
+#PlacesToolbarItems toolbarbutton.bookmark-item:is(:hover, [open]) > :is(image, label) {background-color: var(--toolbarbutton-background-color-hover)}
 
 #PlacesToolbarItems toolbarbutton.bookmark-item > label {
   padding: 5px !important;
