@@ -1,24 +1,3 @@
-/*   Colors   */
-* {
-  --link-color:                            var(--tab-selected-outline-color);
-  --toolbarbutton-background-color-hover:  color-mix(in srgb, currentColor 12%, transparent) !important; --toolbarbutton-background-color-active: var(--toolbarbutton-background-color-hover); --urlbar-box-hover-bgcolor: var(--toolbarbutton-background-color-hover);
-  --button-background-color-hover:         color-mix(in srgb, currentColor 12%, transparent) !important; --button-background-color-active: var(--button-background-color-hover) !important;
-  --panel-separator-color:                 color-mix(in srgb, currentColor 12%, transparent); 
-  --border-color-card:                     var(--arrowpanel-border-color);
-  --urlbar-box-active-bgcolor:             var(--urlbar-box-hover-bgcolor);
-  --text-color-deemphasized:               var(--text-color-disabled);
-  --input-bgcolor:                         transparent;
-  --background-color-canvas:               light-dark(#fff, #27262d) !important;
-}
-
-
-[lwtheme] #appMenu-mainView > vbox:nth-child(1) > toolbarseparator::before {border-image: linear-gradient(135deg, var(--tab-selected-outline-color), transparent) 1 !important}
-[lwtheme] menuitem:is([data-l10n-id="text-action-copy"], #context-copylink, #context-copy, #context-saveimage, #context-savevideo, #context-searchselect):not([disabled="true"]) label {color: var(--link-color)}
-
-
-
-
-
 /*   Navbar   */
 .titlebar-buttonbox-container {display: none}
 
@@ -28,24 +7,22 @@
   position:  absolute !important;
   width: 100%}
 
-[sizemode=maximized][sidebar-expand-on-hover] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {top: -39px}
-   [sizemode=normal][sidebar-expand-on-hover] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {top: -31px}
+[sizemode=maximized][sidebar-expand-on-hover] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {top: -38px}
+   [sizemode=normal][sidebar-expand-on-hover] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {top: -30px}
 
 [sidebar-expand-on-hover] #nav-bar:is(:hover, :focus-within, :has(*[open]), :has(*[dragstart]), [customizing]) {
   box-shadow: 0 1px var(--chrome-content-separator-color), 0 2px 14px rgba(0, 0, 0, 0.13);
   background-color: var(--toolbox-background-color, var(--toolbar-non-lwt-bgcolor, var(--toolbar-bgcolor, var(--lwt-accent-color)))) !important;
-  background-image: var(--lwt-additional-images, none), var(--lwt-header-image, none);
+  background-image: var(--lwt-additional-images, none), var(--lwt-header-image, none), var(--toolbox-background-image, none);
   background-position: var(--lwt-background-alignment, right top);
   background-repeat: var(--lwt-background-tiling, no-repeat);
   transition: none !important;
-  top: auto !important}
-
-[sidebar-expand-on-hover] #nav-bar:is(:hover, :focus-within, :has(*[open]), :has(*[dragstart]), [customizing]) #urlbar {transform: translateY(0)}
+  top: 0 !important}
 
 toolbar .toolbaritem-combined-buttons > .toolbarbutton-1 {height: 100%}
 toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !important}
 
-.webextension-browser-action {min-height: 40px}
+:root {--chrome-content-separator-color: unset !important}
 
 #notifications-toolbar {z-index: -1}
 
@@ -64,8 +41,6 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
   box-shadow: none !important;
   outline: none !important}
 
-#sidebar-splitter {width: 0 !important}
-
 
 /*   Sidebery   */
 [titlepreface*="Sidebery"] #sidebar-container,
@@ -75,10 +50,9 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
 #sidebar-panel-header {
   display: none !important}
 
-@media -moz-pref('browser.nova.enabled') {
-  #browser {padding: 0 !important}
-  #sidebar-box:not([sidebar-launcher-expanded])[sidebar-panel-open] {margin-inline-start: 0 !important}
-}
+#browser {padding: 0 !important}
+
+#sidebar-box:not([sidebar-launcher-expanded])[sidebar-panel-open] {margin-inline-start: 0 !important}
 
 [titlepreface*="Sidebery"] #sidebar-box:not([sidebar-launcher-expanded]) {
   position: fixed !important;
@@ -142,31 +116,27 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -9px -3p
 
 
 /*   Urlbar   */
-#urlbar-container {--urlbar-container-height: 40px !important}
+/* expanding the clickable area */
+#urlbar:not([breakout]) > .urlbar-input-container {
+  position: relative !important;
+  overflow: visible !important}
 
-#urlbar[breakout] {min-height: 40px !important}
+#urlbar:not([breakout]) > .urlbar-input-container::after {
+  content: "" !important;
+  position: absolute !important;
+  top: -6px !important;
+  bottom: -6px !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: -1 !important}
 
-#main-window:not([window-modal-open]) .urlbar-input-container {padding-block: 4px !important}
-
-#window-modal-dialog {--chrome-offset: 12px !important}
-
-.urlbar-background:not(#urlbar[breakout][breakout-extend][open] > .urlbar-background) {
-  background-color: transparent !important;
-  border: transparent !important;
-  box-shadow: none !important;
-  outline: none !important}
 
 .urlbar-go-button,
-.urlbarView-row[label="Firefox Suggest"]::before,
-.urlbarView-row[type="search"] .urlbarView-title-,
-.search-one-offs > hbox,
 #picture-in-picture-button,
 #taskbar-tabs-button
   {display: none !important}
 
-.urlbarView-row[label="Firefox Suggest"] {margin-block-start: 0 !important}
-
-#editBMPanel_folderMenuList menuitem.folder-icon {max-width: 260px !important}
+[lwtheme] .urlbarView {--link-color: var(--tab-border-color-selected)}
 
 tree {background-color: transparent !important}
 
@@ -185,18 +155,30 @@ tree {background-color: transparent !important}
 
 
 
+/*   Webextension: expanding the clickable area   */
+#nav-bar toolbarbutton.webextension-browser-action {
+  position: relative !important;
+  overflow: visible !important}
+
+#nav-bar toolbarbutton.webextension-browser-action::after {
+  content: "" !important;
+  position: absolute !important;
+  top: -6px !important;
+  bottom: -6px !important;
+  left: 0 !important;
+  right: 0 !important}
+
+
+
+
 /*   Toolbarbutton-badge   */
 .toolbarbutton-badge {
   background-color: transparent !important;
   box-shadow: none !important;
-  color: var(--toolbar-color) !important;
   margin: -11px -8px 0 !important;
-  text-align: right !important;
   font-size: 9px !important}
 
-#PanelUI-menu-button > stack > label {margin: -9px -9px 0 !important}
-
-.webextension-browser-action[attention] {background-size: 14px 4px !important}
+#PanelUI-menu-button[badge-status="fxa-needs-authentication"] > stack > label {display: none !important} 
 
 
 
@@ -219,16 +201,24 @@ tree {background-color: transparent !important}
 
 
 /*   Menu   */
+:root {	
+  --panel-border-radius: var(--border-radius-medium) !important;
+  --panel-menuitem-border-radius: var(--border-radius-small) !important;
+  
+  --toolbarbutton-background-color-hover:  color-mix(in srgb, currentColor 12%, transparent) !important; --toolbarbutton-background-color-active: var(--toolbarbutton-background-color-hover); --urlbar-box-hover-bgcolor: var(--toolbarbutton-background-color-hover);
+  --button-background-color-menu-hover:    color-mix(in srgb, currentColor 12%, transparent) !important; --button-background-color-menu-active: var(--button-background-color-menu-hover) !important;
+  --panel-separator-color:                 color-mix(in srgb, currentColor 12%, transparent) !important;
+}
+
+[lwtheme] #appMenu-mainView > vbox:nth-child(1) > toolbarseparator::before {border-image: linear-gradient(135deg, var(--tab-border-color-selected), transparent) 1 !important}
+[lwtheme] menuitem:is([data-l10n-id="text-action-copy"], #context-copylink, #context-copy, #context-saveimage, #context-savevideo, #context-searchselect):not([disabled="true"]) label {color: var(--tab-border-color-selected)}
+
 #appMenu-new-tab-button2,
 #appMenu-fullscreen-button2,
 #appmenu-developer-tools
   {display: none !important}
 
 #context-sep-navigation {margin: auto 1em !important}
-
-:is(menu, menuitem)[_moz-menuactive]:not([customoptionstyling]) {background-color: var(--button-background-color-ghost-hover) !important}
-:is(menu, menuitem):not([customoptionstyling]) {color: var(--arrowpanel-color) !important}
-:is(menu, menuitem)[disabled="true"]:not([customoptionstyling]) {color: color-mix(in srgb, var(--arrowpanel-color) 40%, transparent) !important}
 
 
 
