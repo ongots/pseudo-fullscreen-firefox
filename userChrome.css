@@ -3,28 +3,30 @@
 
 #navigator-toolbox {z-index: 4 !important}
 
-[sidebar-expand-on-hover] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {
+[sidebar-expand-on-hover] #nav-bar:not([customizing]) {
   position:  absolute !important;
   width: 100%}
 
-[sizemode=maximized][sidebar-expand-on-hover] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {top: -38px}
-   [sizemode=normal][sidebar-expand-on-hover] #nav-bar:not([customizing]):not(:has([tab-notification-box-0])) {top: -30px}
+[sidebar-expand-on-hover] #nav-bar:not(:hover, :focus-within, :has(*[open]), :has(*[dragstart]), [customizing]) :is(#personal-bookmarks, #urlbar-container) {opacity: 0}
+
+[sizemode=maximized][sidebar-expand-on-hover] #nav-bar:not([customizing]) {top: -39px}
+   [sizemode=normal][sidebar-expand-on-hover] #nav-bar:not([customizing]) {top: -30px}
 
 [sidebar-expand-on-hover] #nav-bar:is(:hover, :focus-within, :has(*[open]), :has(*[dragstart]), [customizing]) {
-  box-shadow: 0 1px var(--chrome-content-separator-color), 0 2px 14px rgba(0, 0, 0, 0.13);
-  background-color: var(--toolbox-background-color, var(--toolbar-non-lwt-bgcolor, var(--toolbar-bgcolor, var(--lwt-accent-color)))) !important;
-  background-image: var(--lwt-additional-images, none), var(--lwt-header-image, none), var(--toolbox-background-image, none);
+  background-color: var(--toolbox-background-color) !important;
+  background-image: var(--toolbox-background-image);
   background-position: var(--lwt-background-alignment, right top);
   background-repeat: var(--lwt-background-tiling, no-repeat);
-  transition: none !important;
+  opacity: 1 !important;
   top: 0 !important}
 
-toolbar .toolbaritem-combined-buttons > .toolbarbutton-1 {height: 100%}
-toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !important}
+toolbar .toolbaritem-combined-buttons {
+  padding: 0 !important; 
+  margin: 0 !important}
 
 :root {--chrome-content-separator-color: unset !important}
 
-#notifications-toolbar {z-index: -1}
+.browserContainer {--content-area-start-radius: 0 !important}
 
 
 
@@ -40,7 +42,6 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
   border-radius: 0 !important;
   box-shadow: none !important;
   outline: none !important}
-
 
 /*   Sidebery   */
 [titlepreface*="Sidebery"] #sidebar-container,
@@ -88,20 +89,21 @@ toolbar .toolbaritem-combined-buttons {padding: 0 !important; margin: 0 !importa
   border-radius: 0 !important;
   background-color: transparent !important}
 
-#PlacesToolbarItems toolbarbutton.bookmark-item:is(:hover, [open]) > :is(image, label) {background-color: var(--toolbarbutton-background-color-hover)}
+#PlacesToolbarItems toolbarbutton.bookmark-item:hover > :is(image, label) {background-color: var(--toolbarbutton-background-color-hover)}
+#PlacesToolbarItems toolbarbutton.bookmark-item[open] > :is(image, label) {background-color: var(--toolbarbutton-background-color-active)}
 
 #PlacesToolbarItems toolbarbutton.bookmark-item > label {
   padding: 5px !important;
   border-radius: var(--button-border-radius)}
 
 #PlacesToolbarItems toolbarbutton.bookmark-item > .toolbarbutton-icon {
-  padding: 8px;
+  padding: var(--toolbarbutton-padding-inner);
   margin: 0 !important;
   border-radius: var(--button-border-radius);
   width: 32px !important;
   height: 32px !important}
 
-#PlacesToolbarItems toolbarbutton.bookmark-item[dragover] > label {color: var(--link-color)}
+#PlacesToolbarItems toolbarbutton.bookmark-item[dragover] > label {color: var(--toolbarbutton-icon-fill-attention)}
 
 #PlacesToolbarItems .toolbarbutton-text {
   font-size: 14px;
@@ -117,18 +119,21 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -9px -3p
 
 /*   Urlbar   */
 /* expanding the clickable area */
-#urlbar:not([breakout]) > .urlbar-input-container {
+#urlbar:not([breakout]) > .urlbar-input-container,
+#nav-bar toolbarbutton.webextension-browser-action {
   position: relative !important;
   overflow: visible !important}
 
-#urlbar:not([breakout]) > .urlbar-input-container::after {
+#urlbar:not([breakout]) > .urlbar-input-container::after,
+#nav-bar toolbarbutton.webextension-browser-action::after {
   content: "" !important;
   position: absolute !important;
   top: -6px !important;
   bottom: -6px !important;
   left: 0 !important;
-  right: 0 !important;
-  z-index: -1 !important}
+  right: 0 !important}
+
+#urlbar:not([breakout]) > .urlbar-input-container::after {z-index: -1 !important}
 
 
 .urlbar-go-button,
@@ -138,8 +143,6 @@ toolbarbutton.bookmark-item menupopup:not(menupopup menupopup) {margin: -9px -3p
 
 [lwtheme] .urlbarView {--link-color: var(--tab-border-color-selected)}
 
-tree {background-color: transparent !important}
-
 
 
 
@@ -148,25 +151,9 @@ tree {background-color: transparent !important}
   position: relative;
   top: 39px}
 
-#downloads-button:is([progress], [notification], [attention="warning"]):not(:hover):not([open]) :is(stack, .toolbarbutton-badge) {
-  background-color: light-dark(#fffc, #000c);
-  border-radius: 30px !important}
+[sizemode=normal] #nav-bar:not(:hover):not(:focus-within):not(:has(*[open])):not(:has(*[dragstart])) #downloads-button:is([progress="true"], [notification="finish"], [attention="warning"]) {top: 30px}
 
-
-
-
-/*   Webextension: expanding the clickable area   */
-#nav-bar toolbarbutton.webextension-browser-action {
-  position: relative !important;
-  overflow: visible !important}
-
-#nav-bar toolbarbutton.webextension-browser-action::after {
-  content: "" !important;
-  position: absolute !important;
-  top: -6px !important;
-  bottom: -6px !important;
-  left: 0 !important;
-  right: 0 !important}
+#downloads-button:is([progress], [notification], [attention="warning"]):not(:hover):not([open]) :is(stack, .toolbarbutton-badge) {background-color: light-dark(#fffc, #000c) !important}
 
 
 
@@ -175,6 +162,7 @@ tree {background-color: transparent !important}
 .toolbarbutton-badge {
   background-color: transparent !important;
   box-shadow: none !important;
+  color: var(--toolbar-color) !important;
   margin: -11px -8px 0 !important;
   font-size: 9px !important}
 
@@ -202,27 +190,23 @@ tree {background-color: transparent !important}
 
 /*   Menu   */
 :root {	
-  --panel-border-radius: var(--border-radius-medium) !important;
-  --panel-menuitem-border-radius: var(--border-radius-small) !important;
-  
-  --toolbarbutton-background-color-hover:  color-mix(in srgb, currentColor 12%, transparent) !important; --toolbarbutton-background-color-active: var(--toolbarbutton-background-color-hover); --urlbar-box-hover-bgcolor: var(--toolbarbutton-background-color-hover);
-  --button-background-color-menu-hover:    color-mix(in srgb, currentColor 12%, transparent) !important; --button-background-color-menu-active: var(--button-background-color-menu-hover) !important;
+  --toolbarbutton-background-color-active: var(--toolbarbutton-background-color-hover); 
+  --button-background-color-menu-active:   var(--button-background-color-menu-hover) !important;
   --panel-separator-color:                 color-mix(in srgb, currentColor 12%, transparent) !important;
 }
 
-[lwtheme] #appMenu-mainView > vbox:nth-child(1) > toolbarseparator::before {border-image: linear-gradient(135deg, var(--tab-border-color-selected), transparent) 1 !important}
-[lwtheme] menuitem:is([data-l10n-id="text-action-copy"], #context-copylink, #context-copy, #context-saveimage, #context-savevideo, #context-searchselect):not([disabled="true"]) label {color: var(--tab-border-color-selected)}
+#appMenu-mainView > vbox:nth-child(1) > toolbarseparator::before {border-image: linear-gradient(135deg, var(--toolbarbutton-icon-fill-attention), transparent) 1 !important}
+menuitem:is([data-l10n-id="text-action-copy"], #context-copylink, #context-copy, #context-saveimage, #context-savevideo, #context-searchselect):not([disabled="true"]) label {color: var(--toolbarbutton-icon-fill-attention)}
 
 #appMenu-new-tab-button2,
-#appMenu-fullscreen-button2,
-#appmenu-developer-tools
+#appMenu-fullscreen-button2
   {display: none !important}
 
 #context-sep-navigation {margin: auto 1em !important}
 
 
 
-
+/*   Print   */
 .printDialogBox {
   margin-top: 0 !important;
   --box-max-height-default: 100% !important}
