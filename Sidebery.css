@@ -1,14 +1,10 @@
-#root.root {--general-border-radius: 8px;}
+#root.root {--nav-btn-border-radius: 24px;}
+#root.root {--tabs-border-radius: 24px;}
 #root.root {--toolbar-bg: var(--frame-bg);}
 #root.root {--toolbar-el-overlay-clicked-bg: var(--toolbar-el-overlay-hover-bg);}
 #root.root {--frame-el-overlay-clicked-bg: var(--frame-el-overlay-hover-bg);}
 
-.NavigationBar .nav-item:not([data-active="true"]) .icon {opacity: .6}
-
 .NavigationBar .nav-item .len {top: -2px}
-
-.Sidebar .tool-btn > svg {opacity: .6 !important}
-.Sidebar .tool-btn[data-disabled="true"] > svg {opacity: .3 !important}
 
 .CtxMenu :is(.icon-opt, .opt):not([data-inactive="true"]):active {opacity: 1}
 
