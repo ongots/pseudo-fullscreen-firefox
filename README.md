@@ -47,6 +47,12 @@ Drag Bookmarks Toolbar Items to the left of the address bar.
 
 </details>
 
+<details><summary><b1> Good themes </b1></summary>
+
+[Voidsmith Industries](https://addons.mozilla.org/ru/firefox/addon/voidsmith-industries/)
+
+</details>
+
 ### Sidebery
 1. [Install Sidebery](https://github.com/mbnuqw/sidebery)
 2. Enable [Sidebery] prefix in Sidebery settings.
