@@ -34,8 +34,6 @@ Drag Bookmarks Toolbar Items to the left of the address bar.
 >`browser.tabs.insertAfterCurrent` `true`  
 >Smoothness of scrolling
 >`general.smoothScroll.mouseWheel.durationMaxMS` `380`  
->Disable add-on recommendations
->`extensions.htmlaboutaddons.recommendations.enabled` `false`  
 >Restore pinned tabs on demand
 >`browser.sessionstore.restore_pinned_tabs_on_demand` `true`  
 >OS text scaling settings should only affect text scaling
@@ -49,7 +47,7 @@ Drag Bookmarks Toolbar Items to the left of the address bar.
 
 <details><summary><b1> Good themes </b1></summary>
 
-[Voidsmith Industries](https://addons.mozilla.org/ru/firefox/addon/voidsmith-industries/)
+[DarkMagic](https://addons.mozilla.org/ru/firefox/addon/nicothin-dark-magic/)
 
 </details>
 
